@@ -18,6 +18,11 @@ bookmarks = {
 		"SOV" = {
 			history = "TOTU_SOV_1990_DESC"
 			ideology = communism
+			ideas = {
+				TOTU_SOV_no_plan_no_market
+				TOTU_SOV_glasnost
+				TOTU_SOV_awakening_republics
+			}
 		}
 
 		"POL" = {
@@ -89,6 +94,11 @@ bookmarks = {
 		"SOV" = {
 			history = "TOTU_SOV_1990_DESC"
 			ideology = communism
+			ideas = {
+				TOTU_SOV_no_plan_no_market
+				TOTU_SOV_glasnost
+				TOTU_SOV_awakening_republics
+			}
 		}
 
 		"POL" = {

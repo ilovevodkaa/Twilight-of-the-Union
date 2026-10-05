@@ -16,6 +16,10 @@ MAJORS = [
     ("USA", "democratic"),
     ("SOV", "communism"),
 ]
+# National spirits shown in the country selection "ideas" box (about three fit).
+SHOWN_IDEAS = {
+    "SOV": ["TOTU_SOV_no_plan_no_market", "TOTU_SOV_glasnost", "TOTU_SOV_awakening_republics"],
+}
 # Minor flags row, 8 slots. Their history files are generated stubs (tools/build_map.py).
 MINORS = [
     ("POL", "democratic"),
@@ -42,7 +46,10 @@ def bookmark(default):
         lines.append("\t\tdefault = yes")
     lines.append("")
     for tag, ideology in MAJORS:
-        lines += [f'\t\t"{tag}" = {{', f'\t\t\thistory = "TOTU_{tag}_1990_DESC"', f"\t\t\tideology = {ideology}", "\t\t}", ""]
+        lines += [f'\t\t"{tag}" = {{', f'\t\t\thistory = "TOTU_{tag}_1990_DESC"', f"\t\t\tideology = {ideology}"]
+        if tag in SHOWN_IDEAS:
+            lines += ["\t\t\tideas = {"] + [f"\t\t\t\t{idea}" for idea in SHOWN_IDEAS[tag]] + ["\t\t\t}"]
+        lines += ["\t\t}", ""]
     for tag, ideology in MINORS:
         lines += [f'\t\t"{tag}" = {{', "\t\t\tminor = yes", f'\t\t\thistory = "TOTU_{tag}_1990_DESC"',
                   f"\t\t\tideology = {ideology}", "\t\t}", ""]

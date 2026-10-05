@@ -721,14 +721,14 @@ if = {
 }
 if = {
 	limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "SOV_1936_naval_mtg"
+		# TotU: vanilla OOB removed, province IDs do not match the 1990 map: set_naval_oob
 	else = {
-		set_naval_oob = "SOV_1936_naval_legacy"
+		# TotU: vanilla OOB removed, province IDs do not match the 1990 map: set_naval_oob
 	}
 }
 if = {
 	limit = { has_dlc = "By Blood Alone" }
-		set_air_oob = "SOV_1936_air_bba"
+		# TotU: vanilla OOB removed, province IDs do not match the 1990 map: set_air_oob
 		set_technology = {
 			iw_small_airframe = 1
 			aa_lmg = 1
@@ -745,7 +745,7 @@ if = {
 			bba_early_transport_plane = 1
 		}
 	else = {
-		set_air_oob = "SOV_1936_air_legacy"
+		# TotU: vanilla OOB removed, province IDs do not match the 1990 map: set_air_oob
 		set_technology = {
 			early_fighter = 1
 			fighter1 = 1
@@ -872,431 +872,9 @@ add_ideas = {
 	SOV_genrikh_yagoda #NKVD Chief (political advisor)
 }
 
-1939.1.1 = {
+# TotU: vanilla 1939.1.1 block removed. With a 1990 start it applied in full: completed 1936-38 focuses
+# (with their national spirits), purges and 1939 advisors. The 1990 setup lives in the block at the end.
 
-	add_political_power = 1198
-	add_command_power = 100
-	set_stability = 0.75
-	set_war_support = 0.55 #Needs at least 0.5 to make sense with War Economy Law
-	
-	#DESIGNERS AND LAWS
-	add_ideas = {
-		stalingrad_tractor_factory
-		SOV_tula_arms_plant
-		#laws
-		war_economy
-		extensive_conscription
-	}
-
-
-	IF = {
-		limit = {
-			has_dlc = "No Step Back"
-		}
-		complete_special_project = {
-			project = sp:sp_land_flamethrower_tank
-		}
-	}
-
-	complete_special_project = {
-		project = sp:sp_naval_cruiser_submarine
-	}
-
-	###################
-	### Purge stuff ###
-	###################
-
-	#ADVISORS
-	#Yagoda and Yezhov get purged -> Beriya is new Head of NKVD
-	remove_ideas = SOV_genrikh_yagoda
-	add_ideas = SOV_lavrenty_beriya #Chars cannot be added using a single add_ideas effect for all of them
-	add_ideas = vladimir_kasatonov
-
-	#PURGE NSs
-	add_timed_idea = {
-		idea = SOV_understaffed_bureaucracy
-		days = 365
-	}
-	add_ideas = {
-		SOV_anti_soviet_military_thinking_banned_army
-		SOV_purged_junior_army_officers_2
-		SOV_anti_soviet_military_thinking_banned_navy
-		SOV_purged_junior_navy_officers_1
-		SOV_anti_soviet_military_thinking_banned_airforce
-	}
-
-	SOV_remove_paranoia_effect = yes
-
-	#POLITICAL PARANOIA UI
-	#Custom
-	set_variable = { SOV_paranoia_photo_zinovyev = 8 }
-	set_variable = { SOV_paranoia_photo_radek = 9 }
-	set_variable = { SOV_paranoia_photo_bukharin = 10 }
-	set_variable = { SOV_paranoia_photo_tukhachevsky = 12 }
-	
-	#Generic
-	set_variable = { SOV_paranoia_portrait_index = 1 }
-	set_temp_variable = { i = 0 }
-	while_loop_effect = {
-		limit = {
-			check_variable = { i = 6 compare = less_than }
-		}
-		set_temp_variable = { SOV_generic_portrait_frame = SOV_paranoia_portrait_index }
-
-		add_to_temp_variable = { SOV_generic_portrait_frame = 1 }
-
-		add_to_array = {
-			array = SOV_paranoia_generic_portraits_array
-			value = SOV_generic_portrait_frame
-			index = SOV_paranoia_portrait_index
-		}
-		
-		add_to_variable = { SOV_paranoia_portrait_index = 1 }
-		add_to_temp_variable = { i = 1 }
-	}
-
-	#SET PURGE FLAGS
-	set_country_flag = SOV_first_moscow_trial_flag
-	set_country_flag = SOV_second_moscow_trial_flag
-	set_country_flag = SOV_third_moscow_trial_flag
-	set_country_flag = SOV_trial_of_the_generals_flag
-
-	#PURGE ALL THESE PEOPLES
-	SOV_grigory_zinovyev = { SOV_purge_character_effect = yes }
-	SOV_lev_kamenev = { SOV_purge_character_effect = yes }
-	SOV_ivan_smirnov = { SOV_purge_character_effect = yes }
-	SOV_grigory_sokolnikov = { SOV_purge_character_effect = yes }
-	SOV_aleksandr_shlyapnikov = { SOV_purge_character_effect = yes }
-	SOV_karl_radek = { SOV_purge_character_effect = yes }
-	SOV_ivar_smilga = { SOV_purge_character_effect = yes }
-	SOV_yevgeny_preobrazhensky = { SOV_purge_character_effect = yes }
-	SOV_martemyan_ryutin = { SOV_purge_character_effect = yes }
-	if = {
-		limit = {
-			has_dlc = "No Step Back"
-		}
-		SOV_nikolay_ustryalov = { SOV_purge_character_effect = yes }
-	}
-	SOV_mikhail_tukhachevsky = { SOV_purge_character_effect = yes }
-	SOV_aleksandr_yegorov = { SOV_purge_character_effect = yes }
-	SOV_vasily_blyukher = { SOV_purge_character_effect = yes }
-	SOV_vitaly_primakov = { SOV_purge_character_effect = yes }
-	SOV_nikolay_bukharin = { SOV_purge_character_effect = yes }
-	SOV_aleksey_rykov = { SOV_purge_character_effect = yes }
-	SOV_mikhail_tomsky = { SOV_purge_character_effect = yes }
-	SOV_maksim_litvinov = { SOV_purge_character_effect = yes }
-	SOV_genrikh_yagoda = { SOV_purge_character_effect = yes }
-	SOV_nikolay_yezhov = { SOV_purge_character_effect = yes }
-	SOV_sergey_khudyakov = { SOV_purge_character_effect = yes }
-	SOV_yakov_smushkevich = { SOV_purge_character_effect = yes }
-	SOV_pavel_rychagov = { SOV_purge_character_effect = yes }
-
-	#COWED GENERALS
-	set_temp_variable = { army_leader_counter = 0 }
-	while_loop_effect = {
-		limit = {
-			check_variable = { army_leader_counter = 10 compare = less_than }
-		}
-		random_army_leader = {
-			limit = {
-				NOT = { has_character_flag = SOV_character_purged_flag }
-				NOT = { has_trait = trait_SOV_cowed_by_stalin_army }
-			}
-			add_unit_leader_trait = trait_SOV_cowed_by_stalin_army
-		}
-		add_to_temp_variable = { army_leader_counter = 1 }
-	}
-	#COWED ADMIRALS
-	set_temp_variable = { navy_leader_counter = 0 }
-	while_loop_effect = {
-		limit = {
-			check_variable = { navy_leader_counter = 3 compare = less_than }
-		}
-		random_navy_leader = {
-			limit = {
-				NOT = { has_character_flag = SOV_character_purged_flag }
-				NOT = { has_trait = trait_SOV_cowed_by_stalin_navy }
-			}
-			add_unit_leader_trait = trait_SOV_cowed_by_stalin_navy
-		}
-		add_to_temp_variable = { navy_leader_counter = 1 }
-	}
-	
-
-	set_global_flag = SOV_fourth_international_fired #news happened 1938
-
-	################
-	### M-R PACT ###
-	################
-
-	#MR pact stuff
-	add_opinion_modifier = { target = GER modifier = MR_pact }# pact 
-	set_global_flag = sov_yes_pact
-	add_state_claim = 146 #KARELIA (FIN)
-	#add_state_claim = 147 #SALLA (FIN) # Claim removed from MR pact (AAT)
-	#add_state_claim = 722 #PETSAMO (FIN) # Claim removed from MR pact (AAT)
-	add_state_claim = 13 #PÄRNU (EST)
-	add_state_claim = 191 #TARTU (EST)
-	add_state_claim = 811 #SAAREMAA (EST)
-	add_state_claim = 813 #VIRUMAA (EST)
-	add_state_claim = 812 #TALLIN (EST)
-	add_state_claim = 12 #VIDZEME (LAT)
-	add_state_claim = 190 #KURZEME (LAT)
-	add_state_claim = 808 #RIGA (LAT)
-	add_state_claim = 809 #ZEMGALE (LAT)
-	add_state_claim = 810 #LATGALE (LAT)
-	add_state_claim = 11 #KAUNAS (LIT)
-	add_state_claim = 784 #WILNO (LIT)
-	add_state_claim = 189 #ZEMAITIJA (LIT)
-	add_state_claim = 814 #SUDUVA (LIT)
-	add_state_claim = 815 #AUKSTAITIJA (LIT)
-	add_state_claim = 89 #STANISLAWOW (POL)
-	add_state_claim = 91 #LWOW (POL)
-	add_state_claim = 93 #WOLYN (POL)
-	add_state_claim = 94 #POLESIE (POL)
-	add_state_claim = 95 #NOWOGRODEK (POL)
-	add_state_claim = 96 #WILEJKA (POL)
-	add_state_claim = 97 #BIALYSTOK (POL)
-	add_state_claim = 78 #BESSARABIA (ROM)
-	add_state_claim = 80 #BUCOVINA (ROM)
-	add_state_claim = 766 #SOUTHERN BESSARABIA (ROM
-	#MR pact stuff end
-
-	#Germany soviet treaty (Tank templates unlocked at the bottom of this file)
-	GER = {
-		add_opinion_modifier = {
-			target = SOV
-			modifier = sov_ger_treaty
-		}
-		add_opinion_modifier = {
-			target = SOV
-			modifier = sov_ger_treaty_trade
-		}
-	}
-	if = {
-		limit = {
-			NOT = { has_dlc = "No Step Back" }
-		}
-		add_tech_bonus = {
-			name = med_armor_bonus
-			ahead_reduction = 2
-			category = cat_medium_armor
-		}
-		add_tech_bonus = {
-			name = armor_bonus
-			bonus = 1.0
-			uses = 1
-			category = armor
-		}
-	}
-	if = {
-		limit = {
-			has_dlc = "No Step Back"
-		}
-		add_tech_bonus = {
-			name = armor_bonus
-			bonus = 1.0
-			uses = 2
-			category = armor
-		}
-	}
-
-	if = {
-		limit = { has_dlc = "By Blood Alone" }
-			set_air_oob = "SOV_1939_air_bba"
-			set_technology = {
-				basic_large_airframe = 1
-			}
-		else = {
-			set_air_oob = "SOV_1939_air_legacy"
-			set_technology = {
-				CAS1 = 1
-				tactical_bomber1 = 1
-			}
-		}
-	}
-
-	#1936
-	complete_national_focus = SOV_heavy_industry #35
-	unlock_national_focus = SOV_the_path_of_marxism_leninism #35
-	unlock_national_focus = SOV_the_centre #35
-	unlock_national_focus = SOV_the_stalin_constitution # -> Dec 1936
-	unlock_national_focus = SOV_the_zinovyevite_terrorist_center #35 -> Mid 1936
-	complete_national_focus = SOV_infrastructure_effort_nsb #35
-	unlock_national_focus = SOV_strengthen_the_mobilization_plan #35
-	unlock_national_focus = SOV_restore_cossack_units #35 -> 1936/1939	
-	complete_national_focus = SOV_found_the_pcdi #35 -> Dec 1936
-
-	#1937
-	unlock_national_focus = SOV_the_comintern #35
-	unlock_national_focus = SOV_the_anti_soviet_trotskyist_center #35 -> Early 1937
-	unlock_national_focus = SOV_addressing_internal_affairs #35
-	unlock_national_focus = SOV_the_workers_dictatorship
-	unlock_national_focus = SOV_pc_of_mechanical_engineering #35 -> Aug 1937
-	complete_national_focus = SOV_transpolar_flights #35 -> 1937
-	unlock_national_focus = SOV_the_military_conspiracy #35 -> Mid 1937
-	complete_national_focus = SOV_finish_the_five_year_plan # -> Dec 1937
-
-	#1938
-	unlock_national_focus = SOV_socialism_in_one_country #35
-	unlock_national_focus = SOV_third_five_year_plan # -> 1938
-	unlock_national_focus = SOV_the_bloc_of_rights_and_trotskyites #35 -> Early 1938
-	complete_national_focus = SOV_the_threat_from_the_land_of_the_rising_sun #35
-	complete_national_focus = SOV_expand_the_agitprop #35
-	complete_national_focus = SOV_national_specialists #35
-	complete_national_focus = SOV_eastern_development #35
-	complete_national_focus = SOV_expand_the_red_fleet #35
-	complete_national_focus = SOV_pc_of_the_ussr_navy #35
-
-	#1939
-	complete_national_focus = SOV_support_the_kuomintang #35
-	complete_national_focus = SOV_develop_the_urals #35
-	complete_national_focus = SOV_the_ussr_academy_of_sciences
-	complete_national_focus = SOV_baltic_security #35 -> 1939
-
-	#FYP NS
-	add_to_variable = { SOV_fyp_production_factory_efficiency_gain_factor = 0.05 }
-	add_to_variable = { SOV_fyp_consumer_goods_factor = 0.10 }
-	remove_dynamic_modifier = { modifier = SOV_second_five_year_plan_dynamic_modifier }
-	add_dynamic_modifier = { modifier = SOV_third_five_year_plan_dynamic_modifier }
-
-	#DEFENSE INDUSTRY NS
-	add_to_variable = { SOV_defense_industry_production_factory_max_efficiency_factor = 0.05 }
-	add_to_variable = { SOV_defense_industry_production_factory_efficiency_gain_factor = -0.05 }
-
-	#THE RED ARMY NS
-	add_to_variable = { SOV_the_red_army_mobilization_speed = 0.05 }
-	add_to_variable = { SOV_the_red_army_conscription_factor = 0.03 }
-	add_to_variable = { SOV_the_red_army_modifier_army_sub_unit_cavalry_speed_factor = 0.05 }
-	add_to_variable = { SOV_the_red_army_cavalry_attack_factor = 0.05 }
-
-	#THE POLITBURO NS
-	add_to_variable = { SOV_the_politburo_communism_drift = 0.05 }
-	add_to_variable = { SOV_the_politburo_drift_defence_factor = 0.05 } 
-	add_to_variable = { SOV_the_politburo_defensive_war_stability_factor = 0.25 }
-	add_to_variable = { SOV_the_politburo_political_power_factor = 0.05 }
-	add_to_variable = { SOV_the_politburo_drift_defence_factor = 0.05 } 
-	add_to_variable = { SOV_the_politburo_political_power_factor = 0.05 }
-	add_to_variable = { SOV_the_politburo_max_surrender_limit_offset = 0.05 }
-	add_dynamic_modifier = { modifier = SOV_the_politburo_good_dynamic_modifier }
-	
-	if = {
-		limit = { has_dlc = "Man the Guns" }
-			set_naval_oob = "SOV_1939_naval_mtg"
-		else = {
-			set_naval_oob = "SOV_1939_naval_legacy"
-		}
-	}
-
-	set_technology = {
-		interwar_artillery = 1
-		interwar_antitank = 1
-		infantry_weapons2 = 1
-		support_weapons = 1
-		support_weapons2 = 1
-		paratroopers = 1
-
-		#doctrines
-		#Air
-		#formation_flying = 1		
-		#dive_bombing = 1
-		#direct_ground_support = 1
-
-		#electronics
-		electronic_mechanical_engineering = 1
-		radio = 1
-		mechanical_computing = 1
-		computing_machine = 1
-		basic_encryption = 1
-		basic_decryption = 1
-
-		#industry
-		basic_machine_tools = 1
-		improved_machine_tools = 1
-		advanced_machine_tools = 1
-		synth_oil_experiments = 1
-		oil_processing = 1
-		fuel_refining2 = 1
-		construction1 = 1
-		construction2 = 1
-		construction3 = 1
-		concentrated_industry = 1
-		concentrated_industry2 = 1
-		concentrated_industry3 = 1
-	}
-
-set_grand_doctrine = mass_assault
-set_grand_doctrine = new_fleet_in_being
-set_grand_doctrine = new_battlefield_support
-
-set_sub_doctrine = large_unit_tactics
-add_mastery = {
-    amount = 200
-    sub_doctrine = large_unit_tactics
-}
-set_sub_doctrine = fire_concentration
-add_mastery = {
-    amount = 100
-    sub_doctrine = fire_concentration
-}
-set_sub_doctrine = deep_battle
-add_mastery = {
-    amount = 100
-    sub_doctrine = deep_battle
-}
-set_sub_doctrine = air_subdoctrine_dogfighting_mastery
-add_mastery = {
-    amount = 75
-    sub_doctrine = air_subdoctrine_dogfighting_mastery
-}
-
-
-	
-	complete_special_project = {
-		project = sp:sp_air_radar
-		scientist = SOV_vladimir_kotelnikov
-		state = 260
-	}
-
-	if = {
-		limit = {
-			NOT = { has_dlc = "No Step Back" }
-		}
-		set_technology = {
-			improved_light_tank = 1 
-			basic_heavy_tank = 1    # Should be available in 1936 (T-35)
-			basic_medium_tank = 1 # Should be available in 1936 (T-28)
-		}
-		set_oob = "SOV_1939"
-	}
-	if = {
-		limit = {
-			has_dlc = "No Step Back"
-		}
-		set_technology = {
-			improved_light_tank_chassis = 1
-			basic_heavy_tank_chassis = 1
-			basic_medium_tank_chassis = 1 
-		}
-		set_oob = "SOV_1939_nsb"
-	}
-	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
-		set_technology = {
-			basic_submarine = 1
-			basic_destroyer = 1
-			basic_heavy_cruiser = 1
-		}
-	}
-	if = {
-		limit = { has_dlc = "Man the Guns" }
-		set_technology = {
-			improved_ship_hull_light = 1
-			improved_ship_hull_submarine = 1
-			basic_ship_hull_cruiser = 1
-		}
-	}
-}
 
 
 set_convoys = 50
@@ -1848,204 +1426,7 @@ if = {
 }
 
 # 1939 Start #
-1939.1.1 = {
-	if = {
-		limit = {
-			has_dlc = "By Blood Alone"
-		}
-		create_equipment_variant = {
-			name = "I-153" #
-			type = small_plane_airframe_0
-			modules = {
-				fixed_main_weapon_slot = light_mg_4x
-				fixed_auxiliary_weapon_slot_1 = rocket_rails
-				engine_type_slot = engine_1_1x
-				special_type_slot_1 = empty
-			}
-		}
-		create_equipment_variant = {
-			name = "I-16 Type 10" #
-			type = small_plane_airframe_1
-			modules = {
-				fixed_main_weapon_slot = light_mg_4x
-				fixed_auxiliary_weapon_slot_1 = empty
-				engine_type_slot = engine_2_1x
-				special_type_slot_1 = empty
-			}
-		}
-		create_equipment_variant = {
-			name = "MBR-2" #
-			type = small_plane_cas_airframe_1
-			modules = {
-				fixed_main_weapon_slot = bomb_locks
-				fixed_auxiliary_weapon_slot_1 = empty
-				engine_type_slot = engine_2_1x
-				special_type_slot_1 = floats
-				special_type_slot_2 = fuel_tanks_small
-			}
-		}
-		create_equipment_variant = {
-			name = "Pe-8" #
-			type = large_plane_airframe_1
-			modules = {
-				fixed_main_weapon_slot = large_bomb_bay
-				fixed_auxiliary_weapon_slot_1 = large_bomb_bay
-				engine_type_slot = engine_3_4x #Increased tier due to thrust/weight issues
-				special_type_slot_1 = lmg_defense_turret
-				special_type_slot_2 = cannon_defense_turret_2x
-			}
-		}
-	}
-	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
-		# Ship variants #
-		create_equipment_variant = {
-			name = "Series X Shchuka"
-			type = submarine_2
-			upgrades = {
-				ship_reliability_upgrade = 3
-				sub_engine_upgrade = 3
-				sub_stealth_upgrade = 3
-				sub_torpedo_upgrade = 3
-			}
-		}
-
-		create_equipment_variant = {
-			name = "Maxim Gorky Class"
-			type = heavy_cruiser_2
-			upgrades = {
-				ship_reliability_upgrade = 2
-				ship_engine_upgrade = 2
-				ship_armor_upgrade = 2
-				ship_gun_upgrade = 2
-			}
-		}
-	}
-	if = {
-		limit = { has_dlc = "Man the Guns" }
-		# Submarines #
-		create_equipment_variant = {
-			name = "Series XIII Leninets"				
-			type = ship_hull_submarine_2
-			name_group = SOV_SS_LENINETS
-			parent_version = 0
-			modules = {
-				fixed_ship_torpedo_slot = ship_torpedo_sub_2
-				fixed_ship_engine_slot = sub_ship_engine_2
-				rear_1_custom_slot = ship_mine_layer_sub
-			}
-		}
-		create_equipment_variant = {
-			name = "Series XIV K-Class"				
-			type = ship_hull_submarine_3
-			name_group = SOV_SS_SHCHUKA
-			parent_version = 0
-			modules = {
-				fixed_ship_torpedo_slot = ship_torpedo_sub_2
-				fixed_ship_engine_slot = sub_ship_engine_3
-				front_1_custom_slot = ship_mine_layer_sub
-				mid_1_custom_slot = empty
-				rear_1_custom_slot = ship_torpedo_sub_2
-			}
-		}
-		# Destroyers #
-		create_equipment_variant = {
-			name = "Gnevnyy Class"				
-			type = ship_hull_light_2
-			name_group = SOV_DD_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_light_battery_2
-				fixed_ship_anti_air_slot = empty
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = light_ship_engine_2
-				fixed_ship_torpedo_slot = empty
-				mid_1_custom_slot = empty
-				rear_1_custom_slot = ship_depth_charge_1
-			}
-			optional_assets = {
-				{
-					icon = "GFX_PRC_destroyer_anshan"
-					model = "PRC_destroyer_entity"
-				}
-			}
-			obsolete = yes
-		}
-		create_equipment_variant = {
-			name = "Soobrazitelnyi Class"				
-			type = ship_hull_light_3
-			name_group = SOV_DD_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_light_battery_2
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = light_ship_engine_2
-				fixed_ship_torpedo_slot = empty
-				mid_1_custom_slot = empty
-				rear_1_custom_slot = ship_depth_charge_1
-			}
-		}
-		create_equipment_variant = {
-			name = "Tashkent Class"				
-			type = ship_hull_light_3
-			name_group = SOV_DD_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_light_battery_2
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = light_ship_engine_3
-				fixed_ship_torpedo_slot = ship_torpedo_1
-				mid_1_custom_slot = ship_anti_air_1
-				rear_1_custom_slot = ship_depth_charge_1
-			}
-		}
-	}
-	if = {
-		limit = {
-			has_dlc = "No Step Back"
-		}
-		create_equipment_variant = {
-			name = "A-20"
-			type = medium_tank_chassis_1
-			parent_version = 0
-			modules = {
-				main_armament_slot = tank_small_cannon_2
-				turret_type_slot = tank_medium_two_man_tank_turret
-				suspension_type_slot = tank_christie_suspension
-				armor_type_slot = tank_welded_armor
-				engine_type_slot = tank_diesel_engine
-				special_type_slot_1 = sloped_armor
-			}
-			upgrades = {
-				tank_nsb_engine_upgrade = 8
-				tank_nsb_armor_upgrade = 2
-			}
-			icon = "GFX_SOV_basic_medium_tank_medium"
-		}
-		create_equipment_variant = {
-			name = "KV-1"
-			type = heavy_tank_chassis_1
-			parent_version = 0
-			modules = {
-				main_armament_slot = tank_medium_cannon
-				turret_type_slot = tank_heavy_three_man_tank_turret
-				suspension_type_slot = tank_torsion_bar_suspension
-				armor_type_slot = tank_welded_armor
-				engine_type_slot = tank_diesel_engine		
-			}
-			upgrades = {
-				tank_nsb_engine_upgrade = 10
-				tank_nsb_armor_upgrade = 9
-			}
-			icon = "GFX_SOV_improved_heavy_tank_medium"
-		}
-	}
-}
+# TotU: vanilla 1939.1.1 snapshot removed (would apply in full with a 1990 start)
 
 # --- Twilight of the Union ---
 # Vanilla 1936 file plus this block; to be replaced by a proper 1990 setup.
@@ -2053,4 +1434,39 @@ if = {
 	recruit_character = SOV_mikhail_gorbachev
 	promote_character = SOV_mikhail_gorbachev
 	retire_character = SOV_iosif_stalin
+
+	# Everything the vanilla 1936 and 1939 blocks above hand out (purges, NKVD advisors, war economy...)
+	remove_ideas = {
+		home_of_revolution
+		trotskyite_plot_nsb
+		SOV_politicized_military
+		SOV_genrikh_yagoda
+		SOV_lavrenty_beriya
+		vladimir_kasatonov
+		SOV_understaffed_bureaucracy
+		SOV_anti_soviet_military_thinking_banned_army
+		SOV_anti_soviet_military_thinking_banned_navy
+		SOV_anti_soviet_military_thinking_banned_airforce
+		SOV_purged_junior_army_officers_2
+		SOV_purged_junior_navy_officers_1
+		stalingrad_tractor_factory
+		SOV_tula_arms_plant
+	}
+
+	# Laws: Cold War footing instead of war economy; universal conscription stays.
+	add_ideas = {
+		partial_economic_mobilisation
+		extensive_conscription
+	}
+
+	# Starting national spirits, common/ideas/TOTU_SOV.txt
+	add_ideas = {
+		TOTU_SOV_no_plan_no_market
+		TOTU_SOV_glasnost
+		TOTU_SOV_nomenklatura
+		TOTU_SOV_awakening_republics
+		TOTU_SOV_bloated_mic
+		TOTU_SOV_afghan_syndrome
+		TOTU_SOV_conscript_army
+	}
 }
