@@ -1,0 +1,51 @@
+spriteTypes = {	
+	spriteType = {
+		name = "GFX_load_1_small"
+		texturefile = "gfx/interface/totu/menu_bg_small.dds" # TotU: vanilla loading screens are replaced
+	}
+	
+	spriteType = {
+		name = "GFX_load_2_small"
+		texturefile = "gfx/interface/totu/menu_bg_small.dds" # TotU: vanilla loading screens are replaced
+	}
+	
+	spriteType = {
+		name = "GFX_load_3_small"
+		texturefile = "gfx/interface/totu/menu_bg_small.dds" # TotU: vanilla loading screens are replaced
+	}
+	
+	spriteType = {
+		name = "GFX_load_4_small"
+		texturefile = "gfx/interface/totu/menu_bg_small.dds" # TotU: vanilla loading screens are replaced
+	}
+	
+	spriteType = {
+		name = "GFX_load_5_small"
+		texturefile = "gfx/interface/totu/menu_bg_small.dds" # TotU: vanilla loading screens are replaced
+	}
+	
+	spriteType = {
+		name = "GFX_load_6_small"
+		texturefile = "gfx/interface/totu/menu_bg_small.dds" # TotU: vanilla loading screens are replaced
+	}
+	
+	spriteType = {
+		name = "GFX_load_7_small"
+		texturefile = "gfx/interface/totu/menu_bg_small.dds" # TotU: vanilla loading screens are replaced
+	}
+	
+	spriteType = {
+		name = "GFX_load_8_small"
+		texturefile = "gfx/interface/totu/menu_bg_small.dds" # TotU: vanilla loading screens are replaced
+	}
+	
+	spriteType = {
+		name = "GFX_load_9_small"
+		texturefile = "gfx/interface/totu/menu_bg_small.dds" # TotU: vanilla loading screens are replaced
+	}
+
+	spriteType = {
+		name = "GFX_frontend_loading_screen_border_small"
+		texturefile = "gfx/interface/tiles/tiled_window_transparent.dds" # TotU: picker is hidden
+	}
+}

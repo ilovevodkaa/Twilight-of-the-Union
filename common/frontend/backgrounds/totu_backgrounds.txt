@@ -1,0 +1,5 @@
+# Main menu backgrounds. The .mod file replaces this folder, so vanilla backgrounds are gone.
+# Each entry needs gfx/loadingscreens/<name>.dds and a GFX_<name>_small sprite (interface/totu_menu.gfx).
+
+totu_red_square = {
+}

@@ -1,0 +1,19 @@
+spriteTypes = {
+	corneredTileSpriteType = {
+		name = "GFX_frontend_bg_basic"
+		texturefile = "gfx/loadingscreens/totu_red_square.dds" # TotU
+		borderSize = { x=0 y=0 }
+		size = { x=1920 y=1440 }
+		tilingCenter = no
+		effectFile = "gfx/FX/buttonstate.shader"
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_frontend_bg_basic_small"
+		texturefile = "gfx/interface/totu/menu_bg_small.dds" # TotU
+		borderSize = { x=0 y=0 }
+		size = { x=192 y=144 }
+		tilingCenter = no
+		effectFile = "gfx/FX/buttonstate.shader"
+	}
+}
