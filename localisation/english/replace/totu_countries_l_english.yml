@@ -1,0 +1,4 @@
+﻿l_english:
+ # Full official names (country selection, map). _DEF forms stay short for use inside sentences.
+ SOV_communism:0 "Union of Soviet Socialist Republics"
+ USA_democratic:0 "United States of America"

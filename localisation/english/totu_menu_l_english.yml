@@ -1,0 +1,38 @@
+﻿l_english:
+ # Main menu buttons
+ TOTU_FE_SINGLE_PLAYER:0 "Single Player"
+ TOTU_FE_MULTIPLAYER:0 "Multiplayer"
+ TOTU_FE_OPTIONS:0 "Options"
+ TOTU_FE_CREDITS:0 "Credits"
+ TOTU_FE_QUIT:0 "Quit"
+ TOTU_FE_CONTINUE:0 "Continue"
+ TOTU_FE_NEW:0 "New Game"
+ TOTU_FE_LOAD:0 "Load Game"
+ TOTU_FE_BACK:0 "Back"
+
+ # Main menu info panel. Keep every value on one line: use \n for line breaks.
+ TOTU_MENU_VERSION_TITLE:0 "§LTwilight of the Union§!  v0.1"
+ TOTU_MENU_LORE:0 "January 1990. The Union has outlived its promises. The Baltic republics are counting the days, the shelves are empty, the army is coming home from Afghanistan to a country it no longer recognises, and Moscow is running out of answers.\n\nThe Wall has fallen. The Party still rules. For how long is up to you."
+ TOTU_MENU_BUILD_TITLE:0 "§LIn this build§!"
+ TOTU_MENU_BUILD_LIST:0 "- New main menu\n- New loading screens\n- 1990 start date (WIP)"
+
+ # Scenario: 1 January 1990
+ TOTU_1990_NAME:0 "Twilight of the Union"
+ TOTU_1990_DESC:0 "1 January 1990. The Berlin Wall fell seven weeks ago, the Warsaw Pact is coming apart, and the Soviet Union enters the new decade with empty shelves, restless republics and a leadership that no longer agrees on where the country is going."
+ TOTU_SOV_1990_DESC:0 "Five years of perestroika have loosened everything and fixed nothing. The Baltic republics want out, the Caucasus is burning, the economy is in free fall and the Party's monopoly on power is about to be put to a vote.\n\nThe Union can still be reformed, held together by force, or let go. It cannot stay as it is."
+ TOTU_USA_1990_DESC:0 "The Cold War looks won, and Washington is not sure what to do with the victory. A reunited Germany, a collapsing Eastern Bloc and a Soviet Union with thousands of warheads all demand answers, and the old certainties are gone."
+ TOTU_OTHER_1990_DESC:0 "For forty years the world was divided in two. Now the line is fading, and every nation, great or small, must decide what comes next."
+
+ # Characters
+ SOV_mikhail_gorbachev:0 "Mikhail Gorbachev"
+ USA_george_bush:0 "George Bush"
+
+ # Minor countries
+ TOTU_POL_1990_DESC:0 "Solidarity won the elections of 1989 and Tadeusz Mazowiecki leads the first non-communist government in the Eastern Bloc. General Jaruzelski is still president, and shock therapy starts on the first day of the year."
+ TOTU_CZE_1990_DESC:0 "The Velvet Revolution ended forty years of communist rule in a matter of weeks. Vaclav Havel, a dissident playwright jailed only last year, is now president of a country that has to learn democracy fast."
+ TOTU_HUN_1990_DESC:0 "Hungary opened the Iron Curtain on its Austrian border last summer and declared itself a republic in October. Free elections are set for the spring."
+ TOTU_ROM_1990_DESC:0 "Ceausescu was shot on Christmas Day. The National Salvation Front holds power in Bucharest, and nobody is quite sure whether the revolution is over or has only just begun."
+ TOTU_BUL_1990_DESC:0 "Todor Zhivkov fell in November after thirty-five years. The Party has promised reform and free elections, but it still controls the country."
+ TOTU_PRC_1990_DESC:0 "Seven months after Tiananmen, Beijing watches the Eastern Bloc fall and draws its own conclusions: reform the economy, never loosen the Party's grip."
+ TOTU_ENG_1990_DESC:0 "Margaret Thatcher has been in Downing Street for over a decade, but the poll tax is about to bring crowds onto the streets and her own party is losing patience."
+ TOTU_FRA_1990_DESC:0 "Francois Mitterrand looks at a reuniting Germany with open unease and sees one answer: tie Bonn ever closer to Paris inside a deeper European Community."
