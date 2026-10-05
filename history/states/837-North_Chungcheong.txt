@@ -1,0 +1,21 @@
+state={
+	id=837
+	name="STATE_837"
+	manpower = 1730440
+	state_category = large_town
+
+	history={
+		owner = KOR
+		victory_points = {
+			5434 6
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = KOR
+	}
+
+	provinces={
+		5421 5434 5593
+	}
+}

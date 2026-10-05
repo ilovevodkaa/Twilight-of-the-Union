@@ -1,0 +1,21 @@
+state={
+	id=1122
+	name="STATE_1122"
+	manpower = 1668827
+	state_category = large_town
+
+	history={
+		owner = PAK
+		victory_points = {
+			7149 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = PAK
+	}
+
+	provinces={
+		6969 7149 7201
+	}
+}

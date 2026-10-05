@@ -1,0 +1,24 @@
+state={
+	id=633
+	name="STATE_633"
+	manpower = 2592383
+	state_category = city
+
+	history={
+		owner = ETH
+		victory_points = {
+			10613 3
+		}
+		victory_points = {
+			10464 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = ETH
+	}
+
+	provinces={
+		10336 10374 10464 10491 10550 10584 10613 10624
+	}
+}

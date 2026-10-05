@@ -1,0 +1,21 @@
+state={
+	id=2033
+	name="STATE_2033"
+	manpower = 490536
+	state_category = rural
+
+	history={
+		owner = TZA
+		victory_points = {
+			11603 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = TZA
+	}
+
+	provinces={
+		11603 11712 11819
+	}
+}

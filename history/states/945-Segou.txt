@@ -1,0 +1,21 @@
+state={
+	id=945
+	name="STATE_945"
+	manpower = 791170
+	state_category = town
+
+	history={
+		owner = MLI
+		victory_points = {
+			9713 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = MLI
+	}
+
+	provinces={
+		9543 9555 9690 9713 9781 9792 9850 9858
+	}
+}

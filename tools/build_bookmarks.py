@@ -16,7 +16,7 @@ MAJORS = [
     ("USA", "democratic"),
     ("SOV", "communism"),
 ]
-# Minor flags row, 8 slots. NOTE: their history is still vanilla 1936 for now.
+# Minor flags row, 8 slots. Their history files are generated stubs (tools/build_map.py).
 MINORS = [
     ("POL", "democratic"),
     ("CZE", "democratic"),

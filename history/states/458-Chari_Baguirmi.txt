@@ -1,0 +1,18 @@
+state={
+	id=458
+	name="STATE_458"
+	manpower = 88996
+	state_category = pastoral
+
+	history={
+		owner = CHD
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = CHD
+	}
+
+	provinces={
+		10025 10037 10127 10194
+	}
+}

@@ -1,0 +1,21 @@
+state={
+	id=723
+	name="STATE_723"
+	manpower = 1126898
+	state_category = large_town
+
+	history={
+		owner = GMB
+		victory_points = {
+			9817 6
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = GMB
+	}
+
+	provinces={
+		9817
+	}
+}

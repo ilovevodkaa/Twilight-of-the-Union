@@ -1,0 +1,18 @@
+state={
+	id=338
+	name="STATE_338"
+	manpower = 132304
+	state_category = pastoral
+
+	history={
+		owner = BWA
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = BWA
+	}
+
+	provinces={
+		13264 13280 13284 13295 13363 13372 13416 13426 13441
+	}
+}

@@ -1,0 +1,18 @@
+state={
+	id=2060
+	name="STATE_2060"
+	manpower = 1270903
+	state_category = large_town
+
+	history={
+		owner = UGA
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = UGA
+	}
+
+	provinces={
+		11464 11476 11528 11542
+	}
+}

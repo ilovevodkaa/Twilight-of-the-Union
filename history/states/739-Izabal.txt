@@ -1,0 +1,18 @@
+state={
+	id=739
+	name="STATE_739"
+	manpower = 785814
+	state_category = town
+
+	history={
+		owner = GUA
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = GUA
+	}
+
+	provinces={
+		9489 9496 9576
+	}
+}

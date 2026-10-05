@@ -1,0 +1,21 @@
+state={
+	id=1606
+	name="STATE_1606"
+	manpower = 2111248
+	state_category = city
+
+	history={
+		owner = SOM
+		victory_points = {
+			11229 13
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = SOM
+	}
+
+	provinces={
+		11229 11326 11359 11362 11394
+	}
+}

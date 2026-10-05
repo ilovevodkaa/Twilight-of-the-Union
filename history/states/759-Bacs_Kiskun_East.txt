@@ -1,0 +1,21 @@
+state={
+	id=759
+	name="STATE_759"
+	manpower = 900621
+	state_category = town
+
+	history={
+		owner = HUN
+		victory_points = {
+			2966 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = HUN
+	}
+
+	provinces={
+		2924 2966 3002 3111 3127
+	}
+}

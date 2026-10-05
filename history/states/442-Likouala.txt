@@ -1,0 +1,18 @@
+state={
+	id=442
+	name="STATE_442"
+	manpower = 152590
+	state_category = rural
+
+	history={
+		owner = CGO
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = CGO
+	}
+
+	provinces={
+		11199 11201 11210 11275 11340 11459
+	}
+}

@@ -1,0 +1,21 @@
+state={
+	id=135
+	name="STATE_135"
+	manpower = 1071426
+	state_category = large_town
+
+	history={
+		owner = AST
+		victory_points = {
+			14330 8
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = AST
+	}
+
+	provinces={
+		14122 14137 14161 14233 14240 14251 14309 14316 14330
+	}
+}

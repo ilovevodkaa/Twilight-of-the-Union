@@ -1,0 +1,21 @@
+state={
+	id=1191
+	name="STATE_1191"
+	manpower = 13506
+	state_category = tiny_island
+
+	history={
+		owner = PLW
+		victory_points = {
+			10696 6
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		add_core_of = PLW
+	}
+
+	provinces={
+		10696
+	}
+}

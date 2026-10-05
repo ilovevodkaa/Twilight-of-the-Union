@@ -1,0 +1,18 @@
+state={
+	id=72
+	name="STATE_72"
+	manpower = 150870
+	state_category = rural
+
+	history={
+		owner = ARG
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = ARG
+	}
+
+	provinces={
+		13958 13994 14029 14061 14086
+	}
+}

@@ -1,0 +1,24 @@
+state={
+	id=2315
+	name="STATE_2315"
+	manpower = 3125372
+	state_category = city
+
+	history={
+		owner = ZAI
+		victory_points = {
+			12626 5
+		}
+		victory_points = {
+			12588 4
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = ZAI
+	}
+
+	provinces={
+		12395 12421 12469 12480 12517 12532 12568 12577 12588 12626 12642
+	}
+}

@@ -1,0 +1,21 @@
+state={
+	id=845
+	name="STATE_845"
+	manpower = 849188
+	state_category = town
+
+	history={
+		owner = LAO
+		victory_points = {
+			9225 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = LAO
+	}
+
+	provinces={
+		9094 9109 9225 9248
+	}
+}

@@ -1,0 +1,21 @@
+state={
+	id=157
+	name="STATE_157"
+	manpower = 72838
+	state_category = small_island
+
+	history={
+		owner = ATG
+		victory_points = {
+			9320 7
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = ATG
+	}
+
+	provinces={
+		9320
+	}
+}

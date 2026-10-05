@@ -1,0 +1,21 @@
+state={
+	id=1089
+	name="STATE_1089"
+	manpower = 457116
+	state_category = rural
+
+	history={
+		owner = NOR
+		victory_points = {
+			558 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = NOR
+	}
+
+	provinces={
+		505 506 558 626
+	}
+}

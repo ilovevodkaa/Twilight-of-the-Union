@@ -1,0 +1,24 @@
+state={
+	id=1758
+	name="STATE_1758"
+	manpower = 749876
+	state_category = town
+
+	history={
+		owner = SOV
+		victory_points = {
+			2328 4
+		}
+		victory_points = {
+			2141 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SOV
+	}
+
+	provinces={
+		2141 2155 2156 2328 2357 2367
+	}
+}

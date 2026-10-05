@@ -1,0 +1,18 @@
+state={
+	id=961
+	name="STATE_961"
+	manpower = 82034
+	state_category = pastoral
+
+	history={
+		owner = MON
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = MON
+	}
+
+	provinces={
+		2979 2980 3140 3451 3584
+	}
+}

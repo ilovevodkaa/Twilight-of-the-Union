@@ -1,0 +1,27 @@
+state={
+	id=78
+	name="STATE_78"
+	manpower = 1123991
+	state_category = large_town
+
+	history={
+		owner = ARG
+		victory_points = {
+			14424 7
+		}
+		victory_points = {
+			14475 3
+		}
+		victory_points = {
+			14531 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = ARG
+	}
+
+	provinces={
+		14424 14428 14432 14453 14469 14474 14475 14507 14531
+	}
+}

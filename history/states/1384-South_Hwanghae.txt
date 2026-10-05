@@ -1,0 +1,24 @@
+state={
+	id=1384
+	name="STATE_1384"
+	manpower = 1115468
+	state_category = large_town
+
+	history={
+		owner = PRK
+		victory_points = {
+			5045 3
+		}
+		victory_points = {
+			5182 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = PRK
+	}
+
+	provinces={
+		5044 5045 5166 5182
+	}
+}

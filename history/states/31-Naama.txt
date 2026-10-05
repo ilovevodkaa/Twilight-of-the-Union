@@ -1,0 +1,18 @@
+state={
+	id=31
+	name="STATE_31"
+	manpower = 198611
+	state_category = rural
+
+	history={
+		owner = ALG
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = ALG
+	}
+
+	provinces={
+		6207 6238 6268 6455
+	}
+}

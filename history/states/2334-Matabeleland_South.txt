@@ -1,0 +1,18 @@
+state={
+	id=2334
+	name="STATE_2334"
+	manpower = 375916
+	state_category = rural
+
+	history={
+		owner = ZIM
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = ZIM
+	}
+
+	provinces={
+		13410 13437 13470 13529 13544 13596
+	}
+}

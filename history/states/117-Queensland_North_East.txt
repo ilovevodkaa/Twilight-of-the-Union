@@ -1,0 +1,24 @@
+state={
+	id=117
+	name="STATE_117"
+	manpower = 308064
+	state_category = rural
+
+	history={
+		owner = AST
+		victory_points = {
+			13373 3
+		}
+		victory_points = {
+			13552 2
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = AST
+	}
+
+	provinces={
+		13373 13399 13444 13456 13508 13552 13590 13591 13624 13653 13671 13723 13747
+	}
+}

@@ -1,0 +1,24 @@
+state={
+	id=2057
+	name="STATE_2057"
+	manpower = 6889671
+	state_category = large_city
+
+	history={
+		owner = UGA
+		victory_points = {
+			11469 12
+		}
+		victory_points = {
+			11443 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = UGA
+	}
+
+	provinces={
+		11387 11402 11412 11443 11469
+	}
+}

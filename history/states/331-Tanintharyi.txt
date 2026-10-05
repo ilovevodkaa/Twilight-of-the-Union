@@ -1,0 +1,24 @@
+state={
+	id=331
+	name="STATE_331"
+	manpower = 1857005
+	state_category = large_town
+
+	history={
+		owner = BRM
+		victory_points = {
+			9955 4
+		}
+		victory_points = {
+			9742 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = BRM
+	}
+
+	provinces={
+		9630 9742 9811 9866 9955 10081
+	}
+}

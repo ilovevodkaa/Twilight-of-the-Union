@@ -1,0 +1,21 @@
+state={
+	id=1151
+	name="STATE_1151"
+	manpower = 751387
+	state_category = town
+
+	history={
+		owner = PER
+		victory_points = {
+			5415 4
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = PER
+	}
+
+	provinces={
+		5413 5414 5415 5587 5618
+	}
+}

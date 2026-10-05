@@ -1,0 +1,27 @@
+state={
+	id=1990
+	name="STATE_1990"
+	manpower = 993047
+	state_category = town
+
+	history={
+		owner = TUR
+		victory_points = {
+			4298 3
+		}
+		victory_points = {
+			4386 3
+		}
+		victory_points = {
+			4370 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = TUR
+	}
+
+	provinces={
+		4253 4298 4370 4386 4484 4500
+	}
+}

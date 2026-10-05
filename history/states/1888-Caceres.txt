@@ -1,0 +1,18 @@
+state={
+	id=1888
+	name="STATE_1888"
+	manpower = 572090
+	state_category = town
+
+	history={
+		owner = SPR
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SPR
+	}
+
+	provinces={
+		4628 4671 4672 4748
+	}
+}

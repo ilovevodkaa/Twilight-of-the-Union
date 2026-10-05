@@ -1,0 +1,21 @@
+state={
+	id=93
+	name="STATE_93"
+	manpower = 558984
+	state_category = town
+
+	history={
+		owner = ARG
+		victory_points = {
+			14686 4
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = ARG
+	}
+
+	provinces={
+		14623 14640 14654 14668 14674 14686 14689 14691 14703 14709
+	}
+}

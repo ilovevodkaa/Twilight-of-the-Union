@@ -1,0 +1,21 @@
+state={
+	id=574
+	name="STATE_574"
+	manpower = 2450581
+	state_category = city
+
+	history={
+		owner = DEN
+		victory_points = {
+			1346 13
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = DEN
+	}
+
+	provinces={
+		1346 1363 1409 1500
+	}
+}

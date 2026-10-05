@@ -1,0 +1,6 @@
+supply_area = {
+	id = 169
+	name = "SUPPLYAREA_169"
+	value = 6
+	states = { 1563 1599 1600 2275 2276 2278 }
+}

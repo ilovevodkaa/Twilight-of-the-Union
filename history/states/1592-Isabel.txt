@@ -1,0 +1,18 @@
+state={
+	id=1592
+	name="STATE_1592"
+	manpower = 99246
+	state_category = pastoral
+
+	history={
+		owner = SLB
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = SLB
+	}
+
+	provinces={
+		12279 12373 12418
+	}
+}

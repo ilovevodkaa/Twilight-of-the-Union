@@ -1,0 +1,24 @@
+state={
+	id=582
+	name="STATE_582"
+	manpower = 3462165
+	state_category = city
+
+	history={
+		owner = ECU
+		victory_points = {
+			11751 9
+		}
+		victory_points = {
+			11730 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = ECU
+	}
+
+	provinces={
+		11607 11658 11659 11715 11730 11751 11769 11812
+	}
+}

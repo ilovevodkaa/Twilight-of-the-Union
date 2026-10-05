@@ -1,0 +1,18 @@
+state={
+	id=830
+	name="STATE_830"
+	manpower = 88204
+	state_category = small_island
+
+	history={
+		owner = KIR
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = KIR
+	}
+
+	provinces={
+		11328
+	}
+}

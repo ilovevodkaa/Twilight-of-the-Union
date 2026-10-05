@@ -1,0 +1,18 @@
+state={
+	id=443
+	name="STATE_443"
+	manpower = 107836
+	state_category = pastoral
+
+	history={
+		owner = CGO
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = CGO
+	}
+
+	provinces={
+		11644 11665 11723 11766 11792
+	}
+}

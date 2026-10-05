@@ -1,0 +1,27 @@
+state={
+	id=851
+	name="STATE_851"
+	manpower = 296843
+	state_category = rural
+
+	history={
+		owner = LBA
+		victory_points = {
+			6473 3
+		}
+		victory_points = {
+			6554 3
+		}
+		victory_points = {
+			6662 3
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = LBA
+	}
+
+	provinces={
+		6473 6554 6662 6695 6848 6908 6967 7071 7213
+	}
+}

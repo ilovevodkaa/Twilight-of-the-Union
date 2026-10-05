@@ -1,0 +1,21 @@
+state={
+	id=823
+	name="STATE_823"
+	manpower = 2041658
+	state_category = city
+
+	history={
+		owner = KEN
+		victory_points = {
+			11531 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = KEN
+	}
+
+	provinces={
+		11135 11205 11277 11383 11393 11471 11509 11531 11631
+	}
+}

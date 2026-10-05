@@ -1,0 +1,18 @@
+state={
+	id=597
+	name="STATE_597"
+	manpower = 645306
+	state_category = town
+
+	history={
+		owner = EGY
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = EGY
+	}
+
+	provinces={
+		7243 7244 7293 7341 7427
+	}
+}

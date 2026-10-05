@@ -1,0 +1,24 @@
+state={
+	id=766
+	name="STATE_766"
+	manpower = 2057116
+	state_category = city
+
+	history={
+		owner = IRQ
+		victory_points = {
+			5504 7
+		}
+		victory_points = {
+			5495 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = IRQ
+	}
+
+	provinces={
+		5495 5496 5504 5547 5560 5654 5678 5697 5806 5863
+	}
+}

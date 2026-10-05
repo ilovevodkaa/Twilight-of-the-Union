@@ -37,7 +37,14 @@
 | **Языки** | Русский и английский |
 
 > [!NOTE]
-> Мир на карте пока ванильный, 1936 года: границы, правители и армии ещё не переписаны под 1990 год. Сейчас готов интерфейс и стартовый сценарий, политическая карта — следующий этап.
+> Карта мира заменена на новую, сгенерированную по реальным географическим данным: 1990 год, ~14 800 сухопутных и ~2 900 морских провинций, ~2 300 штатов, ~3 250 городов с очками победы, 172 страны. Страны пока «заглушки»: тег, цвет, столица и территория, без армий, фокусов, идей и технологий. Ванильных файлов 1936 года мод больше не использует.
+
+## Карта 1990 года
+
+![Политическая карта 1990](docs/images/map_1990.jpg)
+<p align="center"><sub>Политическая карта со границами штатов (превью, собирается скриптом)</sub></p>
+
+Границы 1990 года получены из современных данных Natural Earth: СССР (15 республик), Югославия, Чехословакия, ФРГ и ГДР, Северный и Южный Йемен, Эритрея в составе Эфиопии, Южный Судан в составе Судана, Намибия под ЮАР, Западная Сахара в составе Марокко, Гонконг у Великобритании, Макао у Португалии. Теги, где есть ванильный, остались ванильными (`ENG`, `GER`, `JAP`, `PRC`, `CHI`...), для остальных введены новые трёхбуквенные.
 
 ## Скриншоты
 
@@ -79,11 +86,14 @@
 ```
 common/            сценарий 1990 года, персонажи, стартовая дата (defines)
 gfx/               текстуры интерфейса, экраны загрузки, портреты
-history/           история стран (пока ванильная + лидеры 1990 года)
+history/           страны (заглушки, USA и SOV с прежним содержимым) и штаты (генерируются)
+map/               провинции, определения, регионы, здания, рельеф (генерируется)
 interface/         GUI главного меню, загрузки, выбора сценария и страны
 localisation/      тексты на русском и английском, цитаты эпохи
-tools/             скрипты сборки графики и сценария
+tools/             скрипты сборки графики, сценария и карты
   src/             исходные фотографии
+  map/             модули генератора карты
+  cache/           скачанные данные (в git не попадает)
 docs/images/       скриншоты для README
 ```
 
@@ -98,13 +108,27 @@ python tools/build_bookmarks.py    # файл сценария common/bookmarks/
 python tools/render_docs.py        # скриншоты для README
 ```
 
+### Карта собирается скриптом
+
+Карта генерируется целиком: `tools/build_map.py` скачивает Natural Earth (границы стран и областей, города, реки, озёра) и тайлы высот Terrarium, строит провинции (диаграммы Вороного с релаксацией Ллойда, плотность по населению, внутри областей admin-1, чтобы провинция не пересекала границу), штаты, города, стратегические регионы, рельеф и все текстовые файлы. Результат детерминирован (фиксированный seed).
+
+```bash
+pip install numpy scipy shapely scikit-image opencv-python-headless pillow requests
+python tools/build_map.py        # 5-10 минут, данные кэшируются в tools/cache/
+python tools/validate_map.py     # проверка целостности без игры
+```
+
+Проекция: равнопромежуточная (plate carrée), охват 77° с. ш. - 56° ю. ш., 5632x2048. Изменить страны, названия или правила 1990 года можно в `tools/map/countries.py`, размер и число штатов - в `tools/map/states.py`, плотность провинций - в `tools/map/provinces.py`. Сгенерированные файлы вручную не правятся.
+
+Допущения, которые не удалось проверить без игры: индексы палитры `terrain.bmp`, размер `trees.bmp` (3520x1280), формат `cities.bmp` и позиции в `unitstacks.txt`/`buildings.txt`. Рельеф, леса и пустыни получены из высот и грубых климатических зон, а не из карты биомов.
+
 Чтобы заменить фон, экран загрузки или портрет, положите новое фото в `tools/src` и перезапустите `build_menu_gfx.py`. Списки экранов загрузки (`LOADING_SCREENS`) и портретов (`PORTRAITS`) — в начале соответствующих разделов скрипта.
 
 ### Планы
 
 - [x] Главное меню, экраны загрузки, выбор сценария и страны
 - [x] Стартовая дата 1 января 1990 года
-- [ ] Политическая карта 1990 года: союзные республики, Восточный блок, две Германии
+- [x] Политическая карта 1990 года: союзные республики, Восточный блок, две Германии (карта, штаты, города, страны-заглушки)
 - [ ] Лидеры, партии и правительства всех стран на 1990 год
 - [ ] Национальные духи и фокусы СССР и США
 - [ ] События 1990–1991 годов
@@ -122,8 +146,12 @@ python tools/render_docs.py        # скриншоты для README
 
 Version 0.1 delivers the frontend: a new main menu, period loading screens with quotes from 1983–1993, a single 1990 scenario, a reworked country selection screen with the USA and the USSR, and Gorbachev and Bush as leaders. English and Russian are supported.
 
-The world map is still the vanilla 1936 setup; the 1990 political map is the next milestone.
+The world map is now a new, procedurally generated 1990 map: about 14,800 land and 2,900 sea provinces, about 2,300 states, about 3,250 victory-point cities and 172 country stubs (tag, colour, capital and territory only: no armies, focuses, ideas or technologies yet). Borders are derived from Natural Earth (USSR with its 15 republics, Yugoslavia, Czechoslovakia, West and East Germany, North and South Yemen, and so on); heights come from Terrarium elevation tiles.
+
+![1990 political map](docs/images/map_1990.jpg)
 
 **Install:** put the folder into `Documents/Paradox Interactive/Hearts of Iron IV/mod/`, create `Twilight of the Union.mod` next to it from `descriptor.mod` with a `path="..."` line pointing to the folder, then enable it in the launcher.
 
 **Rebuild graphics:** `pip install pillow`, then `python tools/build_menu_gfx.py`.
+
+**Rebuild the map:** `pip install numpy scipy shapely scikit-image opencv-python-headless pillow requests`, then `python tools/build_map.py` (downloads data into `tools/cache/`, takes 5-10 minutes) and `python tools/validate_map.py`. Projection: plate carree, 77N-56S, 5632x2048. Unverified without the game: `terrain.bmp` palette indices, `trees.bmp` size (3520x1280), `cities.bmp` format, and the position files `unitstacks.txt` / `buildings.txt`.

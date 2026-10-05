@@ -1,0 +1,21 @@
+state={
+	id=1547
+	name="STATE_1547"
+	manpower = 873937
+	state_category = town
+
+	history={
+		owner = SAU
+		victory_points = {
+			7420 5
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SAU
+	}
+
+	provinces={
+		7408 7420 7428 7544 7557 7575 7698 7950
+	}
+}

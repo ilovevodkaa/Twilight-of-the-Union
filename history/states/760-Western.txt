@@ -1,0 +1,21 @@
+state={
+	id=760
+	name="STATE_760"
+	manpower = 235209
+	state_category = rural
+
+	history={
+		owner = ICE
+		victory_points = {
+			476 8
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = ICE
+	}
+
+	provinces={
+		415 476 568
+	}
+}

@@ -1,0 +1,21 @@
+state={
+	id=1999
+	name="STATE_1999"
+	manpower = 480624
+	state_category = rural
+
+	history={
+		owner = TUR
+		victory_points = {
+			4728 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = TUR
+	}
+
+	provinces={
+		4727 4728 4729
+	}
+}

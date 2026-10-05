@@ -1,0 +1,27 @@
+state={
+	id=577
+	name="STATE_577"
+	manpower = 3592441
+	state_category = city
+
+	history={
+		owner = DOM
+		victory_points = {
+			8977 8
+		}
+		victory_points = {
+			8994 3
+		}
+		victory_points = {
+			9066 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = DOM
+	}
+
+	provinces={
+		8977 8994 9047 9066
+	}
+}

@@ -1,0 +1,21 @@
+state={
+	id=505
+	name="STATE_505"
+	manpower = 594745
+	state_category = town
+
+	history={
+		owner = CMR
+		victory_points = {
+			11227 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = CMR
+	}
+
+	provinces={
+		11196 11209 11227 11234 11257 11264 11271
+	}
+}

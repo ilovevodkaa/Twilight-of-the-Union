@@ -1,0 +1,30 @@
+state={
+	id=1113
+	name="STATE_1113"
+	manpower = 12478854
+	state_category = metropolis
+
+	history={
+		owner = PAK
+		victory_points = {
+			6031 9
+		}
+		victory_points = {
+			6132 7
+		}
+		victory_points = {
+			6195 7
+		}
+		victory_points = {
+			6194 4
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = PAK
+	}
+
+	provinces={
+		5518 5638 5790 5811 5884 5885 5993 6031 6056 6132 6194 6195
+	}
+}

@@ -1,0 +1,21 @@
+state={
+	id=1997
+	name="STATE_1997"
+	manpower = 923503
+	state_category = town
+
+	history={
+		owner = TUR
+		victory_points = {
+			4647 4
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = TUR
+	}
+
+	provinces={
+		4615 4647 4726 4786 4787 4899
+	}
+}

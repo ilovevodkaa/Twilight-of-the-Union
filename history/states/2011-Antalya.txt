@@ -1,0 +1,21 @@
+state={
+	id=2011
+	name="STATE_2011"
+	manpower = 1119333
+	state_category = large_town
+
+	history={
+		owner = TUR
+		victory_points = {
+			5360 5
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = TUR
+	}
+
+	provinces={
+		5360 5379 5400 5467
+	}
+}

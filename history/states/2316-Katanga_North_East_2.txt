@@ -1,0 +1,18 @@
+state={
+	id=2316
+	name="STATE_2316"
+	manpower = 429226
+	state_category = rural
+
+	history={
+		owner = ZAI
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = ZAI
+	}
+
+	provinces={
+		12277 12296 12354 12365 12445
+	}
+}

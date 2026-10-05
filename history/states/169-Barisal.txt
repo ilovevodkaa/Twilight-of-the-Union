@@ -1,0 +1,21 @@
+state={
+	id=169
+	name="STATE_169"
+	manpower = 3479049
+	state_category = city
+
+	history={
+		owner = BAN
+		victory_points = {
+			8501 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = BAN
+	}
+
+	provinces={
+		8501 8502 8597 8621
+	}
+}

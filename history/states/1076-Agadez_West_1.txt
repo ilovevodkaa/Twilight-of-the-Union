@@ -1,0 +1,21 @@
+state={
+	id=1076
+	name="STATE_1076"
+	manpower = 1179025
+	state_category = large_town
+
+	history={
+		owner = NIG
+		victory_points = {
+			9100 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = NIG
+	}
+
+	provinces={
+		8672 8810 8956 8966 9100 9127 9165 9278
+	}
+}

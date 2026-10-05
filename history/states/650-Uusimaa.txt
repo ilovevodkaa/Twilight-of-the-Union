@@ -1,0 +1,21 @@
+state={
+	id=650
+	name="STATE_650"
+	manpower = 2140507
+	state_category = city
+
+	history={
+		owner = FIN
+		victory_points = {
+			807 12
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = FIN
+	}
+
+	provinces={
+		759 786 807 862
+	}
+}

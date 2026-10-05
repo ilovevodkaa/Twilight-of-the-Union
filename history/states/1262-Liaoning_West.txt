@@ -1,0 +1,27 @@
+state={
+	id=1262
+	name="STATE_1262"
+	manpower = 10122881
+	state_category = metropolis
+
+	history={
+		owner = PRC
+		victory_points = {
+			4352 9
+		}
+		victory_points = {
+			4309 6
+		}
+		victory_points = {
+			4179 5
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = PRC
+	}
+
+	provinces={
+		4131 4179 4309 4352 4389 4410 4579
+	}
+}

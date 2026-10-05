@@ -1,0 +1,21 @@
+state={
+	id=649
+	name="STATE_649"
+	manpower = 473325
+	state_category = rural
+
+	history={
+		owner = FIN
+		victory_points = {
+			705 4
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = FIN
+	}
+
+	provinces={
+		627 636 705
+	}
+}

@@ -1,0 +1,18 @@
+state={
+	id=1565
+	name="STATE_1565"
+	manpower = 354314
+	state_category = rural
+
+	history={
+		owner = SEN
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = SEN
+	}
+
+	provinces={
+		9396 9397 9424
+	}
+}

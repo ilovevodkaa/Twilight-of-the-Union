@@ -1,0 +1,18 @@
+state={
+	id=844
+	name="STATE_844"
+	manpower = 434757
+	state_category = rural
+
+	history={
+		owner = LAO
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = LAO
+	}
+
+	provinces={
+		8854 8876 8918
+	}
+}

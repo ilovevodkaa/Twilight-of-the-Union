@@ -1,0 +1,33 @@
+state={
+	id=1007
+	name="STATE_1007"
+	manpower = 11629786
+	state_category = metropolis
+
+	history={
+		owner = NEI
+		victory_points = {
+			11145 10
+		}
+		victory_points = {
+			11191 4
+		}
+		victory_points = {
+			11230 4
+		}
+		victory_points = {
+			11404 4
+		}
+		victory_points = {
+			11344 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = NEI
+	}
+
+	provinces={
+		11145 11191 11206 11230 11246 11252 11300 11308 11320 11344 11396 11404
+	}
+}

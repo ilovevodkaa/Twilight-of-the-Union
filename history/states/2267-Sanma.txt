@@ -1,0 +1,21 @@
+state={
+	id=2267
+	name="STATE_2267"
+	manpower = 224911
+	state_category = rural
+
+	history={
+		owner = VUT
+		victory_points = {
+			12952 6
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = VUT
+	}
+
+	provinces={
+		12952 12976 13063
+	}
+}

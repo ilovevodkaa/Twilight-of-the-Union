@@ -1,0 +1,24 @@
+state={
+	id=975
+	name="STATE_975"
+	manpower = 1923802
+	state_category = large_town
+
+	history={
+		owner = MOR
+		victory_points = {
+			6237 6
+		}
+		victory_points = {
+			6588 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = MOR
+	}
+
+	provinces={
+		6237 6367 6407 6408 6570 6588 6800
+	}
+}

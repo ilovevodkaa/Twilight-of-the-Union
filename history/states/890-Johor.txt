@@ -1,0 +1,24 @@
+state={
+	id=890
+	name="STATE_890"
+	manpower = 1074646
+	state_category = large_town
+
+	history={
+		owner = MAL
+		victory_points = {
+			11281 3
+		}
+		victory_points = {
+			11327 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = MAL
+	}
+
+	provinces={
+		11281 11293 11327 11335 11355
+	}
+}

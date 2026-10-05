@@ -1,0 +1,24 @@
+state={
+	id=704
+	name="STATE_704"
+	manpower = 6168960
+	state_category = large_city
+
+	history={
+		owner = GER
+		victory_points = {
+			2704 11
+		}
+		victory_points = {
+			2582 4
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = GER
+	}
+
+	provinces={
+		2525 2555 2582 2583 2647 2704
+	}
+}

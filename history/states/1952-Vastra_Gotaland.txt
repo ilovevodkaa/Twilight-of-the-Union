@@ -1,0 +1,21 @@
+state={
+	id=1952
+	name="STATE_1952"
+	manpower = 1383293
+	state_category = large_town
+
+	history={
+		owner = SWE
+		victory_points = {
+			1001 5
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SWE
+	}
+
+	provinces={
+		990 1001 1014 1039 1076
+	}
+}

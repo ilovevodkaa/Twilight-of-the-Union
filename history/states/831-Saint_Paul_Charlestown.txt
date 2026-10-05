@@ -1,0 +1,21 @@
+state={
+	id=831
+	name="STATE_831"
+	manpower = 39625
+	state_category = small_island
+
+	history={
+		owner = KNA
+		victory_points = {
+			9291 6
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		add_core_of = KNA
+	}
+
+	provinces={
+		9291
+	}
+}

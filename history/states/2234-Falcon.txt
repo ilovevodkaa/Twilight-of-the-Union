@@ -1,0 +1,24 @@
+state={
+	id=2234
+	name="STATE_2234"
+	manpower = 548646
+	state_category = town
+
+	history={
+		owner = VEN
+		victory_points = {
+			10043 3
+		}
+		victory_points = {
+			10135 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = VEN
+	}
+
+	provinces={
+		10043 10135 10136 10152 10164 10183
+	}
+}

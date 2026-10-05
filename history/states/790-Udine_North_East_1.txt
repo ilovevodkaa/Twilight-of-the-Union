@@ -1,0 +1,27 @@
+state={
+	id=790
+	name="STATE_790"
+	manpower = 2418011
+	state_category = city
+
+	history={
+		owner = ITA
+		victory_points = {
+			3291 4
+		}
+		victory_points = {
+			3206 3
+		}
+		victory_points = {
+			3123 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = ITA
+	}
+
+	provinces={
+		3106 3123 3192 3206 3291
+	}
+}

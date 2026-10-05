@@ -1,0 +1,18 @@
+state={
+	id=998
+	name="STATE_998"
+	manpower = 32810
+	state_category = pastoral
+
+	history={
+		owner = MRT
+		buildings = {
+			infrastructure = 1
+		}
+		add_core_of = MRT
+	}
+
+	provinces={
+		9163 9251 9297
+	}
+}

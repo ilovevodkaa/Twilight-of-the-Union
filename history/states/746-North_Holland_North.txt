@@ -1,0 +1,27 @@
+state={
+	id=746
+	name="STATE_746"
+	manpower = 2972324
+	state_category = city
+
+	history={
+		owner = HOL
+		victory_points = {
+			1789 3
+		}
+		victory_points = {
+			1790 3
+		}
+		victory_points = {
+			1910 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = HOL
+	}
+
+	provinces={
+		1789 1790 1800 1829 1910 1923 2010
+	}
+}

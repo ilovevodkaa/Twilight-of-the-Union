@@ -1,0 +1,21 @@
+state={
+	id=948
+	name="STATE_948"
+	manpower = 487573
+	state_category = rural
+
+	history={
+		owner = MLT
+		victory_points = {
+			5677 9
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = MLT
+	}
+
+	provinces={
+		5677
+	}
+}

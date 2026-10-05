@@ -1,0 +1,24 @@
+state={
+	id=1961
+	name="STATE_1961"
+	manpower = 551102
+	state_category = town
+
+	history={
+		owner = SWZ
+		victory_points = {
+			13983 7
+		}
+		victory_points = {
+			14038 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SWZ
+	}
+
+	provinces={
+		13983 13991 14038 14055
+	}
+}

@@ -1,0 +1,18 @@
+state={
+	id=1317
+	name="STATE_1317"
+	manpower = 4476464
+	state_category = large_city
+
+	history={
+		owner = PRC
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = PRC
+	}
+
+	provinces={
+		6462 6479 6820 6841 6854 7060
+	}
+}

@@ -1,0 +1,24 @@
+state={
+	id=1400
+	name="STATE_1400"
+	manpower = 8013359
+	state_category = metropolis
+
+	history={
+		owner = PRU
+		victory_points = {
+			12705 23
+		}
+		victory_points = {
+			12650 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = PRU
+	}
+
+	provinces={
+		12605 12644 12650 12705 12706 12707 12747 12768
+	}
+}

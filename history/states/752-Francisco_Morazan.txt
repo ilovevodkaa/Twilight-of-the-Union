@@ -1,0 +1,30 @@
+state={
+	id=752
+	name="STATE_752"
+	manpower = 4734389
+	state_category = large_city
+
+	history={
+		owner = HON
+		victory_points = {
+			9724 11
+		}
+		victory_points = {
+			9527 6
+		}
+		victory_points = {
+			9503 3
+		}
+		victory_points = {
+			9604 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = HON
+	}
+
+	provinces={
+		9490 9502 9503 9527 9577 9595 9604 9616 9660 9677 9697 9724
+	}
+}

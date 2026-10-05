@@ -1,0 +1,18 @@
+state={
+	id=846
+	name="STATE_846"
+	manpower = 135233
+	state_category = pastoral
+
+	history={
+		owner = LAO
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = LAO
+	}
+
+	provinces={
+		9360 9366 9418
+	}
+}

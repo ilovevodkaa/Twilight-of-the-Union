@@ -1,0 +1,21 @@
+state={
+	id=1121
+	name="STATE_1121"
+	manpower = 2144694
+	state_category = city
+
+	history={
+		owner = PAK
+		victory_points = {
+			6745 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = PAK
+	}
+
+	provinces={
+		6745 6802 6853 6861 6991 7118
+	}
+}

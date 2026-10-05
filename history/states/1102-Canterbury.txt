@@ -1,0 +1,21 @@
+state={
+	id=1102
+	name="STATE_1102"
+	manpower = 431647
+	state_category = rural
+
+	history={
+		owner = NZL
+		victory_points = {
+			14744 4
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = NZL
+	}
+
+	provinces={
+		14732 14744 14747 14749
+	}
+}

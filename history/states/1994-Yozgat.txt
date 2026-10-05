@@ -1,0 +1,21 @@
+state={
+	id=1994
+	name="STATE_1994"
+	manpower = 469736
+	state_category = rural
+
+	history={
+		owner = TUR
+		victory_points = {
+			4702 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = TUR
+	}
+
+	provinces={
+		4677 4702 4785
+	}
+}

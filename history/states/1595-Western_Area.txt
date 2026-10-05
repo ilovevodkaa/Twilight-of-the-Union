@@ -1,0 +1,30 @@
+state={
+	id=1595
+	name="STATE_1595"
+	manpower = 3028742
+	state_category = city
+
+	history={
+		owner = SLE
+		victory_points = {
+			10600 11
+		}
+		victory_points = {
+			10601 3
+		}
+		victory_points = {
+			10633 3
+		}
+		victory_points = {
+			10519 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = SLE
+	}
+
+	provinces={
+		10519 10600 10601 10619 10633 10706
+	}
+}

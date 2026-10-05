@@ -1,0 +1,27 @@
+state={
+	id=556
+	name="STATE_556"
+	manpower = 8575026
+	state_category = metropolis
+
+	history={
+		owner = DDR
+		victory_points = {
+			1949 19
+		}
+		victory_points = {
+			1948 3
+		}
+		victory_points = {
+			2049 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = DDR
+	}
+
+	provinces={
+		1802 1830 1852 1883 1948 1949 1966 2011 2049
+	}
+}

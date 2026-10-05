@@ -1,0 +1,24 @@
+state={
+	id=794
+	name="STATE_794"
+	manpower = 2434147
+	state_category = city
+
+	history={
+		owner = ITA
+		victory_points = {
+			4000 4
+		}
+		victory_points = {
+			4266 4
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = ITA
+	}
+
+	provinces={
+		4000 4101 4143 4172 4266
+	}
+}

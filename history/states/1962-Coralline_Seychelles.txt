@@ -1,0 +1,21 @@
+state={
+	id=1962
+	name="STATE_1962"
+	manpower = 78100
+	state_category = small_island
+
+	history={
+		owner = SYC
+		victory_points = {
+			12048 7
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = SYC
+	}
+
+	provinces={
+		12048
+	}
+}

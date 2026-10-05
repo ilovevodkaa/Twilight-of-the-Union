@@ -1,0 +1,18 @@
+state={
+	id=721
+	name="STATE_721"
+	manpower = 236446
+	state_category = rural
+
+	history={
+		owner = GIN
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = GIN
+	}
+
+	provinces={
+		10117 10153 10240 10296
+	}
+}

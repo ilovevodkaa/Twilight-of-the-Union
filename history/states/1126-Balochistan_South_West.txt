@@ -1,0 +1,18 @@
+state={
+	id=1126
+	name="STATE_1126"
+	manpower = 5069607
+	state_category = large_city
+
+	history={
+		owner = PAK
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = PAK
+	}
+
+	provinces={
+		7267 7467 7547 7558 7739 7799 7855 7899 7952 7993
+	}
+}

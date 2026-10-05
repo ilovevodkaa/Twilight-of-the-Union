@@ -1,0 +1,18 @@
+state={
+	id=321
+	name="STATE_321"
+	manpower = 711579
+	state_category = town
+
+	history={
+		owner = BRM
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = BRM
+	}
+
+	provinces={
+		8349 8503 8639 8666 8749
+	}
+}

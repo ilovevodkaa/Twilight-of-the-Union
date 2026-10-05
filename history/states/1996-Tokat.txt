@@ -1,0 +1,24 @@
+state={
+	id=1996
+	name="STATE_1996"
+	manpower = 697066
+	state_category = town
+
+	history={
+		owner = TUR
+		victory_points = {
+			4501 3
+		}
+		victory_points = {
+			4468 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = TUR
+	}
+
+	provinces={
+		4444 4468 4501 4576
+	}
+}

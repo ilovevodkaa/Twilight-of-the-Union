@@ -1,0 +1,21 @@
+state={
+	id=893
+	name="STATE_893"
+	manpower = 424762
+	state_category = rural
+
+	history={
+		owner = MDV
+		victory_points = {
+			11119 8
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = MDV
+	}
+
+	provinces={
+		11119
+	}
+}

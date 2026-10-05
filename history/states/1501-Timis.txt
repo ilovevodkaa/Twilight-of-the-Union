@@ -1,0 +1,21 @@
+state={
+	id=1501
+	name="STATE_1501"
+	manpower = 689989
+	state_category = town
+
+	history={
+		owner = ROM
+		victory_points = {
+			3349 4
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = ROM
+	}
+
+	provinces={
+		3250 3349 3350
+	}
+}

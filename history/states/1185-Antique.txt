@@ -1,0 +1,27 @@
+state={
+	id=1185
+	name="STATE_1185"
+	manpower = 3691569
+	state_category = city
+
+	history={
+		owner = PHI
+		victory_points = {
+			10162 4
+		}
+		victory_points = {
+			10143 3
+		}
+		victory_points = {
+			10132 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = PHI
+	}
+
+	provinces={
+		9991 10132 10143 10162
+	}
+}

@@ -1,0 +1,21 @@
+state={
+	id=15
+	name="STATE_15"
+	manpower = 858828
+	state_category = town
+
+	history={
+		owner = AFG
+		victory_points = {
+			6356 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = AFG
+	}
+
+	provinces={
+		6214 6215 6338 6356 6414 6543
+	}
+}

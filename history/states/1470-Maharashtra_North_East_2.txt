@@ -1,0 +1,21 @@
+state={
+	id=1470
+	name="STATE_1470"
+	manpower = 9371955
+	state_category = metropolis
+
+	history={
+		owner = RAJ
+		victory_points = {
+			8748 10
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = RAJ
+	}
+
+	provinces={
+		8728 8748 8804 8868
+	}
+}

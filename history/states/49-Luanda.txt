@@ -1,0 +1,21 @@
+state={
+	id=49
+	name="STATE_49"
+	manpower = 5491613
+	state_category = large_city
+
+	history={
+		owner = ANG
+		victory_points = {
+			12479 14
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = ANG
+	}
+
+	provinces={
+		12383 12384 12479 12492 12565
+	}
+}

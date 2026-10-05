@@ -1,0 +1,18 @@
+state={
+	id=2256
+	name="STATE_2256"
+	manpower = 917196
+	state_category = town
+
+	history={
+		owner = VIN
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = VIN
+	}
+
+	provinces={
+		8705 8750 8792
+	}
+}

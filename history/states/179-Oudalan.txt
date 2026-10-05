@@ -1,0 +1,18 @@
+state={
+	id=179
+	name="STATE_179"
+	manpower = 552181
+	state_category = town
+
+	history={
+		owner = BFA
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = BFA
+	}
+
+	provinces={
+		9627 9665 9701
+	}
+}

@@ -1,0 +1,21 @@
+state={
+	id=735
+	name="STATE_735"
+	manpower = 1631678
+	state_category = large_town
+
+	history={
+		owner = GUA
+		victory_points = {
+			9422 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = GUA
+	}
+
+	provinces={
+		9261 9262 9263 9337 9369 9422
+	}
+}

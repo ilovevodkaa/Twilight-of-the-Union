@@ -1,0 +1,24 @@
+state={
+	id=1027
+	name="STATE_1027"
+	manpower = 33096545
+	state_category = megalopolis
+
+	history={
+		owner = NEI
+		victory_points = {
+			12228 26
+		}
+		victory_points = {
+			12206 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = NEI
+	}
+
+	provinces={
+		12206 12228 12251 12264
+	}
+}

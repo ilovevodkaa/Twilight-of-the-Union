@@ -1,0 +1,21 @@
+state={
+	id=1965
+	name="STATE_1965"
+	manpower = 1741912
+	state_category = large_town
+
+	history={
+		owner = SYR
+		victory_points = {
+			6051 6
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SYR
+	}
+
+	provinces={
+		5933 6011 6051 6068 6069 6144 6173 6272
+	}
+}

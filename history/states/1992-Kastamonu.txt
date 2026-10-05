@@ -1,0 +1,21 @@
+state={
+	id=1992
+	name="STATE_1992"
+	manpower = 437400
+	state_category = rural
+
+	history={
+		owner = TUR
+		victory_points = {
+			4299 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = TUR
+	}
+
+	provinces={
+		4213 4238 4299
+	}
+}

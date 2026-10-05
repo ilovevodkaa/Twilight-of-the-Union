@@ -1,0 +1,27 @@
+state={
+	id=619
+	name="STATE_619"
+	manpower = 2433091
+	state_category = city
+
+	history={
+		owner = ENG
+		victory_points = {
+			2228 5
+		}
+		victory_points = {
+			2240 5
+		}
+		victory_points = {
+			2227 4
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = ENG
+	}
+
+	provinces={
+		2178 2179 2198 2209 2227 2228 2240
+	}
+}

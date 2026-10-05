@@ -1,0 +1,21 @@
+state={
+	id=1591
+	name="STATE_1591"
+	manpower = 3992498
+	state_category = city
+
+	history={
+		owner = SIN
+		victory_points = {
+			11384 18
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = SIN
+	}
+
+	provinces={
+		11384
+	}
+}

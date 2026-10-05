@@ -1,0 +1,27 @@
+state={
+	id=20
+	name="STATE_20"
+	manpower = 2058983
+	state_category = city
+
+	history={
+		owner = ALB
+		victory_points = {
+			4304 11
+		}
+		victory_points = {
+			4381 3
+		}
+		victory_points = {
+			4483 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = ALB
+	}
+
+	provinces={
+		4268 4304 4341 4381 4419 4441 4483 4523 4595 4698
+	}
+}

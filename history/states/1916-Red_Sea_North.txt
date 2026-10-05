@@ -1,0 +1,18 @@
+state={
+	id=1916
+	name="STATE_1916"
+	manpower = 304216
+	state_category = rural
+
+	history={
+		owner = SUD
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = SUD
+	}
+
+	provinces={
+		8699 8700 8708 8880 8932
+	}
+}

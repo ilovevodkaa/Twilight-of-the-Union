@@ -1,0 +1,18 @@
+state={
+	id=560
+	name="STATE_560"
+	manpower = 177682
+	state_category = rural
+
+	history={
+		owner = DEN
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = DEN
+	}
+
+	provinces={
+		5 6 7 8 45 55 77 144
+	}
+}

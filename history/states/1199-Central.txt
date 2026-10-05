@@ -1,0 +1,21 @@
+state={
+	id=1199
+	name="STATE_1199"
+	manpower = 1852521
+	state_category = large_town
+
+	history={
+		owner = PNG
+		victory_points = {
+			12402 9
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = PNG
+	}
+
+	provinces={
+		12402 12525 12528 12557 12671
+	}
+}

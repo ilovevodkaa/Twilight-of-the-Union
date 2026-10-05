@@ -1,0 +1,21 @@
+state={
+	id=879
+	name="STATE_879"
+	manpower = 864490
+	state_category = town
+
+	history={
+		owner = MAD
+		victory_points = {
+			13551 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = MAD
+	}
+
+	provinces={
+		13443 13461 13535 13551
+	}
+}

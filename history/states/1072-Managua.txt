@@ -1,0 +1,30 @@
+state={
+	id=1072
+	name="STATE_1072"
+	manpower = 2821569
+	state_category = city
+
+	history={
+		owner = NIC
+		victory_points = {
+			9929 12
+		}
+		victory_points = {
+			9903 3
+		}
+		victory_points = {
+			9957 3
+		}
+		victory_points = {
+			10034 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = NIC
+	}
+
+	provinces={
+		9903 9929 9957 10034
+	}
+}

@@ -1,0 +1,21 @@
+state={
+	id=448
+	name="STATE_448"
+	manpower = 1571934
+	state_category = large_town
+
+	history={
+		owner = CGO
+		victory_points = {
+			11983 19
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = CGO
+	}
+
+	provinces={
+		11862 11870 11924 11943 11972 11983 12039
+	}
+}

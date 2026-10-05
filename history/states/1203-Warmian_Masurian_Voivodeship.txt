@@ -1,0 +1,21 @@
+state={
+	id=1203
+	name="STATE_1203"
+	manpower = 1317507
+	state_category = large_town
+
+	history={
+		owner = POL
+		victory_points = {
+			1634 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = POL
+	}
+
+	provinces={
+		1633 1634 1635 1636 1747
+	}
+}

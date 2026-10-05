@@ -1,0 +1,27 @@
+state={
+	id=1354
+	name="STATE_1354"
+	manpower = 5858439
+	state_category = large_city
+
+	history={
+		owner = PRC
+		victory_points = {
+			8038 7
+		}
+		victory_points = {
+			8008 3
+		}
+		victory_points = {
+			8020 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = PRC
+	}
+
+	provinces={
+		8008 8020 8038 8142 8143 8170 8192 8311
+	}
+}

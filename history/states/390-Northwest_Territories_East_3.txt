@@ -1,0 +1,18 @@
+state={
+	id=390
+	name="STATE_390"
+	manpower = 246531
+	state_category = rural
+
+	history={
+		owner = CAN
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = CAN
+	}
+
+	provinces={
+		527 531 552 670 675 695 700 735 750 800
+	}
+}

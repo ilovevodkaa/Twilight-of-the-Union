@@ -1,0 +1,21 @@
+state={
+	id=726
+	name="STATE_726"
+	manpower = 84002
+	state_category = small_island
+
+	history={
+		owner = GRD
+		victory_points = {
+			10022 7
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = GRD
+	}
+
+	provinces={
+		10022
+	}
+}

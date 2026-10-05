@@ -1,0 +1,18 @@
+state={
+	id=1471
+	name="STATE_1471"
+	manpower = 3108901
+	state_category = city
+
+	history={
+		owner = RAJ
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = RAJ
+	}
+
+	provinces={
+		8981 9018 9031 9061 9124
+	}
+}

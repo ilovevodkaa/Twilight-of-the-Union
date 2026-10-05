@@ -1,0 +1,18 @@
+state={
+	id=632
+	name="STATE_632"
+	manpower = 813905
+	state_category = town
+
+	history={
+		owner = ETH
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = ETH
+	}
+
+	provinces={
+		10069 10169 10243 10264
+	}
+}

@@ -1,0 +1,27 @@
+state={
+	id=755
+	name="STATE_755"
+	manpower = 5067208
+	state_category = large_city
+
+	history={
+		owner = HUN
+		victory_points = {
+			3000 16
+		}
+		victory_points = {
+			3015 3
+		}
+		victory_points = {
+			3193 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = HUN
+	}
+
+	provinces={
+		2850 2868 2878 3000 3001 3015 3126 3150 3193 3226
+	}
+}

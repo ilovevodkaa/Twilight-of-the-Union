@@ -1,4 +1,4 @@
-﻿capital = 361 # Washington DC
+﻿capital = 2172 # Washington DC
 
 oob = "USA_1936"
 

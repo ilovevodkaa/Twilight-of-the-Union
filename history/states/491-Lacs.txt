@@ -1,0 +1,21 @@
+state={
+	id=491
+	name="STATE_491"
+	manpower = 709506
+	state_category = town
+
+	history={
+		owner = CIV
+		victory_points = {
+			10725 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = CIV
+	}
+
+	provinces={
+		10700 10725 10772 10833
+	}
+}

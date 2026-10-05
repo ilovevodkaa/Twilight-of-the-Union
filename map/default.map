@@ -1,0 +1,18 @@
+definitions = "definition.csv"
+provinces = "provinces.bmp"
+terrain = "terrain.bmp"
+rivers = "rivers.bmp"
+terrain_definition = "common/terrain/00_terrain.txt"
+heightmap = "heightmap.bmp"
+tree_definition = "trees.bmp"
+continent = "continent.txt"
+adjacency_rules = "adjacency_rules.txt"
+adjacencies = "adjacencies.csv"
+climate = "climate.txt"
+ambient_object = "ambient_object.txt"
+seasons = "seasons.txt"
+
+# Palette indices of trees.bmp that count as trees (3 = forest, 4 = jungle)
+tree = { 3 4 7 10 }
+
+max_provinces = 17780

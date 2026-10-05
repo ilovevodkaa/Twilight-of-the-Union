@@ -1,0 +1,21 @@
+state={
+	id=1078
+	name="STATE_1078"
+	manpower = 800118
+	state_category = town
+
+	history={
+		owner = NIG
+		victory_points = {
+			8946 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = NIG
+	}
+
+	provinces={
+		8946 9028 9154 9234 9361
+	}
+}

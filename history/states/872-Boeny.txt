@@ -1,0 +1,21 @@
+state={
+	id=872
+	name="STATE_872"
+	manpower = 1003458
+	state_category = large_town
+
+	history={
+		owner = MAD
+		victory_points = {
+			13004 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = MAD
+	}
+
+	provinces={
+		13004 13050 13114 13140 13179
+	}
+}

@@ -1,0 +1,21 @@
+state={
+	id=537
+	name="STATE_537"
+	manpower = 263968
+	state_category = rural
+
+	history={
+		owner = CPV
+		victory_points = {
+			9567 8
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = CPV
+	}
+
+	provinces={
+		9567
+	}
+}

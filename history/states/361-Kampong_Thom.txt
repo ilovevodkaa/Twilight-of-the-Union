@@ -1,0 +1,21 @@
+state={
+	id=361
+	name="STATE_361"
+	manpower = 765792
+	state_category = town
+
+	history={
+		owner = CAM
+		victory_points = {
+			10006 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = CAM
+	}
+
+	provinces={
+		9873 9885 9944 10006
+	}
+}

@@ -1,0 +1,30 @@
+state={
+	id=134
+	name="STATE_134"
+	manpower = 1813911
+	state_category = large_town
+
+	history={
+		owner = AST
+		victory_points = {
+			14070 9
+		}
+		victory_points = {
+			14090 5
+		}
+		victory_points = {
+			14015 2
+		}
+		victory_points = {
+			14078 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = AST
+	}
+
+	provinces={
+		13758 13764 13810 13864 13890 13904 13925 13993 14014 14015 14070 14078 14090 14128 14133
+	}
+}

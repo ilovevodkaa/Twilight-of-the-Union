@@ -1,0 +1,24 @@
+state={
+	id=445
+	name="STATE_445"
+	manpower = 307669
+	state_category = rural
+
+	history={
+		owner = CGO
+		victory_points = {
+			11993 5
+		}
+		victory_points = {
+			11994 2
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = CGO
+	}
+
+	provinces={
+		11745 11839 11949 11993 11994
+	}
+}

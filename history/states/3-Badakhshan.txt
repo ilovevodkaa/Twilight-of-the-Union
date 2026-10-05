@@ -1,0 +1,18 @@
+state={
+	id=3
+	name="STATE_3"
+	manpower = 854105
+	state_category = town
+
+	history={
+		owner = AFG
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = AFG
+	}
+
+	provinces={
+		5089 5306 5344 5345 5588
+	}
+}

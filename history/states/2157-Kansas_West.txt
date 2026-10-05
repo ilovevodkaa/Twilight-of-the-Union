@@ -1,0 +1,18 @@
+state={
+	id=2157
+	name="STATE_2157"
+	manpower = 782896
+	state_category = town
+
+	history={
+		owner = USA
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = USA
+	}
+
+	provinces={
+		4740 4741 4868 5094 5116
+	}
+}

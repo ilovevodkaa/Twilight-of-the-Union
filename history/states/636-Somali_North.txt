@@ -1,0 +1,21 @@
+state={
+	id=636
+	name="STATE_636"
+	manpower = 2277594
+	state_category = city
+
+	history={
+		owner = ETH
+		victory_points = {
+			10236 4
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = ETH
+	}
+
+	provinces={
+		10215 10236 10337 10466 10585
+	}
+}

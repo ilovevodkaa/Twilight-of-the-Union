@@ -1,0 +1,18 @@
+state={
+	id=378
+	name="STATE_378"
+	manpower = 123553
+	state_category = pastoral
+
+	history={
+		owner = CAN
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = CAN
+	}
+
+	provinces={
+		227 254 346 458
+	}
+}

@@ -1,0 +1,21 @@
+state={
+	id=1889
+	name="STATE_1889"
+	manpower = 801317
+	state_category = town
+
+	history={
+		owner = SPR
+		victory_points = {
+			4414 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SPR
+	}
+
+	provinces={
+		4400 4414 4415 4520
+	}
+}

@@ -1,0 +1,18 @@
+state={
+	id=930
+	name="STATE_930"
+	manpower = 621845
+	state_category = town
+
+	history={
+		owner = MEX
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = MEX
+	}
+
+	provinces={
+		9119 9149 9158 9173 9218 9249 9289
+	}
+}

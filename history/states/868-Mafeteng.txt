@@ -1,0 +1,21 @@
+state={
+	id=868
+	name="STATE_868"
+	manpower = 1020128
+	state_category = large_town
+
+	history={
+		owner = LSO
+		victory_points = {
+			14225 9
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = LSO
+	}
+
+	provinces={
+		14205 14225 14229 14254 14268
+	}
+}

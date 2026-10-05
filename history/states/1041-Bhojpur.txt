@@ -1,0 +1,21 @@
+state={
+	id=1041
+	name="STATE_1041"
+	manpower = 2768808
+	state_category = city
+
+	history={
+		owner = NEP
+		victory_points = {
+			7769 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = NEP
+	}
+
+	provinces={
+		7576 7605 7620 7750 7751 7769
+	}
+}

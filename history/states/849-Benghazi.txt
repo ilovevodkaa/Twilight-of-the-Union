@@ -1,0 +1,27 @@
+state={
+	id=849
+	name="STATE_849"
+	manpower = 529809
+	state_category = town
+
+	history={
+		owner = LBA
+		victory_points = {
+			6618 6
+		}
+		victory_points = {
+			6527 3
+		}
+		victory_points = {
+			6574 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = LBA
+	}
+
+	provinces={
+		6526 6527 6574 6618 6757
+	}
+}

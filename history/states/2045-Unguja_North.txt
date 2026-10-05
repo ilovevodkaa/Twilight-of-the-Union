@@ -1,0 +1,24 @@
+state={
+	id=2045
+	name="STATE_2045"
+	manpower = 2333507
+	state_category = city
+
+	history={
+		owner = TZA
+		victory_points = {
+			12188 4
+		}
+		victory_points = {
+			12063 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = TZA
+	}
+
+	provinces={
+		12031 12063 12080 12101 12128 12150 12188
+	}
+}

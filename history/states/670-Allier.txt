@@ -1,0 +1,21 @@
+state={
+	id=670
+	name="STATE_670"
+	manpower = 646571
+	state_category = town
+
+	history={
+		owner = FRA
+		victory_points = {
+			2991 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = FRA
+	}
+
+	provinces={
+		2991 3136 3190
+	}
+}

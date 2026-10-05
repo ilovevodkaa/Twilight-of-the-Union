@@ -1,0 +1,21 @@
+state={
+	id=177
+	name="STATE_177"
+	manpower = 786234
+	state_category = town
+
+	history={
+		owner = BEN
+		victory_points = {
+			10436 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = BEN
+	}
+
+	provinces={
+		10270 10289 10395 10436
+	}
+}

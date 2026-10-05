@@ -1,0 +1,21 @@
+state={
+	id=898
+	name="STATE_898"
+	manpower = 1615390
+	state_category = large_town
+
+	history={
+		owner = MEX
+		victory_points = {
+			7336 6
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = MEX
+	}
+
+	provinces={
+		6939 7127 7157 7190 7316 7336
+	}
+}

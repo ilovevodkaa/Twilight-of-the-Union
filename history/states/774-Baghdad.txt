@@ -1,0 +1,30 @@
+state={
+	id=774
+	name="STATE_774"
+	manpower = 8234223
+	state_category = metropolis
+
+	history={
+		owner = IRQ
+		victory_points = {
+			6411 20
+		}
+		victory_points = {
+			6575 5
+		}
+		victory_points = {
+			6716 4
+		}
+		victory_points = {
+			6458 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = IRQ
+	}
+
+	provinces={
+		6411 6458 6575 6655 6716
+	}
+}

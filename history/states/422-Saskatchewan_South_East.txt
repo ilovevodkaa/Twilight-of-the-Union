@@ -1,0 +1,21 @@
+state={
+	id=422
+	name="STATE_422"
+	manpower = 340081
+	state_category = rural
+
+	history={
+		owner = CAN
+		victory_points = {
+			2362 3
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = CAN
+	}
+
+	provinces={
+		1850 1973 2071 2165 2314 2350 2362 2372
+	}
+}

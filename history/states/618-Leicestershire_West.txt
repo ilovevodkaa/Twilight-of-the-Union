@@ -1,0 +1,36 @@
+state={
+	id=618
+	name="STATE_618"
+	manpower = 2986566
+	state_category = city
+
+	history={
+		owner = ENG
+		victory_points = {
+			1909 5
+		}
+		victory_points = {
+			1908 4
+		}
+		victory_points = {
+			2119 4
+		}
+		victory_points = {
+			1964 3
+		}
+		victory_points = {
+			2008 3
+		}
+		victory_points = {
+			2036 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = ENG
+	}
+
+	provinces={
+		1880 1908 1909 1964 2007 2008 2036 2119 2120
+	}
+}

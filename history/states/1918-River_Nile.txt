@@ -1,0 +1,27 @@
+state={
+	id=1918
+	name="STATE_1918"
+	manpower = 1177146
+	state_category = large_town
+
+	history={
+		owner = SUD
+		victory_points = {
+			9086 3
+		}
+		victory_points = {
+			9375 3
+		}
+		victory_points = {
+			9270 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SUD
+	}
+
+	provinces={
+		8688 8957 9086 9156 9210 9270 9279 9301 9311 9363 9375 9381
+	}
+}

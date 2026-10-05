@@ -1,0 +1,30 @@
+state={
+	id=2264
+	name="STATE_2264"
+	manpower = 13480147
+	state_category = metropolis
+
+	history={
+		owner = VIN
+		victory_points = {
+			10173 15
+		}
+		victory_points = {
+			10151 5
+		}
+		victory_points = {
+			10245 4
+		}
+		victory_points = {
+			10106 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = VIN
+	}
+
+	provinces={
+		10031 10082 10106 10130 10151 10173 10232 10245
+	}
+}

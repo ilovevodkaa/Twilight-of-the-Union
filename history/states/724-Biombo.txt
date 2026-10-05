@@ -1,0 +1,21 @@
+state={
+	id=724
+	name="STATE_724"
+	manpower = 922042
+	state_category = town
+
+	history={
+		owner = GNB
+		victory_points = {
+			10063 9
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = GNB
+	}
+
+	provinces={
+		9967 9985 10013 10035 10044 10063 10107
+	}
+}

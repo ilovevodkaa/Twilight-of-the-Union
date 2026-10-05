@@ -1,0 +1,42 @@
+state={
+	id=30
+	name="STATE_30"
+	manpower = 2624643
+	state_category = city
+
+	history={
+		owner = ALG
+		victory_points = {
+			5439 5
+		}
+		victory_points = {
+			5611 5
+		}
+		victory_points = {
+			5437 3
+		}
+		victory_points = {
+			5438 3
+		}
+		victory_points = {
+			5559 3
+		}
+		victory_points = {
+			5612 3
+		}
+		victory_points = {
+			5825 3
+		}
+		victory_points = {
+			5694 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = ALG
+	}
+
+	provinces={
+		5437 5438 5439 5492 5559 5611 5612 5694 5724 5825 5914 6009 6086
+	}
+}

@@ -1,0 +1,18 @@
+state={
+	id=822
+	name="STATE_822"
+	manpower = 1327364
+	state_category = large_town
+
+	history={
+		owner = KEN
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = KEN
+	}
+
+	provinces={
+		11118 11134 11198 11245 11299 11334 11388
+	}
+}

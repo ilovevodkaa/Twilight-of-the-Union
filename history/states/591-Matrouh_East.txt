@@ -1,0 +1,21 @@
+state={
+	id=591
+	name="STATE_591"
+	manpower = 2006743
+	state_category = city
+
+	history={
+		owner = EGY
+		victory_points = {
+			6859 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = EGY
+	}
+
+	provinces={
+		6859 6927 6984 7100 7101 7144 7166 7241 7280 7384
+	}
+}

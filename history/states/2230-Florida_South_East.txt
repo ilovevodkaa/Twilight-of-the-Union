@@ -1,0 +1,36 @@
+state={
+	id=2230
+	name="STATE_2230"
+	manpower = 6112379
+	state_category = large_city
+
+	history={
+		owner = USA
+		victory_points = {
+			7947 15
+		}
+		victory_points = {
+			7870 9
+		}
+		victory_points = {
+			7732 7
+		}
+		victory_points = {
+			7876 4
+		}
+		victory_points = {
+			7758 3
+		}
+		victory_points = {
+			7988 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = USA
+	}
+
+	provinces={
+		7711 7732 7758 7759 7819 7870 7876 7890 7947 7965 7988 8076
+	}
+}
