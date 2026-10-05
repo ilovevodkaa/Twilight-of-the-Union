@@ -1,0 +1,27 @@
+state={
+	id=498
+	name="STATE_498"
+	manpower = 999231
+	state_category = town
+
+	history={
+		owner = CMR
+		victory_points = {
+			10886 5
+		}
+		victory_points = {
+			10783 3
+		}
+		victory_points = {
+			10825 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = CMR
+	}
+
+	provinces={
+		10783 10825 10886
+	}
+}

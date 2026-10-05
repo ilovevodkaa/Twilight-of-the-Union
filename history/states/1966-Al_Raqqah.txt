@@ -1,0 +1,24 @@
+state={
+	id=1966
+	name="STATE_1966"
+	manpower = 668395
+	state_category = town
+
+	history={
+		owner = SYR
+		victory_points = {
+			5742 3
+		}
+		victory_points = {
+			5652 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SYR
+	}
+
+	provinces={
+		5536 5545 5652 5709 5742 5786
+	}
+}

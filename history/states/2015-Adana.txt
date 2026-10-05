@@ -1,0 +1,27 @@
+state={
+	id=2015
+	name="STATE_2015"
+	manpower = 2599917
+	state_category = city
+
+	history={
+		owner = TUR
+		victory_points = {
+			5423 7
+		}
+		victory_points = {
+			5534 4
+		}
+		victory_points = {
+			5585 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = TUR
+	}
+
+	provinces={
+		5084 5210 5269 5270 5321 5361 5412 5423 5534 5585
+	}
+}

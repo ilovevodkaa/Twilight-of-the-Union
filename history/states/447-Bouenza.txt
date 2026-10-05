@@ -1,0 +1,18 @@
+state={
+	id=447
+	name="STATE_447"
+	manpower = 61044
+	state_category = pastoral
+
+	history={
+		owner = CGO
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = CGO
+	}
+
+	provinces={
+		11942 11950 11995
+	}
+}

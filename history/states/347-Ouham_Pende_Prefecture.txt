@@ -1,0 +1,18 @@
+state={
+	id=347
+	name="STATE_347"
+	manpower = 78692
+	state_category = pastoral
+
+	history={
+		owner = CAF
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = CAF
+	}
+
+	provinces={
+		10702 10747 10844
+	}
+}

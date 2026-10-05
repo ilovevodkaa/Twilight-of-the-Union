@@ -1,0 +1,24 @@
+state={
+	id=1931
+	name="STATE_1931"
+	manpower = 972432
+	state_category = town
+
+	history={
+		owner = SUD
+		victory_points = {
+			9783 4
+		}
+		victory_points = {
+			9861 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SUD
+	}
+
+	provinces={
+		9775 9783 9861 9972
+	}
+}

@@ -1,0 +1,18 @@
+state={
+	id=216
+	name="STATE_216"
+	manpower = 848263
+	state_category = town
+
+	history={
+		owner = BRA
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = BRA
+	}
+
+	provinces={
+		11620 11732 11738 11739 11859 11867 11881 11961 11969 11970
+	}
+}

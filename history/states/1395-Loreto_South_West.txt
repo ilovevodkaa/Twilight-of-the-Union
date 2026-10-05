@@ -1,0 +1,18 @@
+state={
+	id=1395
+	name="STATE_1395"
+	manpower = 715097
+	state_category = town
+
+	history={
+		owner = PRU
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = PRU
+	}
+
+	provinces={
+		11954 12023 12057 12070 12071 12130 12182 12226 12302
+	}
+}

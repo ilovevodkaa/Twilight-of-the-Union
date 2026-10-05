@@ -1,0 +1,18 @@
+state={
+	id=109
+	name="STATE_109"
+	manpower = 100939
+	state_category = pastoral
+
+	history={
+		owner = AST
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = AST
+	}
+
+	provinces={
+		13124 13141 13160 13234 13235 13313
+	}
+}

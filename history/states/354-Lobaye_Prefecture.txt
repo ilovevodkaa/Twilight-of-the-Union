@@ -1,0 +1,21 @@
+state={
+	id=354
+	name="STATE_354"
+	manpower = 172269
+	state_category = rural
+
+	history={
+		owner = CAF
+		victory_points = {
+			11115 2
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = CAF
+	}
+
+	provinces={
+		11060 11115 11133 11162
+	}
+}

@@ -1,0 +1,18 @@
+state={
+	id=973
+	name="STATE_973"
+	manpower = 240784
+	state_category = rural
+
+	history={
+		owner = MOR
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = MOR
+	}
+
+	provinces={
+		6569 6587 6676
+	}
+}

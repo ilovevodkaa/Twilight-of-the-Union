@@ -1,0 +1,21 @@
+state={
+	id=423
+	name="STATE_423"
+	manpower = 692064
+	state_category = town
+
+	history={
+		owner = CAN
+		victory_points = {
+			2363 5
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = CAN
+	}
+
+	provinces={
+		1861 1974 2058 2166 2177 2224 2315 2323 2335 2363 2430
+	}
+}

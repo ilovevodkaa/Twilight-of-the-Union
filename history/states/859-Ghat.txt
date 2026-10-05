@@ -1,0 +1,18 @@
+state={
+	id=859
+	name="STATE_859"
+	manpower = 48031
+	state_category = pastoral
+
+	history={
+		owner = LBA
+		buildings = {
+			infrastructure = 1
+		}
+		add_core_of = LBA
+	}
+
+	provinces={
+		7627 7666 7978
+	}
+}

@@ -1,0 +1,24 @@
+state={
+	id=2141
+	name="STATE_2141"
+	manpower = 694095
+	state_category = town
+
+	history={
+		owner = USA
+		victory_points = {
+			4154 3
+		}
+		victory_points = {
+			4375 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = USA
+	}
+
+	provinces={
+		4154 4155 4199 4375 4397
+	}
+}

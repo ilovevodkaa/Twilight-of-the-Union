@@ -1,0 +1,21 @@
+state={
+	id=182
+	name="STATE_182"
+	manpower = 3020154
+	state_category = city
+
+	history={
+		owner = BFA
+		victory_points = {
+			9921 11
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = BFA
+	}
+
+	provinces={
+		9793 9909 9921
+	}
+}

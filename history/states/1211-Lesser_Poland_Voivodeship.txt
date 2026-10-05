@@ -1,0 +1,21 @@
+state={
+	id=1211
+	name="STATE_1211"
+	manpower = 2397575
+	state_category = city
+
+	history={
+		owner = POL
+		victory_points = {
+			2391 7
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = POL
+	}
+
+	provinces={
+		2391 2407 2420 2467 2513
+	}
+}

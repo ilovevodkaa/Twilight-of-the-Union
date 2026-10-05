@@ -1,0 +1,24 @@
+state={
+	id=1973
+	name="STATE_1973"
+	manpower = 4639033
+	state_category = large_city
+
+	history={
+		owner = TRJ
+		victory_points = {
+			6739 12
+		}
+		victory_points = {
+			6698 6
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = TRJ
+	}
+
+	provinces={
+		6698 6739 6759 6814
+	}
+}

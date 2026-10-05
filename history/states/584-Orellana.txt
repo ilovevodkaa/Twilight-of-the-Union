@@ -1,0 +1,18 @@
+state={
+	id=584
+	name="STATE_584"
+	manpower = 508353
+	state_category = town
+
+	history={
+		owner = ECU
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = ECU
+	}
+
+	provinces={
+		11537 11554 11561 11592 11608
+	}
+}

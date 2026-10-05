@@ -1,0 +1,21 @@
+state={
+	id=2297
+	name="STATE_2297"
+	manpower = 1987611
+	state_category = large_town
+
+	history={
+		owner = ZAI
+		victory_points = {
+			11461 5
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = ZAI
+	}
+
+	provinces={
+		11461 11498 11541 11556 11565 11586 11638 11667
+	}
+}

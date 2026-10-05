@@ -1,0 +1,21 @@
+state={
+	id=1924
+	name="STATE_1924"
+	manpower = 8440567
+	state_category = metropolis
+
+	history={
+		owner = SUD
+		victory_points = {
+			9480 16
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = SUD
+	}
+
+	provinces={
+		9400 9456 9480 9481
+	}
+}

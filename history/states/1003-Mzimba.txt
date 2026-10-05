@@ -1,0 +1,21 @@
+state={
+	id=1003
+	name="STATE_1003"
+	manpower = 1816184
+	state_category = large_town
+
+	history={
+		owner = MWI
+		victory_points = {
+			12623 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = MWI
+	}
+
+	provinces={
+		12539 12623 12691 12766
+	}
+}

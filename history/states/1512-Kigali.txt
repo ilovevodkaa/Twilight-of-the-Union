@@ -1,0 +1,33 @@
+state={
+	id=1512
+	name="STATE_1512"
+	manpower = 6060936
+	state_category = large_city
+
+	history={
+		owner = RWA
+		victory_points = {
+			11696 9
+		}
+		victory_points = {
+			11778 5
+		}
+		victory_points = {
+			11711 3
+		}
+		victory_points = {
+			11756 3
+		}
+		victory_points = {
+			11842 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = RWA
+	}
+
+	provinces={
+		11668 11696 11711 11748 11756 11761 11778 11829 11830 11842
+	}
+}

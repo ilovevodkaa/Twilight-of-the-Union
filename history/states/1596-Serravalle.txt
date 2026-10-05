@@ -1,0 +1,21 @@
+state={
+	id=1596
+	name="STATE_1596"
+	manpower = 32844
+	state_category = small_island
+
+	history={
+		owner = SMR
+		victory_points = {
+			3721 7
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		add_core_of = SMR
+	}
+
+	provinces={
+		3721
+	}
+}

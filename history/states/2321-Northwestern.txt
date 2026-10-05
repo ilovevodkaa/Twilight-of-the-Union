@@ -1,0 +1,21 @@
+state={
+	id=2321
+	name="STATE_2321"
+	manpower = 774295
+	state_category = town
+
+	history={
+		owner = ZAM
+		victory_points = {
+			12710 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = ZAM
+	}
+
+	provinces={
+		12647 12673 12710 12723 12745 12758 12780 12806 12821 12822 12823 12849 12863
+	}
+}

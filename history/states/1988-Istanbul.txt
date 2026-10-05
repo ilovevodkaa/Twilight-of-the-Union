@@ -1,0 +1,27 @@
+state={
+	id=1988
+	name="STATE_1988"
+	manpower = 11345973
+	state_category = metropolis
+
+	history={
+		owner = TUR
+		victory_points = {
+			4385 19
+		}
+		victory_points = {
+			4403 5
+		}
+		victory_points = {
+			4421 4
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = TUR
+	}
+
+	provinces={
+		4315 4369 4385 4403 4420 4421
+	}
+}

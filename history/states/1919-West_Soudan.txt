@@ -1,0 +1,21 @@
+state={
+	id=1919
+	name="STATE_1919"
+	manpower = 425026
+	state_category = rural
+
+	history={
+		owner = SUD
+		victory_points = {
+			9805 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SUD
+	}
+
+	provinces={
+		9520 9656 9805
+	}
+}

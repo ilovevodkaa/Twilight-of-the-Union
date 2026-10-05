@@ -1,0 +1,18 @@
+state={
+	id=606
+	name="STATE_606"
+	manpower = 2265021
+	state_category = city
+
+	history={
+		owner = ENG
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = ENG
+	}
+
+	provinces={
+		973 1045 1046 1064 1162
+	}
+}

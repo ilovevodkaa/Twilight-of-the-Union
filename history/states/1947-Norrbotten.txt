@@ -1,0 +1,18 @@
+state={
+	id=1947
+	name="STATE_1947"
+	manpower = 809245
+	state_category = town
+
+	history={
+		owner = SWE
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SWE
+	}
+
+	provinces={
+		272 291 319 326 375 392
+	}
+}

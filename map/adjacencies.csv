@@ -1,0 +1,10 @@
+From;To;Type;Through;start_x;start_y;stop_x;stop_y;adjacency_rule_name;Comment
+15424;15468;sea;-1;-1;-1;-1;-1;;Bosporus
+15468;15470;sea;-1;-1;-1;-1;-1;;Dardanelles
+15207;15162;sea;-1;-1;-1;-1;-1;;Oresund
+15391;15364;sea;-1;-1;-1;-1;-1;;Kerch
+15504;15524;sea;-1;-1;-1;-1;-1;;Messina
+15631;15692;sea;7042;-1;-1;-1;-1;;Suez Canal
+16211;16302;sea;10420;-1;-1;-1;-1;;Panama Canal
+15226;15206;sea;1549;-1;-1;-1;-1;;Kiel Canal
+-1;-1;;;;;;;;

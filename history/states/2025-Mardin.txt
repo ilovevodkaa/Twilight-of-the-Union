@@ -1,0 +1,27 @@
+state={
+	id=2025
+	name="STATE_2025"
+	manpower = 1139108
+	state_category = large_town
+
+	history={
+		owner = TUR
+		victory_points = {
+			5239 4
+		}
+		victory_points = {
+			5271 2
+		}
+		victory_points = {
+			5272 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = TUR
+	}
+
+	provinces={
+		5066 5239 5271 5272 5302
+	}
+}

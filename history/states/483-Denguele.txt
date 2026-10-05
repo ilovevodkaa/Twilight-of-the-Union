@@ -1,0 +1,18 @@
+state={
+	id=483
+	name="STATE_483"
+	manpower = 350051
+	state_category = rural
+
+	history={
+		owner = CIV
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = CIV
+	}
+
+	provinces={
+		10303 10315 10435
+	}
+}

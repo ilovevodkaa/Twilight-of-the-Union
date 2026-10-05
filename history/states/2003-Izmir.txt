@@ -1,0 +1,21 @@
+state={
+	id=2003
+	name="STATE_2003"
+	manpower = 3098355
+	state_category = city
+
+	history={
+		owner = TUR
+		victory_points = {
+			4956 10
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = TUR
+	}
+
+	provinces={
+		4855 4956 5034 5065 5100
+	}
+}

@@ -1,0 +1,21 @@
+state={
+	id=865
+	name="STATE_865"
+	manpower = 1963587
+	state_category = large_town
+
+	history={
+		owner = LIB
+		victory_points = {
+			10821 13
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = LIB
+	}
+
+	provinces={
+		10611 10620 10715 10743 10754 10821 10864 10865 10932
+	}
+}

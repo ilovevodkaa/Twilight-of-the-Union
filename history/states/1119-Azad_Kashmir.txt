@@ -1,0 +1,18 @@
+state={
+	id=1119
+	name="STATE_1119"
+	manpower = 830204
+	state_category = town
+
+	history={
+		owner = PAK
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = PAK
+	}
+
+	provinces={
+		5994 5995 6133 6359
+	}
+}

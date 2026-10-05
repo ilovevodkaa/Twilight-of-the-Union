@@ -1,0 +1,18 @@
+state={
+	id=1134
+	name="STATE_1134"
+	manpower = 299788
+	state_category = rural
+
+	history={
+		owner = PAR
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = PAR
+	}
+
+	provinces={
+		13391 13392 13400 13475 13516 13585
+	}
+}

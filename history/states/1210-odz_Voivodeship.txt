@@ -1,0 +1,21 @@
+state={
+	id=1210
+	name="STATE_1210"
+	manpower = 2809638
+	state_category = city
+
+	history={
+		owner = POL
+		victory_points = {
+			2012 7
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = POL
+	}
+
+	provinces={
+		2012 2024 2099 2100 2126 2171
+	}
+}

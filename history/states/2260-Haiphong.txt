@@ -1,0 +1,24 @@
+state={
+	id=2260
+	name="STATE_2260"
+	manpower = 4785453
+	state_category = large_city
+
+	history={
+		owner = VIN
+		victory_points = {
+			8835 9
+		}
+		victory_points = {
+			8794 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = VIN
+	}
+
+	provinces={
+		8739 8794 8835
+	}
+}

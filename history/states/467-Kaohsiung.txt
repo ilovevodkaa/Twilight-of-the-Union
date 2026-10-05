@@ -1,0 +1,27 @@
+state={
+	id=467
+	name="STATE_467"
+	manpower = 4727161
+	state_category = large_city
+
+	history={
+		owner = CHI
+		victory_points = {
+			8544 9
+		}
+		victory_points = {
+			8451 6
+		}
+		victory_points = {
+			8445 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = CHI
+	}
+
+	provinces={
+		8429 8445 8451 8544
+	}
+}

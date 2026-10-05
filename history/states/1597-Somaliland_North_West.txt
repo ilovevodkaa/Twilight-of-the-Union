@@ -1,0 +1,30 @@
+state={
+	id=1597
+	name="STATE_1597"
+	manpower = 1518814
+	state_category = large_town
+
+	history={
+		owner = SOM
+		victory_points = {
+			10411 5
+		}
+		victory_points = {
+			10293 4
+		}
+		victory_points = {
+			10292 2
+		}
+		victory_points = {
+			10388 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SOM
+	}
+
+	provinces={
+		10141 10228 10237 10259 10292 10293 10365 10387 10388 10411 10467
+	}
+}

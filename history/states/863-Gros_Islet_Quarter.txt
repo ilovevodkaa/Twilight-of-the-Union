@@ -1,0 +1,21 @@
+state={
+	id=863
+	name="STATE_863"
+	manpower = 137092
+	state_category = small_island
+
+	history={
+		owner = LCA
+		victory_points = {
+			9754 7
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = LCA
+	}
+
+	provinces={
+		9754
+	}
+}

@@ -1,0 +1,30 @@
+state={
+	id=905
+	name="STATE_905"
+	manpower = 2552990
+	state_category = city
+
+	history={
+		owner = MEX
+		victory_points = {
+			8150 6
+		}
+		victory_points = {
+			7755 4
+		}
+		victory_points = {
+			8390 4
+		}
+		victory_points = {
+			7999 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = MEX
+	}
+
+	provinces={
+		7755 7756 7974 7999 8150 8163 8265 8390
+	}
+}

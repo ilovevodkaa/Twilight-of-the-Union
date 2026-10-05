@@ -1,0 +1,24 @@
+state={
+	id=738
+	name="STATE_738"
+	manpower = 2369242
+	state_category = city
+
+	history={
+		owner = GUA
+		victory_points = {
+			9603 3
+		}
+		victory_points = {
+			9753 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = GUA
+	}
+
+	provinces={
+		9603 9641 9659 9711 9753
+	}
+}

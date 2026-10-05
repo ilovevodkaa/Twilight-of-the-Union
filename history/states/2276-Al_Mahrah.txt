@@ -1,0 +1,18 @@
+state={
+	id=2276
+	name="STATE_2276"
+	manpower = 215463
+	state_category = rural
+
+	history={
+		owner = YES
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = YES
+	}
+
+	provinces={
+		9102 9288 9347 9383 9977
+	}
+}

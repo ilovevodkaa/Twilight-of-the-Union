@@ -1,0 +1,21 @@
+state={
+	id=1956
+	name="STATE_1956"
+	manpower = 2582015
+	state_category = city
+
+	history={
+		owner = SWE
+		victory_points = {
+			944 13
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = SWE
+	}
+
+	provinces={
+		884 944 1120
+	}
+}

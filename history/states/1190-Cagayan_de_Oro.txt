@@ -1,0 +1,33 @@
+state={
+	id=1190
+	name="STATE_1190"
+	manpower = 10701243
+	state_category = metropolis
+
+	history={
+		owner = PHI
+		victory_points = {
+			10587 7
+		}
+		victory_points = {
+			10733 7
+		}
+		victory_points = {
+			10861 6
+		}
+		victory_points = {
+			10649 5
+		}
+		victory_points = {
+			10684 4
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = PHI
+	}
+
+	provinces={
+		10587 10649 10684 10732 10733 10775 10848 10861
+	}
+}

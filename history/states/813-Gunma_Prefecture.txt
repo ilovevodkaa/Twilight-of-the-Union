@@ -1,0 +1,24 @@
+state={
+	id=813
+	name="STATE_813"
+	manpower = 1767486
+	state_category = large_town
+
+	history={
+		owner = JAP
+		victory_points = {
+			5456 4
+		}
+		victory_points = {
+			5661 4
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = JAP
+	}
+
+	provinces={
+		5456 5528 5646 5661
+	}
+}

@@ -1,0 +1,33 @@
+state={
+	id=1991
+	name="STATE_1991"
+	manpower = 5330471
+	state_category = large_city
+
+	history={
+		owner = TUR
+		victory_points = {
+			4561 17
+		}
+		victory_points = {
+			4646 3
+		}
+		victory_points = {
+			4804 2
+		}
+		victory_points = {
+			4912 2
+		}
+		victory_points = {
+			5004 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = TUR
+	}
+
+	provinces={
+		4561 4630 4631 4646 4701 4750 4770 4804 4856 4876 4912 5004
+	}
+}

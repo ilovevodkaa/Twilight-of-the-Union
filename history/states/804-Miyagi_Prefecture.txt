@@ -1,0 +1,27 @@
+state={
+	id=804
+	name="STATE_804"
+	manpower = 5790311
+	state_category = large_city
+
+	history={
+		owner = JAP
+		victory_points = {
+			4967 11
+		}
+		victory_points = {
+			4624 4
+		}
+		victory_points = {
+			4934 4
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = JAP
+	}
+
+	provinces={
+		4624 4810 4934 4967 5056 5131
+	}
+}

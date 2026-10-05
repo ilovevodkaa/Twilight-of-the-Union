@@ -1,0 +1,24 @@
+state={
+	id=539
+	name="STATE_539"
+	manpower = 611239
+	state_category = town
+
+	history={
+		owner = CUB
+		victory_points = {
+			8453 3
+		}
+		victory_points = {
+			8467 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = CUB
+	}
+
+	provinces={
+		8453 8467 8468
+	}
+}

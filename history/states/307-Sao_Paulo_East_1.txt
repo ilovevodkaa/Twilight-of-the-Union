@@ -1,0 +1,39 @@
+state={
+	id=307
+	name="STATE_307"
+	manpower = 18921272
+	state_category = megalopolis
+
+	history={
+		owner = BRA
+		victory_points = {
+			13748 24
+		}
+		victory_points = {
+			13693 10
+		}
+		victory_points = {
+			13790 8
+		}
+		victory_points = {
+			13755 5
+		}
+		victory_points = {
+			13744 4
+		}
+		victory_points = {
+			13735 3
+		}
+		victory_points = {
+			13800 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = BRA
+	}
+
+	provinces={
+		13688 13693 13735 13744 13748 13755 13790 13794 13800
+	}
+}

@@ -1,0 +1,18 @@
+state={
+	id=2051
+	name="STATE_2051"
+	manpower = 744010
+	state_category = town
+
+	history={
+		owner = TZA
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = TZA
+	}
+
+	provinces={
+		12429 12463 12475 12534 12535 12547
+	}
+}

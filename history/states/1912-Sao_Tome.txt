@@ -1,0 +1,21 @@
+state={
+	id=1912
+	name="STATE_1912"
+	manpower = 103226
+	state_category = small_island
+
+	history={
+		owner = STP
+		victory_points = {
+			11497 7
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = STP
+	}
+
+	provinces={
+		11497
+	}
+}

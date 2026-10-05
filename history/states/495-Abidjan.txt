@@ -1,0 +1,24 @@
+state={
+	id=495
+	name="STATE_495"
+	manpower = 4612135
+	state_category = large_city
+
+	history={
+		owner = CIV
+		victory_points = {
+			10960 16
+		}
+		victory_points = {
+			10988 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = CIV
+	}
+
+	provinces={
+		10896 10960 10988
+	}
+}

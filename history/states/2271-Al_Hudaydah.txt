@@ -1,0 +1,27 @@
+state={
+	id=2271
+	name="STATE_2271"
+	manpower = 2351629
+	state_category = city
+
+	history={
+		owner = YEM
+		victory_points = {
+			9611 4
+		}
+		victory_points = {
+			9821 4
+		}
+		victory_points = {
+			9719 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = YEM
+	}
+
+	provinces={
+		9509 9611 9719 9807 9821
+	}
+}

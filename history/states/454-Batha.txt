@@ -1,0 +1,18 @@
+state={
+	id=454
+	name="STATE_454"
+	manpower = 396629
+	state_category = rural
+
+	history={
+		owner = CHD
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = CHD
+	}
+
+	provinces={
+		9462 9557 9619 9774 9804
+	}
+}

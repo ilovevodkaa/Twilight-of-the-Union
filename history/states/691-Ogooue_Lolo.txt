@@ -1,0 +1,18 @@
+state={
+	id=691
+	name="STATE_691"
+	manpower = 51208
+	state_category = pastoral
+
+	history={
+		owner = GAB
+		buildings = {
+			infrastructure = 1
+		}
+		add_core_of = GAB
+	}
+
+	provinces={
+		11513 11585 11601
+	}
+}

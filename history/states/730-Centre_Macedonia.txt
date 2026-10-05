@@ -1,0 +1,24 @@
+state={
+	id=730
+	name="STATE_730"
+	manpower = 1840501
+	state_category = large_town
+
+	history={
+		owner = GRE
+		victory_points = {
+			4511 7
+		}
+		victory_points = {
+			4314 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = GRE
+	}
+
+	provinces={
+		4185 4186 4314 4366 4367 4382 4510 4511 4596
+	}
+}

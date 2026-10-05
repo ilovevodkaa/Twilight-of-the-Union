@@ -1,0 +1,18 @@
+state={
+	id=383
+	name="STATE_383"
+	manpower = 252959
+	state_category = rural
+
+	history={
+		owner = CAN
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = CAN
+	}
+
+	provinces={
+		373 398 496 539 556 593 711 728 734
+	}
+}

@@ -1,0 +1,27 @@
+state={
+	id=434
+	name="STATE_434"
+	manpower = 1616868
+	state_category = large_town
+
+	history={
+		owner = CAN
+		victory_points = {
+			3413 12
+		}
+		victory_points = {
+			3637 5
+		}
+		victory_points = {
+			3536 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = CAN
+	}
+
+	provinces={
+		3255 3301 3315 3412 3413 3414 3430 3534 3535 3536 3637
+	}
+}

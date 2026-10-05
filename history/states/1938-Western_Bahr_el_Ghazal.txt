@@ -1,0 +1,21 @@
+state={
+	id=1938
+	name="STATE_1938"
+	manpower = 471436
+	state_category = rural
+
+	history={
+		owner = SUD
+		victory_points = {
+			10693 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SUD
+	}
+
+	provinces={
+		10317 10513 10643 10644 10693
+	}
+}

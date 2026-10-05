@@ -1,0 +1,18 @@
+state={
+	id=323
+	name="STATE_323"
+	manpower = 1232869
+	state_category = large_town
+
+	history={
+		owner = BRM
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = BRM
+	}
+
+	provinces={
+		8310 8321 8552 8553 8729
+	}
+}

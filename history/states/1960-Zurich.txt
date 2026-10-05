@@ -1,0 +1,24 @@
+state={
+	id=1960
+	name="STATE_1960"
+	manpower = 4608416
+	state_category = large_city
+
+	history={
+		owner = SWI
+		victory_points = {
+			2995 8
+		}
+		victory_points = {
+			3259 4
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = SWI
+	}
+
+	provinces={
+		2995 3084 3121 3122 3191 3259
+	}
+}

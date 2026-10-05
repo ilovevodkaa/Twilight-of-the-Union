@@ -1,0 +1,18 @@
+state={
+	id=39
+	name="STATE_39"
+	manpower = 660300
+	state_category = town
+
+	history={
+		owner = ALG
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = ALG
+	}
+
+	provinces={
+		6829 7143 7278 7383 7476 7491 7585 7586 7746
+	}
+}

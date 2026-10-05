@@ -1,0 +1,18 @@
+state={
+	id=828
+	name="STATE_828"
+	manpower = 297739
+	state_category = rural
+
+	history={
+		owner = KEN
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = KEN
+	}
+
+	provinces={
+		11697 11726 11780 11781
+	}
+}

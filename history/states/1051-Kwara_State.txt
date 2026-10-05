@@ -1,0 +1,21 @@
+state={
+	id=1051
+	name="STATE_1051"
+	manpower = 2277008
+	state_category = city
+
+	history={
+		owner = NGA
+		victory_points = {
+			10560 6
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = NGA
+	}
+
+	provinces={
+		10343 10405 10406 10447 10471 10509 10560
+	}
+}

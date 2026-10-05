@@ -1,0 +1,21 @@
+state={
+	id=1094
+	name="STATE_1094"
+	manpower = 669613
+	state_category = town
+
+	history={
+		owner = NOR
+		victory_points = {
+			935 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = NOR
+	}
+
+	provinces={
+		935 951 989
+	}
+}

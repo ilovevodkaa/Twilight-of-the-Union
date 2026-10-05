@@ -1,0 +1,24 @@
+state={
+	id=997
+	name="STATE_997"
+	manpower = 1023206
+	state_category = large_town
+
+	history={
+		owner = MRT
+		victory_points = {
+			9182 11
+		}
+		victory_points = {
+			9308 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = MRT
+	}
+
+	provinces={
+		9098 9099 9106 9182 9195 9233 9308
+	}
+}

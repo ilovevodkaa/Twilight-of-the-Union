@@ -1,0 +1,27 @@
+state={
+	id=89
+	name="STATE_89"
+	manpower = 10226860
+	state_category = metropolis
+
+	history={
+		owner = ARG
+		victory_points = {
+			14553 28
+		}
+		victory_points = {
+			14566 6
+		}
+		victory_points = {
+			14532 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = ARG
+	}
+
+	provinces={
+		14532 14553 14562 14566 14576 14581 14591 14594 14596
+	}
+}

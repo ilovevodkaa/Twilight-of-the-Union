@@ -1,0 +1,21 @@
+state={
+	id=954
+	name="STATE_954"
+	manpower = 134768
+	state_category = pastoral
+
+	history={
+		owner = MON
+		victory_points = {
+			2424 2
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = MON
+	}
+
+	provinces={
+		2414 2424 2722
+	}
+}

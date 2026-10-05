@@ -1,0 +1,27 @@
+state={
+	id=1481
+	name="STATE_1481"
+	manpower = 24263253
+	state_category = megalopolis
+
+	history={
+		owner = RAJ
+		victory_points = {
+			9265 15
+		}
+		victory_points = {
+			9171 7
+		}
+		victory_points = {
+			9123 4
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = RAJ
+	}
+
+	provinces={
+		9052 9089 9123 9170 9171 9202 9213 9265 9266
+	}
+}

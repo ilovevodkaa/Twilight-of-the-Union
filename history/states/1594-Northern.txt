@@ -1,0 +1,21 @@
+state={
+	id=1594
+	name="STATE_1594"
+	manpower = 721600
+	state_category = town
+
+	history={
+		owner = SLE
+		victory_points = {
+			10497 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SLE
+	}
+
+	provinces={
+		10385 10392 10404 10487 10497
+	}
+}

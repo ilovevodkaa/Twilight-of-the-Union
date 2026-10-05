@@ -1,0 +1,21 @@
+state={
+	id=504
+	name="STATE_504"
+	manpower = 1229494
+	state_category = large_town
+
+	history={
+		owner = CMR
+		victory_points = {
+			11086 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = CMR
+	}
+
+	provinces={
+		10935 10942 11068 11082 11086 11166 11167 11190 11235 11243
+	}
+}

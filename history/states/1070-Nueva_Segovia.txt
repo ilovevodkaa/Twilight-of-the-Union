@@ -1,0 +1,21 @@
+state={
+	id=1070
+	name="STATE_1070"
+	manpower = 577714
+	state_category = town
+
+	history={
+		owner = NIC
+		victory_points = {
+			9816 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = NIC
+	}
+
+	provinces={
+		9689 9772 9816 9826
+	}
+}

@@ -1,0 +1,21 @@
+state={
+	id=1465
+	name="STATE_1465"
+	manpower = 3864808
+	state_category = city
+
+	history={
+		owner = RAJ
+		victory_points = {
+			8259 4
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = RAJ
+	}
+
+	provinces={
+		8259 8337 8386 8529
+	}
+}

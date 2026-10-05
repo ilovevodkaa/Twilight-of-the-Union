@@ -1,0 +1,21 @@
+state={
+	id=1527
+	name="STATE_1527"
+	manpower = 740590
+	state_category = town
+
+	history={
+		owner = SAF
+		victory_points = {
+			14073 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SAF
+	}
+
+	provinces={
+		13912 14012 14043 14073 14119 14152 14204
+	}
+}

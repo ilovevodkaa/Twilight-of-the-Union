@@ -1,0 +1,24 @@
+state={
+	id=1897
+	name="STATE_1897"
+	manpower = 2086441
+	state_category = city
+
+	history={
+		owner = SPR
+		victory_points = {
+			4782 7
+		}
+		victory_points = {
+			4642 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = SPR
+	}
+
+	provinces={
+		4521 4642 4675 4782
+	}
+}

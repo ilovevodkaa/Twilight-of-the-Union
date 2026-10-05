@@ -1,0 +1,21 @@
+state={
+	id=1970
+	name="STATE_1970"
+	manpower = 1236928
+	state_category = large_town
+
+	history={
+		owner = TGO
+		victory_points = {
+			10499 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = TGO
+	}
+
+	provinces={
+		10209 10342 10370 10499 10542
+	}
+}

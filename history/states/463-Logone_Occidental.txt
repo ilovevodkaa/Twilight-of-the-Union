@@ -1,0 +1,21 @@
+state={
+	id=463
+	name="STATE_463"
+	manpower = 1030118
+	state_category = large_town
+
+	history={
+		owner = CHD
+		victory_points = {
+			10490 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = CHD
+	}
+
+	provinces={
+		10490 10521 10607
+	}
+}

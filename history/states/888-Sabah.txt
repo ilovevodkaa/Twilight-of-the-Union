@@ -1,0 +1,30 @@
+state={
+	id=888
+	name="STATE_888"
+	manpower = 3165043
+	state_category = city
+
+	history={
+		owner = MAL
+		victory_points = {
+			10905 5
+		}
+		victory_points = {
+			10882 4
+		}
+		victory_points = {
+			11045 4
+		}
+		victory_points = {
+			10971 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = MAL
+	}
+
+	provinces={
+		10808 10882 10905 10970 10971 11010 11045 11056
+	}
+}

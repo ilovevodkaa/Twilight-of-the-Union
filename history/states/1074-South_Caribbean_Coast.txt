@@ -1,0 +1,18 @@
+state={
+	id=1074
+	name="STATE_1074"
+	manpower = 656814
+	state_category = town
+
+	history={
+		owner = NIC
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = NIC
+	}
+
+	provinces={
+		9890 9904 10010 10011 10062 10133
+	}
+}

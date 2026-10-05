@@ -1,0 +1,18 @@
+state={
+	id=149
+	name="STATE_149"
+	manpower = 200481
+	state_category = rural
+
+	history={
+		owner = AST
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = AST
+	}
+
+	provinces={
+		14275 14288 14326 14346 14367 14384 14412 14431
+	}
+}

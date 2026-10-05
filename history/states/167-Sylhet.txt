@@ -1,0 +1,21 @@
+state={
+	id=167
+	name="STATE_167"
+	manpower = 3592333
+	state_category = city
+
+	history={
+		owner = BAN
+		victory_points = {
+			8125 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = BAN
+	}
+
+	provinces={
+		8124 8125 8203
+	}
+}

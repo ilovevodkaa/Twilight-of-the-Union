@@ -1,0 +1,24 @@
+state={
+	id=983
+	name="STATE_983"
+	manpower = 943905
+	state_category = town
+
+	history={
+		owner = MOZ
+		victory_points = {
+			12787 3
+		}
+		victory_points = {
+			12816 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = MOZ
+	}
+
+	provinces={
+		12624 12674 12725 12755 12786 12787 12816
+	}
+}

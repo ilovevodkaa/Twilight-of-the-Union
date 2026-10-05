@@ -1,0 +1,24 @@
+state={
+	id=1020
+	name="STATE_1020"
+	manpower = 6468871
+	state_category = large_city
+
+	history={
+		owner = NEI
+		victory_points = {
+			11855 8
+		}
+		victory_points = {
+			11854 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = NEI
+	}
+
+	provinces={
+		11743 11749 11809 11810 11853 11854 11855 11894 11918 11944 11991
+	}
+}

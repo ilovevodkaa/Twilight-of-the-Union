@@ -1,0 +1,33 @@
+state={
+	id=2265
+	name="STATE_2265"
+	manpower = 5817719
+	state_category = large_city
+
+	history={
+		owner = VIN
+		victory_points = {
+			9956 4
+		}
+		victory_points = {
+			9982 4
+		}
+		victory_points = {
+			10059 4
+		}
+		victory_points = {
+			10161 4
+		}
+		victory_points = {
+			10060 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = VIN
+	}
+
+	provinces={
+		9888 9889 9945 9956 9982 10032 10059 10060 10131 10161
+	}
+}

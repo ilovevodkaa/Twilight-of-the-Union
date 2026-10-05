@@ -1,0 +1,21 @@
+state={
+	id=2061
+	name="STATE_2061"
+	manpower = 139074
+	state_category = pastoral
+
+	history={
+		owner = URG
+		victory_points = {
+			14388 2
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = URG
+	}
+
+	provinces={
+		14388 14405 14442 14448
+	}
+}

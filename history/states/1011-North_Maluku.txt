@@ -1,0 +1,21 @@
+state={
+	id=1011
+	name="STATE_1011"
+	manpower = 1953299
+	state_category = large_town
+
+	history={
+		owner = NEI
+		victory_points = {
+			11336 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = NEI
+	}
+
+	provinces={
+		11110 11294 11336 11487 11579 11674
+	}
+}

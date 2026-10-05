@@ -1,0 +1,21 @@
+state={
+	id=244
+	name="STATE_244"
+	manpower = 955103
+	state_category = town
+
+	history={
+		owner = BRA
+		victory_points = {
+			12589 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = BRA
+	}
+
+	provinces={
+		12382 12451 12473 12512 12563 12564 12589 12645
+	}
+}

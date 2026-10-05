@@ -1,0 +1,33 @@
+state={
+	id=435
+	name="STATE_435"
+	manpower = 4397390
+	state_category = large_city
+
+	history={
+		owner = CAN
+		victory_points = {
+			3391 13
+		}
+		victory_points = {
+			3028 5
+		}
+		victory_points = {
+			3010 3
+		}
+		victory_points = {
+			3267 3
+		}
+		victory_points = {
+			3183 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = CAN
+	}
+
+	provinces={
+		2614 2627 2724 2747 2790 2864 2904 2920 3010 3027 3028 3100 3165 3183 3222 3267 3302 3391
+	}
+}

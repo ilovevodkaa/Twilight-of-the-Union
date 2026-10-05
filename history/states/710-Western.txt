@@ -1,0 +1,21 @@
+state={
+	id=710
+	name="STATE_710"
+	manpower = 1158298
+	state_category = large_town
+
+	history={
+		owner = GHA
+		victory_points = {
+			10961 4
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = GHA
+	}
+
+	provinces={
+		10801 10884 10961 10991
+	}
+}

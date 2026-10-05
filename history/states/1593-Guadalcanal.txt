@@ -1,0 +1,21 @@
+state={
+	id=1593
+	name="STATE_1593"
+	manpower = 403120
+	state_category = rural
+
+	history={
+		owner = SLB
+		victory_points = {
+			12529 7
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SLB
+	}
+
+	provinces={
+		12465 12529 12604
+	}
+}

@@ -1,0 +1,21 @@
+state={
+	id=33
+	name="STATE_33"
+	manpower = 253529
+	state_category = rural
+
+	history={
+		owner = ALG
+		victory_points = {
+			6208 3
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = ALG
+	}
+
+	provinces={
+		6114 6208 6289
+	}
+}

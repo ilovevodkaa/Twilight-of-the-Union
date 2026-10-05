@@ -1,0 +1,42 @@
+state={
+	id=594
+	name="STATE_594"
+	manpower = 21447443
+	state_category = megalopolis
+
+	history={
+		owner = EGY
+		victory_points = {
+			7084 27
+		}
+		victory_points = {
+			6833 5
+		}
+		victory_points = {
+			6911 5
+		}
+		victory_points = {
+			7042 5
+		}
+		victory_points = {
+			6850 4
+		}
+		victory_points = {
+			6942 4
+		}
+		victory_points = {
+			6985 4
+		}
+		victory_points = {
+			6832 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = EGY
+	}
+
+	provinces={
+		6832 6833 6850 6911 6942 6985 7029 7042 7084
+	}
+}

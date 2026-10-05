@@ -1,0 +1,21 @@
+state={
+	id=777
+	name="STATE_777"
+	manpower = 783989
+	state_category = town
+
+	history={
+		owner = IRQ
+		victory_points = {
+			6633 4
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = IRQ
+	}
+
+	provinces={
+		6557 6633 6742 6762
+	}
+}

@@ -1,0 +1,18 @@
+state={
+	id=1181
+	name="STATE_1181"
+	manpower = 938618
+	state_category = town
+
+	history={
+		owner = PHI
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = PHI
+	}
+
+	provinces={
+		9614 9736 9744
+	}
+}

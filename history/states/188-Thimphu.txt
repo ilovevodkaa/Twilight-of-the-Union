@@ -1,0 +1,21 @@
+state={
+	id=188
+	name="STATE_188"
+	manpower = 534164
+	state_category = town
+
+	history={
+		owner = BHU
+		victory_points = {
+			7606 7
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = BHU
+	}
+
+	provinces={
+		7537 7606 7690
+	}
+}

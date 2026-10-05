@@ -1,0 +1,24 @@
+state={
+	id=1904
+	name="STATE_1904"
+	manpower = 1229288
+	state_category = large_town
+
+	history={
+		owner = SPR
+		victory_points = {
+			5397 5
+		}
+		victory_points = {
+			5489 3
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SPR
+	}
+
+	provinces={
+		5396 5397 5489
+	}
+}

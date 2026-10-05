@@ -1,0 +1,27 @@
+state={
+	id=418
+	name="STATE_418"
+	manpower = 2099221
+	state_category = city
+
+	history={
+		owner = CAN
+		victory_points = {
+			2535 9
+		}
+		victory_points = {
+			2624 4
+		}
+		victory_points = {
+			2562 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = CAN
+	}
+
+	provinces={
+		1828 1859 1994 2093 2164 2193 2275 2291 2322 2383 2463 2535 2562 2624
+	}
+}

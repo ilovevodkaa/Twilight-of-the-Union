@@ -1,0 +1,27 @@
+state={
+	id=2237
+	name="STATE_2237"
+	manpower = 1110146
+	state_category = large_town
+
+	history={
+		owner = VEN
+		victory_points = {
+			10339 7
+		}
+		victory_points = {
+			10248 3
+		}
+		victory_points = {
+			10250 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = VEN
+	}
+
+	provinces={
+		10248 10249 10250 10283 10323 10339
+	}
+}

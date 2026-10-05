@@ -1,0 +1,18 @@
+state={
+	id=481
+	name="STATE_481"
+	manpower = 627940
+	state_category = town
+
+	history={
+		owner = CHL
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = CHL
+	}
+
+	provinces={
+		14752 14753 14755 14762 14763 14769 14772 14774
+	}
+}

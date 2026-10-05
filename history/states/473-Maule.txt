@@ -1,0 +1,24 @@
+state={
+	id=473
+	name="STATE_473"
+	manpower = 453731
+	state_category = rural
+
+	history={
+		owner = CHL
+		victory_points = {
+			14575 3
+		}
+		victory_points = {
+			14595 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = CHL
+	}
+
+	provinces={
+		14573 14575 14580 14595 14602
+	}
+}

@@ -1,0 +1,18 @@
+state={
+	id=1948
+	name="STATE_1948"
+	manpower = 435457
+	state_category = rural
+
+	history={
+		owner = SWE
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = SWE
+	}
+
+	provinces={
+		510 547 583 644
+	}
+}

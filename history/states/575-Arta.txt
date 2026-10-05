@@ -1,0 +1,21 @@
+state={
+	id=575
+	name="STATE_575"
+	manpower = 467308
+	state_category = rural
+
+	history={
+		owner = DJI
+		victory_points = {
+			10104 11
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = DJI
+	}
+
+	provinces={
+		9976 10058 10104
+	}
+}

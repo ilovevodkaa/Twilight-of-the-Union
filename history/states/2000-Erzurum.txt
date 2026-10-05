@@ -1,0 +1,27 @@
+state={
+	id=2000
+	name="STATE_2000"
+	manpower = 2646737
+	state_category = city
+
+	history={
+		owner = TUR
+		victory_points = {
+			4445 6
+		}
+		victory_points = {
+			4470 4
+		}
+		victory_points = {
+			4730 4
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = TUR
+	}
+
+	provinces={
+		4388 4445 4470 4512 4526 4562 4563 4598 4703 4730
+	}
+}

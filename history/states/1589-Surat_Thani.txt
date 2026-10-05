@@ -1,0 +1,27 @@
+state={
+	id=1589
+	name="STATE_1589"
+	manpower = 2164066
+	state_category = city
+
+	history={
+		owner = SIA
+		victory_points = {
+			10453 3
+		}
+		victory_points = {
+			10578 3
+		}
+		victory_points = {
+			10217 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = SIA
+	}
+
+	provinces={
+		10217 10378 10453 10578
+	}
+}

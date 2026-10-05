@@ -1,0 +1,21 @@
+state={
+	id=546
+	name="STATE_546"
+	manpower = 4106529
+	state_category = large_city
+
+	history={
+		owner = CZE
+		victory_points = {
+			2453 13
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = CZE
+	}
+
+	provinces={
+		2377 2405 2453
+	}
+}

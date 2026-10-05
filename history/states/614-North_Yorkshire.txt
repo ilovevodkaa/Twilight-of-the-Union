@@ -1,0 +1,39 @@
+state={
+	id=614
+	name="STATE_614"
+	manpower = 13420009
+	state_category = metropolis
+
+	history={
+		owner = ENG
+		victory_points = {
+			1708 11
+		}
+		victory_points = {
+			1670 9
+		}
+		victory_points = {
+			1520 7
+		}
+		victory_points = {
+			1659 7
+		}
+		victory_points = {
+			1745 7
+		}
+		victory_points = {
+			1651 4
+		}
+		victory_points = {
+			1572 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = ENG
+	}
+
+	provinces={
+		1520 1542 1572 1602 1650 1651 1659 1670 1688 1708 1745 1813
+	}
+}

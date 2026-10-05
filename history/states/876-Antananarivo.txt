@@ -1,0 +1,21 @@
+state={
+	id=876
+	name="STATE_876"
+	manpower = 4266332
+	state_category = large_city
+
+	history={
+		owner = MAD
+		victory_points = {
+			13298 12
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = MAD
+	}
+
+	provinces={
+		13248 13249 13291 13298
+	}
+}

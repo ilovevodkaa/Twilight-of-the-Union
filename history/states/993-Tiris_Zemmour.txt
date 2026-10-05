@@ -1,0 +1,18 @@
+state={
+	id=993
+	name="STATE_993"
+	manpower = 221906
+	state_category = rural
+
+	history={
+		owner = MRT
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = MRT
+	}
+
+	provinces={
+		7733 7923 7975 7976 8151 8152 8176 8272 8380 8469 8521 8616
+	}
+}

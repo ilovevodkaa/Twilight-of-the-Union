@@ -1,0 +1,30 @@
+state={
+	id=1390
+	name="STATE_1390"
+	manpower = 1036576
+	state_category = large_town
+
+	history={
+		owner = PRU
+		victory_points = {
+			12088 4
+		}
+		victory_points = {
+			11929 3
+		}
+		victory_points = {
+			12006 2
+		}
+		victory_points = {
+			12117 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = PRU
+	}
+
+	provinces={
+		11929 12006 12043 12068 12088 12117 12170
+	}
+}

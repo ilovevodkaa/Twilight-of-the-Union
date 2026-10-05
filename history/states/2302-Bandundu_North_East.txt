@@ -1,0 +1,18 @@
+state={
+	id=2302
+	name="STATE_2302"
+	manpower = 519953
+	state_category = town
+
+	history={
+		owner = ZAI
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = ZAI
+	}
+
+	provinces={
+		11754 11841 11926 11934 12017 12093
+	}
+}

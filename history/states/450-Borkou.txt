@@ -1,0 +1,18 @@
+state={
+	id=450
+	name="STATE_450"
+	manpower = 506614
+	state_category = town
+
+	history={
+		owner = CHD
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = CHD
+	}
+
+	provinces={
+		8684 8769 8840 8978 8979 9128 9166 9184 9325 9362
+	}
+}

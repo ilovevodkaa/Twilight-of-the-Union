@@ -1,0 +1,24 @@
+state={
+	id=336
+	name="STATE_336"
+	manpower = 653034
+	state_category = town
+
+	history={
+		owner = BUL
+		victory_points = {
+			4039 3
+		}
+		victory_points = {
+			4105 2
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = BUL
+	}
+
+	provinces={
+		4039 4089 4105 4173 4211
+	}
+}

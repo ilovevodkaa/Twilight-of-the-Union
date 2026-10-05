@@ -1,0 +1,21 @@
+state={
+	id=2233
+	name="STATE_2233"
+	manpower = 82941
+	state_category = small_island
+
+	history={
+		owner = VCT
+		victory_points = {
+			9847 7
+		}
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = VCT
+	}
+
+	provinces={
+		9847
+	}
+}

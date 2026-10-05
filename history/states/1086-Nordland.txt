@@ -1,0 +1,18 @@
+state={
+	id=1086
+	name="STATE_1086"
+	manpower = 13559
+	state_category = tiny_island
+
+	history={
+		owner = NOR
+		buildings = {
+			infrastructure = 1
+		}
+		add_core_of = NOR
+	}
+
+	provinces={
+		147
+	}
+}

@@ -1,0 +1,30 @@
+state={
+	id=1241
+	name="STATE_1241"
+	manpower = 21144878
+	state_category = megalopolis
+
+	history={
+		owner = PRC
+		victory_points = {
+			4194 16
+		}
+		victory_points = {
+			4260 6
+		}
+		victory_points = {
+			3871 5
+		}
+		victory_points = {
+			4097 4
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = PRC
+	}
+
+	provinces={
+		3871 3965 3966 4009 4028 4097 4110 4193 4194 4260
+	}
+}

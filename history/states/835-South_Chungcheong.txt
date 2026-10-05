@@ -1,0 +1,24 @@
+state={
+	id=835
+	name="STATE_835"
+	manpower = 2661006
+	state_category = city
+
+	history={
+		owner = KOR
+		victory_points = {
+			5592 8
+		}
+		victory_points = {
+			5591 4
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = KOR
+	}
+
+	provinces={
+		5433 5500 5591 5592
+	}
+}

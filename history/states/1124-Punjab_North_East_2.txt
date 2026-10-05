@@ -1,0 +1,30 @@
+state={
+	id=1124
+	name="STATE_1124"
+	manpower = 20754764
+	state_category = megalopolis
+
+	history={
+		owner = PAK
+		victory_points = {
+			6840 15
+		}
+		victory_points = {
+			6804 9
+		}
+		victory_points = {
+			6880 3
+		}
+		victory_points = {
+			7010 3
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = PAK
+	}
+
+	provinces={
+		6804 6840 6880 6933 6948 7010 7090 7133 7285
+	}
+}

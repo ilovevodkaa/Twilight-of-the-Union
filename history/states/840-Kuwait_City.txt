@@ -1,0 +1,24 @@
+state={
+	id=840
+	name="STATE_840"
+	manpower = 2944958
+	state_category = city
+
+	history={
+		owner = KUW
+		victory_points = {
+			7184 14
+		}
+		victory_points = {
+			7354 2
+		}
+		buildings = {
+			infrastructure = 4
+		}
+		add_core_of = KUW
+	}
+
+	provinces={
+		7184 7199 7354
+	}
+}

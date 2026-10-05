@@ -1,0 +1,18 @@
+state={
+	id=1942
+	name="STATE_1942"
+	manpower = 356348
+	state_category = rural
+
+	history={
+		owner = SUD
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = SUD
+	}
+
+	provinces={
+		10836 10846 10887 10984 10985 11007
+	}
+}
