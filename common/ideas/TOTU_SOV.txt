@@ -1,0 +1,84 @@
+# Twilight of the Union: Soviet Union starting national spirits (1 January 1990).
+# Added in history/countries/SOV - Soviet union.txt (1990.1.1 block); removed by focuses and events later.
+# Icons: tools/build_menu_gfx.py (IDEA_ICONS) -> interface/totu_ideas.gfx.
+
+ideas = {
+	country = {
+
+		# The main starting problem: the plan is broken, the market was never built.
+		# Each political path removes it differently (500 days, rollback to the plan, shock therapy).
+		TOTU_SOV_no_plan_no_market = {
+			picture = totu_no_plan_no_market
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.20
+				production_factory_max_efficiency_factor = -0.10
+				production_factory_efficiency_gain_factor = -0.15
+				stability_factor = -0.10
+			}
+		}
+
+		TOTU_SOV_glasnost = {
+			picture = totu_glasnost
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				democratic_drift = 0.05
+				drift_defence_factor = -0.10
+				political_power_factor = 0.05
+			}
+		}
+
+		TOTU_SOV_nomenklatura = {
+			picture = totu_nomenklatura
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				political_power_cost = 0.3
+				political_advisor_cost_factor = 0.20
+			}
+		}
+
+		TOTU_SOV_awakening_republics = {
+			picture = totu_awakening_republics
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.10
+				conscription_factor = -0.10
+			}
+		}
+
+		TOTU_SOV_bloated_mic = {
+			picture = totu_bloated_mic
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.10
+				conversion_cost_mil_to_civ_factor = 0.25
+			}
+		}
+
+		TOTU_SOV_afghan_syndrome = {
+			picture = totu_afghan_syndrome
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				war_support_factor = -0.15
+				army_org_factor = -0.05
+			}
+		}
+
+		TOTU_SOV_conscript_army = {
+			picture = totu_conscript_army
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				conscription_factor = 0.15
+				training_time_factor = -0.10
+				experience_gain_army_factor = -0.10
+			}
+		}
+	}
+}
