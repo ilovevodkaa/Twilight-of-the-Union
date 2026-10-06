@@ -1,0 +1,6 @@
+# Twilight of the Union: minimal country leader trait file (vanilla common/country_leader is purged).
+# Traits for the 1990 leaders are added here later.
+leader_traits = {
+	TOTU_leader_placeholder = {
+	}
+}

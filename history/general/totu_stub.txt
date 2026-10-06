@@ -1,0 +1,2 @@
+# Twilight of the Union: vanilla content of this folder (1936 tags, states, characters) is removed with
+# replace_path in descriptor.mod. Intentionally empty. See docs/VANILLA_PURGE.md.
