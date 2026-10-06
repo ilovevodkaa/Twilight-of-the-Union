@@ -1,14 +1,30 @@
-﻿capital = 1213 # Poland
+# Twilight of the Union: 1 January 1990. Same structure as SOV / USA.
+# Leader: Tadeusz Mazowiecki (POL_tadeusz_mazowiecki, common/characters/TOTU_leaders.txt)
+
+capital = 1213 # Poland
+
+set_research_slots = 3
+set_stability = 0.5
+set_war_support = 0.25
 
 set_politics = {
-	ruling_party = neutrality
-	last_election = "1989.1.1"
+	ruling_party = democratic
+	last_election = "1989.6.4"
 	election_frequency = 48
-	elections_allowed = no
+	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 0
-	fascism = 0
-	communism = 0
-	neutrality = 100
+	democratic = 62
+	fascism = 2
+	communism = 28
+	neutrality = 8
 }
+
+add_ideas = {
+	civilian_economy
+	free_trade
+	extensive_conscription
+}
+
+recruit_character = POL_tadeusz_mazowiecki
+promote_character = POL_tadeusz_mazowiecki

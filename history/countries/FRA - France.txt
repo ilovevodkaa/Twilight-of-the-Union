@@ -1,14 +1,30 @@
-﻿capital = 658 # France
+# Twilight of the Union: 1 January 1990. Same structure as SOV / USA.
+# Leader: François Mitterrand (FRA_francois_mitterrand, common/characters/TOTU_leaders.txt)
+
+capital = 658 # France
+
+set_research_slots = 5
+set_stability = 0.65
+set_war_support = 0.25
 
 set_politics = {
-	ruling_party = neutrality
-	last_election = "1989.1.1"
-	election_frequency = 48
-	elections_allowed = no
+	ruling_party = democratic
+	last_election = "1988.5.8"
+	election_frequency = 84
+	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 0
-	fascism = 0
-	communism = 0
-	neutrality = 100
+	democratic = 80
+	fascism = 2
+	communism = 10
+	neutrality = 8
 }
+
+add_ideas = {
+	low_economic_mobilisation
+	free_trade
+	limited_conscription
+}
+
+recruit_character = FRA_francois_mitterrand
+promote_character = FRA_francois_mitterrand

@@ -1,14 +1,30 @@
-﻿capital = 1424 # India
+# Twilight of the Union: 1 January 1990. Same structure as SOV / USA.
+# Leader: V. P. Singh (RAJ_vishwanath_pratap_singh, common/characters/TOTU_leaders.txt)
+
+capital = 1424 # India
+
+set_research_slots = 4
+set_stability = 0.5
+set_war_support = 0.3
 
 set_politics = {
-	ruling_party = neutrality
-	last_election = "1989.1.1"
-	election_frequency = 48
-	elections_allowed = no
+	ruling_party = democratic
+	last_election = "1989.11.22"
+	election_frequency = 60
+	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 0
-	fascism = 0
-	communism = 0
-	neutrality = 100
+	democratic = 62
+	fascism = 3
+	communism = 10
+	neutrality = 25
 }
+
+add_ideas = {
+	civilian_economy
+	closed_economy
+	volunteer_only
+}
+
+recruit_character = RAJ_vishwanath_pratap_singh
+promote_character = RAJ_vishwanath_pratap_singh

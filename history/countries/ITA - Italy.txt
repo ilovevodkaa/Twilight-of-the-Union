@@ -1,14 +1,30 @@
-﻿capital = 792 # Italy
+# Twilight of the Union: 1 January 1990. Same structure as SOV / USA.
+# Leader: Giulio Andreotti (ITA_giulio_andreotti, common/characters/TOTU_leaders.txt)
+
+capital = 792 # Italy
+
+set_research_slots = 4
+set_stability = 0.55
+set_war_support = 0.2
 
 set_politics = {
-	ruling_party = neutrality
-	last_election = "1989.1.1"
-	election_frequency = 48
-	elections_allowed = no
+	ruling_party = democratic
+	last_election = "1987.6.14"
+	election_frequency = 60
+	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 0
-	fascism = 0
-	communism = 0
-	neutrality = 100
+	democratic = 80
+	fascism = 2
+	communism = 14
+	neutrality = 4
 }
+
+add_ideas = {
+	civilian_economy
+	free_trade
+	limited_conscription
+}
+
+recruit_character = ITA_giulio_andreotti
+promote_character = ITA_giulio_andreotti

@@ -1,14 +1,30 @@
-﻿capital = 755 # Hungary
+# Twilight of the Union: 1 January 1990. Same structure as SOV / USA.
+# Leader: Miklós Németh (HUN_miklos_nemeth, common/characters/TOTU_leaders.txt)
+
+capital = 755 # Hungary
+
+set_research_slots = 3
+set_stability = 0.45
+set_war_support = 0.25
 
 set_politics = {
-	ruling_party = neutrality
-	last_election = "1989.1.1"
+	ruling_party = democratic
+	last_election = "1985.6.8"
 	election_frequency = 48
-	elections_allowed = no
+	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 0
-	fascism = 0
-	communism = 0
-	neutrality = 100
+	democratic = 50
+	fascism = 2
+	communism = 35
+	neutrality = 13
 }
+
+add_ideas = {
+	low_economic_mobilisation
+	limited_exports
+	extensive_conscription
+}
+
+recruit_character = HUN_miklos_nemeth
+promote_character = HUN_miklos_nemeth

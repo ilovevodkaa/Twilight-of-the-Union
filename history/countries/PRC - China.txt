@@ -1,14 +1,30 @@
-﻿capital = 1258 # China
+# Twilight of the Union: 1 January 1990. Same structure as SOV / USA.
+# Leader: Jiang Zemin (PRC_jiang_zemin, common/characters/TOTU_leaders.txt)
+
+capital = 1258 # China
+
+set_research_slots = 4
+set_stability = 0.6
+set_war_support = 0.35
 
 set_politics = {
-	ruling_party = neutrality
-	last_election = "1989.1.1"
-	election_frequency = 48
+	ruling_party = communism
+	last_election = "1988.3.25"
+	election_frequency = 60
 	elections_allowed = no
 }
 set_popularities = {
-	democratic = 0
-	fascism = 0
-	communism = 0
-	neutrality = 100
+	democratic = 12
+	fascism = 2
+	communism = 78
+	neutrality = 8
 }
+
+add_ideas = {
+	partial_economic_mobilisation
+	limited_exports
+	extensive_conscription
+}
+
+recruit_character = PRC_jiang_zemin
+promote_character = PRC_jiang_zemin

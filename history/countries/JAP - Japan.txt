@@ -1,14 +1,30 @@
-﻿capital = 812 # Japan
+# Twilight of the Union: 1 January 1990. Same structure as SOV / USA.
+# Leader: Toshiki Kaifu (JAP_toshiki_kaifu, common/characters/TOTU_leaders.txt)
+
+capital = 812 # Japan
+
+set_research_slots = 5
+set_stability = 0.75
+set_war_support = 0.1
 
 set_politics = {
-	ruling_party = neutrality
-	last_election = "1989.1.1"
+	ruling_party = democratic
+	last_election = "1986.7.6"
 	election_frequency = 48
-	elections_allowed = no
+	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 0
-	fascism = 0
-	communism = 0
-	neutrality = 100
+	democratic = 85
+	fascism = 2
+	communism = 5
+	neutrality = 8
 }
+
+add_ideas = {
+	civilian_economy
+	free_trade
+	volunteer_only
+}
+
+recruit_character = JAP_toshiki_kaifu
+promote_character = JAP_toshiki_kaifu

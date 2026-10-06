@@ -1,14 +1,30 @@
-﻿capital = 2286 # Yugoslavia
+# Twilight of the Union: 1 January 1990. Same structure as SOV / USA.
+# Leader: Ante Marković (YUG_ante_markovic, common/characters/TOTU_leaders.txt)
+
+capital = 2286 # Yugoslavia
+
+set_research_slots = 3
+set_stability = 0.45
+set_war_support = 0.2
 
 set_politics = {
-	ruling_party = neutrality
-	last_election = "1989.1.1"
+	ruling_party = communism
+	last_election = "1986.4.1"
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
-	democratic = 0
-	fascism = 0
-	communism = 0
-	neutrality = 100
+	democratic = 28
+	fascism = 5
+	communism = 50
+	neutrality = 17
 }
+
+add_ideas = {
+	low_economic_mobilisation
+	limited_exports
+	extensive_conscription
+}
+
+recruit_character = YUG_ante_markovic
+promote_character = YUG_ante_markovic

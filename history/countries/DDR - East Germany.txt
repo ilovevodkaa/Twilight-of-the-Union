@@ -1,14 +1,30 @@
-﻿capital = 556 # East Germany
+# Twilight of the Union: 1 January 1990. Same structure as SOV / USA.
+# Leader: Hans Modrow (DDR_hans_modrow, common/characters/TOTU_leaders.txt)
+
+capital = 556 # East Germany
+
+set_research_slots = 3
+set_stability = 0.35
+set_war_support = 0.25
 
 set_politics = {
-	ruling_party = neutrality
-	last_election = "1989.1.1"
-	election_frequency = 48
+	ruling_party = communism
+	last_election = "1986.6.8"
+	election_frequency = 60
 	elections_allowed = no
 }
 set_popularities = {
-	democratic = 0
-	fascism = 0
-	communism = 0
-	neutrality = 100
+	democratic = 25
+	fascism = 2
+	communism = 55
+	neutrality = 18
 }
+
+add_ideas = {
+	partial_economic_mobilisation
+	closed_economy
+	extensive_conscription
+}
+
+recruit_character = DDR_hans_modrow
+promote_character = DDR_hans_modrow

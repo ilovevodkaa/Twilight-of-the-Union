@@ -1,14 +1,30 @@
-﻿capital = 698 # West Germany
+# Twilight of the Union: 1 January 1990. Same structure as SOV / USA.
+# Leader: Helmut Kohl (GER_helmut_kohl, common/characters/TOTU_leaders.txt)
+
+capital = 698 # West Germany
+
+set_research_slots = 4
+set_stability = 0.8
+set_war_support = 0.15
 
 set_politics = {
-	ruling_party = neutrality
-	last_election = "1989.1.1"
+	ruling_party = democratic
+	last_election = "1987.1.25"
 	election_frequency = 48
-	elections_allowed = no
+	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 0
-	fascism = 0
-	communism = 0
-	neutrality = 100
+	democratic = 89
+	fascism = 1
+	communism = 2
+	neutrality = 8
 }
+
+add_ideas = {
+	civilian_economy
+	free_trade
+	limited_conscription
+}
+
+recruit_character = GER_helmut_kohl
+promote_character = GER_helmut_kohl

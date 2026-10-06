@@ -1,14 +1,30 @@
-﻿capital = 546 # Czechoslovakia
+# Twilight of the Union: 1 January 1990. Same structure as SOV / USA.
+# Leader: Václav Havel (CZE_vaclav_havel, common/characters/TOTU_leaders.txt)
+
+capital = 546 # Czechoslovakia
+
+set_research_slots = 3
+set_stability = 0.5
+set_war_support = 0.2
 
 set_politics = {
-	ruling_party = neutrality
-	last_election = "1989.1.1"
+	ruling_party = democratic
+	last_election = "1986.5.23"
 	election_frequency = 48
-	elections_allowed = no
+	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 0
-	fascism = 0
-	communism = 0
-	neutrality = 100
+	democratic = 55
+	fascism = 2
+	communism = 38
+	neutrality = 5
 }
+
+add_ideas = {
+	low_economic_mobilisation
+	limited_exports
+	extensive_conscription
+}
+
+recruit_character = CZE_vaclav_havel
+promote_character = CZE_vaclav_havel
