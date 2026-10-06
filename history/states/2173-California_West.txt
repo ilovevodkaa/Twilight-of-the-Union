@@ -23,6 +23,13 @@ state={
 		}
 		buildings = {
 			infrastructure = 4
+			industrial_complex = 2
+			arms_factory = 1
+			dockyard = 2
+			air_base = 5
+			5329 = {
+				naval_base = 4
+			}
 		}
 		add_core_of = USA
 	}

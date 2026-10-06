@@ -10,7 +10,9 @@ state={
 			2849 16
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 5
+			industrial_complex = 5
+			air_base = 3
 		}
 		add_core_of = AUS
 	}

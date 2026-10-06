@@ -19,7 +19,12 @@ state={
 			10034 3
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 3
+			industrial_complex = 1
+			air_base = 1
+			9903 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = NIC
 	}

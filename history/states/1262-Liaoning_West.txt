@@ -16,7 +16,13 @@ state={
 			4179 5
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 3
+			industrial_complex = 1
+			dockyard = 1
+			air_base = 2
+			4352 = {
+				naval_base = 3
+			}
 		}
 		add_core_of = PRC
 	}

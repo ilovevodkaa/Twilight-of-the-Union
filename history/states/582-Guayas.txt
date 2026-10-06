@@ -13,7 +13,7 @@ state={
 			11730 2
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 3
 		}
 		add_core_of = ECU
 	}

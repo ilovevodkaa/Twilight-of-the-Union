@@ -16,7 +16,12 @@ state={
 			10707 2
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 2
+			industrial_complex = 1
+			air_base = 1
+			10834 = {
+				naval_base = 3
+			}
 		}
 		add_core_of = TGO
 	}

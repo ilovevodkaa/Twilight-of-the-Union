@@ -10,7 +10,7 @@ state={
 			8294 3
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 3
 		}
 		add_core_of = RAJ
 	}

@@ -10,7 +10,11 @@ state={
 			12048 7
 		}
 		buildings = {
-			infrastructure = 2
+			infrastructure = 1
+			air_base = 1
+			12048 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = SYC
 	}

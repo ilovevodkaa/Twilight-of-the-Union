@@ -23,6 +23,11 @@ state={
 		}
 		buildings = {
 			infrastructure = 4
+			industrial_complex = 1
+			dockyard = 1
+			9854 = {
+				naval_base = 6
+			}
 		}
 		add_core_of = RAJ
 	}

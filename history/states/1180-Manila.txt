@@ -20,6 +20,15 @@ state={
 		}
 		buildings = {
 			infrastructure = 4
+			industrial_complex = 1
+			dockyard = 1
+			air_base = 1
+			9575 = {
+				naval_base = 1
+			}
+			9624 = {
+				naval_base = 7
+			}
 		}
 		add_core_of = PHI
 	}

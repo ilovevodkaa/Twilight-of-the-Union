@@ -16,7 +16,16 @@ state={
 			5336 3
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 5
+			industrial_complex = 5
+			arms_factory = 2
+			dockyard = 1
+			5137 = {
+				naval_base = 2
+			}
+			5153 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = ITA
 	}

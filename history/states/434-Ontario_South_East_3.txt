@@ -16,7 +16,9 @@ state={
 			3536 3
 		}
 		buildings = {
-			infrastructure = 3
+			infrastructure = 4
+			industrial_complex = 1
+			air_base = 4
 		}
 		add_core_of = CAN
 	}

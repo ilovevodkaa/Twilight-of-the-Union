@@ -10,7 +10,10 @@ state={
 			12377 6
 		}
 		buildings = {
-			infrastructure = 3
+			infrastructure = 2
+			12377 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = PRU
 	}

@@ -17,6 +17,15 @@ state={
 		}
 		buildings = {
 			infrastructure = 4
+			industrial_complex = 1
+			dockyard = 2
+			air_base = 1
+			14553 = {
+				naval_base = 7
+			}
+			14566 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = ARG
 	}

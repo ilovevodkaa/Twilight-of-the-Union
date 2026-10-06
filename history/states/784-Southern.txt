@@ -11,6 +11,10 @@ state={
 		}
 		buildings = {
 			infrastructure = 3
+			arms_factory = 1
+			6784 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = ISR
 	}

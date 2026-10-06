@@ -28,7 +28,26 @@ state={
 			8329 3
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 5
+			industrial_complex = 5
+			arms_factory = 3
+			dockyard = 4
+			air_base = 4
+			8100 = {
+				naval_base = 6
+			}
+			8149 = {
+				naval_base = 3
+			}
+			8209 = {
+				naval_base = 2
+			}
+			8263 = {
+				naval_base = 1
+			}
+			8328 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = CHI
 	}

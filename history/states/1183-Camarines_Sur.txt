@@ -13,7 +13,14 @@ state={
 			9868 4
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 3
+			industrial_complex = 1
+			9771 = {
+				naval_base = 2
+			}
+			9868 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = PHI
 	}

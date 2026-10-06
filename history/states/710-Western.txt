@@ -10,7 +10,10 @@ state={
 			10961 4
 		}
 		buildings = {
-			infrastructure = 3
+			infrastructure = 2
+			10961 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = GHA
 	}

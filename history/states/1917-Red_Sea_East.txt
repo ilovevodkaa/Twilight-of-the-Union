@@ -13,7 +13,10 @@ state={
 			9129 2
 		}
 		buildings = {
-			infrastructure = 3
+			infrastructure = 2
+			8859 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = SUD
 	}

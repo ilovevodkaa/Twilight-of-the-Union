@@ -19,7 +19,19 @@ state={
 			7693 2
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 3
+			industrial_complex = 1
+			dockyard = 1
+			air_base = 2
+			7831 = {
+				naval_base = 1
+			}
+			7921 = {
+				naval_base = 3
+			}
+			8023 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = PRC
 	}

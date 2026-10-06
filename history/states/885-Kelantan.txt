@@ -10,7 +10,10 @@ state={
 			10912 5
 		}
 		buildings = {
-			infrastructure = 3
+			infrastructure = 2
+			10912 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = MAL
 	}

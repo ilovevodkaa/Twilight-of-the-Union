@@ -11,6 +11,10 @@ state={
 		}
 		buildings = {
 			infrastructure = 2
+			air_base = 2
+			9855 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = BRB
 	}

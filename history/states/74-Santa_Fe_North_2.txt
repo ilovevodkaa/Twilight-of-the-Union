@@ -13,7 +13,7 @@ state={
 			14347 2
 		}
 		buildings = {
-			infrastructure = 3
+			infrastructure = 2
 		}
 		add_core_of = ARG
 	}

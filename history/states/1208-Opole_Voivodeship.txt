@@ -10,7 +10,8 @@ state={
 			2252 3
 		}
 		buildings = {
-			infrastructure = 3
+			infrastructure = 2
+			industrial_complex = 1
 		}
 		add_core_of = POL
 	}

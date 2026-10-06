@@ -10,7 +10,7 @@ state={
 			14760 3
 		}
 		buildings = {
-			infrastructure = 2
+			infrastructure = 3
 		}
 		add_core_of = NZL
 	}

@@ -10,7 +10,11 @@ state={
 			9754 7
 		}
 		buildings = {
-			infrastructure = 2
+			infrastructure = 1
+			air_base = 1
+			9754 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = LCA
 	}

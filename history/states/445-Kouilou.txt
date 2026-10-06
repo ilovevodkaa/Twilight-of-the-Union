@@ -14,6 +14,9 @@ state={
 		}
 		buildings = {
 			infrastructure = 2
+			11993 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = CGO
 	}

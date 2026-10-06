@@ -11,6 +11,10 @@ state={
 		}
 		buildings = {
 			infrastructure = 1
+			air_base = 1
+			10753 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = MHL
 	}

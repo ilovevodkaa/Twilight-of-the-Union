@@ -10,7 +10,10 @@ state={
 			9386 5
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 2
+			9386 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = BRM
 	}

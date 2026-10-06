@@ -13,7 +13,11 @@ state={
 			5359 3
 		}
 		buildings = {
-			infrastructure = 3
+			infrastructure = 4
+			industrial_complex = 1
+			5317 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = SPR
 	}

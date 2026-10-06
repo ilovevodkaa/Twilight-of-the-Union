@@ -13,7 +13,13 @@ state={
 			10552 5
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 3
+			10492 = {
+				naval_base = 2
+			}
+			10552 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = RAJ
 	}

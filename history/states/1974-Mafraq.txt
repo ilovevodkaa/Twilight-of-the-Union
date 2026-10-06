@@ -7,7 +7,7 @@ state={
 	history={
 		owner = TRJ
 		buildings = {
-			infrastructure = 3
+			infrastructure = 2
 		}
 		add_core_of = TRJ
 	}

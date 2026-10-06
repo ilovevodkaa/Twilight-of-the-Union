@@ -10,7 +10,12 @@ state={
 			10807 8
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 3
+			industrial_complex = 1
+			air_base = 1
+			10807 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = CEY
 	}

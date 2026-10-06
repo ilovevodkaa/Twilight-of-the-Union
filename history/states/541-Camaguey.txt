@@ -17,6 +17,12 @@ state={
 		}
 		buildings = {
 			infrastructure = 3
+			8733 = {
+				naval_base = 1
+			}
+			8802 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = CUB
 	}

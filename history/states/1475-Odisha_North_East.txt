@@ -13,7 +13,11 @@ state={
 			8883 5
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 3
+			industrial_complex = 1
+			8883 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = RAJ
 	}

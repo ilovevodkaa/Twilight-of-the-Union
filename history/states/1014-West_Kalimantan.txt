@@ -13,7 +13,14 @@ state={
 			11360 4
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 3
+			arms_factory = 1
+			11360 = {
+				naval_base = 1
+			}
+			11495 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = NEI
 	}

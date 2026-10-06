@@ -10,7 +10,11 @@ state={
 			11119 8
 		}
 		buildings = {
-			infrastructure = 3
+			infrastructure = 2
+			air_base = 1
+			11119 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = MDV
 	}

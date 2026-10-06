@@ -16,7 +16,10 @@ state={
 			11147 3
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 2
+			11123 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = CMR
 	}

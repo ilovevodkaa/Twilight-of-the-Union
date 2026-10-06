@@ -16,7 +16,10 @@ state={
 			9066 2
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 3
+			8977 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = DOM
 	}

@@ -19,7 +19,15 @@ state={
 			5805 2
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 2
+			industrial_complex = 1
+			air_base = 1
+			5378 = {
+				naval_base = 4
+			}
+			5676 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = TUN
 	}

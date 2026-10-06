@@ -16,7 +16,9 @@ state={
 			7111 2
 		}
 		buildings = {
-			infrastructure = 3
+			infrastructure = 4
+			industrial_complex = 2
+			arms_factory = 1
 		}
 		add_core_of = USA
 	}

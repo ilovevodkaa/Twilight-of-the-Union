@@ -20,6 +20,11 @@ state={
 		}
 		buildings = {
 			infrastructure = 4
+			industrial_complex = 1
+			dockyard = 1
+			8081 = {
+				naval_base = 5
+			}
 		}
 		add_core_of = PAK
 	}

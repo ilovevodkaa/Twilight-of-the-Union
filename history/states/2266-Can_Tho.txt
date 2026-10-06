@@ -28,7 +28,17 @@ state={
 			10322 3
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 3
+			arms_factory = 1
+			10320 = {
+				naval_base = 1
+			}
+			10401 = {
+				naval_base = 1
+			}
+			10478 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = VIN
 	}

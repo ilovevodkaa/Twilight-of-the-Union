@@ -13,7 +13,10 @@ state={
 			5564 3
 		}
 		buildings = {
-			infrastructure = 3
+			infrastructure = 2
+			5516 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = PER
 	}

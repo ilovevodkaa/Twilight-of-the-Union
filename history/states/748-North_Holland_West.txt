@@ -19,7 +19,14 @@ state={
 			2048 3
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 5
+			industrial_complex = 6
+			arms_factory = 2
+			dockyard = 1
+			air_base = 3
+			1922 = {
+				naval_base = 3
+			}
 		}
 		add_core_of = HOL
 	}

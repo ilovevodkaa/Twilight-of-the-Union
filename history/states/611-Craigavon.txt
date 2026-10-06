@@ -10,7 +10,13 @@ state={
 			1499 5
 		}
 		buildings = {
-			infrastructure = 3
+			infrastructure = 4
+			industrial_complex = 2
+			arms_factory = 1
+			dockyard = 1
+			1499 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = ENG
 	}

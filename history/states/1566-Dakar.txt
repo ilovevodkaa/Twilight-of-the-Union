@@ -19,7 +19,15 @@ state={
 			9589 3
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 3
+			industrial_complex = 1
+			air_base = 1
+			9643 = {
+				naval_base = 4
+			}
+			9644 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = SEN
 	}

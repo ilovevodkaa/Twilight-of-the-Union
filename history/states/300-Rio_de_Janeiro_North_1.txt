@@ -20,6 +20,13 @@ state={
 		}
 		buildings = {
 			infrastructure = 3
+			industrial_complex = 1
+			13576 = {
+				naval_base = 1
+			}
+			13701 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = BRA
 	}

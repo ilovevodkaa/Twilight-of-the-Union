@@ -19,7 +19,10 @@ state={
 			2250 7
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 5
+			industrial_complex = 8
+			arms_factory = 2
+			air_base = 5
 		}
 		add_core_of = GER
 	}

@@ -10,7 +10,7 @@ state={
 			9225 2
 		}
 		buildings = {
-			infrastructure = 3
+			infrastructure = 2
 		}
 		add_core_of = LAO
 	}

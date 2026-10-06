@@ -10,7 +10,10 @@ state={
 			13349 5
 		}
 		buildings = {
-			infrastructure = 3
+			infrastructure = 2
+			13349 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = MOZ
 	}

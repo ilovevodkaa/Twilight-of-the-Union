@@ -20,6 +20,21 @@ state={
 		}
 		buildings = {
 			infrastructure = 4
+			industrial_complex = 2
+			arms_factory = 1
+			dockyard = 1
+			5922 = {
+				naval_base = 3
+			}
+			6001 = {
+				naval_base = 1
+			}
+			6036 = {
+				naval_base = 1
+			}
+			6390 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = KOR
 	}

@@ -17,6 +17,15 @@ state={
 		}
 		buildings = {
 			infrastructure = 4
+			industrial_complex = 3
+			arms_factory = 2
+			dockyard = 1
+			1975 = {
+				naval_base = 2
+			}
+			2059 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = ENG
 	}

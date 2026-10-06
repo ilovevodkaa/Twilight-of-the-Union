@@ -13,7 +13,7 @@ state={
 			8598 2
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 2
 		}
 		add_core_of = BRM
 	}

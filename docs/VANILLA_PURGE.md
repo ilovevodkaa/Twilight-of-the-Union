@@ -23,6 +23,7 @@ the repo); the "risk" column says what to check first when the mod is first laun
 | `common/military_industrial_organization/organizations` | comment-only | Tag-locked organizations. Policies and other MIO folders are kept. |
 | `common/special_projects`, `common/aces`, `common/raids`, `common/bop` | comment-only | Tag / state specific vanilla content. |
 | `common/units/names`, `names_divisions`, `names_ships`, `names_railway_guns` | comment-only | Unit name pools keyed on vanilla tags. Risk: units get default numeric names. |
+| `common/state_category` | `totu_state_categories.txt` with all categories and explicit `local_building_slots` (0,0,1,2,3,4,5,6,8,10,12,14) | Not 1936 content, but replaced so the slot counts used by `tools/build_state_buildings.py` / `validate_map.py` are fixed instead of assumed from memory of vanilla. |
 | `events` | comment-only | 1936+ events. |
 | `history/general` | comment-only | Vanilla 1936 diplomacy, wars and starting states. |
 | `history/countries`, `history/states`, `history/units`, `common/countries`, `common/country_tags`, `common/bookmarks`, `map/*` | (already replaced earlier) | Generated 1990 world. |

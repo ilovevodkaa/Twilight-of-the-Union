@@ -23,6 +23,19 @@ state={
 		}
 		buildings = {
 			infrastructure = 4
+			industrial_complex = 1
+			10881 = {
+				naval_base = 1
+			}
+			10923 = {
+				naval_base = 1
+			}
+			10995 = {
+				naval_base = 3
+			}
+			11054 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = MAL
 	}

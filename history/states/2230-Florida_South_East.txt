@@ -25,7 +25,23 @@ state={
 			7988 2
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 5
+			industrial_complex = 3
+			arms_factory = 1
+			dockyard = 3
+			air_base = 5
+			7732 = {
+				naval_base = 3
+			}
+			7870 = {
+				naval_base = 4
+			}
+			7876 = {
+				naval_base = 2
+			}
+			7947 = {
+				naval_base = 6
+			}
 		}
 		add_core_of = USA
 	}

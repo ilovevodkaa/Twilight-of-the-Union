@@ -13,7 +13,13 @@ state={
 			10927 4
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 2
+			10927 = {
+				naval_base = 1
+			}
+			10962 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = NGA
 	}

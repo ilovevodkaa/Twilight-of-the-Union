@@ -19,7 +19,14 @@ state={
 			2660 2
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 3
+			industrial_complex = 1
+			arms_factory = 1
+			dockyard = 1
+			air_base = 5
+			2950 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = SOV
 	}

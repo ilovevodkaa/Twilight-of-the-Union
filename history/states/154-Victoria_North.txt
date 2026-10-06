@@ -20,6 +20,14 @@ state={
 		}
 		buildings = {
 			infrastructure = 4
+			industrial_complex = 1
+			dockyard = 1
+			14665 = {
+				naval_base = 1
+			}
+			14670 = {
+				naval_base = 3
+			}
 		}
 		add_core_of = AST
 	}

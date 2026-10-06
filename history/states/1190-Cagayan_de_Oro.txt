@@ -22,7 +22,23 @@ state={
 			10684 4
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 3
+			arms_factory = 1
+			10587 = {
+				naval_base = 2
+			}
+			10649 = {
+				naval_base = 1
+			}
+			10684 = {
+				naval_base = 1
+			}
+			10733 = {
+				naval_base = 2
+			}
+			10861 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = PHI
 	}

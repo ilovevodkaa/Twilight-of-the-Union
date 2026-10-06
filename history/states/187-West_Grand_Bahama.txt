@@ -11,6 +11,10 @@ state={
 		}
 		buildings = {
 			infrastructure = 2
+			air_base = 2
+			7791 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = BHS
 	}

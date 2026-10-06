@@ -32,6 +32,20 @@ state={
 		}
 		buildings = {
 			infrastructure = 4
+			industrial_complex = 1
+			dockyard = 1
+			12312 = {
+				naval_base = 3
+			}
+			12396 = {
+				naval_base = 1
+			}
+			12407 = {
+				naval_base = 2
+			}
+			12435 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = NEI
 	}

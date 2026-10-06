@@ -1,0 +1,52 @@
+# Twilight of the Union: state categories with explicit building slots (vanilla common/state_category is replaced
+# in descriptor.mod so the slot counts that tools/build_state_buildings.py and tools/validate_map.py rely on are fixed).
+state_categories = {
+	wasteland = {
+		color = { 60 60 60 }
+		local_building_slots = 0
+	}
+	enclave = {
+		color = { 90 90 90 }
+		local_building_slots = 0
+	}
+	tiny_island = {
+		color = { 120 150 190 }
+		local_building_slots = 1
+	}
+	small_island = {
+		color = { 100 160 200 }
+		local_building_slots = 2
+	}
+	pastoral = {
+		color = { 150 190 110 }
+		local_building_slots = 3
+	}
+	rural = {
+		color = { 170 200 100 }
+		local_building_slots = 4
+	}
+	town = {
+		color = { 200 210 90 }
+		local_building_slots = 5
+	}
+	large_town = {
+		color = { 220 200 80 }
+		local_building_slots = 6
+	}
+	city = {
+		color = { 230 170 70 }
+		local_building_slots = 8
+	}
+	large_city = {
+		color = { 230 130 60 }
+		local_building_slots = 10
+	}
+	metropolis = {
+		color = { 220 90 60 }
+		local_building_slots = 12
+	}
+	megalopolis = {
+		color = { 200 50 60 }
+		local_building_slots = 14
+	}
+}

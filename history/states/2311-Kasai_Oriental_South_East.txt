@@ -16,7 +16,7 @@ state={
 			12276 3
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 2
 		}
 		add_core_of = ZAI
 	}

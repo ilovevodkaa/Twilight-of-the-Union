@@ -10,7 +10,12 @@ state={
 			3824 4
 		}
 		buildings = {
-			infrastructure = 3
+			infrastructure = 4
+			industrial_complex = 1
+			arms_factory = 1
+			3824 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = SPR
 	}

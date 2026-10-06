@@ -10,7 +10,12 @@ state={
 			12402 9
 		}
 		buildings = {
-			infrastructure = 3
+			infrastructure = 2
+			industrial_complex = 1
+			air_base = 1
+			12402 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = PNG
 	}

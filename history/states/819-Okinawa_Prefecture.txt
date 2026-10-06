@@ -10,7 +10,11 @@ state={
 			7816 6
 		}
 		buildings = {
-			infrastructure = 3
+			infrastructure = 4
+			industrial_complex = 5
+			7816 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = JAP
 	}

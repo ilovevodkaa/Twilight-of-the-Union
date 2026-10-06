@@ -10,7 +10,11 @@ state={
 			3721 7
 		}
 		buildings = {
-			infrastructure = 1
+			infrastructure = 2
+			air_base = 3
+			3721 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = SMR
 	}

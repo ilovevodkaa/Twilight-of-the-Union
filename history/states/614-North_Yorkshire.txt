@@ -28,7 +28,19 @@ state={
 			1572 3
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 5
+			industrial_complex = 7
+			arms_factory = 2
+			dockyard = 2
+			1520 = {
+				naval_base = 3
+			}
+			1651 = {
+				naval_base = 2
+			}
+			1659 = {
+				naval_base = 3
+			}
 		}
 		add_core_of = ENG
 	}

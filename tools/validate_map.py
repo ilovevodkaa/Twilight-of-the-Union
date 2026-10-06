@@ -197,6 +197,41 @@ def main():
             err(f"land province {p} is in no state")
     vp_total = sum(len(v) for v in vps_of_state.values())
 
+    # ---------------- state buildings (tools/build_state_buildings.py)
+    slot_of = {m.group(1): int(m.group(2)) for m in re.finditer(
+        r"(\w+) = \{\s*color = \{[^}]*\}\s*local_building_slots = (\d+)",
+        read(ROOT / "common/state_category/totu_state_categories.txt"))}
+    slot_buildings = ("arms_factory", "industrial_complex", "dockyard")
+    max_level = {"infrastructure": 5, "air_base": 10, "naval_base": 10}
+    for f in sorted(sdir.glob("*.txt")):
+        t = read(f)
+        sid = int(re.search(r"\bid\s*=\s*(\d+)", t).group(1))
+        cat = re.search(r"state_category\s*=\s*(\w+)", t).group(1)
+        if cat not in slot_of:
+            err(f"state {sid}: unknown state_category {cat}")
+            continue
+        mb = re.search(r"\bbuildings\s*=\s*\{(.*?)\n\t\t\}", t, re.S)
+        if not mb:
+            err(f"state {sid}: no buildings block")
+            continue
+        body = mb.group(1)
+        provs_s = [int(x) for x in re.search(r"provinces\s*=\s*\{([^}]*)\}", t).group(1).split()]
+        used = 0
+        for b in slot_buildings:
+            m = re.search(rf"^\s*{b}\s*=\s*(\d+)", body, re.M)
+            used += int(m.group(1)) if m else 0
+        if used > slot_of[cat]:
+            err(f"state {sid}: {used} slot buildings exceed {slot_of[cat]} slots ({cat})")
+        for b, mx in max_level.items():
+            for m in re.finditer(rf"^\s*{b}\s*=\s*(\d+)", body, re.M):
+                if int(m.group(1)) > mx:
+                    err(f"state {sid}: {b} level {m.group(1)} > {mx}")
+        if re.search(r"^\s*dockyard\s*=", body, re.M) and not any(coastal.get(p) for p in provs_s):
+            err(f"state {sid}: dockyard in a state without coast")
+        for m in re.finditer(r"(\d+)\s*=\s*\{\s*naval_base\s*=\s*(\d+)", body):
+            if int(m.group(1)) not in provs_s or not coastal.get(int(m.group(1))):
+                err(f"state {sid}: naval_base in non-coastal / foreign province {m.group(1)}")
+
     # ---------------- countries
     tags = dict(re.findall(r'^([A-Z0-9]{3})\s*=\s*"countries/([^"]+)"', read(ROOT / "common/country_tags/totu_countries.txt"), re.M))
     colors = set(re.findall(r"^([A-Z0-9]{3})\s*=\s*\{", read(ROOT / "common/countries/colors.txt"), re.M))
@@ -206,6 +241,12 @@ def main():
         if not txt.startswith(f"l_{lang}:"):
             err(f"{lang} country loc: bad header")
         loc[lang] = set(re.findall(r"^\s([A-Za-z0-9_]+):0", txt, re.M))
+    known_ideas = set()
+    for f in (ROOT / "common/ideas").glob("*.txt"):
+        known_ideas |= set(re.findall(r"^\t+(\w+)\s*=\s*\{", read(f), re.M))
+    known_chars = set()
+    for f in (ROOT / "common/characters").glob("*.txt"):
+        known_chars |= set(re.findall(r"^\t(\w+)\s*=\s*\{", read(f), re.M))
     hist = {}
     for f in (ROOT / "history/countries").glob("*.txt"):
         tag = f.name.split(" - ")[0]
@@ -216,6 +257,14 @@ def main():
             err(f"{f.name}: capital is not an existing state")
         elif owner[int(m.group(1))] != tag:
             err(f"{f.name}: capital state {m.group(1)} is owned by {owner[int(m.group(1))]}")
+        # only ideas / characters that exist in this mod (vanilla content is purged, docs/VANILLA_PURGE.md)
+        for blk in re.findall(r"add_ideas\s*=\s*\{([^}]*)\}", t):
+            for idea in re.sub(r"#.*", "", blk).split():
+                if idea not in known_ideas:
+                    err(f"{f.name}: unknown idea {idea}")
+        for ch in re.findall(r"(?:recruit|promote)_character\s*=\s*(\w+)", t):
+            if ch not in known_chars:
+                err(f"{f.name}: unknown character {ch}")
     owners = set(owner.values())
     for tag in sorted(set(hist) | set(tags) | owners):
         if tag not in tags:
@@ -311,7 +360,7 @@ def main():
     if f"max_provinces = {N + 1}" not in dm:
         err("default.map: max_provinces mismatch")
     for r in ("history/states", "history/countries", "common/country_tags", "common/countries",
-              "map/strategicregions", "map/supplyareas"):
+              "map/strategicregions", "map/supplyareas", "common/state_category"):
         if f'replace_path="{r}"' not in read(ROOT / "descriptor.mod"):
             err(f"descriptor.mod: replace_path {r} missing")
 

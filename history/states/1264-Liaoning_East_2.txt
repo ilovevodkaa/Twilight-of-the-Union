@@ -29,6 +29,24 @@ state={
 		}
 		buildings = {
 			infrastructure = 4
+			industrial_complex = 1
+			dockyard = 1
+			air_base = 2
+			4451 = {
+				naval_base = 2
+			}
+			4581 = {
+				naval_base = 2
+			}
+			4638 = {
+				naval_base = 1
+			}
+			4665 = {
+				naval_base = 1
+			}
+			4764 = {
+				naval_base = 4
+			}
 		}
 		add_core_of = PRC
 	}

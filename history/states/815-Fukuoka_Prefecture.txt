@@ -19,7 +19,19 @@ state={
 			6379 3
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 5
+			industrial_complex = 7
+			arms_factory = 1
+			dockyard = 1
+			6283 = {
+				naval_base = 3
+			}
+			6342 = {
+				naval_base = 5
+			}
+			6485 = {
+				naval_base = 2
+			}
 		}
 		add_core_of = JAP
 	}

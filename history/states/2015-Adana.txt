@@ -16,7 +16,15 @@ state={
 			5585 3
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 3
+			industrial_complex = 1
+			dockyard = 1
+			5423 = {
+				naval_base = 2
+			}
+			5534 = {
+				naval_base = 1
+			}
 		}
 		add_core_of = TUR
 	}

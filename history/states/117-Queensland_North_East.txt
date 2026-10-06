@@ -13,7 +13,8 @@ state={
 			13552 2
 		}
 		buildings = {
-			infrastructure = 2
+			infrastructure = 3
+			industrial_complex = 1
 		}
 		add_core_of = AST
 	}

@@ -13,7 +13,11 @@ state={
 			6321 3
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 3
+			industrial_complex = 1
+			6334 = {
+				naval_base = 3
+			}
 		}
 		add_core_of = MOR
 	}

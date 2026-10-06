@@ -19,7 +19,7 @@ state={
 			10053 2
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 2
 		}
 		add_core_of = NGA
 	}
