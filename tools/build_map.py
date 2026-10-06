@@ -218,7 +218,7 @@ def main():
 
 HEIGHT_Y = 9.5
 
-REPLACE = ["history/states", "history/countries", "common/country_tags", "common/countries",
+REPLACE = ["history/units", "history/states", "history/countries", "common/country_tags", "common/countries",
            "map/strategicregions", "map/supplyareas"]
 
 

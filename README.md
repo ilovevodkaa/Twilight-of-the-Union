@@ -154,4 +154,8 @@ The world map is now a new, procedurally generated 1990 map: about 14,800 land a
 
 **Rebuild graphics:** `pip install pillow`, then `python tools/build_menu_gfx.py`.
 
+**Colours and flags:** `python tools/build_country_colors.py` assigns distinct map colours (neighbours differ by dE >= 20) and re-renders the map preview; `pip install cairosvg pillow`, then `python tools/build_flags.py` builds all flag TGAs (modern flag-icons SVGs plus hand-drawn 1990 flags such as USSR, GDR, Yugoslavia and the two Yemens).
+
+**Цвета и флаги:** `python tools/build_country_colors.py` подбирает различимые цвета стран; `python tools/build_flags.py` собирает TGA-флаги для всех тегов.
+
 **Rebuild the map:** `pip install numpy scipy shapely scikit-image opencv-python-headless pillow requests`, then `python tools/build_map.py` (downloads data into `tools/cache/`, takes 5-10 minutes) and `python tools/validate_map.py`. Projection: plate carree, 77N-56S, 5632x2048. Unverified without the game: `terrain.bmp` palette indices, `trees.bmp` size (3520x1280), `cities.bmp` format, and the position files `unitstacks.txt` / `buildings.txt`.
