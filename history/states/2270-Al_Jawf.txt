@@ -10,6 +10,7 @@ state={
 			infrastructure = 2
 		}
 		add_core_of = YEM
+		add_claim_by = YES
 	}
 
 	provinces={

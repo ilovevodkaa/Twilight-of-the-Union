@@ -32,6 +32,7 @@ state={
 			}
 		}
 		add_core_of = MAL
+		add_claim_by = PHI
 	}
 
 	provinces={

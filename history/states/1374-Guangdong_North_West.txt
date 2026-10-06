@@ -37,6 +37,7 @@ state={
 			}
 		}
 		add_core_of = PRC
+		add_claim_by = CHI
 	}
 
 	provinces={

@@ -192,6 +192,15 @@ def main():
         if not re.search(r"manpower\s*=\s*\d+", t) or not re.search(r"state_category\s*=\s*\w+", t):
             err(f"state {sid}: manpower/state_category missing")
     nstates = len(state_ids)
+    all_tags = set(re.findall(r'^([A-Z0-9]{3})\s*=', "".join(read(tf) for tf in (ROOT / "common/country_tags").glob("*.txt")), re.M))
+    for f in sorted(sdir.glob("*.txt")):
+        t = read(f)
+        sid = int(re.search(r"\bid\s*=\s*(\d+)", t).group(1))
+        for tg in re.findall(r"add_(?:core_of|claim_by)\s*=\s*(\w+)", t):
+            if tg not in all_tags:
+                err(f"state {sid}: core / claim for unknown tag {tg}")
+        if f"add_core_of = {owner[sid]}" not in t:
+            err(f"state {sid}: owner {owner[sid]} has no core")
     for p in land_ids:
         if p not in state_of:
             err(f"land province {p} is in no state")
@@ -233,13 +242,19 @@ def main():
                 err(f"state {sid}: naval_base in non-coastal / foreign province {m.group(1)}")
 
     # ---------------- countries
-    tags = dict(re.findall(r'^([A-Z0-9]{3})\s*=\s*"countries/([^"]+)"', read(ROOT / "common/country_tags/totu_countries.txt"), re.M))
+    tags = {}
+    for tf in sorted((ROOT / "common/country_tags").glob("*.txt")):
+        tags.update(re.findall(r'^([A-Z0-9]{3})\s*=\s*"countries/([^"]+)"', read(tf), re.M))
+    stub_tags = {t for t in tags if t not in {x for x in re.findall(r'^([A-Z0-9]{3})\s*=', read(ROOT / "common/country_tags/totu_countries.txt"), re.M)}}
     colors = set(re.findall(r"^([A-Z0-9]{3})\s*=\s*\{", read(ROOT / "common/countries/colors.txt"), re.M))
     loc = {}
     for lang in ("english", "russian"):
-        txt = read(ROOT / f"localisation/{lang}/replace/totu_countries_l_{lang}.yml")
-        if not txt.startswith(f"l_{lang}:"):
-            err(f"{lang} country loc: bad header")
+        txt = ""
+        for lf in sorted((ROOT / f"localisation/{lang}/replace").glob("*.yml")):
+            part = read(lf)
+            if not part.startswith(f"l_{lang}:"):
+                err(f"{lf.name}: bad header")
+            txt += part
         loc[lang] = set(re.findall(r"^\s([A-Za-z0-9_]+):0", txt, re.M))
     known_ideas = set()
     for f in (ROOT / "common/ideas").glob("*.txt"):
@@ -274,14 +289,18 @@ def main():
                 err(f"{tag}: common/countries/{tags[tag]} missing")
         if tag not in colors:
             err(f"{tag}: no colour in colors.txt")
-        if tag not in hist:
+        if tag not in hist and tag not in stub_tags:
             err(f"{tag}: no history file")
         for lang in loc:
             for suf in ("", "_DEF", "_ADJ"):
                 if tag + suf not in loc[lang]:
                     err(f"{tag}: missing {lang} localisation {tag + suf}")
-        if tag not in owners:
+        if tag not in owners and tag not in stub_tags:
             warn(f"{tag}: owns no state")
+        if tag in stub_tags and tag in owners:
+            err(f"{tag}: stub tag owns a state")
+        if not (ROOT / "gfx/flags" / f"{tag}.tga").exists():
+            err(f"{tag}: no flag")
     # state / VP / region localisation
     for lang in ("english", "russian"):
         txt = read(ROOT / f"localisation/{lang}/totu_map_l_{lang}.yml")

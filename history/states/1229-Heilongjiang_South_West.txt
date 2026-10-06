@@ -33,6 +33,7 @@ state={
 			air_base = 2
 		}
 		add_core_of = PRC
+		add_claim_by = CHI
 	}
 
 	provinces={

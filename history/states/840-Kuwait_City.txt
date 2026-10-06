@@ -23,6 +23,7 @@ state={
 			}
 		}
 		add_core_of = KUW
+		add_claim_by = IRQ
 	}
 
 	provinces={

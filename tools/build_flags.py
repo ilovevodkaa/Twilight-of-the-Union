@@ -35,6 +35,9 @@ _t = ("AFG af ALB al ALG dz AND ad ANG ao ARG ar AST au ATG ag AUS at BAN bd BDI
       "SWE se SWI ch SWZ sz SYC sc SYR sy TGO tg TON to TRJ jo TTO tt TUN tn TUR tr TUV tv TZA tz UAE ae UGA ug URG uy "
       "USA us VCT vc VEN ve VIN vn VUT vu WSM ws YEM ye YES ye YUG rs ZAI cd ZAM zm ZIM zw").split()
 ISO = dict(zip(_t[0::2], _t[1::2]))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from stub_tags import STUBS  # noqa: E402  (tags that do not exist in 1990: modern flag-icons flags)
+ISO.update({k: v[4] for k, v in STUBS.items()})
 
 SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" preserveAspectRatio="none">{}</svg>'
 SRC = ROOT / "tools" / "cache" / "flags_src"
@@ -95,7 +98,12 @@ def main():
     except Exception as e:
         print("flag-icons download failed:", e)
         icons = {}
-    tags = re.findall(r'^([A-Z0-9]{3}) = ', (ROOT / "common/country_tags/totu_countries.txt").read_text(encoding="utf-8-sig"), re.M)
+    tags = []
+    for tf in sorted((ROOT / "common/country_tags").glob("*.txt")):
+        tags += re.findall(r'^([A-Z0-9]{3}) = ', tf.read_text(encoding="utf-8-sig"), re.M)
+    only = sys.argv[1:]   # optional: python tools/build_flags.py EST LAT  (re-render just these tags)
+    if only:
+        tags = [t for t in tags if t in only]
     src = {"sourced": 0, "historical": 0, "fallback": 0}
     fb = []
     for tag in tags:
@@ -117,7 +125,7 @@ def main():
     # validate
     for sub, (w, h) in SIZES.items():
         files = list((ROOT / "gfx" / "flags" / sub).glob("*.tga"))
-        assert len(files) == len(tags), (sub, len(files), len(tags))
+        assert len(files) >= len(tags), (sub, len(files), len(tags))
         for f in files:
             b = f.read_bytes()[:18]
             assert b[2] == 2 and b[16] == 32 and b[12] | b[13] << 8 == w and b[14] | b[15] << 8 == h, f

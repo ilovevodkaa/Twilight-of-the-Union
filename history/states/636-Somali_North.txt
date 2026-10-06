@@ -13,6 +13,7 @@ state={
 			infrastructure = 2
 		}
 		add_core_of = ETH
+		add_claim_by = SOM
 	}
 
 	provinces={

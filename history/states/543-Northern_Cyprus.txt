@@ -21,6 +21,7 @@ state={
 			}
 		}
 		add_core_of = CYP
+		add_claim_by = TUR
 	}
 
 	provinces={

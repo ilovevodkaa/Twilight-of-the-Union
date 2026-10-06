@@ -688,3 +688,99 @@ ZIM = {
 	color = rgb { 210 182 238 }
 	color_ui = rgb { 249 217 255 }
 }
+ARM = {
+	color = rgb { 232 142 62 }
+	color_ui = rgb { 255 171 79 }
+}
+AZR = {
+	color = rgb { 62 162 172 }
+	color_ui = rgb { 79 194 205 }
+}
+BLR = {
+	color = rgb { 166 200 136 }
+	color_ui = rgb { 198 237 164 }
+}
+BOS = {
+	color = rgb { 112 132 192 }
+	color_ui = rgb { 136 159 228 }
+}
+CRO = {
+	color = rgb { 202 92 122 }
+	color_ui = rgb { 240 113 148 }
+}
+CZR = {
+	color = rgb { 172 122 182 }
+	color_ui = rgb { 205 148 217 }
+}
+EST = {
+	color = rgb { 112 150 204 }
+	color_ui = rgb { 136 180 242 }
+}
+GEO = {
+	color = rgb { 190 62 72 }
+	color_ui = rgb { 226 79 90 }
+}
+KAZ = {
+	color = rgb { 92 182 212 }
+	color_ui = rgb { 113 217 251 }
+}
+KYR = {
+	color = rgb { 212 92 82 }
+	color_ui = rgb { 251 113 102 }
+}
+LAT = {
+	color = rgb { 170 72 94 }
+	color_ui = rgb { 203 90 116 }
+}
+LIT = {
+	color = rgb { 90 152 102 }
+	color_ui = rgb { 111 182 125 }
+}
+MAC = {
+	color = rgb { 212 152 92 }
+	color_ui = rgb { 251 182 113 }
+}
+MNT = {
+	color = rgb { 112 112 92 }
+	color_ui = rgb { 136 136 113 }
+}
+MOL = {
+	color = rgb { 200 122 152 }
+	color_ui = rgb { 237 148 182 }
+}
+RUS = {
+	color = rgb { 206 104 92 }
+	color_ui = rgb { 244 127 113 }
+}
+SAH = {
+	color = rgb { 192 176 112 }
+	color_ui = rgb { 228 210 136 }
+}
+SER = {
+	color = rgb { 152 92 132 }
+	color_ui = rgb { 182 113 159 }
+}
+SLO = {
+	color = rgb { 132 162 212 }
+	color_ui = rgb { 159 194 251 }
+}
+SLV = {
+	color = rgb { 82 172 172 }
+	color_ui = rgb { 102 205 205 }
+}
+TAJ = {
+	color = rgb { 152 112 172 }
+	color_ui = rgb { 182 136 205 }
+}
+TMS = {
+	color = rgb { 62 142 92 }
+	color_ui = rgb { 79 171 113 }
+}
+UKR = {
+	color = rgb { 226 196 76 }
+	color_ui = rgb { 255 233 95 }
+}
+UZB = {
+	color = rgb { 82 132 202 }
+	color_ui = rgb { 102 159 240 }
+}

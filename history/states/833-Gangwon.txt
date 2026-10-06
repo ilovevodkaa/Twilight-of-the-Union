@@ -25,6 +25,7 @@ state={
 			dockyard = 1
 		}
 		add_core_of = KOR
+		add_claim_by = PRK
 	}
 
 	provinces={

@@ -9,10 +9,13 @@ import re
 import colorsys
 from pathlib import Path
 
+import sys
+
 import numpy as np
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 MIN_DE = 20.0
 
 PINNED = {
@@ -148,6 +151,11 @@ def main():
         txt = re.sub(r"color = \{[^}]*\}", f"color = {{ {c[0]} {c[1]} {c[2]} }}", txt)
         p.write_text(txt, encoding="utf-8")
         out.append(f"{t} = {{\n\tcolor = rgb {{ {c[0]} {c[1]} {c[2]} }}\n\tcolor_ui = rgb {{ {ui[0]} {ui[1]} {ui[2]} }}\n}}")
+    from stub_tags import STUBS   # non-existing 1990 tags: fixed colours (also in common/countries/<name>.txt)
+    for t_, s_ in sorted(STUBS.items()):
+        c = s_[5]
+        ui = tuple(min(255, int(v * 1.15 + 8)) for v in c)
+        out.append(f"{t_} = {{\n\tcolor = rgb {{ {c[0]} {c[1]} {c[2]} }}\n\tcolor_ui = rgb {{ {ui[0]} {ui[1]} {ui[2]} }}\n}}")
     (ROOT / "common/countries/colors.txt").write_text("\n".join(out) + "\n", encoding="utf-8")
     render(color)
 
