@@ -213,6 +213,8 @@ def main():
         images.preview(w, S, state_of, table, rast, ROOT / "docs/images/map_1990.jpg")
     # ---- descriptor
     update_descriptor()
+    import post_build
+    post_build.main()   # adjectives, state-name fixes (tools/post_build.py)
     print(f"done in {time.time() - t0:.0f}s")
 
 
