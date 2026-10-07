@@ -1,6 +1,14 @@
-# Twilight of the Union: loading screen.
-# Layout: logo top-left; tip box and status box stacked at the bottom centre.
-# Box textures come from tools/build_menu_gfx.py (LOAD_* constants).
+# Twilight of the Union: loading screen ("broadcast": the picture cuts to a period TV photo, graded like the menu).
+# Sprites in interface/load_screen.gfx, fonts in interface/load_screen_font.gfx, textures from tools/build_menu_gfx.py
+# (LOAD_* and QUOTE_* constants; the .gui offsets below are derived from them). Screen px at UI scale 1.0, H = height.
+#   - The programme title stays where the menu has it: the logo at 156,72 (glyphs from 192,108) on the title scrim.
+#   - Lower left, every element on the x = 192 title-safe edge: the quote of the era as a soundbite subtitle
+#     (1-3 hand-set lines, pitch 44, no quotation marks) over a name strap in D (baseline H-136); 32 px below it the
+#     status line (capitals H-104..H-90); 12 px below that the 576x6 keyer-blue bar (H-78..H-72).
+#   - One soft lower-third scrim under the stack, in the root, so it draws under both windows and never over text.
+# The engine fills "tip" > "text" (LOADING_TIP_n), "status" > "text" and "status" > "progressbar"; it looks up
+# bg_load_screen, bg_load_screen2 and the two vanilla logo icons by name, so those stay (transparent / off-screen).
+# A LOWER_LEFT window at 0,0 has its top-left corner on the screen's bottom-left corner, so its children use y < 0.
 guiTypes = {
 
 	windowType = {
@@ -16,10 +24,27 @@ guiTypes = {
 		Orientation = "UPPER_LEFT"
 
 		iconType = {
+			name = "totu_loading_scrim_title"
+			spriteType = "GFX_totu_load_scrim_title"
+			position = { x = -123 y = -67 }
+			alwaystransparent = yes
+		}
+
+		# centre (680, H-196); the full-alpha plateau covers x 192..1148 and H-296..H-72
+		iconType = {
+			name = "totu_loading_scrim_caption"
+			spriteType = "GFX_totu_load_scrim_caption"
+			Orientation = "LOWER_LEFT"
+			position = { x = -120 y = -576 }
+			alwaystransparent = yes
+		}
+
+		# no scale: the glyphs start at 192,108, as in the menu
+		iconType = {
 			name = "totu_loading_logo"
 			spriteType = "GFX_totu_loading_logo"
-			position = { x = 30 y = 26 }
-			scale = 0.75
+			position = { x = 156 y = 72 }
+			alwaystransparent = yes
 		}
 
 		# Vanilla logos: the engine looks these up by name, so they stay, off-screen.
@@ -35,75 +60,82 @@ guiTypes = {
 			position = { x = -9000 y = -9000 }
 		}
 
-		# Origin of a CENTER_DOWN window is the bottom centre of the screen.
+		# Subtitle and name strap. maxWidth 1056 = 44 advances (hand-set lines use at most 40: no engine re-wrap);
+		# 4 lines of 44 (at most 3 quote lines + the strap), bottom-aligned: the box spans H-296..H-120 and the
+		# strap's capitals sit at H-164..H-136. The box top clears the logo glyphs (end at y 358) down to 720 px.
 		windowType = {
-			name = "status"
+			name = "tip"
 			backGround =""
 			position = { x = 0 y = 0 }
-			size = { x = 1024 y = 768 }
+			size = { x = 1600 y = 320 }
 			moveable = 0
 			dontRender = ""
 			horizontalBorder = "0"
 			verticalBorder = ""
 			fullScreen = no
-			Orientation = "CENTER_DOWN"
+			Orientation = "LOWER_LEFT"
 
 			iconType = {
-				name ="bg_load_screen2"
-				spriteType = "GFX_loadingstatus_bg"
-				position = { x = -550 y = -120 }
+				name ="bg_load_screen"
+				spriteType = "GFX_loadingtip_bg"
+				position = { x = 0 y = -8 }
 			}
 
 			instantTextBoxType = {
 				name = "text"
-				position = { x = -400 y = -108 }
+				position = { x = 192 y = -296 }
+				textureFile = ""
+				font = "loadscreen_tip"
+				text_color_code = P
+				borderSize = { x = 0 y = 0 }
+				text = ""
+				maxWidth = 1056
+				maxHeight = 176
+				fixedsize = yes
+				format = left
+				vertical_alignment = bottom
+			}
+		}
+
+		# Status line and progress bar. One line of at most 32 px: any override font (<= 29) fits, two lines of the
+		# pixel font (36) do not, so a long save name is cut instead of pushing into the bar.
+		windowType = {
+			name = "status"
+			backGround =""
+			position = { x = 0 y = 0 }
+			size = { x = 1600 y = 200 }
+			moveable = 0
+			dontRender = ""
+			horizontalBorder = "0"
+			verticalBorder = ""
+			fullScreen = no
+			Orientation = "LOWER_LEFT"
+
+			iconType = {
+				name ="bg_load_screen2"
+				spriteType = "GFX_loadingstatus_bg"
+				position = { x = 0 y = -8 }
+			}
+
+			instantTextBoxType = {
+				name = "text"
+				position = { x = 192 y = -104 }
 				textureFile = ""
 				font = "loadscreen_header"
-				borderSize = {x = 0 y = 0}
+				text_color_code = P
+				borderSize = { x = 0 y = 0 }
 				text = ""
-				maxWidth = 800
-				maxHeight = 40
+				maxWidth = 1056
+				maxHeight = 32
 				fixedsize = yes
-				format = centre
+				format = left
+				vertical_alignment = top
 			}
 
 			iconType = {
 				name = "progressbar"
 				spriteType = "GFX_loadingstatus_progress"
-				position = { x = -467 y = -56 }
-			}
-		}
-
-		windowType = {
-			name = "tip"
-			backGround =""
-			position = { x = 0 y = 0 }
-			size = { x = 1024 y = 200 }
-			moveable = 0
-			dontRender = ""
-			horizontalBorder = "0"
-			verticalBorder = ""
-			fullScreen = no
-			Orientation = "CENTER_DOWN"
-
-			iconType = {
-				name ="bg_load_screen"
-				spriteType = "GFX_loadingtip_bg"
-				position = { x = -550 y = -228 }
-			}
-
-			instantTextBoxType = {
-				name = "text"
-				position = { x = -500 y = -226 }
-				textureFile = ""
-				font = "loadscreen_tip"
-				borderSize = {x = 0 y = 0}
-				text = ""
-				maxWidth = 1000
-				maxHeight = 100
-				fixedsize = yes
-				format = centre
-				vertical_alignment = center
+				position = { x = 192 y = -78 }
 			}
 		}
 	}

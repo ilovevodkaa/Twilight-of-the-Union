@@ -1,0 +1,28 @@
+state = {
+	id = 1037
+	name = "STATE_1037"
+	resources = {
+	}
+
+	history = {
+		owner = PRC
+		add_core_of = PRC
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 1
+			air_base = 2
+		}
+		victory_points = { 6999 20 }
+		victory_points = { 11972 1 }
+	}
+
+	provinces = {
+		4431 6999 7240 11972 12705
+	}
+	manpower = 31777980
+	buildings_max_level_factor = 1.000
+	state_category = city
+
+	local_supplies = 0.0 
+}

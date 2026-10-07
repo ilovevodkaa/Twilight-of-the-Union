@@ -1,0 +1,24 @@
+state = {
+	id = 836 # Bale
+	name = "STATE_836"
+	manpower = 800000
+	resources = {
+	}
+	
+	state_category = pastoral
+
+	history = {
+		owner = ETH
+		add_core_of = ETH
+		add_core_of = ORO
+		buildings = {
+		}
+		victory_points = { 10775 1 }
+	}
+
+	provinces = {
+		4995 10775 13248
+	}
+
+	local_supplies = 0.0 
+}

@@ -1,6 +1,0 @@
-supply_area = {
-	id = 178
-	name = "SUPPLYAREA_178"
-	value = 6
-	states = { 1624 1625 1634 1652 1664 1665 1721 }
-}

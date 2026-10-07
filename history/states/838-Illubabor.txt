@@ -1,0 +1,26 @@
+state = {
+	id = 838 # Illubabor-Kaffa
+	name = "STATE_838"
+	manpower = 600000
+	resources = {
+		rubber = 2
+	}
+	
+	state_category = pastoral
+
+	history = {
+		owner = ETH
+		add_core_of = ETH
+		add_core_of = GBA
+		buildings = {
+		}
+		victory_points = { 13244 2 }
+		victory_points = { 7912 1 }
+	}
+
+	provinces = {
+		7912 13244 13245
+	}
+
+	local_supplies = 0.0 
+}

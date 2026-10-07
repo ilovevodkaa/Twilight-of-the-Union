@@ -20,7 +20,7 @@ MAJORS = [
 SHOWN_IDEAS = {
     "SOV": ["TOTU_SOV_no_plan_no_market", "TOTU_SOV_glasnost", "TOTU_SOV_awakening_republics"],
 }
-# Minor flags row, 8 slots. Their history files are generated stubs (tools/build_map.py).
+# Minor flags row, 8 slots. Their history files come from tools/build_world_1990.py.
 MINORS = [
     ("POL", "democratic"),
     ("CZE", "democratic"),

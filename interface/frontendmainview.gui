@@ -206,23 +206,65 @@ guiTypes = {
 		}
 	}
 	
-	### MAIN MENU PANEL (upperleft)
+	### TITLE (TotU "broadcast" menu; design: tools/preview/menu_dir_broadcast.png, sprites and fonts built by tools/)
+	# The programme title in the title-safe corner: a shadow scrim, the pixel logo and the start date.
+	# The logo texture has a 36 px pad, so its glyphs start at 192,108; the date line shares the x = 192 edge.
+	# position = show_position: the vanilla slide-in is switched off, broadcast captions do not move.
+	# Caption text boxes (here and in the menus below): the totu_caption fonts put the capitals at the line top, so a
+	# box's y is the top of its capitals. Every caption has a black copy (text_color_code K) at +2,+2 declared before
+	# it: the drop edge. P is the logo's glyph white (interface/totu_fonts.gfx).
 	containerWindowType = {
 		name  ="mainmenu_panel_upperleft"
-		position = { x=0 y =-300 }
-		show_position = { x=0 y =-1 }
+		position = { x=0 y =0 }
+		show_position = { x=0 y =0 }
 		animation_type = decelerated
-		animation_time = 1600
-		size = { width = 800 height = 300 }
+		animation_time = 1000
+		size = { width = 800 height = 440 }
+		Orientation = UPPER_LEFT
 		clipping = no
-		
+
+		iconType = {
+			name = "totu_title_scrim"
+			spriteType = "GFX_totu_scrim_title"
+			position = { x = -123 y = -67 }
+			alwaystransparent = yes
+		}
+
 		iconType =
 		{
 			name ="frontend_game_logo"
-			spriteType = "GFX_frontend_game_logo" # 760x228, gfx/interface/totu/menu_logo.dds
-			position = { x= 30 y = 26 }
+			spriteType = "GFX_frontend_game_logo"
+			position = { x = 156 y = 72 }
+			alwaystransparent = yes
 		}
-		
+
+		instantTextBoxType = {
+			name = "totu_start_date_edge"
+			position = { x = 194 y = 390 }
+			font = "totu_caption_small"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_MENU_START_DATE"
+			format = left
+			vertical_alignment = top
+			maxWidth = 500
+			maxHeight = 20
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_start_date"
+			position = { x = 192 y = 388 }
+			font = "totu_caption_small"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_MENU_START_DATE"
+			format = left
+			vertical_alignment = top
+			maxWidth = 500
+			maxHeight = 20
+			alwaystransparent = yes
+		}
 	}
 
 	#containerWindowType = {
@@ -253,7 +295,7 @@ guiTypes = {
 
 		ButtonType = {
 			name = "achievements_button"
-			position = { x = -50 y = 25 }
+			position = { x = -9000 y = -9000 } # TotU: hidden off-screen (the broadcast frame has nothing top right)
 			quadTextureSprite ="achievements"
 			pdx_tooltip = "MENU_ACHIEVEMENTS"
 		}
@@ -274,95 +316,69 @@ guiTypes = {
 		
 	}		
 
-	### SINGLE PLAYER MENU (TotU layout, see tools/build_menu_gfx.py)
+	### SINGLE PLAYER MENU (TotU "broadcast" layout, see mainmenu_panel_bottom below)
 	containerWindowType = {
 		name = "mainmenu_single_player"
-		position = { x=-290 y=0 }
-		size = { width = 320 height = 420 }
-		Orientation = CENTER
-		Origo = center
+		position = { x = 0 y = -500 }
+		size = { width = 100%% height = 500 }
+		Orientation = LOWER_LEFT
 		clipping = no
 
 		background = {
 			name = "Background"
 			quadTextureSprite ="GFX_tiled_window_transparent"
-		}
-
-		# --- TotU panel art: drawn first so buttons sit on top ---
-		iconType = {
-			name = "totu_menu_panel"
-			position = { x = 0 y = 0 }
-			spriteType = "GFX_totu_menu_panel"
 			alwaystransparent = yes
 		}
 
 		iconType = {
-			name = "totu_menu_photo"
-			position = { x = 334 y = 14 }
-			spriteType = "GFX_totu_menu_photo"
+			name = "totu_menu_scrim"
+			spriteType = "GFX_totu_scrim_menu"
+			position = { x = -222 y = 0 }		# H - 500, same as the main menu
 			alwaystransparent = yes
-		}
-
-		instantTextBoxType = {
-			name = "totu_version_title"
-			position = { x = 334 y = 282 }
-			font = "hoi_18mbs"
-			borderSize = { x = 0 y = 0 }
-			text = "TOTU_MENU_VERSION_TITLE"
-			format = left
-			maxWidth = 326
-			maxHeight = 20
-		}
-
-		instantTextBoxType = {
-			name = "totu_version_desc"
-			position = { x = 334 y = 310 }
-			font = "hoi_16mbs"
-			borderSize = { x = 0 y = 0 }
-			text = "TOTU_MENU_LORE"
-			format = left
-			maxWidth = 318
-			maxHeight = 92
-			scrollbarType = "standardtext_slider"
-		}
-
-		instantTextBoxType = {
-			name = "totu_build_title"
-			position = { x = 686 y = 282 }
-			font = "hoi_18mbs"
-			borderSize = { x = 0 y = 0 }
-			text = "TOTU_MENU_BUILD_TITLE"
-			format = left
-			maxWidth = 200
-			maxHeight = 20
-		}
-
-		instantTextBoxType = {
-			name = "totu_build_list"
-			position = { x = 686 y = 310 }
-			font = "hoi_16mbs"
-			borderSize = { x = 0 y = 0 }
-			text = "TOTU_MENU_BUILD_LIST"
-			format = left
-			maxWidth = 194
-			maxHeight = 92
-			scrollbarType = "standardtext_slider"
 		}
 
 		ButtonType = {
 			name = "sp_continue_button"
-			position = { x = 16 y = 18 }
-			quadTextureSprite ="GFX_main_lobby_button"
-			buttonText = "TOTU_FE_CONTINUE"
-			buttonFont = "hoi_24header"
+			position = { x = 170 y = 236 }		# H - 264
+			quadTextureSprite ="GFX_totu_caption_280"
+			buttonText = ""
+			buttonFont = "totu_caption"
 			clicksound = click_default
 			oversound = ui_menu_over
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_continue_edge"
+			position = { x = 194 y = 244 }
+			font = "totu_caption"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_CONTINUE"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_continue"
+			position = { x = 192 y = 242 }
+			font = "totu_caption"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_CONTINUE"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
 		}
 
 		iconType = {
 			name = "sp_continue_flag_left"
 			quadTextureSprite ="GFX_flag_small2_not_masked"
-			position = { x= 35 y = 22 }
+			position = { x = -9000 y = -9000 } # TotU: hidden off-screen
 			Orientation = "UPPER_LEFT"
 			alwaystransparent = yes
 		}
@@ -370,7 +386,7 @@ guiTypes = {
 		iconType = {
 			name = "sp_continue_flag_left_overlay"
 			quadTextureSprite ="GFX_flag_small2_not_masked"
-			position = { x= 35 y = 22 }
+			position = { x = -9000 y = -9000 } # TotU: hidden off-screen
 			Orientation = "UPPER_LEFT"
 			alwaystransparent = yes
 		}
@@ -378,7 +394,7 @@ guiTypes = {
 		iconType = {
 			name = "sp_continue_flag_right"
 			quadTextureSprite ="GFX_flag_small2_not_masked"
-			position = { x= 245 y = 22 }
+			position = { x = -9000 y = -9000 } # TotU: hidden off-screen
 			Orientation = "UPPER_LEFT"
 			alwaystransparent = yes
 		}
@@ -386,29 +402,85 @@ guiTypes = {
 		iconType = {
 			name = "sp_continue_flag_right_overlay"
 			quadTextureSprite ="GFX_flag_small2_not_masked"
-			position = { x= 245 y = 22 }
+			position = { x = -9000 y = -9000 } # TotU: hidden off-screen
 			Orientation = "UPPER_LEFT"
 			alwaystransparent = yes
 		}
 
 		ButtonType = {
 			name = "sp_new_button"
-			position = { x = 16 y = 58 }
-			quadTextureSprite ="GFX_main_lobby_button"
-			buttonText = "TOTU_FE_NEW"
-			buttonFont = "hoi_24header"
+			position = { x = 170 y = 280 }		# H - 220
+			quadTextureSprite ="GFX_totu_caption_280"
+			buttonText = ""
+			buttonFont = "totu_caption"
 			clicksound = click_default
 			oversound = ui_menu_over
 		}
 
+		instantTextBoxType = {
+			name = "totu_label_new_edge"
+			position = { x = 194 y = 288 }
+			font = "totu_caption"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_NEW"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_new"
+			position = { x = 192 y = 286 }
+			font = "totu_caption"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_NEW"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
 		ButtonType = {
 			name = "sp_load_button"
-			position = { x = 16 y = 98 }
-			quadTextureSprite ="GFX_main_lobby_button"
-			buttonText = "TOTU_FE_LOAD"
-			buttonFont = "hoi_24header"
+			position = { x = 170 y = 324 }		# H - 176
+			quadTextureSprite ="GFX_totu_caption_256"
+			buttonText = ""
+			buttonFont = "totu_caption"
 			clicksound = click_default
 			oversound = ui_menu_over
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_load_edge"
+			position = { x = 194 y = 332 }
+			font = "totu_caption"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_LOAD"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_load"
+			position = { x = 192 y = 330 }
+			font = "totu_caption"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_LOAD"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
 		}
 
 		ButtonType = {
@@ -421,168 +493,357 @@ guiTypes = {
 
 		ButtonType = {
 			name = "sp_back_button"
-			position = { x = 16 y = 194 }
-			quadTextureSprite ="GFX_main_lobby_button"
-			buttonText = "TOTU_FE_BACK"
-			buttonFont = "hoi_24header"
+			position = { x = 170 y = 388 }		# H - 112
+			quadTextureSprite ="GFX_totu_caption_160"
+			buttonText = ""
+			buttonFont = "totu_caption"
 			clicksound = click_close
 			oversound = ui_menu_over
 			shortcut = "ESCAPE"
 		}
+
+		instantTextBoxType = {
+			name = "totu_label_back_edge"
+			position = { x = 194 y = 396 }
+			font = "totu_caption"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_BACK"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_back"
+			position = { x = 192 y = 394 }
+			font = "totu_caption"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_BACK"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		# Mod changelog, bottom right, on the Back baseline (H - 78); the engine version line exists only in
+		# mainmenu_panel_bottom. Right-aligned boxes end at x = -190: the text width counts the 2 px gap after the
+		# last glyph, so the ink ends 192 px from the screen edge.
+		instantTextBoxType = {
+			name = "totu_changelog_edge"
+			position = { x = -948 y = 410 }
+			Orientation = UPPER_RIGHT
+			font = "totu_caption_small"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_MENU_CHANGELOG"
+			format = right
+			vertical_alignment = top
+			maxWidth = 760
+			maxHeight = 20
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_changelog"
+			position = { x = -950 y = 408 }		# H - 92
+			Orientation = UPPER_RIGHT
+			font = "totu_caption_small"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_MENU_CHANGELOG"
+			format = right
+			vertical_alignment = top
+			maxWidth = 760
+			maxHeight = 20
+			alwaystransparent = yes
+		}
 	}
 
-	### MAIN MENU PANEL (TotU layout, see tools/build_menu_gfx.py)
+	### MAIN MENU (TotU "broadcast" layout, see the TITLE comment above)
+	# Keyed lower-third captions: no panel, a shadow scrim, transparent plates that turn keyer blue on hover.
+	# The container is a 500 px band along the bottom of the screen, full width. Its top-left corner is pinned
+	# (Orientation LOWER_LEFT, y = -500, default origo), and every left-hand child hangs from that corner,
+	# so y = 500 - (distance of the item's top from the screen bottom).
+	# Plates: x = 170, 40 px tall, pitch 44, 20 px gap before Quit. The buttons draw only the plate; the label is a
+	# left-aligned text box at x = 192, y = plate + 6, so every label starts on the same edge in both languages
+	# (button text would be centred in a plate sized to the longer of the RU and EN label).
+	# No subscription_size, subscription_divider or subscription_widget*: while the subscription widget is shown the
+	# engine resizes this window to subscription_size, which would move the right-anchored lines below, and a size
+	# in percent is not known to work there. Road to 56 removes the same elements on 1.19; the engine only logs them.
 	containerWindowType = {
-		name = "mainmenu_panel_bottom"
-		position = { x=-290 y=0 }
-		size = { width = 320 height = 420 }
-		Orientation = CENTER
-		Origo = center
+		name ="mainmenu_panel_bottom"
+		position = { x = 0 y = -500 }
+		size = { width = 100%% height = 500 }
+		Orientation = LOWER_LEFT
 		clipping = no
 
 		background = {
 			name = "Background"
 			quadTextureSprite ="GFX_tiled_window_transparent"
-		}
-
-		# Engine resizes/moves these when the subscription widget is shown; keep them inside the panel.
-		positionType = {
-			name = "subscription_size"
-			position = { x = 320 y = 420 }
-		}
-
-		positionType = {
-			name = "version_label_subscription_position"
-			position = { x = 0 y = 388 }
-		}
-
-		# --- TotU panel art: drawn first so buttons sit on top ---
-		iconType = {
-			name = "totu_menu_panel"
-			position = { x = 0 y = 0 }
-			spriteType = "GFX_totu_menu_panel"
 			alwaystransparent = yes
 		}
 
 		iconType = {
-			name = "totu_menu_photo"
-			position = { x = 334 y = 14 }
-			spriteType = "GFX_totu_menu_photo"
+			name = "totu_menu_scrim"
+			spriteType = "GFX_totu_scrim_menu"
+			position = { x = -222 y = 0 }		# H - 500
 			alwaystransparent = yes
-		}
-
-		instantTextBoxType = {
-			name = "totu_version_title"
-			position = { x = 334 y = 282 }
-			font = "hoi_18mbs"
-			borderSize = { x = 0 y = 0 }
-			text = "TOTU_MENU_VERSION_TITLE"
-			format = left
-			maxWidth = 326
-			maxHeight = 20
-		}
-
-		instantTextBoxType = {
-			name = "totu_version_desc"
-			position = { x = 334 y = 310 }
-			font = "hoi_16mbs"
-			borderSize = { x = 0 y = 0 }
-			text = "TOTU_MENU_LORE"
-			format = left
-			maxWidth = 318
-			maxHeight = 92
-			scrollbarType = "standardtext_slider"
-		}
-
-		instantTextBoxType = {
-			name = "totu_build_title"
-			position = { x = 686 y = 282 }
-			font = "hoi_18mbs"
-			borderSize = { x = 0 y = 0 }
-			text = "TOTU_MENU_BUILD_TITLE"
-			format = left
-			maxWidth = 200
-			maxHeight = 20
-		}
-
-		instantTextBoxType = {
-			name = "totu_build_list"
-			position = { x = 686 y = 310 }
-			font = "hoi_16mbs"
-			borderSize = { x = 0 y = 0 }
-			text = "TOTU_MENU_BUILD_LIST"
-			format = left
-			maxWidth = 194
-			maxHeight = 92
-			scrollbarType = "standardtext_slider"
 		}
 
 		ButtonType = {
 			name = "single_player_button"
-			position = { x = 16 y = 18 }
-			quadTextureSprite ="GFX_main_lobby_button"
-			buttonText = "TOTU_FE_SINGLE_PLAYER"
-			buttonFont = "hoi_24header"
+			position = { x = 170 y = 192 }		# H - 308
+			quadTextureSprite ="GFX_totu_caption_376"
+			buttonText = ""
+			buttonFont = "totu_caption"
 			clicksound = click_default
 			oversound = ui_menu_over
 		}
 
+		instantTextBoxType = {
+			name = "totu_label_single_player_edge"
+			position = { x = 194 y = 200 }
+			font = "totu_caption"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_SINGLE_PLAYER"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_single_player"
+			position = { x = 192 y = 198 }
+			font = "totu_caption"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_SINGLE_PLAYER"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		# Missing-DLC warning (11x27), right of the Single Player plate
 		iconType = {
 			name = "single_player_button_warn"
-			position = { x = 280 y = 22 }
+			position = { x = 554 y = 198 }
 			spriteType = "GFX_missing_dlc_warning_sign"
 		}
 
 		ButtonType = {
 			name = "multi_player_button"
-			position = { x = 16 y = 58 }
-			quadTextureSprite ="GFX_main_lobby_button"
-			buttonText = "TOTU_FE_MULTIPLAYER"
-			buttonFont = "hoi_24header"
-			clicksound = click_default
-			oversound = ui_menu_over
-		}
-
-		ButtonType = {
-			name = "settings_button"
-			position = { x = 16 y = 98 }
-			quadTextureSprite ="GFX_main_lobby_button"
-			buttonText = "TOTU_FE_OPTIONS"
-			buttonFont = "hoi_24header"
-			clicksound = click_default
-			oversound = ui_menu_over
-		}
-
-		ButtonType = {
-			name = "credits_button"
-			position = { x = 16 y = 138 }
-			quadTextureSprite ="GFX_main_lobby_button"
-			buttonText = "TOTU_FE_CREDITS"
-			buttonFont = "hoi_24header"
-			clicksound = click_default
-			oversound = ui_menu_over
-		}
-
-		ButtonType = {
-			name = "exit_button"
-			position = { x = 16 y = 194 }
-			quadTextureSprite ="GFX_main_lobby_button"
-			buttonText = "TOTU_FE_QUIT"
-			buttonFont = "hoi_24header"
+			position = { x = 170 y = 236 }		# H - 264
+			quadTextureSprite ="GFX_totu_caption_328"
+			buttonText = ""
+			buttonFont = "totu_caption"
 			clicksound = click_default
 			oversound = ui_menu_over
 		}
 
 		instantTextBoxType = {
+			name = "totu_label_multiplayer_edge"
+			position = { x = 194 y = 244 }
+			font = "totu_caption"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_MULTIPLAYER"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_multiplayer"
+			position = { x = 192 y = 242 }
+			font = "totu_caption"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_MULTIPLAYER"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		ButtonType = {
+			name = "settings_button"
+			position = { x = 170 y = 280 }		# H - 220
+			quadTextureSprite ="GFX_totu_caption_256"
+			buttonText = ""
+			buttonFont = "totu_caption"
+			clicksound = click_default
+			oversound = ui_menu_over
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_options_edge"
+			position = { x = 194 y = 288 }
+			font = "totu_caption"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_OPTIONS"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_options"
+			position = { x = 192 y = 286 }
+			font = "totu_caption"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_OPTIONS"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		ButtonType = {
+			name = "credits_button"
+			position = { x = 170 y = 324 }		# H - 176
+			quadTextureSprite ="GFX_totu_caption_208"
+			buttonText = ""
+			buttonFont = "totu_caption"
+			clicksound = click_default
+			oversound = ui_menu_over
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_credits_edge"
+			position = { x = 194 y = 332 }
+			font = "totu_caption"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_CREDITS"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_credits"
+			position = { x = 192 y = 330 }
+			font = "totu_caption"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_CREDITS"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		ButtonType = {
+			name = "exit_button"
+			position = { x = 170 y = 388 }		# H - 112
+			quadTextureSprite ="GFX_totu_caption_160"
+			buttonText = ""
+			buttonFont = "totu_caption"
+			clicksound = click_default
+			oversound = ui_menu_over
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_quit_edge"
+			position = { x = 194 y = 396 }
+			font = "totu_caption"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_QUIT"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_quit"
+			position = { x = 192 y = 394 }
+			font = "totu_caption"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_QUIT"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		# Bottom right: mod changelog above the engine's version line, baselines at H - 102 and H - 78 (the Quit
+		# baseline); right-aligned boxes end at x = -190 (see the single-player menu). version_label must stay in this
+		# window: the engine looks it up here and writes the game version into it, so it gets no drop-edge copy.
+		instantTextBoxType = {
+			name = "totu_changelog_edge"
+			position = { x = -948 y = 386 }
+			Orientation = UPPER_RIGHT
+			font = "totu_caption_small"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_MENU_CHANGELOG"
+			format = right
+			vertical_alignment = top
+			maxWidth = 760
+			maxHeight = 20
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_changelog"
+			position = { x = -950 y = 384 }		# H - 116
+			Orientation = UPPER_RIGHT
+			font = "totu_caption_small"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_MENU_CHANGELOG"
+			format = right
+			vertical_alignment = top
+			maxWidth = 760
+			maxHeight = 20
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
 			name ="version_label"
-			position = { x = 0 y = 388 }
+			position = { x = -950 y = 408 }		# H - 92
+			Orientation = UPPER_RIGHT
 			textureFile = ""
-			font = "hoi_16mbs"
+			font = "totu_caption_small"
+			text_color_code = D
 			borderSize = {x = 0 y = 0}
 			text = "ALPHA"
-			format = centre
-			maxWidth = 320
+			format = right
+			vertical_alignment = top
+			maxWidth = 760
 			maxHeight = 20
+		}
+
+		# The engine still moves version_label here on the subscription path (with or without the widget): same place.
+		positionType = {
+			name = "version_label_subscription_position"
+			position = { x = -950 y = 408 }
 		}
 
 		ButtonType = {
@@ -614,59 +875,6 @@ guiTypes = {
 			quadTextureSprite ="GFX_main_lobby_button"
 			buttonText = "Nudge!"
 			buttonFont = "hoi_24header"
-		}
-
-		iconType = {
-			name = "subscription_divider"
-			position = { x = -9000 y = -9000 } # TotU: hidden off-screen
-			spriteType = "GFX_main_lobby_divider"
-		}
-
-		containerWindowType = {
-			name = "subscription_widget"
-			position = { x = -9000 y = -9000 } # TotU: hidden off-screen
-			size = { width = 288 height = 108 }
-
-			ButtonType = {
-				name = "show_subscription"
-				position = { x = 0 y = 0 }
-				quadTextureSprite ="GFX_subscription_widget"
-				buttonText = "SUBSCRIPTION_WIDGET"
-				buttonFont = "hoi_24header"
-				multiline = yes
-			}
-		}
-
-		containerWindowType = {
-			name = "subscription_widget_simp_chinese"
-			position = { x = -9000 y = -9000 } # TotU: hidden off-screen
-			size = { width = 288 height = 108 }
-
-			ButtonType = {
-				name = "show_subscription"
-				position = { x = 0 y = 0 }
-				quadTextureSprite ="GFX_subscription_widget_chinese"
-				frame = 10
-				buttonText = "SUBSCRIPTION_WIDGET_SIMP_CHINESE"
-				buttonFont = "hoi_24header"
-				multiline = yes
-			}
-		}
-
-		containerWindowType = {
-			name = "subscription_widget_subscribed"
-			position = { x = -9000 y = -9000 } # TotU: hidden off-screen
-			size = { width = 288 height = 108 }
-
-			ButtonType = {
-				name = "show_subscription"
-				position = { x = 0 y = 0 }
-				quadTextureSprite ="GFX_subscription_widget_active"
-				frame = 1
-				buttonText = "SUBSCRIPTION_WIDGET_SUBSCRIBED"
-				buttonFont = "hoi_24header"
-				multiline = yes
-			}
 		}
 	}
 
@@ -829,7 +1037,7 @@ guiTypes = {
 	## This position needs updated
 	containerWindowType = {
 		name = "mainmenu_achievement_button"
-		position = { x = -500 y = 20 }	
+		position = { x = -9000 y = -9000 } # TotU: hidden off-screen (the broadcast frame has nothing top right)
 		size = { width = 100 height = 100 }
 		Orientation = upper_right
 		clipping = no

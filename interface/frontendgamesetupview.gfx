@@ -6,6 +6,7 @@ spriteTypes = {
 		name = "GFX_country_selection_minor_entry"
 		texturefile = "gfx/interface/totu/country_entry_minor.dds" # TotU
 		noOfFrames = 2
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua" # TotU: the keyer bar never shifts colour on hover
 	}
 
 	spriteType = {
@@ -250,8 +251,7 @@ spriteTypes = {
 	
 	spriteType = {
 		name = "GFX_select_date_bg"
-		texturefile = "gfx/interface/totu/scenario_bg.dds" # TotU
-		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+		texturefile = "gfx/interface/totu/scenario_bg.dds" # TotU: the scenario text board (an iconType)
 	}
 	
 	spriteType = {
@@ -277,8 +277,8 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_country_selection_entry"
 		texturefile = "gfx/interface/totu/country_entry_major.dds" # TotU
-		noOfFrames = 2		
-		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"		
+		noOfFrames = 2
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua" # TotU: the keyer bar never shifts colour on hover
 	}
 	
 	spriteType = {
@@ -310,7 +310,8 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_mini_country_selector"
 		texturefile = "gfx/interface/totu/country_entry_mini.dds" # TotU
-		noOfFrames = 2	
+		noOfFrames = 2
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua" # TotU
 	}
 
 	spriteType = {
@@ -320,7 +321,7 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_country_filter_entry"
 		textureFile = "gfx/interface/totu/country_filter.dds" # TotU
-		effectFile = "gfx/FX/buttonstate_nodowneffect.lua"
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua" # TotU
 		noOfFrames = 2
 	}
 	spriteType = {

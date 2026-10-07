@@ -7,10 +7,14 @@ guiTypes = {
 	}
 
 	### bookmark entry
+	# TotU: the inset still of the scenario picker, 512x288 (SCEN_PIC in tools/build_menu_gfx.py). The background
+	# (GFX_bookmark_entry_bg) is fully transparent in both frames: the engine needs it to click the entry, but
+	# nothing marks a selection and clicking makes no sound. The engine swaps the icon for the bookmark's picture
+	# (GFX_select_date_1990). The date is off-screen: the menu's title block already shows it.
 	containerWindowType = {
 		name = "bookmark_entry"
 		position = { x= 0 y = 0 }
-		size = { width=232 height=211}
+		size = { width = 512 height = 288 }
 		clipping = no
 		fade_time = 500
 		fade_type = linear
@@ -18,26 +22,24 @@ guiTypes = {
 		background = {
 			name = "background"
 			quadTextureSprite = "GFX_bookmark_entry_bg"
-			clicksound = click_checkbox
 		}
 
 		iconType = {
 			name = "icon"
 			spriteType = "GFX_select_date_1936"
-			position = { x = 27 y = 28 }
+			position = { x = 0 y = 0 }
 			alwaystransparent = yes
 		}
 
 		instantTextBoxType = {
 			name = "date"
-			position = { x = 22 y = 147 }
+			position = { x = -9000 y = -9000 }
 			font = "hoi_20b"
 			borderSize = {x = 0 y = 0}
 			text = "FE_BOOKMARK_DATE"
-			maxWidth = 185
-			maxHeight = 20
-			fixedsize = yes
-			format = centre
+			maxWidth = 300
+			maxHeight = 30
+			format = left
 		}
 	}
 
@@ -124,6 +126,9 @@ guiTypes = {
 	}
 
 	### country entry
+	# TotU: major card, 220x274 (MAJOR_* in tools/build_menu_gfx.py): the flag centred on x 110, the selection bar
+	# under it (frame 2 of GFX_country_selection_entry; frame 1 is transparent), the name as a dim caption under the
+	# bar, centred and hanging from the same line whether it takes 1, 2 or 3 lines.
 	containerWindowType = {
 		name = "country_entry"
 
@@ -138,7 +143,7 @@ guiTypes = {
 		iconType = {
 			name = "country_flag"
 			quadTextureSprite ="GFX_shield_medium"
-			position = { x = 34 y = 104 } # TotU: MAJOR_FLAG_POS in build_menu_gfx.py (scale is ignored by the engine)
+			position = { x = 69 y = 104 } # TotU: MAJOR_FLAG_POS (scale is ignored by the engine)
 			Orientation = "UPPER_LEFT"
 			alwaystransparent = yes
 		}
@@ -148,6 +153,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_country_selection_entry"
 			position = { x=0 y =0 }
 			clicksound = click_checkbox
+			oversound = ui_menu_over
 		}
 
 		iconType = {
@@ -159,14 +165,15 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "country_name"
-			position = { x = 8 y = 166 } # TotU: on the two-line name plate
-			font = "hoi_16mbs" # TotU: long names fit the plate
+			position = { x = 12 y = 180 } # TotU: MAJOR_NAME, 16 px under the bar
+			font = "totu_caption_name" # TotU: engine-filled; vanilla CJK font in Japanese / Chinese / Korean
+			text_color_code = D
 			borderSize = {x = 0 y = 0}
-			maxWidth = 131
-			maxHeight = 56 # TotU: up to three lines
+			maxWidth = 196
+			maxHeight = 56 # TotU: up to three lines of 18
 			fixedsize = yes
 			format = center
-			vertical_alignment = center
+			vertical_alignment = top
 			Orientation = "UPPER_LEFT"
 		}
 	}
@@ -174,7 +181,6 @@ guiTypes = {
 	### country entry
 	containerWindowType = {
 		name = "country_entry_medium"
-
 
 		iconType = {
 			name = "country_flag"
@@ -189,6 +195,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_country_selection_minor_entry"
 			position = { x=0 y =0 }
 			clicksound = click_checkbox
+			oversound = ui_menu_over
 		}
 
 		iconType = {
@@ -216,6 +223,7 @@ guiTypes = {
 			quadTextureSprite = "GFX_mini_country_selector"
 			position = { x=0 y =0 }
 			clicksound = click_checkbox
+			oversound = ui_menu_over
 		}
 
 		iconType = {
@@ -242,38 +250,47 @@ guiTypes = {
 		}
 	}
 
-	### LOAD GAME
+	### LOAD GAME (TotU "broadcast"): a flat near-black board on the right title-safe edge (right edge W - 170, so the
+	# text measure ends at W - 192; bottom H - 132, above the menu's changelog line), sliding in from the right. The
+	# single-player captions stay visible on the left. Tabs are keyer chips (the selected one blue), the labels are
+	# vanilla strings in totu_caption_name. The save entries come from ingamemenu.gui (savegame_item), shared with the
+	# in-game menu, and keep their look.
 	containerWindowType = {
 		name ="gamesetup_load"
-		position = { x = -350 y = -150 }
-		show_position = { x = 0 y = -150 }
+		position = { x = 600 y = -632 }
+		show_position = { x = -590 y = -632 }
 		animation_type = decelerated
 		animation_time = 1000
 		size = { width = 420 height = 500}
-		Orientation = lower_left
-		origo = lower_left
+		Orientation = lower_right
+
+		background = {
+			name = "totu_load_board"
+			quadTextureSprite = "GFX_totu_board"
+		}
 
 		iconType = {
 			name ="menu"
 			spriteType = "GFX_load_save_top_screen"
-			position = { x= 0 y = 60 }
+			position = { x = -9000 y = -9000 } # TotU: the board is the surface
 			Orientation = "UPPER_LEFT"
 		}
 
 		iconType = {
 			name ="menu_bottom"
 			spriteType = "GFX_load_save_bottom_screen"
-			position = { x= 0 y = 446 }
+			position = { x = -9000 y = -9000 }
 			Orientation = "UPPER_LEFT"
 		}
 
 		instantTextBoxType = {
 			name = "saves_dirs"
-			position = { x = 10 y = 375 }
-			font = "hoi_20bs"
-			borderSize = {x = 0 y = 4}
-			maxWidth = 120
-			maxHeight = 16
+			position = { x = 22 y = 468 }
+			font = "totu_caption_name"
+			text_color_code = D
+			borderSize = {x = 0 y = 0}
+			maxWidth = 376
+			maxHeight = 18
 			format = left
 			fixedsize = yes
 			truncate = yes
@@ -281,64 +298,66 @@ guiTypes = {
 
 		checkboxType = {
 			name = "localgames_tab"
-			position = { x = 30  y = 84 }
-			quadTextureSprite ="GFX_save_load_file_btn"
+			position = { x = 22 y = 22 }
+			quadTextureSprite ="GFX_totu_tab"
 			Orientation = "UPPER_LEFT"
 			clicksound = click_checkbox
 		}
 
 		checkboxType = {
 			name = "remotegames_tab"
-			position = { x = 180 y = 84 }
-			quadTextureSprite ="GFX_save_load_file_btn"
+			position = { x = 140 y = 22 }
+			quadTextureSprite ="GFX_totu_tab"
 			Orientation = "UPPER_LEFT"
 			clicksound = click_checkbox
 		}
 
 		instantTextBoxType = {
 			name = "localgames_label"
-			position = { x = 40 y = 91 }
-			font = "hoi_20bs"
+			position = { x = 22 y = 27 }
+			font = "totu_caption_name"
+			text_color_code = P
 			borderSize = {x = 0 y = 0}
 			text = "MENU_BAR_LOCALGAMES"
-			maxWidth = 100
-			maxHeight = 20
+			maxWidth = 112
+			maxHeight = 18
 			fixedsize = yes
-
 			Orientation = "UPPER_LEFT"
 			format = centre
+			alwaystransparent = yes
 		}
 
 		instantTextBoxType = {
 			name = "cloudgames_label"
-			position = { x = 190 y = 91 }
-			font = "hoi_20bs"
+			position = { x = 140 y = 27 }
+			font = "totu_caption_name"
+			text_color_code = P
 			borderSize = {x = 0 y = 0}
 			text = "MENU_BAR_CLOUDGAMES"
-			maxWidth = 100
-			maxHeight = 20
+			maxWidth = 112
+			maxHeight = 18
 			fixedsize = yes
-
 			Orientation = "UPPER_LEFT"
 			format = centre
+			alwaystransparent = yes
 		}
 
 		containerWindowType = {
 			name ="games"
-			position = { x = -1 y = 126 }
-			size = { width = 350 height = 415}
+			position = { x = 8 y = 60 }
+			size = { width = 404 height = 396}
 			verticalScrollbar = "right_vertical_slider"
 			scroll_wheel_factor = 55
 			smooth_scrolling = yes
 
 			background = {
 				name = "Background"
-				quadTextureSprite ="GFX_no_frame_special_bg"
+				quadTextureSprite ="GFX_tiled_window_transparent"
 			}
 
 			gridBoxType = {
 				name = "games_grid"
-				position = { x=14 y =10}
+				position = { x=14 y =4}
 				size = { width =280 height = 100%% }
 				slotsize = { width = 280 height = 55 }
 				format = "UPPER_LEFT"
@@ -347,80 +366,89 @@ guiTypes = {
 		}
 	}
 
+	# Ironman save name (TotU "broadcast"): the same board, centred; title, tabs, list, the name field and two caption
+	# buttons (Back, Start) on the board's own 22 px measure.
 	containerWindowType = {
 		name ="gamesetup_ironman_save"
 		position = { x=-210 y =-250 }
 		size = { width = 420 height = 500}
 		Orientation = center
 
+		background = {
+			name = "totu_ironman_board"
+			quadTextureSprite = "GFX_totu_board"
+		}
+
 		iconType={
 			name ="menu"
 			spriteType = "GFX_load_save_top_screen"
-			position = { x= 76 y = 60 }
+			position = { x = -9000 y = -9000 }
 			Orientation = "UPPER_LEFT"
 		}
 
 		iconType={
 			name ="menu_bottom"
 			spriteType = "GFX_load_save_bottom_screen"
-			position = { x= 76 y = 466 }
+			position = { x = -9000 y = -9000 }
 			Orientation = "UPPER_LEFT"
 		}
 
 		instantTextBoxType={
 			name = "saves_dirs"
-			position = { x = 10 y = 375 }
+			position = { x = 22 y = 350 }
 			textureFile = ""
-			font = "hoi_20bs"
-			borderSize = {x = 0 y = 4}
+			font = "totu_caption_name"
+			text_color_code = D
+			borderSize = {x = 0 y = 0}
 			text = ""
-			maxWidth = 120
-			maxHeight = 16
+			maxWidth = 140
+			maxHeight = 18
 			format = left
 			fixedsize = yes
 			truncate = yes
 		}
 
 		instantTextBoxType={
-			position = { x = 275 y = 379 }
+			position = { x = 170 y = 350 }
 			name = "disk_quota"
-			font = "hoi_20bs"
-			borderSize = { x = 8 y = 0 }
-			maxWidth = 188
+			font = "totu_caption_name"
+			text_color_code = D
+			borderSize = { x = 0 y = 0 }
+			maxWidth = 228
 			maxHeight = 18
 			text = "MENU_BAR_DISK_QUOTA"
 			orientation = "UPPER_LEFT"
-			format = centre
+			format = right
 		}
 
 		containerWindowType = {
 			name ="local_remote"
-			position = { x = 75 y = 146 }
+			position = { x = -9000 y = -9000 } # TotU: only a background in vanilla
 			size = { width = 350 height = 40}
 			verticalScrollbar = "right_vertical_slider"
 
 			background = {
 				name = "Background"
-				quadTextureSprite ="GFX_no_frame_special_bg"
+				quadTextureSprite ="GFX_tiled_window_transparent"
 			}
 		}
 
 		containerWindowType = {
 			name ="games"
-			position = { x = 75 y = 166 }
-			size = { width = 350 height = 300}
+			position = { x = 8 y = 84 }
+			size = { width = 404 height = 254}
 			verticalScrollbar = "right_vertical_slider"
 			vertical_scroll_step = 5
 
 			background = {
 				name = "Background"
-				quadTextureSprite ="GFX_no_frame_special_bg"
+				quadTextureSprite ="GFX_tiled_window_transparent"
 			}
 
 			gridBoxType = {
 				name = "games_grid"
-				position = { x=13 y =0}
-				size = { width =280 height = 300}
+				position = { x=14 y =0}
+				size = { width =280 height = 254}
 				slotsize = { width = 280 height = 55 }
 				format = "UPPER_LEFT"
 				max_slots_horizontal = 1
@@ -429,97 +457,108 @@ guiTypes = {
 
 		checkboxType = {
 			name = "localgames_tab"
-			position = { x = 105  y = 124 }
-			quadTextureSprite ="GFX_save_load_file_btn"
+			position = { x = 22 y = 48 }
+			quadTextureSprite ="GFX_totu_tab"
 			Orientation = "UPPER_LEFT"
 		}
 
 		checkboxType = {
 			name = "remotegames_tab"
-			position = { x = 262 y = 124 }
-			quadTextureSprite ="GFX_save_load_file_btn"
+			position = { x = 140 y = 48 }
+			quadTextureSprite ="GFX_totu_tab"
 			Orientation = "UPPER_LEFT"
 		}
 
 		instantTextBoxType = {
 			name = "localgames_label"
-			position = { x = 115 y = 131 }
+			position = { x = 22 y = 53 }
 			textureFile = ""
-			font = "hoi_20bs"
+			font = "totu_caption_name"
+			text_color_code = P
 			borderSize = {x = 0 y = 0}
 			text = "MENU_BAR_LOCALGAMES"
-			maxWidth = 100
-			maxHeight = 20
+			maxWidth = 112
+			maxHeight = 18
 			fixedsize = yes
-
 			Orientation = "UPPER_LEFT"
 			format = centre
+			alwaystransparent = yes
 		}
 
 		instantTextBoxType = {
 			name = "cloudgames_label"
-			position = { x = 269 y = 131 }
+			position = { x = 140 y = 53 }
 			textureFile = ""
-			font = "hoi_20bs"
+			font = "totu_caption_name"
+			text_color_code = P
 			borderSize = {x = 0 y = 0}
 			text = "MENU_BAR_CLOUDGAMES"
-			maxWidth = 100
-			maxHeight = 20
+			maxWidth = 112
+			maxHeight = 18
 			fixedsize = yes
-
 			Orientation = "UPPER_LEFT"
 			format = centre
+			alwaystransparent = yes
 		}
 
-				instantTextBoxType = {
+		instantTextBoxType = {
 			name = "menu_label"
-			position = { x = 145 y = 85 }
+			position = { x = 22 y = 22 }
 			textureFile = ""
-			font = "hoi_20bs"
+			font = "totu_caption_name"
+			text_color_code = P
 			borderSize = {x = 0 y = 0}
 			text = "MENU_BAR_IRONMAN_SAVE"
-			maxWidth = 200
-			maxHeight = 20
+			maxWidth = 376
+			maxHeight = 18
 			fixedsize = yes
-
 			Orientation = "UPPER_LEFT"
-			format = centre
+			format = left
 		}
 
 		iconType = {
 			name = "ironman_icon"
 			spriteType = "GFX_ironman_icon"
-			position = { x = 120 y = 80 }
+			position = { x = -9000 y = -9000 } # TotU: the title says it
 		}
 
 		instantTextBoxType={
-			position = {x = 145 y = 470 }
+			position = {x = 22 y = 378 }
 			name = "filename_label"
-			font = "hoi_16mbs"
-			borderSize = {x = 8 y = 0}
-			maxWidth = 188
+			font = "totu_caption_name"
+			text_color_code = D
+			borderSize = {x = 0 y = 0}
+			maxWidth = 376
 			maxHeight = 18
 			text = "MENU_BAR_SAVE_GAME_FILENAME"
 			orientation = "UPPER_LEFT"
-			format = centre
+			format = left
+		}
+
+		# an editBox has no background of its own
+		iconType = {
+			name = "totu_ironman_field"
+			spriteType = "GFX_totu_field"
+			position = { x = 22 y = 398 }
+			alwaystransparent = yes
 		}
 
 		editBoxType = {
-			position = { x = 115 y = 485 }
+			position = { x = 22 y = 398 }
 			name = "game_name"
-			font = "hoi_16mbs"
-			borderSize = { x = 4 y = 8  }
-			size = { x=262 y=42 }
+			font = "hoi_18mbs"
+			borderSize = { x = 8 y = 7  }
+			size = { x=376 y=32 }
 			text = ""
 			orientation = "UPPER_LEFT"
 		}
 
 		buttonType = {
 			name = "back_button"
-			position = { x = 100 y = 523 }
-			quadTextureSprite ="GFX_button_148x34"
-			buttonText = "BACK"
-			buttonFont = "hoi_20b"
+			position = { x = 0 y = 446 }
+			quadTextureSprite ="GFX_totu_caption_160"
+			buttonText = "TOTU_FE_BACK"
+			buttonFont = "totu_button"
 			Orientation = "UPPER_LEFT"
 			clicksound = click_close
 			oversound = ui_menu_over
@@ -528,114 +567,288 @@ guiTypes = {
 
 		buttonType = {
 			name = "start_button"
-			position = { x = 245 y = 523 }
-			quadTextureSprite ="GFX_button_148x34"
-			buttonText = "MENU_BAR_SAVE_PLAY"
-			buttonFont = "hoi_20b"
+			position = { x = 262 y = 446 }
+			quadTextureSprite ="GFX_totu_caption_160"
+			buttonText = "TOTU_FE_START"
+			buttonFont = "totu_button"
 			Orientation = "UPPER_LEFT"
 			clicksound = click_default
 			oversound = ui_menu_over
 		}
 	}
 
+	### SCENARIO PICKER (TotU "broadcast"; design tools/preview/screen_scenario.png, layout SCEN_* in
+	# tools/build_menu_gfx.py). Screen px at UI scale 1.0, W x H = screen.
+	# The main menu's title block (mainmenu_panel_upperleft: logo + date, position = show_position) stays on screen as
+	# a station ident, so this screen repeats neither the title nor the date. It adds:
+	#   - one inset in the lower right corner (LOWER_RIGHT): the bookmark still (512x288, x W-704..W-192,
+	#     y H-488..H-200) with a flat near-black board flush under it (512x128, the scenario text, to H-72 = the menu's
+	#     last plate bottom), seated in its own soft scrim. Sized for 1280x720: left of it the logo ends at x 542 on
+	#     the "OF THE" line, above it the "TWILIGHT" line ends at y 178 (from 1366x768 up it clears the logo box);
+	#   - Select and Back in the menu's Credits / Quit rows: transparent plates that turn keyer blue on hover, labels
+	#     as left-aligned caption boxes at x = 192 with the black K copy at +2,+2 (as in frontendmainview.gui).
+	# Every element the engine looks up by name stays a direct child of this window; the unused ones are off-screen.
+	# The lobby's Change Scenario button is off-screen (one scenario), so the picker only opens from New Game, over the
+	# main menu. If size %% fails for the height: size = { width = 1920 height = 1080 min = { width = 100% height =
+	# 100% } max = { width = 100% height = 100% } } (the frontend_background syntax).
 	containerWindowType = {
 		name ="gamesetup_scenario_window"
-		size = { width = 579 height = 512 }
+		position = { x = 0 y = 0 }
+		size = { width = 100%% height = 100%% }
+		Orientation = UPPER_LEFT
 		clipping = no
-		orientation = center
-		origo = center
-		moveable = yes
+		moveable = no
 
-		instantTextBoxType = {
-			name = "title"
-			position = { x = 120 y = 14 }
-			textureFile = ""
-			font = "hoi_20b"
-			borderSize = {x = 0 y = 0}
-			text = "FE_SELECT_SCENARIO"
-			maxWidth = 340
-			maxHeight = 30
-			format = center
-		}
-
+		# transparent, but it catches clicks, so nothing behind the window reacts
 		background = {
 			name = "single_player_date_bg"
-			quadTextureSprite ="GFX_select_date_bg"
+			quadTextureSprite ="GFX_tiled_window_transparent"
 		}
 
+		# the inset's own shadow: 992x936, the column + 240 / 260 px each side
+		iconType = {
+			name = "totu_scen_scrim"
+			spriteType = "GFX_totu_scrim_scenario"
+			Orientation = LOWER_RIGHT
+			position = { x = -944 y = -788 }
+			alwaystransparent = yes
+		}
+
+		# the main menu's scrim under the two captions (H - 500)
+		iconType = {
+			name = "totu_scen_menu_scrim"
+			spriteType = "GFX_totu_scrim_menu"
+			Orientation = LOWER_LEFT
+			position = { x = -222 y = -500 }
+			alwaystransparent = yes
+		}
+
+		# The still: one bookmark_entry. The grid clips to one slot; the hidden clone of the bookmark
+		# (common/bookmarks/totu_1990.txt, tools/build_bookmarks.py) lands in slot 2 at x = 1000, outside the clip.
 		containerWindowType = {
 			name ="bookmarks"
-			position = { x = 173 y = 55 } # TotU: centred single slot ((579 - 232) / 2)
-			size = { width = 234 height = 214 } # TotU: clips the hidden dummy bookmark in slot 2
+			Orientation = LOWER_RIGHT
+			position = { x = -704 y = -528 }
+			size = { width = 512 height = 288 }
 			clipping = yes
 
 			gridboxType = {
 				name ="bookmarks_grid"
 				position = { x = 0 y = 0 }
 				size = { width = 100%% height = 100%% }
-				slotsize = { width = 260 height = 0 }
+				slotsize = { width = 1000 height = 0 }
 				add_horizontal = yes
 				max_slots_vertical = 1
 				format = "UPPER_LEFT"
 			}
 		}
 
+		# the board, flush under the still: 512x168, alpha 82 %, ending at H - 72
+		iconType = {
+			name = "totu_scen_board"
+			spriteType = "GFX_select_date_bg"
+			Orientation = LOWER_RIGHT
+			position = { x = -704 y = -240 }
+			alwaystransparent = yes
+		}
+
+		# TOTU_1990_DESC (engine-filled): 22 px in, 14 px down, 468x140 = 7 lines of 20 (RU 6 in game), centred vertically
+		instantTextBoxType = {
+			name = "bookmark_desc"
+			Orientation = LOWER_RIGHT
+			position = { x = -682 y = -226 }
+			font = "totu_body"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			maxWidth = 468
+			maxHeight = 140
+			fixedsize = yes
+			format = left
+			vertical_alignment = center
+			alwaystransparent = yes
+		}
+
+		# The main menu's title block is hidden on this screen, so the window carries its own (same positions as the
+		# menu: scrim, logo with glyphs from 192,108, start date). Window title and history title stay off-screen.
+		iconType = {
+			name = "totu_scen_title_scrim"
+			spriteType = "GFX_totu_scrim_title"
+			position = { x = -123 y = -67 }
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "totu_scen_logo"
+			spriteType = "GFX_frontend_game_logo"
+			position = { x = 156 y = 72 }
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_scen_date_edge"
+			position = { x = 194 y = 390 }
+			font = "totu_caption_small"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_MENU_START_DATE"
+			format = left
+			maxWidth = 600
+			maxHeight = 20
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_scen_date"
+			position = { x = 192 y = 388 }
+			font = "totu_caption_small"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_MENU_START_DATE"
+			format = left
+			maxWidth = 600
+			maxHeight = 20
+			alwaystransparent = yes
+		}
+
+		# scenario name (engine-filled, TOTU_1990_NAME) as a caption over the still
+		instantTextBoxType = {
+			name = "bookmark_title"
+			Orientation = LOWER_RIGHT
+			position = { x = -704 y = -576 }
+			font = "totu_caption"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			maxWidth = 512
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
 		instantTextBoxType = {
 			name = "history_title"
-			position = { x = 110 y = 274 }
+			position = { x = -9000 y = -9000 }
 			font = "hoi_20b"
 			borderSize = {x = 0 y = 0}
 			text = "BM_HISTORY_TITLE"
-			maxWidth = 340
-			maxHeight = 30
-			format = centre
-		}
-
-		instantTextBoxType = {
-			name = "bookmark_title"
-			position = { x = 25 y = 305 }
-			font = "hoi4_typewriter22"
-			borderSize = {x = 0 y = 0}
-			maxWidth = 340
-			maxHeight = 30
+			maxWidth = 300
+			maxHeight = 26
 			format = left
 		}
 
 		instantTextBoxType = {
-			name = "bookmark_desc"
-			position = { x = 25 y = 330 }
-			font = "hoi4_typewriter16"
+			name = "title"
+			position = { x = -9000 y = -9000 }
+			textureFile = ""
+			font = "hoi_24header"
 			borderSize = {x = 0 y = 0}
-			maxWidth = 540
+			text = "FE_SELECT_SCENARIO"
+			maxWidth = 400
 			maxHeight = 30
 			format = left
 		}
 
+		# Select: the Credits row (plate top H - 176)
+		ButtonType = {
+			name = "select_button"
+			Orientation = LOWER_LEFT
+			position = { x = 170 y = -176 }
+			quadTextureSprite ="GFX_totu_caption_208"
+			buttonText = ""
+			buttonFont = "totu_caption"
+			clicksound = click_ok
+			oversound = ui_menu_over
+			shortcut = "RETURN"
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_select_edge"
+			Orientation = LOWER_LEFT
+			position = { x = 194 y = -168 }
+			font = "totu_caption"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_SELECT"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_select"
+			Orientation = LOWER_LEFT
+			position = { x = 192 y = -170 }
+			font = "totu_caption"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_SELECT"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		# Back: the Quit / Back row (plate top H - 112)
 		ButtonType = {
 			name = "back_button"
-			position = { x = 30 y = -57 }
-			quadTextureSprite ="GFX_totu_button_221x34" # TotU
-			buttonText = "BACK"
-			buttonFont = "hoi_18mbs"
-			Orientation = "LOWER_LEFT"
+			Orientation = LOWER_LEFT
+			position = { x = 170 y = -112 }
+			quadTextureSprite ="GFX_totu_caption_160"
+			buttonText = ""
+			buttonFont = "totu_caption"
 			clicksound = click_close
 			oversound = ui_menu_over
 			shortcut = "ESCAPE"
 		}
 
-		ButtonType = {
-			name = "select_button"
-			position = { x = -252 y = -57 }
-			quadTextureSprite ="GFX_totu_button_221x34" # TotU
-			buttonText = "FE_SELECT_SCENARIO"
-			buttonFont = "hoi_18mbs"
-			Orientation = "LOWER_RIGHT"
-			clicksound = click_ok
-			oversound = ui_menu_over
-			shortcut = "RETURN"
+		instantTextBoxType = {
+			name = "totu_label_back_edge"
+			Orientation = LOWER_LEFT
+			position = { x = 194 y = -104 }
+			font = "totu_caption"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_BACK"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_back"
+			Orientation = LOWER_LEFT
+			position = { x = 192 y = -106 }
+			font = "totu_caption"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_BACK"
+			format = left
+			vertical_alignment = top
+			maxWidth = 400
+			maxHeight = 40
+			alwaystransparent = yes
 		}
 	}
 
+	### COUNTRY SELECTION (TotU "broadcast"; design tools/preview/screen_country.png from tools/preview_country.py,
+	# layout CS_* / MAJOR_* / MINOR_* in tools/build_menu_gfx.py). Window px at UI scale 1.0; the window is 1225x717,
+	# centred and moveable as in vanilla.
+	#   - A soft scrim around the window dims the map; the board (GFX_country_selection_bg) is one opaque near-black
+	#     plate at 14,41..1211,712 with the USA / USSR banners full-bleed in its top band. No frames, no panels.
+	#   - The title is a caption inside the board, centred on its axis (x 612) in the dark gap between the banners,
+	#     above the major flags (capitals y 79..107; black K copy at +2,+2, as on the main menu). Nothing hangs outside
+	#     the board, so at 1366x768 the window's top edge no longer meets the lobby's top captions.
+	#   - Majors: two 220 px cards centred on the board axis (x 612); minors: 8 flags on the text measure 36..1189.
+	#     The selected country gets an 8 px keyer bar under its flag (frame 2 of the entry sprites).
+	#   - Lower block, first caption line at y 456: info (x 36, dim caption labels over hoi_20b values every 44 px),
+	#     centre (x 434: nation_title, the national spirits, Select / Back), history (x 834). 44 px gutters.
+	#   - Select / Back: the main menu's caption plates, 64 px apart (PLATE_PITCH 44 + QUIT_GAP 20); labels are
+	#     left-aligned caption boxes 22 px in, 6 px down, with the K copy.
+	# Every element the engine looks up by name stays; the unused ones are off-screen.
 	containerWindowType = {
 		name ="gamesetup_interesting_countries_window"
 		size = { width=1225 height=717 }
@@ -644,57 +857,148 @@ guiTypes = {
 		clipping = no
 		moveable = yes
 
-		instantTextBoxType = {
-			name = "title"
-			position = { x = 435 y = 12 }
-			textureFile = ""
-			font = "hoi_24header"
-			borderSize = {x = 0 y = 0}
-			text = "FE_SELECT_COUNTRY"
-			maxWidth = 340
-			maxHeight = 30
-			format = centre
-		}
-
 		background = {
 			name = "single_player_country_bg"
-			quadTextureSprite ="GFX_country_selection_bg"
+			quadTextureSprite ="GFX_tiled_window_transparent"
 		}
 
-		ButtonType = {
-			name = "back_button"
-			position = { x = -158 y = -42 }
-			quadTextureSprite ="GFX_totu_button_148x34" # TotU
-			buttonText = "BACK"
-			buttonFont = "hoi_18mbs"
-			Orientation = "CENTER_DOWN"
-			clicksound = click_close
-			oversound = ui_menu_over
-			shortcut = "ESCAPE"
+		# 1000x562 at scale 4 = 4000x2248, centred on the window centre; never catches clicks
+		iconType = {
+			name = "totu_country_scrim"
+			spriteType = "GFX_totu_scrim_country"
+			position = { x = 612 y = 358 }
+			centerPosition = yes
+			scale = 4.0
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "totu_country_board"
+			spriteType = "GFX_country_selection_bg"
+			position = { x = 0 y = 0 }
+			alwaystransparent = yes
+		}
+
+		# centred on x 612, capitals y 79..107: 38 px above the major flags (y 145), between the banners' dark edges
+		instantTextBoxType = {
+			name = "totu_title_edge"
+			position = { x = 264 y = 81 }
+			font = "totu_caption"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_SELECT_COUNTRY"
+			format = centre
+			vertical_alignment = top
+			maxWidth = 700
+			maxHeight = 36
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "title"
+			position = { x = 262 y = 79 }
+			textureFile = ""
+			font = "totu_caption"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_SELECT_COUNTRY"
+			format = centre
+			vertical_alignment = top
+			maxWidth = 700
+			maxHeight = 36
 		}
 
 		ButtonType = {
 			name = "select_button"
-			position = { x = 10 y = -42 }
-			quadTextureSprite ="GFX_totu_button_148x34" # TotU
-			buttonText = "FE_SELECT_COUNTRY"
-			buttonFont = "hoi_18mbs"
-			Orientation = "CENTER_DOWN"
+			position = { x = 412 y = 586 }
+			quadTextureSprite ="GFX_totu_caption_208"
+			buttonText = ""
+			buttonFont = "totu_caption"
+			Orientation = "UPPER_LEFT"
 			clicksound = click_default
 			oversound = ui_menu_over
 			shortcut = "RETURN"
 		}
 
+		instantTextBoxType = {
+			name = "totu_label_select_edge"
+			position = { x = 436 y = 594 }
+			font = "totu_caption"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_SELECT"
+			format = left
+			vertical_alignment = top
+			maxWidth = 186
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_select"
+			position = { x = 434 y = 592 }
+			font = "totu_caption"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_SELECT"
+			format = left
+			vertical_alignment = top
+			maxWidth = 186
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		ButtonType = {
+			name = "back_button"
+			position = { x = 412 y = 650 }
+			quadTextureSprite ="GFX_totu_caption_160"
+			buttonText = ""
+			buttonFont = "totu_caption"
+			Orientation = "UPPER_LEFT"
+			clicksound = click_close
+			oversound = ui_menu_over
+			shortcut = "ESCAPE"
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_back_edge"
+			position = { x = 436 y = 658 }
+			font = "totu_caption"
+			text_color_code = K
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_BACK"
+			format = left
+			vertical_alignment = top
+			maxWidth = 138
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "totu_label_back"
+			position = { x = 434 y = 656 }
+			font = "totu_caption"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_BACK"
+			format = left
+			vertical_alignment = top
+			maxWidth = 138
+			maxHeight = 40
+			alwaystransparent = yes
+		}
+
+		# majors: 2 x 220, flags at x 461 and 681
 		containerWindowType = {
 			name ="countries"
-			position = { x = 462 y = 41 } # TotU: two majors centred between the banners (612 - 150)
+			position = { x = 392 y = 41 }
 			size = { width = -15 height = 120}
 
 			gridboxType = {
 				name ="countries_grid"
 				position = { x = 0 y = 0 }
 				size = { width = 100% height = 100% }
-				slotsize = { width = 150 height = 0 }
+				slotsize = { width = 220 height = 0 }
 				add_horizontal = yes
 				max_slots_vertical = 1
 				format = "UPPER_LEFT"
@@ -704,22 +1008,23 @@ guiTypes = {
 
 		OverlappingElementsBoxType = {
 			name = "filters"
-			position = { x = -9000 y = -9000 } # TotU: no filters, flags band instead
+			position = { x = -9000 y = -9000 } # TotU: no filters
 			size = { x = 1181 y = 32 }
 			format = center
 			spacing = 14.0
 		}
 
+		# minors: 8 x 153, flags span 36..1189 (the text measure); explicit width so 8 never wrap
 		containerWindowType = {
 			name ="countries_medium"
-			position = { x = 12 y = 333 } # TotU: 8 x 150px slots across the flags band
-			size = { width = -15 height = 120}
+			position = { x = 10 y = 333 }
+			size = { width = 1224 height = 120 }
 
 			gridboxType = {
 				name ="countries_grid"
 				position = { x = 0 y = 0 }
 				size = { width = 100% height = 100% }
-				slotsize = { width = 150 height = 0 }
+				slotsize = { width = 153 height = 0 }
 				add_horizontal = yes
 				max_slots_horizontal = 8
 				max_slots_vertical = 1
@@ -731,7 +1036,6 @@ guiTypes = {
 			name ="countries_mini"
 			position = { x = 12 y = 340 } # TotU: flags band
 			size = { width = -15 height = 80}
-			
 
 			gridboxType = {
 				name ="countries_grid"
@@ -747,165 +1051,190 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "info_title"
-			position = { x = 35 y = 462 } # TotU: over the text column
-			font = "hoi_20b" # TotU
+			position = { x = -9000 y = -9000 } # TotU: the labels say what the column is
+			font = "hoi_20b"
 			borderSize = {x = 0 y = 0}
 			text = "FE_COUNTRY_INFO_TITLE"
-			maxWidth = 245 # TotU
+			maxWidth = 245
 			maxHeight = 30
 			format = centre
 		}
 
+		# info column, x 36..390: dim caption labels every 44 px, the hoi_20b value's ink 6 px under its label
 		containerWindowType = {
 			name = "info"
-			position = { x = 35 y = 497 }
+			position = { x = 36 y = 456 }
 
 			instantTextBoxType = {
 				name = "leader_label"
-				position = { x = 0 y = -5 }
-				font = "hoi_18mbs" # TotU
+				position = { x = 0 y = 0 }
+				font = "totu_caption_small"
+				text_color_code = D
 				borderSize = {x = 0 y = 0}
-				text = "LEADER"
-				maxWidth = 245 # TotU: clear of the leader photo
+				text = "TOTU_FE_LEADER"
+				maxWidth = 354
+				maxHeight = 18
 				format = left
 			}
 
 			instantTextBoxType = {
 				name = "leader"
-				position = { x = 0 y = 12 }
+				position = { x = 0 y = 14 }
 				textureFile = ""
-				font = "hoi_18mbs" # TotU
+				font = "hoi_20b"
 				borderSize = {x = 0 y = 0}
 				text = ""
-				maxWidth = 245 # TotU: clear of the leader photo
+				maxWidth = 354
+				maxHeight = 20
+				fixedsize = yes
 				format = left
 			}
 
 			instantTextBoxType = {
 				name = "ideology_label"
-				position = { x = 0 y = 35 }
+				position = { x = 0 y = 44 }
 				textureFile = ""
-				font = "hoi_18mbs" # TotU
+				font = "totu_caption_small"
+				text_color_code = D
 				borderSize = {x = 0 y = 0}
-				text = "IDEOLOGY"
-				maxWidth = 245 # TotU: clear of the leader photo
+				text = "TOTU_FE_IDEOLOGY"
+				maxWidth = 354
+				maxHeight = 18
 				format = left
 			}
 
 			instantTextBoxType = {
 				name = "ideology"
-				position = { x = 0 y = 52 }
-				font = "hoi_18mbs" # TotU
+				position = { x = 0 y = 58 }
+				font = "hoi_20b"
 				borderSize = {x = 0 y = 0}
-				maxWidth = 245 # TotU: clear of the leader photo
+				maxWidth = 354
+				maxHeight = 20
+				fixedsize = yes
 				format = left
 			}
 
 			instantTextBoxType = {
 				name = "government_label"
-				position = { x = 0 y = 75 }
-				font = "hoi_18mbs" # TotU
+				position = { x = 0 y = 88 }
+				font = "totu_caption_small"
+				text_color_code = D
 				borderSize = {x = 0 y = 0}
-				text = "GOVERNMENT"
-				maxWidth = 245 # TotU: clear of the leader photo
+				text = "TOTU_FE_GOVERNMENT"
+				maxWidth = 354
+				maxHeight = 18
 				format = left
 			}
 
 			instantTextBoxType = {
 				name = "government"
-				position = { x = 0 y = 92 }
-				font = "hoi_18mbs" # TotU
+				position = { x = 0 y = 102 }
+				font = "hoi_20b"
 				borderSize = {x = 0 y = 0}
 				text = "FE_INTERESTING_COUNTRIES"
-				maxWidth = 245 # TotU: clear of the leader photo
+				maxWidth = 354
+				maxHeight = 20
+				fixedsize = yes
 				format = left
 			}
 
 			instantTextBoxType = {
 				name = "elections_label"
-				position = { x = 0 y = 115 }
-				font = "hoi_18mbs" # TotU
+				position = { x = 0 y = 132 }
+				font = "totu_caption_small"
+				text_color_code = D
 				borderSize = {x = 0 y = 0}
-				text = "ELECTIONS"
-				maxWidth = 245 # TotU: clear of the leader photo
+				text = "TOTU_FE_ELECTIONS"
+				maxWidth = 354
+				maxHeight = 18
 				format = left
 			}
 
 			instantTextBoxType = {
 				name = "elections"
-				position = { x = 0 y = 132 }
-				font = "hoi_18mbs" # TotU
+				position = { x = 0 y = 146 }
+				font = "hoi_20b"
 				borderSize = {x = 0 y = 0}
-				maxWidth = 245 # TotU: clear of the leader photo
+				maxWidth = 354
+				maxHeight = 20
+				fixedsize = yes
 				format = left
 			}
 
 			instantTextBoxType = {
 				name = "party_label"
-				position = { x = 0 y = 155 }
-				font = "hoi_18mbs" # TotU
+				position = { x = 0 y = 176 }
+				font = "totu_caption_small"
+				text_color_code = D
 				borderSize = {x = 0 y = 0}
-				text = "RULING_PARTY"
-				maxWidth = 245 # TotU: clear of the leader photo
+				text = "TOTU_FE_RULING_PARTY"
+				maxWidth = 354
+				maxHeight = 18
 				format = left
 			}
 
+			# two lines: ends at y 690 with the Back plate
 			instantTextBoxType = {
 				name = "party"
-				position = { x = 0 y = 172 }
-				font = "hoi_18mbs" # TotU
+				position = { x = 0 y = 190 }
+				font = "hoi_20b"
 				borderSize = {x = 0 y = 0}
-				maxWidth = 245 # TotU: clear of the leader photo
+				maxWidth = 354
+				maxHeight = 40
+				fixedsize = yes
 				format = left
 			}
 		}
-		
+
 		iconType = {
 			name = "minor_country_leader"
 			quadTextureSprite ="GFX_leader_unknown"
-			position = { x = 289 y = 457 }
+			position = { x = -9000 y = -9000 } # TotU: no portrait, the values get the column
 			scale=0.696
-			rotation=-0.04
 		}
 
 		iconType = {
 			name ="minor_portrait_overlay"
 			spriteType = "GFX_minor_portrait_overlay"
-			position = { x= 280 y = 446 }
-		}
-		
-		instantTextBoxType = {
-			name = "nation_title"
-			position = { x = 442 y = 456 } # TotU: inside the centre panel
-			font = "hoi_18mbs" # TotU: full country names
-			borderSize = {x = 0 y = 0}
-			maxWidth = 340
-			maxHeight = 48
-			format = centre
-			vertical_alignment = center
+			position = { x = -9000 y = -9000 }
 		}
 
+		# centre column, x 434..790: the selected country's name (2 lines of 18)
+		instantTextBoxType = {
+			name = "nation_title"
+			position = { x = 434 y = 456 }
+			font = "totu_caption_name" # TotU: engine-filled; vanilla CJK font in Japanese / Chinese / Korean
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			maxWidth = 356
+			maxHeight = 36
+			fixedsize = yes
+			format = left
+			vertical_alignment = top
+		}
+
+		# national spirits: 3 slots of 68, the 65x67 icons centred at slot + 30, ink from x 436
 		containerWindowType = {
 			name = "spirit"
-			position = { x = 451 y = 487 }
+			position = { x = 434 y = 500 }
 
 			iconType ={
 				name ="pol_faction_icon"
 				spriteType = "GFX_pol_factions_strip"
-				position = { x= 0 y = 0 }
+				position = { x = -9000 y = -9000 } # TotU: no ideology emblem
 				frame = 1
 			}
 
 			containerWindowType = {
 				name ="ideas"
-				position = { x = 91 y = -1 }
-				size = { width = 100%% height = 70 }
+				position = { x = 4 y = 0 }
+				size = { width = 204 height = 68 }
 
 				gridboxType = {
 					name ="ideas_grid"
 					position = { x = 0 y = 0 }
-					size = { width = 100% height = 70 }
-					slotsize = { width = 60 height = 66 }
+					size = { width = 204 height = 68 }
+					slotsize = { width = 68 height = 68 }
 					max_slots = { x = 3 y = 1 }
 					add_horizontal = yes
 					format = "UPPER_LEFT"
@@ -914,7 +1243,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name ="focus"
-				position = { x = 9 y = 85 }
+				position = { x = -9000 y = -9000 } # TotU: no focus row
 				size = { width = 100% height = 100 }
 
 				gridboxType = {
@@ -929,34 +1258,38 @@ guiTypes = {
 			}
 		}
 
+		# history column, x 834..1189
 		instantTextBoxType = {
 			name = "history_title"
-			position = { x = 830 y = 462 }
-			font = "hoi_20b" # TotU
+			position = { x = 834 y = 456 }
+			font = "totu_caption_small"
+			text_color_code = P
 			borderSize = {x = 0 y = 0}
-			text = "FE_COUNTRY_HISTORY_TITLE"
-			maxWidth = 340
-			maxHeight = 30
-			format = centre
+			text = "TOTU_FE_HISTORY_TITLE"
+			maxWidth = 355
+			maxHeight = 18
+			format = left
 		}
 
 		instantTextBoxType = {
 			name = "history"
-			position = { x = 810 y = 502 }
-			font = "hoi_16mbs" # TotU
+			position = { x = 834 y = 478 }
+			font = "hoi_20b"
 			borderSize = {x = 0 y = 0}
-			maxWidth = 380
+			maxWidth = 355
 			maxHeight = 30
 			format = left
 		}
 
+		# if it ever shows: its 31x29 button at 1158..1189 x 424..453, right-aligned to the measure, between the minor
+		# bars and the text block
 		dropDownBoxType = {
 			name = "more_countries"
-			position = { x = 10 y = 412 }
+			position = { x = 10 y = 428 }
 
 			expandButton = {
 				name = "expand_button"
-				position = { x = 1168 y = -4 }
+				position = { x = 1148 y = -4 }
 				quadTextureSprite = "GFX_peace_drop_down_button"
 				clicksound = click_default
 			}
@@ -995,12 +1328,12 @@ guiTypes = {
 	containerWindowType = {
 		name ="gamesetup_important_message_window"
 		position = { x = -170 y = 300 }
-		size = { width=340 height =100}
+		size = { width=340 height =58}
 		Orientation = center_up
 
 		Background={
 			name ="important_message_bg"
-			spriteType = "SandboxFloaterBackground"
+			quadTextureSprite = "GFX_totu_board" # TotU: flat board, no frame
 			position = { x=0 y = 0}
 		}
 
@@ -1008,56 +1341,60 @@ guiTypes = {
 			name = "important_message"
 			position = { x = 0 y = 20 }
 			textureFile = ""
-			font = "hoi_20b"
-			borderSize = {x = 4 y = 4}
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
 			text = "HOST_PREPARING_GAME"
 			maxWidth = 340
-			maxHeight = 30
+			maxHeight = 18
 			format = centre
 		}
 	}
 
+	# Country details (TotU "broadcast"): a flat near-black board under the top band, right edge W - 170 (text measure
+	# to W - 192). The ruling-party pie and the national spirits in a row; below, dim caption labels with the engine's
+	# values (hoi_20b, readable) in a column at x 188, 26 px apart. No frames, no ideology emblem, no portrait.
 	containerWindowType = {
 		name ="gamesetup_country_details"
-		position = { x=20 y =-490}
-		show_position = { x=20 y =90}
+		position = { x=-662 y =-490}
+		show_position = { x=-662 y =124}
 		animation_type = decelerated
 		animation_time = 1000
-		size = { width=492 height=301}
+		size = { width=492 height=256}
 		Orientation = upper_right
-		origo = upper_right
 		show_sound = menu_open_window
 		hide_sound = menu_close_window
 
 		background={
 			name ="background"
-			spriteType = "GFX_lobby_right_sidepanel_bg"
+			quadTextureSprite = "GFX_totu_board"
 		}
 
+		# no portrait: the leader's photo is the in-game character portrait (no eye bar), and the country selection
+		# shows the same leader with an eye bar in its banner; the name is in the column below
 		iconType = {
 			name = "country_leader"
 			quadTextureSprite ="GFX_leader_unknown"
-			position = { x = 30 y = 20 }
+			position = { x = -9000 y = -9000 }
 			scale=0.4
 		}
 
 		iconType = {
 			name = "country_leader_frame"
 			quadTextureSprite ="GFX_naval_unit_leader_frame"
-			position = { x = 27 y = 15 }
+			position = { x = -9000 y = -9000 } # TotU: no frame
 		}
 
 		iconType ={
 			name ="pol_faction_icon"
 			spriteType = "GFX_pol_factions_strip"
-			position = { x= 105 y = 30 }
-			#Orientation = "UPPER_LEFT"
+			position = { x= -9000 y = -9000 } # TotU: no emblem
 			frame = 1
 		}
 
 		gridboxtype = {
 			name = "spirit_grid"
-			position = { x = 253 y = 30 }
+			position = { x = 96 y = 22 }
 			size = { width = 300 height = 68 }
 			slotsize = { width = 60 height = 68 }
 			max_slots = { x = 5 y = 1 }
@@ -1066,16 +1403,18 @@ guiTypes = {
 
 		gridboxtype = {
 			name = "spirit_grid_over_defined"
-			position = { x = 253 y = 28 }
-			size = { width = 330 height = 68 }
+			position = { x = 96 y = 20 }
+			size = { width = 300 height = 68 }
 			slotsize = { width = 33 height = 34 }
 			max_slots = { x = 6 y = 2 }
 			format = "UPPER_LEFT"
 		}
 
+		# the pie keeps its vanilla offset inside this container (its overlay centre is at container + 22,22): pie
+		# at x 22..74, centred on the spirits' row
 		containerWindowType = {
 			name = "political_pie_chart"
-			position = { x= 185 y = 40 }
+			position = { x= 2 y = 33 }
 			size = { width=100 height=100 }
 			clipping = no
 
@@ -1088,146 +1427,168 @@ guiTypes = {
 			iconType ={
 				name ="pol_view_bg"
 				spriteType = "GFX_small_pol_piechart_overlay"
-				position = { x= -5 y = -5 }
+				position = { x= -9000 y = -9000 } # TotU: no glass, no frame
 			}
 
 			iconType ={
 				name ="piechart_frame"
 				spriteType = "GFX_small_pol_piechart_frame"
-				position = { x= -11 y = -11 }
+				position = { x= -9000 y = -9000 }
 			}
 		}
 
 		containerWindowType = {
 			name = "info"
-			position = { x = 30 y = 140 }
+			position = { x = 22 y = 116 }
+			size = { width = 448 height = 124 }
 
 			instantTextBoxType = {
 				name = "leader_label"
-				position = { x = 6 y = 3 }
-				font = "hoi_20bs"
+				position = { x = 0 y = 0 }
+				font = "totu_label"
+				text_color_code = D
 				borderSize = {x = 0 y = 0}
-				text = "LEADER"
-				maxWidth = 340
+				text = "TOTU_FE_LEADER"
+				maxWidth = 180
 				format = left
 			}
 
 			instantTextBoxType = {
 				name = "leader"
-				position = { x = 72 y = 3 }
-				font = "hoi_20bs"
+				position = { x = 188 y = -2 }
+				font = "hoi_20b"
 				borderSize = {x = 0 y = 0}
-				maxWidth = 340
-				format = right
+				maxWidth = 260
+				maxHeight = 20
+				fixedsize = yes
+				truncate = yes
+				format = left
 			}
 
 			instantTextBoxType = {
 				name = "ideology_label"
-				position = { x = 6 y = 27 }
-				font = "hoi_20bs"
+				position = { x = 0 y = 26 }
+				font = "totu_label"
+				text_color_code = D
 				borderSize = {x = 0 y = 0}
-				text = "IDEOLOGY"
-				maxWidth = 340
+				text = "TOTU_FE_IDEOLOGY"
+				maxWidth = 180
 				format = left
 			}
 
 			instantTextBoxType = {
 				name = "ideology"
-				position = { x = 72 y = 27 }
-				font = "hoi_20bs"
+				position = { x = 188 y = 24 }
+				font = "hoi_20b"
 				borderSize = {x = 0 y = 0}
-				maxWidth = 340
-				format = right
+				maxWidth = 260
+				maxHeight = 20
+				fixedsize = yes
+				truncate = yes
+				format = left
 			}
 
 			instantTextBoxType = {
 				name = "government_label"
-				position = { x = 6 y = 51 }
-				font = "hoi_20bs"
+				position = { x = 0 y = 52 }
+				font = "totu_label"
+				text_color_code = D
 				borderSize = {x = 0 y = 0}
-				text = "GOVERNMENT"
-				maxWidth = 340
+				text = "TOTU_FE_GOVERNMENT"
+				maxWidth = 180
 				format = left
 			}
 
 			instantTextBoxType = {
 				name = "government"
-				position = { x = 72 y = 51 }
+				position = { x = 188 y = 50 }
 				textureFile = ""
-				font = "hoi_20bs"
+				font = "hoi_20b"
 				borderSize = {x = 0 y = 0}
-				maxWidth = 340
-				format = right
+				maxWidth = 260
+				maxHeight = 20
+				fixedsize = yes
+				truncate = yes
+				format = left
 			}
 
 			instantTextBoxType = {
 				name = "elections_label"
-				position = { x = 6 y = 75 }
+				position = { x = 0 y = 78 }
 				textureFile = ""
-				font = "hoi_20bs"
+				font = "totu_label"
+				text_color_code = D
 				borderSize = {x = 0 y = 0}
-				text = "POLITICS_NEXTELECTION"
-				maxWidth = 340
+				text = "TOTU_FE_ELECTIONS"
+				maxWidth = 180
 				format = left
 			}
 
 			instantTextBoxType = {
 				name = "elections"
-				position = { x = 72 y = 75 }
+				position = { x = 188 y = 76 }
 				textureFile = ""
-				font = "hoi_20bs"
+				font = "hoi_20b"
 				borderSize = {x = 0 y = 0}
-				maxWidth = 340
-				format = right
+				maxWidth = 260
+				maxHeight = 20
+				fixedsize = yes
+				truncate = yes
+				format = left
 			}
 
 			instantTextBoxType = {
 				name = "party_label"
-				position = { x = 6 y = 99 }
+				position = { x = 0 y = 104 }
 				textureFile = ""
-				font = "hoi_20bs"
+				font = "totu_label"
+				text_color_code = D
 				borderSize = {x = 0 y = 0}
-				text = "RULING_PARTY"
-				maxWidth = 340
+				text = "TOTU_FE_RULING_PARTY"
+				maxWidth = 180
 				format = left
 			}
 
 			instantTextBoxType = {
 				name = "party"
-				position = { x = 148 y = 99 }
+				position = { x = 188 y = 102 }
 				textureFile = ""
-				font = "hoi_20bs"
+				font = "hoi_20b"
 				borderSize = {x = 0 y = 0}
-				maxWidth = 264
+				maxWidth = 260
 				maxHeight = 20
 				fixedsize = yes
-				format = right
+				truncate = yes
+				format = left
 			}
 		}
 	}
 
+	# Multiplayer settings (TotU "broadcast"): a flat board over the gameplay settings board, 12 px apart, same edges
 	containerWindowType = {
 		name ="gamesetup_multiplayer_settings_window"
-		position = { x=0 y=196}
-		show_position = { x=5 y =-261}
+		position = { x=-764 y=200}
+		show_position = { x=-764 y =-360}
 		animation_type = decelerated
 		animation_time = 1000
 
-		size = {width=484 height=97}
+		size = {width=594 height=76}
 		orientation = lower_right
-		origo = lower_right
 
 		Background = {
 			name = "game_settings_bg"
-			quadTextureSprite = "GFX_game_settings_bg"
+			quadTextureSprite = "GFX_totu_board"
 		}
 
 		instantTextBoxType={
-			position = {x=30 y=51 }
+			position = {x=50 y=46 }
 			name = "hotjoin_label"
-			font = "hoi_24header"
-			maxWidth = 220
-			maxHeight = 16
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			maxWidth = 520
+			maxHeight = 18
+			fixedsize = yes
 			text = "FE_HOTJOIN_LABEL"
 			pdx_tooltip = "FE_HOTJOIN_TOOLTIP"
 			format = left
@@ -1235,17 +1596,20 @@ guiTypes = {
 
 		checkboxType = {
 			name = "hotjoin_cb"
-			position = { x=365 y=49}
-			quadTextureSprite ="GFX_generic_checkbox"
+			position = { x=22 y=43}
+			quadTextureSprite ="GFX_totu_checkbox"
 			clicksound = click_checkbox
 		}
 
 		instantTextBoxType={
-			position = {x=30 y=19 }
+			position = {x=50 y=18 }
 			name = "coop_label"
-			font = "hoi_24header"
-			maxWidth = 300
-			maxHeight = 16
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			maxWidth = 520
+			maxHeight = 18
+			fixedsize = yes
 			text = "FE_COOP_LABEL"
 			pdx_tooltip = "FE_COOP_TOOLTIP"
 			format = left
@@ -1253,8 +1617,8 @@ guiTypes = {
 
 		checkboxType = {
 			name = "coop_cb"
-			position = { x=365 y=18}
-			quadTextureSprite ="GFX_generic_checkbox"
+			position = { x=22 y=15}
+			quadTextureSprite ="GFX_totu_checkbox"
 			clicksound = click_checkbox
 		}
 	}
@@ -1791,164 +2155,185 @@ guiTypes = {
 		}
 	}
 
+	# Gameplay settings (TotU "broadcast"): a flat near-black board above Start, right edge W - 170, bottom H - 132.
+	# Row 1: the dim "Difficulty" label and the Game rules caption button; row 2: the five difficulties as chips (the
+	# chosen one keyer blue, labels centred over them); rows 3-4: Ironman and historical AI with flat checkboxes. The
+	# labels are vanilla strings (translated in every game language), so they use totu_caption_name.
 	containerWindowType = {
 		name ="gamesetup_gameplay_settings_window"
-		position = { x=0 y=196}
-		show_position = { x=5 y =-85}
+		position = { x=-764 y=200}
+		show_position = { x=-764 y =-272}
 		animation_type = decelerated
 		animation_time = 1000
 
-		size = {width=598 height=196}
+		size = {width=594 height=140}
 		orientation = lower_right
-		origo = lower_right
 
 		Background = {
 			name = "game_settings_bg"
-			quadTextureSprite = "GFX_lobby_lower_right_sidepanel_bg"
+			quadTextureSprite = "GFX_totu_board"
 		}
-
 
 		buttonType = {
 			name = "custom_settings_btn"
-			position = { x = 357 y = 12 }
-			quadTextureSprite ="GFX_custom_set_button_2"
+			position = { x = 418 y = 13 }
+			quadTextureSprite ="GFX_totu_caption_small_166"
+			buttonText = "TOTU_FE_CUSTOM_RULES"
+			buttonFont = "totu_button_small"
 			pdx_tooltip = FE_CUSTOM_DIFFUCULTY
+			clicksound = click_default
+			oversound = ui_menu_over
 		}
 
+		# vanilla's label over the button: the button carries its own text now
 		instantTextBoxType={
-			position = { x = 362 y = 18 }
+			position = { x = -9000 y = -9000 }
 			name = "custom_text"
-			font = "hoi_20b"
+			font = "totu_caption_name"
 			borderSize = {x = 0 y = 0}
-			maxWidth = 230
-			maxHeight = 16
+			maxWidth = 154
+			maxHeight = 18
 			text = "FE_DIFFICULTY_CUSTOM_BTN"
 			format = centre
 			alwaystransparent = yes
 		}
 
 		instantTextBoxType={
-			position = {x = 9 y = 12 }
+			position = {x = 22 y = 18 }
 			name = "difficulty_text"
-			font = "hoi_24header"
+			font = "totu_caption_name"
+			text_color_code = D
 			borderSize = {x = 0 y = 0}
-			maxWidth = 348
-			maxHeight = 16
+			maxWidth = 380
+			maxHeight = 18
+			fixedsize = yes
 			text = "FE_DIFFICULTY"
-			format = center
+			format = left
 		}
 
 		checkboxType = {
 			name = "very_easy_cb"
-			position = { x=9 y=47}
-			quadTextureSprite ="GFX_difficulty_button_civilian"
-			buttonText = "FE_DIFFICULTY_EASY"
-			buttonFont = "hoi_20b"
+			position = { x=22 y=42}
+			quadTextureSprite ="GFX_totu_chip"
+			buttonText = ""
+			buttonFont = "totu_button_small"
 			clicksound = click_checkbox
 		}
 
 		checkboxType = {
 			name = "easy_cb"
-			position = { x=125 y=47}
-			quadTextureSprite ="GFX_difficulty_button_recruit"
-			buttonText = "FE_DIFFICULTY_EASY"
-			buttonFont = "hoi_20b"
+			position = { x=132 y=42}
+			quadTextureSprite ="GFX_totu_chip"
+			buttonText = ""
+			buttonFont = "totu_button_small"
 			clicksound = click_checkbox
 		}
 
 		checkboxType = {
 			name = "normal_cb"
-			position = { x=241 y=47}
-			quadTextureSprite ="GFX_difficulty_button_regular"
+			position = { x=242 y=42}
+			quadTextureSprite ="GFX_totu_chip"
+			buttonText = ""
+			buttonFont = "totu_button_small"
 			clicksound = click_checkbox
-			buttonText = "FE_DIFFICULTY_NORMAL"
-			buttonFont = "hoi_20b"
 		}
 
 		checkboxType = {
 			name = "hard_cb"
-			position = { x=357 y=47}
-			quadTextureSprite ="GFX_difficulty_button_veteran"
-			buttonText = "FE_DIFFICULTY_HARD"
-			buttonFont = "hoi_20b"
+			position = { x=352 y=42}
+			quadTextureSprite ="GFX_totu_chip"
+			buttonText = ""
+			buttonFont = "totu_button_small"
 			clicksound = click_checkbox
 		}
 
 		checkboxType = {
 			name = "very_hard_cb"
-			position = { x=473 y=47}
-			quadTextureSprite ="GFX_difficulty_button_elite"
-			buttonText = "FE_DIFFICULTY_VERY_HARD"
-			buttonFont = "hoi_20b"
+			position = { x=462 y=42}
+			quadTextureSprite ="GFX_totu_chip"
+			buttonText = ""
+			buttonFont = "totu_button_small"
 			clicksound = click_checkbox
 		}
 
 		instantTextBoxType={
-			position = {x=18 y=53 }
+			position = {x=22 y=47 }
 			name = "civilian_text"
-			font = "hoi_20b"
+			font = "totu_caption_name"
+			text_color_code = P
 			borderSize = {x = 0 y = 0}
-			maxWidth = 115
-			maxHeight = 16
+			maxWidth = 104
+			maxHeight = 18
+			fixedsize = yes
 			text = "FE_DIFFICULTY_VERY_EASY"
 			format = centre
 			alwaystransparent = yes
 		}
 
 		instantTextBoxType={
-			position = {x=133 y=53 }
+			position = {x=132 y=47 }
 			name = "beginner_text"
-			font = "hoi_20b"
+			font = "totu_caption_name"
+			text_color_code = P
 			borderSize = {x = 0 y = 0}
-			maxWidth = 115
-			maxHeight = 16
+			maxWidth = 104
+			maxHeight = 18
+			fixedsize = yes
 			text = "FE_DIFFICULTY_EASY"
 			format = centre
 			alwaystransparent = yes
 		}
 
 		instantTextBoxType={
-			position = {x=250 y=53 }
+			position = {x=242 y=47 }
 			name = "normal_text"
-			font = "hoi_20b"
+			font = "totu_caption_name"
+			text_color_code = P
 			borderSize = {x = 0 y = 0}
-			maxWidth = 115
-			maxHeight = 16
+			maxWidth = 104
+			maxHeight = 18
+			fixedsize = yes
 			text = "FE_DIFFICULTY_NORMAL"
 			format = centre
 			alwaystransparent = yes
 		}
 
 		instantTextBoxType={
-			position = {x=368 y=53 }
+			position = {x=352 y=47 }
 			name = "hard_text"
-			font = "hoi_20b"
+			font = "totu_caption_name"
+			text_color_code = P
 			borderSize = {x = 0 y = 0}
-			maxWidth = 115
-			maxHeight = 16
+			maxWidth = 104
+			maxHeight = 18
+			fixedsize = yes
 			text = "FE_DIFFICULTY_HARD"
 			format = centre
 			alwaystransparent = yes
 		}
 
 		instantTextBoxType={
-			position = {x=480 y=53 }
+			position = {x=462 y=47 }
 			name = "very_hard_text"
-			font = "hoi_20b"
+			font = "totu_caption_name"
+			text_color_code = P
 			borderSize = {x = 0 y = 0}
-			maxWidth = 115
-			maxHeight = 16
+			maxWidth = 104
+			maxHeight = 18
+			fixedsize = yes
 			text = "FE_DIFFICULTY_VERY_HARD"
 			format = centre
 			alwaystransparent = yes
 		}
 
 		instantTextBoxType={
-			position = {x = 30 y = 103 }
+			position = {x = 50 y = 82 }
 			name = "ironman_text"
-			font = "hoi_24header"
-			maxWidth = 370
-			maxHeight = 16
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			maxWidth = 520
+			maxHeight = 18
 			text = "FE_IRONMAN"
 			pdx_tooltip = "FE_IRONMAN_TOOLTIP"
 			format = left
@@ -1957,17 +2342,19 @@ guiTypes = {
 
 		checkboxType = {
 			name = "ironman_cb"
-			position = { x=530 y =101}
-			quadTextureSprite ="GFX_generic_checkbox"
+			position = { x=22 y =79}
+			quadTextureSprite ="GFX_totu_checkbox"
 			clicksound = click_checkbox
 		}
 
 		instantTextBoxType={
-			position = {x = 30 y = 148 }
+			position = {x = 50 y = 110 }
 			name = "historical_text"
-			font = "hoi_24header"
-			maxWidth = 370
-			maxHeight = 16
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			maxWidth = 520
+			maxHeight = 18
 			text = "FE_HISTORICAL"
 			pdx_tooltip = "FE_HISTORICAL_TOOLTIP"
 			format = left
@@ -1976,44 +2363,61 @@ guiTypes = {
 
 		checkboxType = {
 			name = "historical_cb"
-			position = { x=530 y =145}
-			quadTextureSprite ="GFX_generic_checkbox"
+			position = { x=22 y =107}
+			quadTextureSprite ="GFX_totu_checkbox"
 			clicksound = click_checkbox
 		}
 	}
 
+	# "Updating history" (TotU "broadcast"): no panel. The loading screen's status line, in the same place (x 192,
+	# capitals H-104..H-90) on the same lower-third scrim, so the cut to the loading screen keeps it where it is.
 	containerWindowType = {
 		name ="loading_history"
 		position = { x=0 y =0}
 		size = { width=100% height =100%}
 		clipping = no
 
+		iconType = {
+			name = "totu_history_scrim"
+			spriteType = "GFX_totu_load_scrim_caption"
+			Orientation = LOWER_LEFT
+			position = { x = -120 y = -576 }
+			alwaystransparent = yes
+		}
+
 		containerWindowType = {
 			name ="pane"
-			position = { x=-250 y =-50}
-			size = { width=500 height =100 }
+			position = { x=192 y =-104}
+			size = { width=1056 height =18 }
 			clipping = no
-			orientation = CENTER
-
-			background = {
-				name = "Background"
-				spriteType ="GFX_tiled_bg"
-			}
+			orientation = LOWER_LEFT
 
 			instantTextBoxType = {
 				name = "label"
-				position = { x = 0 y = 30 }
-				font = "hoi_36header"
+				position = { x = 0 y = 0 }
+				font = "totu_caption_name"
+				text_color_code = P
+				borderSize = {x = 0 y = 0}
 				text = "FE_LOADING_HISTORY"
-				maxWidth = 500
-				maxHeight = 30
+				maxWidth = 1056
+				maxHeight = 18
 				fixedsize = yes
-				vertical_alignment = center
-				format = centre
+				vertical_alignment = top
+				format = left
 			}
 		}
 	}
 
+	### LOBBY FRAME (TotU "broadcast"; layout in tools/build_menu_gfx.py, "Lobby frame"). Screen px at UI scale 1.0.
+	# The map is the picture. Top and bottom carry a soft black band (GFX_totu_band_*, 160 px, alpha 62 % at the edge
+	# fading to 0, click-through), no bar, no rivets, no rules:
+	#   top left (x 192): Notable countries, Random country (Observer in multiplayer) as small caption buttons;
+	#   top centre: the date (P) over the scenario name (D), engine-filled, in totu_caption_name;
+	#   top right (W - 192): the selected country's flag, its name right-aligned beside it, the Details toggle under it.
+	#   bottom: Back, Load, Options on the menu's last row (plates from x 170, H - 112); Start / Ready right-aligned to
+	#   W - 192 on the same row, the ready checkbox before it.
+	# Button text is the engine's (buttonText in totu_button*, K edge baked in): the engine hides some of these buttons.
+	# Every element the engine looks up by name stays; the unused ones are off-screen.
 	containerWindowType = {
 		name ="frontendgamesetupview"
 		position = { x=0 y =0}
@@ -2022,73 +2426,78 @@ guiTypes = {
 
 		containerWindowType = {
 			name ="top"
-			position = { x=0 y = -80}
-			show_position = { x=0 y =-30}
+			position = { x=0 y = -160}
+			show_position = { x=0 y =0}
 			animation_type = decelerated
 			animation_time = 1000
-			size = { width=100% height =128}
+			size = { width=100% height =160}
 			clipping = no
 
-            containerWindowType = {
-                name = background
-                size = { width=102% height=100% }
-                Background =
-                {
-                    name ="top_bg"
-                    spriteType = "GFX_tiled_frontend_upper_bar"
-                    position = { x=-10 y=0 }
-                }
+			containerWindowType = {
+				name = background
+				size = { width=100% height=100% }
+				Background =
+				{
+					name ="top_bg"
+					spriteType = "GFX_totu_band_top"
+					alwaystransparent = yes
+				}
 			}
 
 			containerWindowType = {
 				name ="scenario_window"
-				position = { x=50% y = -80}
-				show_position = { x=50% y =-30}
+				position = { x=50% y = 0}
+				show_position = { x=50% y = 0}
 				animation_type = decelerated
 				animation_time = 1000
-				size = { width=340 height =128}
+				size = { width=360 height =128}
 				clipping = no
 
 				iconType ={
 					name ="menu_top_date_bg"
 					spriteType = "GFX_menu_top_bg_bg"
-					position = { x= -196 y = 54 }
+					position = { x= -9000 y = -9000 } # TotU: no plate
 				}
 
+				# capitals y 35..49, centred on the screen axis
 				instantTextBoxType = {
 					name = "date"
-					position = { x = -184 y = 65 }
-					font = "hoi_24header"
-					borderSize = {x = 4 y = 4}
+					position = { x = -180 y = 35 }
+					font = "totu_caption_name"
+					text_color_code = P
+					borderSize = {x = 0 y = 0}
 					text = "Pikku Saippuakauppias Itkee!!"
 					maxWidth = 360
-					maxHeight = 32
+					maxHeight = 18
+					fixedsize = yes
 					format = centre
 				}
 
+				# capitals y 63..77
 				instantTextBoxType = {
 					name = "name"
-					position = { x = -184 y = 85 }
-					font = "hoi_24header"
-					borderSize = {x = 4 y = 4}
+					position = { x = -180 y = 63 }
+					font = "totu_caption_name"
+					text_color_code = D
+					borderSize = {x = 0 y = 0}
 					text = "Pikku Saippuakauppias Itkee!!"
 					maxWidth = 360
-					maxHeight = 32
+					maxHeight = 18
 					format = centre
 					fixedsize = yes
 				}
 
+				# the mod has one scenario: nothing to change to (the picker opens from New Game only); no "c" shortcut
 				ButtonType = {
 					name = "scenario_button"
-					position = { x = -135 y = 115 }
-					quadTextureSprite ="GFX_button_261x34"
-					buttonText = "FE_CHANGE_SCENARIO"
-					buttonFont = "hoi_20b"
+					position = { x = -9000 y = -9000 }
+					quadTextureSprite ="GFX_totu_caption_small_118"
+					buttonText = ""
+					buttonFont = "totu_button_small"
 					clicksound = click_ok
-					shortcut = "c"
 				}
 
-				# 1st BUTTON (BIG)
+				# multiplayer map modes (vanilla icons), under the band
 				buttonType = {
 					name = "mapmode_button_1"
 					position = { x=-40 y=185 }
@@ -2111,7 +2520,6 @@ guiTypes = {
 					centerPosition = yes
 				}
 
-				# 2st BUTTON (BIG)
 				buttonType = {
 					name = "mapmode_button_2"
 					position = { x=30 y=185 }
@@ -2133,13 +2541,13 @@ guiTypes = {
 				}
 			}
 
-
+			# small plates from x 180: the text starts at 192, capitals y 35..49 / 63..77 / 91..105
 			ButtonType = {
 				name = "interesting_countries_button"
-				position = { x = 40 y = 40 }
-				quadTextureSprite ="GFX_button_261x34"
-				buttonText = "FE_INTERESTING_COUNTRIES"
-				buttonFont = "hoi_20b"
+				position = { x = 180 y = 30 }
+				quadTextureSprite ="GFX_totu_caption_small_226"
+				buttonText = "TOTU_FE_INTERESTING"
+				buttonFont = "totu_button_small"
 				Orientation = "UPPER_LEFT"
 				clicksound = click_default
 				oversound = ui_menu_over
@@ -2148,10 +2556,10 @@ guiTypes = {
 
 			ButtonType = {
 				name = "randomize_country_button"
-				position = { x = 40 y = 75 }
-				quadTextureSprite ="GFX_button_261x34"
-				buttonText = "FE_RANDOMIZE_COUNTRY"
-				buttonFont = "hoi_20b"
+				position = { x = 180 y = 58 }
+				quadTextureSprite ="GFX_totu_caption_small_214"
+				buttonText = "TOTU_FE_RANDOM"
+				buttonFont = "totu_button_small"
 				Orientation = "UPPER_LEFT"
 				clicksound = click_default
 				oversound = ui_menu_over
@@ -2160,25 +2568,26 @@ guiTypes = {
 
 			ButtonType = {
 				name = "observer_button"
-				position = { x = 320 y = 49 }
-				quadTextureSprite ="GFX_observer_button"
+				position = { x = 180 y = 86 }
+				quadTextureSprite ="GFX_totu_caption_small_154"
+				buttonText = "TOTU_FE_OBSERVER"
+				buttonFont = "totu_button_small"
 				Orientation = "UPPER_LEFT"
 				clicksound = click_default
 				oversound = ui_menu_over
-				scale = 0.8
 			}
 
 			iconType ={
 				name ="observer_button_overlay"
 				spriteType = "GFX_observer_button_overlay"
-				position = { x = 320 y = 49 }
+				position = { x = -9000 y = -9000 } # TotU: no pulsing ring
 				Orientation = "UPPER_LEFT"
-				scale = 0.8
 				alwaystransparent = yes
 			}
 
+			# the flag, 82x52, its right edge on W - 192
 			ButtonType = {
-				position = { x= -449 y = 48 }
+				position = { x= -274 y = 30 }
 				name = "player_shield"
 				quadTextureSprite ="GFX_player_flag"
 				Orientation = "UPPER_RIGHT"
@@ -2187,36 +2596,43 @@ guiTypes = {
 			iconType ={
 				name ="large_flag_frame"
 				spriteType = "GFX_large_flag_frame"
-				position = { x= -454 y = 45 }
+				position = { x= -9000 y = -9000 } # TotU: no frame
 				Orientation = "UPPER_RIGHT"
 			}
 
 			iconType ={
 				name ="selected_nation_label_bg"
 				spriteType = "GFX_generic_bg"
-				position = { x= -342 y = 46 }
+				position = { x= -9000 y = -9000 } # TotU: no plate
 				Orientation = "UPPER_RIGHT"
 			}
 
+			# right-aligned 16 px left of the flag, up to 3 lines (capitals from y 35)
 			instantTextBoxType = {
 				name = "selected_nation_label"
-				position = { x = -337 y = 55 }
+				position = { x = -530 y = 35 }
 				textureFile = ""
-				font = "hoi_20bs"
+				font = "totu_caption_name"
+				text_color_code = P
 				borderSize = {x = 0 y = 0}
 				text = "FE_NO_COUNTRY_SELECTED"
-				maxWidth = 258
-				maxHeight = 40
+				maxWidth = 240
+				maxHeight = 54
 				fixedsize = yes
-				format = centre
+				format = right
 				Orientation = "UPPER_RIGHT"
 			}
 
+			# shows / hides gamesetup_country_details; frame 2 (keyer blue) like the vanilla arrow's second frame
 			ButtonType = {
-				position = { x= -59 y = 45 }
+				position = { x= -297 y = 90 }
 				name = "extended_country_button"
-				quadTextureSprite ="GFX_extended_country_button"
+				quadTextureSprite ="GFX_totu_toggle"
+				buttonText = "TOTU_FE_DETAILS"
+				buttonFont = "totu_button_small"
 				Orientation = "UPPER_RIGHT"
+				clicksound = click_default
+				oversound = ui_menu_over
 			}
 
 		}
@@ -2224,28 +2640,30 @@ guiTypes = {
 		containerWindowType = {
 			name ="bottom"
 			position = { x=0 y =0}
-			show_position = { x=0 y =-100 }
+			show_position = { x=0 y =-160 }
 			animation_type = decelerated
 			animation_time = 1000
-			size = { width=100% height =128}
+			size = { width=100% height =160}
 			Orientation = lower_left
+			clipping = no
 
-            containerWindowType = {
-                name = background
-                size = { width=102% height=100% }
-                Background ={
-                    name ="bottom_win"
-                    spriteType = "GFX_tiled_frontend_lower_bar"
-                    position = { x=-10 y =0}
-                }
+			containerWindowType = {
+				name = background
+				size = { width=100% height=100% }
+				Background ={
+					name ="bottom_win"
+					spriteType = "GFX_totu_band_bottom"
+					alwaystransparent = yes
+				}
 			}
 
+			# the menu's last row: plates H-112..H-72 from x 170, the text from 192
 			ButtonType = {
 				name = "back_button"
-				position = { x = 20 y = 40 }
-				quadTextureSprite ="GFX_button_148x34"
-				buttonText = "MAIN_MENU_BACK"
-				buttonFont = "hoi_20b"
+				position = { x = 170 y = 48 }
+				quadTextureSprite ="GFX_totu_caption_160"
+				buttonText = "TOTU_FE_BACK"
+				buttonFont = "totu_button"
 				Orientation = "UPPER_LEFT"
 				clicksound = click_close
 				oversound = ui_menu_over
@@ -2254,10 +2672,10 @@ guiTypes = {
 
 			ButtonType = {
 				name = "load_button"
-				position = { x = 180 y = 40 }
-				quadTextureSprite ="GFX_button_148x34"
-				buttonText = "MENU_BAR_LOAD"
-				buttonFont = "hoi_20b"
+				position = { x = 330 y = 48 }
+				quadTextureSprite ="GFX_totu_caption_256"
+				buttonText = "TOTU_FE_LOAD"
+				buttonFont = "totu_button"
 				Orientation = "UPPER_LEFT"
 				clicksound = click_default
 				oversound = ui_menu_over
@@ -2266,51 +2684,52 @@ guiTypes = {
 
 			ButtonType = {
 				name = "options_button"
-				position = { x = 340 y = 40 }
-				quadTextureSprite ="GFX_button_148x34"
-				buttonText = "OPTIONS"
-				buttonFont = "hoi_20b"
+				position = { x = 586 y = 48 }
+				quadTextureSprite ="GFX_totu_caption_256"
+				buttonText = "TOTU_FE_OPTIONS"
+				buttonFont = "totu_button"
 				Orientation = "UPPER_LEFT"
 				clicksound = click_default
 				oversound = ui_menu_over
 				shortcut = "o"
 			}
 
+			# a mod changes the checksum, so achievements are off anyway: no trophy medallion
 			iconType = {
 				name = "enabled_achievement_icons"
-				position = { x = -344 y = -115 }
+				position = { x = -9000 y = -9000 }
 				quadTextureSprite ="GFX_enabled_achievement_icons"
 				Orientation = "LOWER_RIGHT"
 			}
 
+			# Start: text ends on W - 192 (the engine centres it 20 px into the 160 plate)
 			ButtonType = {
 				name = "play_button"
-				position = { x = -262 y = -100 }
-				quadTextureSprite ="GFX_play_button"
-				buttonText = "FE_START"
-				buttonFont = "hoi_30header"
+				position = { x = -328 y = -112 }
+				quadTextureSprite ="GFX_totu_caption_160"
+				buttonText = "TOTU_FE_START"
+				buttonFont = "totu_button"
 				Orientation = "LOWER_RIGHT"
 				#clicksound = start_game_01 # Don't add this here. I intentionally removed it because otherwise the sound is played when the client clicks on Ready/Unready button. The sound should only play when the host starts the game (or when it's SP) which is done in the code.
 				shortcut = "RETURN"
-#				frame = 1
 			}
 
 			ButtonType = {
 				name = "play_button_ready"
-				position = { x = -262 y = -100 }
-				spriteType ="GFX_play_button_ready"
-				buttonText = "READY"
-				buttonFont = "hoi_30header"
+				position = { x = -328 y = -112 }
+				quadTextureSprite ="GFX_totu_caption_160"
+				buttonText = "TOTU_FE_READY"
+				buttonFont = "totu_button"
 				Orientation = "LOWER_RIGHT"
-				#clicksound = start_game_01 # Don't add this here. I intentionally removed it because otherwise the sound is played when the client clicks on Ready/Unready button. The sound should only play when the host starts the game (or when it's SP) which is done in the code.
+				#clicksound = start_game_01 # see play_button
 				shortcut = "RETURN"
-				frame = 1
 			}
 
+			# the client's ready state, 20x20, 12 px before the Ready plate, centred on it
 			iconType = {
 				name = "play_button_checkbox"
-				position = { x = -74 y = -85 }
-				quadTextureSprite ="GFX_generic_checkbox2"
+				position = { x = -360 y = -102 }
+				quadTextureSprite ="GFX_totu_checkbox"
 				Orientation = "LOWER_RIGHT"
 				alwaystransparent = yes
 			}
