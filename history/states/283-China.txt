@@ -1,0 +1,28 @@
+state = {
+	id = 283
+	name = "STATE_283"
+	resources = {
+		tungsten = 1.000
+	}
+
+	history = {
+		owner = PRC
+		add_core_of = PRC
+		add_core_of = XSM
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+		victory_points = { 7911 1 }
+		victory_points = { 2022 3 }
+	}
+
+	provinces = {
+		531 556 1647 1933 2022 4313 7397 7911 12797 12882
+	}
+	manpower = 2705400
+	buildings_max_level_factor = 1.000
+	state_category = rural
+
+	local_supplies = 0.0 
+}

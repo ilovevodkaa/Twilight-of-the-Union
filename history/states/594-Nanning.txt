@@ -1,0 +1,29 @@
+state = {
+	id = 594
+	name = "STATE_594"
+	manpower = 3275000
+	state_category = town
+	resources = {
+		tungsten = 11 # was: 14
+		steel = 8 # was: 10
+		chromium = 3 # was: 4
+	}
+
+	history = {
+		owner = PRC
+		add_core_of = PRC
+		add_core_of = GXC
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+		victory_points = { 7137 10 }
+		victory_points = { 10459 1 }
+	}
+
+	provinces = {
+		1469 1625 4028 4077 4085 4121 4177 4628 4656 7044 7137 7650 10459 10050 11983 12023
+	}
+
+	local_supplies = 1.0 
+}

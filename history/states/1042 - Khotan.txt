@@ -1,0 +1,24 @@
+state = {
+	id = 1042
+	name = "STATE_1042"
+	manpower = 380000
+	state_category = wasteland
+
+	history = {
+		owner = PRC
+		add_core_of = PRC
+		add_core_of = SIK
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = { 4973 3 }
+		victory_points = { 1970 1 }
+	}
+
+	provinces = {
+		1943 1970 4973 8112 10315 10911
+	}
+
+	buildings_max_level_factor = 1.000
+	local_supplies = 1.0 
+}

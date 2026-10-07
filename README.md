@@ -37,14 +37,14 @@
 | **Языки** | Русский и английский |
 
 > [!NOTE]
-> Карта мира заменена на новую, сгенерированную по реальным географическим данным: 1990 год, ~14 800 сухопутных и ~2 900 морских провинций, ~2 300 штатов, ~3 250 городов с очками победы, 172 страны. Страны пока «заглушки»: тег, цвет, столица и территория, без армий, фокусов, идей и технологий. Ванильных файлов 1936 года мод больше не использует.
+> Карта — ванильная (провинции, области, рельеф, пропорции), но с границами, странами, названиями и флагами на 1 января 1990 года, сочной палитрой стран, чёрным морем и приглушённой землёй. 157 стран пока без армий, фокусов, идей и технологий: у каждой есть столица, правящая партия и популярность идеологий.
 
 ## Карта 1990 года
 
 ![Политическая карта 1990](docs/images/map_1990.jpg)
-<p align="center"><sub>Политическая карта со границами штатов (превью, собирается скриптом)</sub></p>
+<p align="center"><sub>Политическая карта (превью, собирается скриптом)</sub></p>
 
-Границы 1990 года получены из современных данных Natural Earth: СССР (15 республик), Югославия, Чехословакия, ФРГ и ГДР, Северный и Южный Йемен, Эритрея в составе Эфиопии, Южный Судан в составе Судана, Намибия под ЮАР, Западная Сахара в составе Марокко, Гонконг у Великобритании, Макао у Португалии. Теги, где есть ванильный, остались ванильными (`ENG`, `GER`, `JAP`, `PRC`, `CHI`...), для остальных введены новые трёхбуквенные.
+СССР в границах 1990 года (Прибалтика, Молдавия, Калининград, Закарпатье, Выборг, Южный Сахалин и Курилы), Польша по Одеру — Нейсе, ФРГ и ГДР, Чехословакия, Югославия, Северный и Южный Йемен, две Кореи, Тайвань, деколонизированные Африка и Азия. Эритрея в составе Эфиопии, Намибия под управлением ЮАР, Западная Сахара у Марокко, Восточный Тимор у Индонезии, Гонконг у Великобритании, Макао у Португалии. Переименованы города и области (Волгоград, Калининград, Гданьск, Вроцлав, Киншаса, Хараре...). Флаги, которые в ванилле показывают 1936 год (Египет, Ирак, Иран, Испания, Румыния, ЮАР...), заменены флагами 1990 года. Ванильное приглушение цветов стран отключено (`common/defines/totu_graphics.lua`), море затемнено правкой шейдера воды (`gfx/FX/pdxwater.shader`). Стартовые скрипты 1936 года (`on_startup` в `common/on_actions`) вырезаны.
 
 ## Скриншоты
 
@@ -86,14 +86,13 @@
 ```
 common/            сценарий 1990 года, персонажи, стартовая дата (defines)
 gfx/               текстуры интерфейса, экраны загрузки, портреты
-history/           страны (заглушки, USA и SOV с прежним содержимым) и штаты (генерируются)
-map/               провинции, определения, регионы, здания, рельеф (генерируется)
+history/           страны и области 1990 года (генерируются; USA и SOV написаны вручную)
+map/               текстуры земли и чёрного моря, buildings.txt (генерируются)
 interface/         GUI главного меню, загрузки, выбора сценария и страны
-localisation/      тексты на русском и английском, цитаты эпохи
+localisation/      тексты на русском и английском, цитаты эпохи, названия стран и городов 1990 года
 tools/             скрипты сборки графики, сценария и карты
   src/             исходные фотографии
-  map/             модули генератора карты
-  cache/           скачанные данные (в git не попадает)
+  world1990/       границы, страны, названия и флаги 1990 года
 docs/images/       скриншоты для README
 ```
 
@@ -102,33 +101,38 @@ docs/images/       скриншоты для README
 Все текстуры интерфейса генерируются из исходных фото в `tools/src`: затемнение, плёночный тон, развёртка ЭЛТ, зерно. DDS-файлы руками не правятся.
 
 ```bash
-pip install pillow
-python tools/build_menu_gfx.py     # все текстуры: меню, загрузка, выбор страны, портреты
+pip install pillow numpy
+python tools/build_fonts.py        # пиксельные шрифты титров: меню и экран загрузки (до build_menu_gfx.py)
+python tools/build_menu_gfx.py     # все текстуры: меню, загрузка, выбор сценария и страны, портреты
 python tools/build_bookmarks.py    # файл сценария common/bookmarks/totu_1990.txt
+python tools/preview_country.py    # превью выбора страны (до render_docs.py)
 python tools/render_docs.py        # скриншоты для README
 ```
 
 ### Карта собирается скриптом
 
-Карта генерируется целиком: `tools/build_map.py` скачивает Natural Earth (границы стран и областей, города, реки, озёра) и тайлы высот Terrarium, строит провинции (диаграммы Вороного с релаксацией Ллойда, плотность по населению, внутри областей admin-1, чтобы провинция не пересекала границу), штаты, города, стратегические регионы, рельеф и все текстовые файлы. Результат детерминирован (фиксированный seed).
+Карта — ванильная. Скрипты читают файлы установленной игры и пишут поверх них только то, что изменилось к 1990 году:
 
 ```bash
-pip install numpy scipy shapely scikit-image opencv-python-headless pillow requests
-python tools/build_map.py        # 5-10 минут, данные кэшируются в tools/cache/
-python tools/validate_map.py     # проверка целостности без игры
+pip install numpy pillow
+python tools/build_world_1990.py     # области, страны, цвета, названия, флаги
+python tools/build_map_style.py      # чёрное море, приглушённая земля
+python tools/render_political_map.py # превью docs/images/map_1990.jpg
 ```
 
-Проекция: равнопромежуточная (plate carrée), охват 77° с. ш. - 56° ю. ш., 5632x2048. Изменить страны, названия или правила 1990 года можно в `tools/map/countries.py`, размер и число штатов - в `tools/map/states.py`, плотность провинций - в `tools/map/provinces.py`. Сгенерированные файлы вручную не правятся.
+Путь к игре определяется сам (Steam на C: или D:), иначе укажите `--game "путь\к\Hearts of Iron IV"`. Владельцы областей и переносы провинций — в `tools/world1990/borders.py`, страны, правительства и цвета — в `countries.py`, новые названия — в `names.py`, флаги — в `flags.py`. Сгенерированные файлы вручную не правятся.
 
-Допущения, которые не удалось проверить без игры: индексы палитры `terrain.bmp`, размер `trees.bmp` (3520x1280), формат `cities.bmp` и позиции в `unitstacks.txt`/`buildings.txt`. Рельеф, леса и пустыни получены из высот и грубых климатических зон, а не из карты биомов.
+Иконки нацдухов (и позже фокусов) генерирует `tools/gen_icons.py` через OpenAI-совместимый API картинок (по умолчанию `gpt-image-2.5-flare`): ключ в переменной `TOTU_IMAGE_API_KEY`, список иконок и стили — в начале скрипта. Исходные PNG лежат в `tools/src/icons/`, `python tools/gen_icons.py --convert-only` пересобирает DDS и `.gfx` без запросов к API.
 
 Чтобы заменить фон, экран загрузки или портрет, положите новое фото в `tools/src` и перезапустите `build_menu_gfx.py`. Списки экранов загрузки (`LOADING_SCREENS`) и портретов (`PORTRAITS`) — в начале соответствующих разделов скрипта.
+
+Главное меню свёрстано под экраны от 900 пикселей в высоту и масштаб интерфейса 1.0 или 2.0: при 1280×720 и 1366×768 дата под логотипом почти касается меню, а при дробном масштабе пиксельный шрифт размывается. Экран загрузки свёрстан и проверен вплоть до 1280×720.
 
 ### Планы
 
 - [x] Главное меню, экраны загрузки, выбор сценария и страны
 - [x] Стартовая дата 1 января 1990 года
-- [x] Политическая карта 1990 года: союзные республики, Восточный блок, две Германии (карта, штаты, города, страны-заглушки)
+- [x] Политическая карта 1990 года на ванильной карте: границы, страны, правительства, названия, флаги, сочная палитра и чёрное море
 - [ ] Лидеры, партии и правительства всех стран на 1990 год
 - [ ] Национальные духи и фокусы СССР и США
 - [ ] События 1990–1991 годов
@@ -146,12 +150,12 @@ python tools/validate_map.py     # проверка целостности бе�
 
 Version 0.1 delivers the frontend: a new main menu, period loading screens with quotes from 1983–1993, a single 1990 scenario, a reworked country selection screen with the USA and the USSR, and Gorbachev and Bush as leaders. English and Russian are supported.
 
-The world map is now a new, procedurally generated 1990 map: about 14,800 land and 2,900 sea provinces, about 2,300 states, about 3,250 victory-point cities and 172 country stubs (tag, colour, capital and territory only: no armies, focuses, ideas or technologies yet). Borders are derived from Natural Earth (USSR with its 15 republics, Yugoslavia, Czechoslovakia, West and East Germany, North and South Yemen, and so on); heights come from Terrarium elevation tiles.
+The map is the vanilla HOI4 map with the world of 1 January 1990 on top: 1990 borders and owners for all 1081 states (USSR with the Baltics and Moldavia, Poland on the Oder-Neisse line, West and East Germany, Czechoslovakia, Yugoslavia, both Yemens, both Koreas, decolonised Africa and Asia), 157 countries with capitals, ruling parties and popularities (no armies, focuses, ideas or technologies yet), renamed cities and states, 1990 flags where vanilla shows 1936 ones, a saturated country palette, a black sea and muted land.
 
 ![1990 political map](docs/images/map_1990.jpg)
 
 **Install:** put the folder into `Documents/Paradox Interactive/Hearts of Iron IV/mod/`, create `Twilight of the Union.mod` next to it from `descriptor.mod` with a `path="..."` line pointing to the folder, then enable it in the launcher.
 
-**Rebuild graphics:** `pip install pillow`, then `python tools/build_menu_gfx.py`.
+**Rebuild graphics:** `pip install pillow numpy`, then `python tools/build_fonts.py` and `python tools/build_menu_gfx.py` (README screenshots: `python tools/preview_country.py`, then `python tools/render_docs.py`). The main menu is laid out for screens at least 900 px tall at UI scale 1.0 or 2.0: at 1280x720 and 1366x768 the date line under the logo nearly touches the menu, and fractional scales blur the pixel font. The loading screen is laid out and checked down to 1280x720.
 
-**Rebuild the map:** `pip install numpy scipy shapely scikit-image opencv-python-headless pillow requests`, then `python tools/build_map.py` (downloads data into `tools/cache/`, takes 5-10 minutes) and `python tools/validate_map.py`. Projection: plate carree, 77N-56S, 5632x2048. Unverified without the game: `terrain.bmp` palette indices, `trees.bmp` size (3520x1280), `cities.bmp` format, and the position files `unitstacks.txt` / `buildings.txt`.
+**Rebuild the map:** `pip install numpy pillow`, then `python tools/build_world_1990.py`, `python tools/build_map_style.py` and `python tools/render_political_map.py`. The scripts read the installed game (pass `--game PATH` if it is not found). Borders live in `tools/world1990/borders.py`, countries and colours in `countries.py`, names in `names.py`, flags in `flags.py`.

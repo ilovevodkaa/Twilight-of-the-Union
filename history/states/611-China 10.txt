@@ -1,0 +1,24 @@
+state = {
+	id = 611
+	name = "STATE_611" # South Chahar
+	manpower = 1470000
+	
+	state_category = pastoral
+
+	history = {
+		owner = PRC
+		add_core_of = PRC
+		add_core_of = MEN
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+		victory_points = { 10397 2 }
+	}
+
+	provinces = {
+		828 952 1489 4495 4612 7545 7674 10397 11752 13379
+	}
+
+	local_supplies = 0.0 
+}
