@@ -10,7 +10,6 @@ from .common import MIN_PROVINCE_PX
 
 NOISE_SIGMA, NOISE_AMP, SLOPE_K, LLOYD = 3.0, 1.2, 0.08, 3
 FOUR = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]], bool)
-EIGHT = np.ones((3, 3), bool)
 
 
 def _graph(mask, height, rng):
@@ -53,13 +52,13 @@ def partition(mask, height, fixed, n_target, seed):
     if not mask.any():
         return out, []
     g, idx, rows, cols = _graph(mask, height, rng)
+    comp, ncomp = ndimage.label(mask, structure=FOUR)   # 4-connected like the checker and the engine
+    sizes = ndimage.sum(mask, comp, range(1, ncomp + 1))
     seeds = []
-    for r, c in fixed:
-        if mask[r, c] and idx[r, c] not in seeds:
+    for r, c in fixed:                                  # a city on an islet too small for a province gets none
+        if mask[r, c] and idx[r, c] not in seeds and sizes[comp[r, c] - 1] >= MIN_PROVINCE_PX:
             seeds.append(int(idx[r, c]))
     n_fixed = len(seeds)
-    comp, ncomp = ndimage.label(mask, structure=EIGHT)
-    sizes = ndimage.sum(mask, comp, range(1, ncomp + 1))
     for k in range(1, ncomp + 1):                       # every island of a province's size gets a seed
         if sizes[k - 1] >= MIN_PROVINCE_PX and not any(comp[rows[s], cols[s]] == k for s in seeds):
             d = ndimage.distance_transform_edt(np.pad(comp == k, 1))[1:-1, 1:-1]
@@ -96,7 +95,7 @@ def _fill_from_nearest(out, mask):
 
 
 def _cleanup(out, mask, seed_rc):
-    comp, ncomp = ndimage.label(mask, structure=EIGHT)
+    comp, ncomp = ndimage.label(mask, structure=FOUR)
     sizes = ndimage.sum(mask, comp, range(1, ncomp + 1))
     tiny = np.isin(comp, np.nonzero(sizes < MIN_PROVINCE_PX)[0] + 1)
     for k in range(1, out.max() + 1):                   # keep the seed's part of every province
@@ -106,15 +105,17 @@ def _cleanup(out, mask, seed_rc):
             keep = parts[r, c] if parts[r, c] else np.argmax(np.bincount(parts.ravel())[1:]) + 1
             out[(parts != keep) & (parts > 0)] = 0
     _fill_from_nearest(out, mask)
+    alone = set()                                       # small provinces with no neighbour (islands) stay
     while True:                                         # merge provinces under the minimum into a neighbour
         sizes = np.bincount(out.ravel(), minlength=out.max() + 1)
-        small = [k for k in range(1, len(sizes)) if 0 < sizes[k] < MIN_PROVINCE_PX]
+        small = [k for k in range(1, len(sizes)) if 0 < sizes[k] < MIN_PROVINCE_PX and k not in alone]
         if not small or (sizes[1:] > 0).sum() <= 1:
             break
         k = min(small, key=lambda j: sizes[j])
         ring = ndimage.binary_dilation(out == k, FOUR) & (out != k) & (out > 0)
         if not ring.any():
-            break
+            alone.add(k)
+            continue
         out[out == k] = np.bincount(out[ring]).argmax()
     return out
 

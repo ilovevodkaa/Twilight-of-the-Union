@@ -9,7 +9,7 @@ from PIL import Image, ImageDraw
 from scipy import ndimage
 from scipy.spatial import cKDTree
 
-from .common import GEO, MAP_H, MAP_W
+from .common import GEO, MAP_H, MAP_W, MIN_PROVINCE_PX
 from .geodata import decimate, read_geojson, read_vghist
 
 NONE, FOREIGN = -1, -2
@@ -92,6 +92,29 @@ def icp_affine(src, dst):
     return a, float(np.median(d))
 
 
+def despeckle(lab, land):
+    """Pieces of a label under MIN_PROVINCE_PX with a land neighbour (gaps between burnt polygons, polygon slivers)
+    take the label around them; small islands stay."""
+    for _ in range(3):
+        fixed = 0
+        for v in np.unique(lab[land]):
+            parts, _ = ndimage.label((lab == v) & land, FOUR)
+            sizes = np.bincount(parts.ravel())
+            for j in np.nonzero(sizes < MIN_PROVINCE_PX)[0]:
+                if j == 0:
+                    continue
+                bb = ndimage.find_objects((parts == j).astype(np.int8))[0]
+                bb = tuple(slice(max(0, s.start - 1), s.stop + 1) for s in bb)
+                piece = parts[bb] == j
+                ring = ndimage.binary_dilation(piece, FOUR) & ~piece & land[bb]
+                if ring.any():
+                    vals, counts = np.unique(lab[bb][ring], return_counts=True)
+                    lab[bb][piece] = vals[np.argmax(counts)]
+                    fixed += 1
+        if not fixed:
+            return
+
+
 def zone_features(zone):
     feats = {}
     if any(u.source == "vghist" for u in zone.units):
@@ -133,6 +156,7 @@ def label_zone(vm, georef, zone):
             _, (ri, ci) = ndimage.distance_transform_edt(lab == NONE, return_indices=True)
             lab[missing] = lab[ri[missing], ci[missing]]
         lab[~wl] = NONE
+        despeckle(lab, wl)
         unit[y0:y1, x0:x1] = lab.astype(np.int16)
         out.boxes.append(box)
         out.affine.append(a)

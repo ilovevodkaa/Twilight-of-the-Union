@@ -66,17 +66,29 @@ class Effective:
             self.states[sid] = [int(x) for x in b.group(1).split()]
 
 
-def shape_problems(ids, land):
+def shape_problems(ids, land, sea=frozenset()):
+    """Provinces under the minimum size, and provinces with a piece cut off inside other land (an exclave). Pieces
+    surrounded by water are islands: vanilla has ~400 such provinces."""
     out = {}
     sizes = np.bincount(ids.ravel())
     objs = ndimage.find_objects(ids)
+    is_sea = np.zeros(len(sizes), bool)
+    is_sea[[s for s in sea if s < len(sizes)]] = True
+    four = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]], bool)
     for p in land:
         if p >= len(sizes) or sizes[p] < MIN_PROVINCE_PX:
             out[p] = f"{sizes[p] if p < len(sizes) else 0} px < {MIN_PROVINCE_PX}"
             continue
-        _, k = ndimage.label(ids[objs[p - 1]] == p)
+        bb = tuple(slice(max(0, s.start - 1), s.stop + 1) for s in objs[p - 1])
+        sub = ids[bb]
+        parts, k = ndimage.label(sub == p)
         if k > 1:
-            out[p] = f"{k} separate parts"
+            main = int(np.argmax(np.bincount(parts.ravel())[1:])) + 1
+            for j in range(1, k + 1):
+                ring = ndimage.binary_dilation(parts == j, four) & (sub != p)
+                if j != main and (~is_sea[sub[ring]]).any():
+                    out[p] = f"{k} separate parts, one inside other land"
+                    break
     return out
 
 
@@ -159,7 +171,8 @@ def problems_in(e, vanilla_bad=frozenset()):
                 if p not in provs:
                     out.append(f"adjacencies.csv: province {p} does not exist")
     # shape
-    for p, why in shape_problems(ids, land & present).items():
+    water = {pid for pid, v in provs.items() if v.kind != "land"}
+    for p, why in shape_problems(ids, land & present, water).items():
         if p not in vanilla_bad:
             out.append(f"province {p}: {why}")
     return out
@@ -180,6 +193,7 @@ def run(root, game, mod_map=None):
     in a neighbouring province, a few railway segments across straits, lakes inside states)."""
     from .vanilla import VanillaMap
     vm = VanillaMap(game)
-    vanilla_bad = frozenset(shape_problems(vm.ids, {p for p, v in vm.provs.items() if v.kind == "land"}))
+    vanilla_bad = frozenset(shape_problems(vm.ids, {p for p, v in vm.provs.items() if v.kind == "land"},
+                                           {p for p, v in vm.provs.items() if v.kind != "land"}))
     baseline = set(problems_in(Effective(game, game, Path(game) / "map"), vanilla_bad))
     return [p for p in problems_in(Effective(root, game, mod_map), vanilla_bad) if p not in baseline]

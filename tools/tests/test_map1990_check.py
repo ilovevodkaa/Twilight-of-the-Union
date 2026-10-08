@@ -21,6 +21,19 @@ class CheckTest(unittest.TestCase):
         n = border_segments(VanillaMap(GAME).ids)
         self.assertTrue(35_000 < n < 46_000, n)          # the big-map report counted 40 694
 
+    def test_island_parts_allowed_exclaves_not(self):
+        import numpy as np
+        from map1990.check import shape_problems
+        ids = np.full((20, 20), 9, np.int32)              # 9 = sea
+        ids[0:10, 0:10] = 1
+        ids[15:18, 15:18] = 1                             # an island of province 1: fine
+        ids[0:10, 10:20] = 2
+        ids[4:6, 14:16] = 1                               # a piece of 1 inside province 2: an exclave
+        probs = shape_problems(ids, {1, 2}, sea={9})
+        self.assertIn(1, probs)
+        ids[4:6, 14:16] = 2
+        self.assertNotIn(1, shape_problems(ids, {1, 2}, sea={9}))
+
     def test_vanilla_based_map_is_clean(self):
         # the mod's map is still the vanilla one (with 1990 owners): vanilla quirks must not count as problems
         from map1990 import check

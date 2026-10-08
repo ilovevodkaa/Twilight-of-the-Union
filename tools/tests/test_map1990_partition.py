@@ -44,6 +44,35 @@ class PartitionTest(unittest.TestCase):
         self.assertTrue(((lab > 0) == m).all())
         self.assertGreaterEqual((lab == lab[57, 2]).sum(), 30)
 
+    def test_diagonal_island_is_not_a_province(self):
+        # 10 px + 2 px touching only at a corner: under 4-connectivity both are too small for a province
+        from map1990.partition import partition
+        m = blob()
+        m[0:2, 0:5] = True
+        m[2:4, 5:6] = True
+        lab, _ = partition(m, np.zeros(m.shape, np.uint8), [], 6, seed=6)
+        for k in range(1, lab.max() + 1):
+            self.assertGreaterEqual((lab == k).sum(), MIN_PROVINCE_PX)
+
+    def test_city_on_a_tiny_island_gets_no_province(self):
+        from map1990.partition import partition
+        m = blob()
+        m[0:3, 0:3] = True                     # a 9 px island with a city on it
+        lab, seeds = partition(m, np.zeros(m.shape, np.uint8), [(1, 1), (30, 40)], 5, seed=7)
+        for k in range(1, lab.max() + 1):
+            self.assertGreaterEqual((lab == k).sum(), MIN_PROVINCE_PX)
+        self.assertGreater(lab[1, 1], 0)
+
+    def test_small_isolated_piece_does_not_stop_merging(self):
+        from map1990.partition import _cleanup
+        out = np.zeros((20, 40), np.int32)
+        out[0:3, 0:3] = 1                      # 9 px, no neighbour: cannot merge
+        out[10:20, 0:20] = 2
+        out[10:20, 20:21] = 3                  # 10 px next to province 2: must merge
+        out[10:20, 21:40] = 4
+        res = _cleanup(out.copy(), out > 0, [(1, 1), (15, 5), (15, 20), (15, 30)])
+        self.assertFalse((res == 3).any())
+
     def test_deterministic(self):
         from map1990.partition import partition
         m = blob()

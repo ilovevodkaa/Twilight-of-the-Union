@@ -53,6 +53,20 @@ class RasterTest(unittest.TestCase):
         for x0, y0, x1, y1 in self.lab.boxes:
             self.assertFalse(((self.lab.unit[y0:y1, x0:x1] == -1) & land[y0:y1, x0:x1]).any())
 
+    def test_no_landlocked_speckles(self):
+        # a gap between two burnt Kreis polygons must not leave a pixel of the neighbouring country inside a unit
+        from scipy import ndimage
+        land = np.isin(self.vm.ids, [p for p, v in self.vm.provs.items() if v.kind == "land"])
+        four = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]], bool)
+        for x0, y0, x1, y1 in self.lab.boxes:
+            u, ln = self.lab.unit[y0:y1, x0:x1], land[y0:y1, x0:x1]
+            for v in np.unique(u[ln]):
+                parts, k = ndimage.label((u == v) & ln, four)
+                sizes = np.bincount(parts.ravel())
+                for j in np.nonzero((sizes < common.MIN_PROVINCE_PX) & (np.arange(len(sizes)) > 0))[0]:
+                    ring = ndimage.binary_dilation(parts == j, four) & (parts != j) & ln
+                    self.assertFalse(ring.any(), (int(v), int(sizes[j])))     # small pieces only as islands
+
     def test_coast_matches(self):
         # the real coastline lands on the vanilla one after the per-window affine (ICP) refinement
         for misfit in self.lab.misfit:
