@@ -88,10 +88,17 @@ def partition(mask, height, fixed, n_target, seed):
 
 
 def _fill_from_nearest(out, mask):
+    """Unlabelled pixels take the nearest label; an unlabelled islet takes one label as a whole (the most common
+    nearest one of its pixels), so it never ends up split between two provinces."""
     hole = mask & (out == 0)
-    if hole.any():
-        _, (ri, ci) = ndimage.distance_transform_edt(out == 0, return_indices=True)
-        out[hole] = out[ri[hole], ci[hole]]
+    if not hole.any():
+        return
+    _, (ri, ci) = ndimage.distance_transform_edt(out == 0, return_indices=True)
+    near = out[ri, ci]
+    parts, n = ndimage.label(hole, structure=FOUR)
+    for j, sl in enumerate(ndimage.find_objects(parts), 1):
+        piece = parts[sl] == j
+        out[sl][piece] = np.bincount(near[sl][piece]).argmax()
 
 
 def _cleanup(out, mask, seed_rc):

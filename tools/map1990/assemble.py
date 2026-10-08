@@ -8,7 +8,7 @@ from scipy import ndimage
 from scipy.optimize import linear_sum_assignment
 
 from . import cities as cities_mod
-from .common import px_of, stable_seed
+from .common import MIN_PROVINCE_PX, px_of, stable_seed
 from .partition import partition
 from .raster import label_zone
 from .vanilla import Province
@@ -78,6 +78,7 @@ def assemble(vm, georef, zone, states, log=print):
     if protected:
         zone_px &= ~np.isin(vm.ids, list(protected))
         log(f"zone: provinces {sorted(protected)} stay with their outside states")
+    _drop_fragments(zone_px, labels, land, len(zone.units))
     in_pool = np.zeros(n, bool)
     in_pool[list(pool)] = True
     pool_px = in_pool[vm.ids]
@@ -172,6 +173,30 @@ def assemble(vm, georef, zone, states, log=print):
     _states_of_units(zm, vm, zone, states, zone_px)
     _regions(zm, vm, zone)
     return zm
+
+
+def _drop_fragments(zone_px, labels, land, n_units):
+    """Pieces of a unit under the minimum size that touch land outside the unit (left by a protected province) are
+    no islands: they join the neighbouring unit, or leave the zone for the neighbouring kept province."""
+    for ui in range(n_units):
+        um = zone_px & (labels.unit == ui)
+        if not um.any():
+            continue
+        bb = _bbox(um, pad=1)
+        parts, k = ndimage.label(um[bb], FOUR)
+        sizes = np.bincount(parts.ravel())
+        for j in range(1, k + 1):
+            if sizes[j] >= MIN_PROVINCE_PX:
+                continue
+            piece = parts == j
+            ring = ndimage.binary_dilation(piece, FOUR) & ~piece & land[bb]
+            if not ring.any() or (zone_px[bb][ring] & (labels.unit[bb][ring] == ui)).all():
+                continue
+            others = labels.unit[bb][ring & zone_px[bb] & (labels.unit[bb] != ui)]
+            if others.size:
+                labels.unit[bb][piece] = np.bincount(others).argmax()
+            else:
+                zone_px[bb][piece] = False
 
 
 def _one_city_per_province(city_list, ids, log):

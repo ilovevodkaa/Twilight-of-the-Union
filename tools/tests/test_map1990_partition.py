@@ -63,6 +63,28 @@ class PartitionTest(unittest.TestCase):
             self.assertGreaterEqual((lab == k).sum(), MIN_PROVINCE_PX)
         self.assertGreater(lab[1, 1], 0)
 
+    def test_stray_piece_goes_to_a_side_neighbour(self):
+        # a 1 px piece of province 1 cut off from it; its nearest pixel of 1 is diagonal, its side neighbour is 2
+        from map1990.partition import _cleanup
+        out = np.zeros((10, 10), np.int32)
+        out[0:5, 0:5] = 1
+        out[5:10, 0:10] = 2
+        out[0:5, 5:10] = 3
+        out[5, 5] = 1                          # touches 1 only at the corner (4, 4)
+        res = _cleanup(out.copy(), out > 0, [(2, 2), (8, 2), (2, 8)])
+        for k in (1, 2, 3):
+            self.assertEqual(ndimage.label(res == k, structure=FOUR)[1], 1, k)
+
+    def test_islet_goes_whole_to_one_province(self):
+        # a 3 px islet between two provinces must not be split between them
+        from map1990.partition import partition
+        m = np.zeros((30, 41), bool)
+        m[5:25, 0:18] = True
+        m[5:25, 23:41] = True
+        m[0, 19:22] = True                     # the islet, as far from both halves
+        lab, _ = partition(m, np.zeros(m.shape, np.uint8), [(15, 5), (15, 35)], 2, seed=8)
+        self.assertEqual(len(set(lab[0, 19:22].tolist())), 1)
+
     def test_small_isolated_piece_does_not_stop_merging(self):
         from map1990.partition import _cleanup
         out = np.zeros((20, 40), np.int32)
