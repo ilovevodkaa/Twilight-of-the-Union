@@ -1,0 +1,12 @@
+# Twilight of the Union: the state of the CPSU, from the plenum's party strength and radicalization.
+# Values are variables computed by TOTU_pl_update_modifier (common/scripted_effects/TOTU_plenum_effects.txt).
+
+TOTU_party_state = {
+	icon = GFX_idea_totu_nomenklatura
+	enable = { always = yes }
+	remove_trigger = { always = no }
+
+	political_power_gain = TOTU_pl_mod_pp
+	stability_factor = TOTU_pl_mod_stab
+	democratic_drift = TOTU_pl_mod_drift
+}

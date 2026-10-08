@@ -1,0 +1,24 @@
+state = {
+	id = 1089
+	name = "STATE_1089"
+	manpower = 4577452
+	state_category = large_city
+
+	history = {
+		owner = KOR
+		add_core_of = KOR
+		add_core_of = PRK
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 1
+		}
+		victory_points = { 13602 10 }
+	}
+
+	provinces = {
+		13602
+	}
+
+	local_supplies = 0.0
+}

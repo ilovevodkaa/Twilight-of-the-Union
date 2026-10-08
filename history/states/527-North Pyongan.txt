@@ -1,0 +1,26 @@
+state = {
+	id = 527
+	name = "STATE_527"
+	manpower = 223008
+	resources = {
+		tungsten = 2
+		steel = 2
+	}
+	state_category = rural
+
+	history = {
+		owner = PRK
+		add_core_of = PRK
+		add_core_of = KOR
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = { 11835 2 }
+	}
+
+	provinces = {
+		912 3912 9795 9918 11835 11896 13639 13640 13641
+	}
+
+	local_supplies = 0.0
+}

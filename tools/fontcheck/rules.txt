@@ -1,0 +1,16 @@
+# area "rules": vanilla keys drawn in pixel fonts (totu_caption_name) by interface/frontendgamesetupview.gui
+# (gamesetup_custom_gameplay_settings_window + templates, gamesetup_pick_random_country_window) and
+# interface/savedgamerules.gui
+CUSTOM_GAME_RULES_TITLE
+CUSTOM_GAME_SETTINGS_LOAD           # saved rules load board title
+CUSTOM_GAME_SETTINGS_SAVE           # saved rules save board title
+CUSTOM_DIFFICULTY_GROUP_NAME        # group header (engine-filled)
+PICK_RANDOM_COUNTRY_TITLE
+FE_INTERESTING_MAJORS
+FE_INTERESTING_MINORS
+FE_OTHER_COUNTRIES
+FE_RANDOM_COUNTRY_ERROR_NO_COUNTRIES   # error_text (engine-filled)
+MENU_BAR_LOCALGAMES
+MENU_BAR_CLOUDGAMES
+MENU_BAR_DISK_QUOTA
+RULE_(?!.*_DESC$)(?!.*_TOOLTIP$)[A-Z0-9_]+   # rule names, group names and option names (engine-filled; not descriptions)

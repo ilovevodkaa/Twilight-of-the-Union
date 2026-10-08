@@ -1,4 +1,5 @@
 """Paths and constants shared by the map1990 modules."""
+import math
 import zlib
 from pathlib import Path
 
@@ -23,5 +24,6 @@ def stable_seed(key):
 
 
 def px_of(x, z):
-    """Map position (x, z) of buildings.txt / unitstacks.txt -> (row, col) of provinces.bmp."""
-    return min(MAP_H - 1, max(0, int(MAP_H - z))), min(MAP_W - 1, max(0, int(x)))
+    """Map position (x, z) of buildings.txt / unitstacks.txt -> (row, col) of provinces.bmp. A whole-number z lies on
+    the edge between two rows and belongs to the northern one, as in the engine (vanilla ports sit on such edges)."""
+    return min(MAP_H - 1, max(0, MAP_H - 1 - math.floor(z))), min(MAP_W - 1, max(0, math.floor(x)))

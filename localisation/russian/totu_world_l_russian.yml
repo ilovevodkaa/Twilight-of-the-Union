@@ -1,0 +1,14 @@
+﻿l_russian:
+ # Twilight of the Union: тексты мира, а не одной страны. Фракции: common/factions/templates/TOTU_factions.txt.
+ TOTU_warsaw_pact:0 "Организация Варшавского договора"
+ TOTU_nato:0 "НАТО"
+ TOTU_socialist_commonwealth_goal_name:0 "Социалистическое содружество"
+ TOTU_socialist_commonwealth_goal_desc:0 "Союзники верны социализму. Чем меньше в договоре коммунистических правительств, тем меньше он значит."
+ TOTU_COLLECTION_FACTION_MEMBERS:0 "участники союза"
+ TOTU_COLLECTION_COMMUNIST_FACTION_MEMBERS:0 "коммунистические правительства союза"
+ # особый вид подчинения: союзники СССР по ОВД (common/autonomous_states/TOTU_socialist_commonwealth.txt)
+ autonomy_totu_socialist_commonwealth:0 "Страна соцсодружества"
+ autonomy_totu_socialist_commonwealth_desc:0 "Формально суверенная страна, член Варшавского договора и СЭВ. На деле внешнюю политику за неё ведёт Москва, на её земле стоят советские войска, а армия вооружена по советским лицензиям. Правительство может смениться, но из блока страна выйдет только с согласия Кремля."
+ TOTU_bloc_leave_tt:0 "Страна выходит из Варшавского договора и перестаёт быть страной соцсодружества."
+ # персонажи других стран / characters of other countries (common/characters/TOTU_leaders.txt)
+ GER_helmut_kohl:0 "Гельмут Коль"

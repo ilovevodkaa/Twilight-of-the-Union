@@ -1,0 +1,145 @@
+# Twilight of the Union: opinion modifiers of the GDR focus tree (common/scripted_effects/TOTU_DDR_focus_effects.txt).
+# Names: localisation/*/totu_ddr_politics_l_*.yml.
+
+opinion_modifiers = {
+	# focus DDR_moscow_visit: Moscow's view of the GDR
+	TOTU_ddr_moscow_talks = {
+		value = 20
+		decay = 1
+	}
+	# focus DDR_modrow_plan: Bonn's view of the GDR
+	TOTU_ddr_modrow_plan = {
+		value = 10
+		decay = 1
+	}
+	# focus DDR_bonn_visit
+	TOTU_ddr_bonn_talks = {
+		value = 15
+		decay = 1
+	}
+
+	# focus tree
+	# focus DDR_hva_self_dissolution: Moscow's agents in the West stay unnamed
+	TOTU_ddr_hva_dissolved = {
+		value = 10
+		decay = 1
+	}
+	# focuses DDR_neutral_germany, DDR_neutral_fatherland: Moscow's view
+	TOTU_ddr_neutrality = {
+		value = 20
+		decay = 1
+	}
+	# the same focuses: Bonn's and Washington's view
+	TOTU_ddr_neutrality_fears = {
+		value = -15
+		decay = 1
+	}
+	# focus DDR_genscher_formula
+	TOTU_ddr_genscher = {
+		value = 15
+		decay = 1
+	}
+	# focus DDR_treaty_community
+	TOTU_ddr_treaty_community = {
+		value = 15
+		decay = 1
+	}
+	# focus DDR_talks_moratorium
+	TOTU_ddr_moratorium = {
+		value = -20
+		decay = 1
+	}
+	# focus DDR_two_plus_four
+	TOTU_ddr_two_plus_four = {
+		value = 20
+		decay = 1
+	}
+	# focus DDR_lean_on_moscow
+	TOTU_ddr_hardline_ally = {
+		value = 30
+		decay = 1
+	}
+	# focus DDR_files_to_koblenz (removed again if the files stay in the East, event totu_ddr_pol.2)
+	TOTU_ddr_files_koblenz = {
+		value = 10
+		decay = 1
+	}
+	# focus DDR_charter_of_paris: trade opinion of the neighbours and the Western powers
+	TOTU_ddr_charter_of_paris = {
+		trade = yes
+		value = 15
+	}
+	# economy branch
+	TOTU_ddr_eco_property_deal = {
+		value = 15
+		decay = 1
+	}
+	TOTU_ddr_eco_property_dispute = {
+		value = -15
+		decay = 1
+	}
+	TOTU_ddr_eco_cleanup = {
+		value = 10
+		decay = 1
+	}
+	TOTU_ddr_eco_hermes = {
+		value = 10
+		decay = 1
+	}
+	TOTU_ddr_eco_clearing = {
+		value = 15
+		decay = 1
+	}
+	TOTU_ddr_eco_wismut_closed = {
+		value = -15
+		decay = 1
+	}
+	TOTU_ddr_eco_uranium = {
+		value = 20
+		decay = 1
+	}
+	TOTU_ddr_eco_koko_accounts = {
+		value = 10
+		decay = 1
+	}
+	# focus DDR_mil_pact_loyalty: Moscow's view of the GDR
+	TOTU_ddr_mil_pact_loyalty = {
+		value = 15
+		decay = 1
+	}
+	# focus DDR_mil_wgf_bill: Moscow's view of the GDR
+	TOTU_ddr_mil_wgf_bill = {
+		value = -10
+		decay = 1
+	}
+	# focus DDR_mil_vienna_talks: Bonn's and Washington's view of the GDR
+	TOTU_ddr_mil_vienna_talks = {
+		value = 10
+		decay = 1
+	}
+	# focus DDR_mil_bundeswehr_talks: Bonn's view of the GDR
+	TOTU_ddr_mil_bundeswehr_talks = {
+		value = 15
+		decay = 1
+	}
+	# focus DDR_mil_two_armies: Moscow's view of the GDR
+	TOTU_ddr_mil_two_armies = {
+		value = 10
+		decay = 1
+	}
+	# focus DDR_mil_nva_on_alert: Bonn's view of the GDR
+	TOTU_ddr_mil_on_alert = {
+		value = -25
+		decay = 1
+	}
+	# focus DDR_mil_leave_unified_command: Moscow's view of the GDR
+	TOTU_ddr_mil_unified_command = {
+		value = 10
+		decay = 1
+	}
+	# focus DDR_mil_stationing_treaty: Moscow's view of the GDR
+	TOTU_ddr_mil_stationing_treaty = {
+		value = 15
+		decay = 1
+	}
+}

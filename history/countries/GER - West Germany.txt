@@ -1,18 +1,29 @@
-﻿capital = 51
+﻿# Twilight of the Union: Federal Republic of Germany, 1 January 1990.
+# Hand-written (tools/build_world_1990.py leaves it alone). Helmut Kohl's CDU/CSU-FDP coalition; Kohl's Ten-Point Plan
+# for German unity (28 November 1989) is on the table. NATO membership: history/countries/USA - USA.txt. Unification
+# with the GDR: the decisions of the German question (common/decisions/TOTU_unity_decisions.txt).
+capital = 57 # Bonn (North Rhine-Westphalia, state id from the 1990 map rebuild)
 
 set_research_slots = 3
-set_stability = 0.5
-set_war_support = 0.2
+set_stability = 0.75
+set_war_support = 0.15
 
 set_politics = {
 	ruling_party = democratic
-	last_election = "1988.1.1"
+	last_election = "1987.1.25" # Bundestag
 	election_frequency = 48
 	elections_allowed = yes
 }
+# Bundestag 1987: CDU/CSU 44.3 %, SPD 37.0, FDP 9.1, Greens 8.3 - all democratic; the far right (Republikaner, NPD)
+# and the DKP on the fringe
 set_popularities = {
-	democratic = 78
-	communism = 6
-	neutrality = 13
-	fascism = 3
+	democratic = 95
+	communism = 2
+	neutrality = 2
+	fascism = 1
 }
+
+recruit_character = GER_helmut_kohl
+
+# Laws: the Bundeswehr is a conscript army (15 months in 1990)
+add_ideas = limited_conscription

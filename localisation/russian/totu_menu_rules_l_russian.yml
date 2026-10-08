@@ -1,0 +1,9 @@
+﻿l_russian:
+ # Twilight of the Union: game rules, rule presets, random country (area 'rules'; interface/frontendgamesetupview.gui, savedgamerules.gui)
+ TOTU_FE_RULES_APPLY:0 "Применить"
+ TOTU_FE_RULES_RESET:0 "Сбросить"
+ TOTU_FE_RULES_LOAD_PRESET:0 "Загрузить шаблон"
+ TOTU_FE_RULES_SAVE_PRESET:0 "Сохранить шаблон"
+ TOTU_FE_RULES_LOAD:0 "Загрузить"
+ TOTU_FE_RULES_SAVE:0 "Сохранить"
+ TOTU_FE_RULES_FILENAME:0 "Имя шаблона"

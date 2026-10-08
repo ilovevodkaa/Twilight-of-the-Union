@@ -1,0 +1,23 @@
+# NEUTRALISED COPY of vanilla common/on_actions/00_testing_on_actions.txt made by tools/strip_vanilla.py: references to the removed vanilla
+# events, decisions and focus trees are cut. Edit the tool, not this file.
+on_actions = {
+	on_state_control_changed = {
+		#Soviet - Checking for Kyiv falling for overnight test.
+		effect = {
+			if = {
+				limit = {
+					FROM.FROM = {
+						state = 202
+					}
+					FROM = {
+						original_tag = SOV
+					}
+					ROOT = { 
+						NOT = { original_tag = SOV }
+					}
+				}
+				set_global_flag = kyiv_is_lost
+			}
+		}
+	}
+}

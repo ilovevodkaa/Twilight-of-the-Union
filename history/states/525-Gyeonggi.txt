@@ -1,0 +1,35 @@
+state = {
+	id = 525
+	name = "STATE_525"
+	manpower = 3360503
+	resources = {
+		tungsten = 1
+	}
+	state_category = large_city
+
+	history = {
+		owner = KOR
+		add_core_of = KOR
+		add_core_of = PRK
+		buildings = {
+			infrastructure = 2
+			dockyard = 1
+		}
+		victory_points = { 7125 5 }
+		victory_points = { 7221 1 }
+		victory_points = { 10036 2 }
+		victory_points = { 13604 10 }
+		victory_points = { 13605 5 }
+		victory_points = { 13606 3 }
+		victory_points = { 13607 2 }
+		victory_points = { 13608 2 }
+		victory_points = { 13609 1 }
+		victory_points = { 13610 1 }
+	}
+
+	provinces = {
+		7125 7221 10036 13604 13605 13606 13607 13608 13609 13610
+	}
+
+	local_supplies = 0.0
+}

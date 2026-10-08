@@ -19,7 +19,15 @@
 #                       render through the accent aliases (tools/build_fonts.py checks every name).
 # totu_body: body text of the scenario board, vanilla Ubuntu Light 20 (hoi_20b) tinted with the caption white. Not the
 # pixel font: about 225 characters on 3 lines read badly in 5x7 capitals, and the other languages' fallback text must
-# still render.
+# still render. Japanese, Simplified Chinese and Korean get the vanilla hoi_20b of their language (popups, descriptions).
+# totu_list: dense lists of user and engine text (save names, server names, track list, achievement descriptions):
+#   vanilla Ubuntu 16 (hoi_16mbs + hoi_16mbs_cryllic, lineHeight 16), colour P, codes P D K and the vanilla G R Y H O;
+#   Japanese, Simplified Chinese and Korean as vanilla hoi_16mbs.
+# The in-game header fonts hoi_36header / hoi_30header / hoi_24header are redefined in interface/core.gfx (pixel atlases
+# totu_h36 / totu_h30 / totu_h24, written by tools/build_fonts.py; totu_h24 = the totu_button_small glyphs plus accent
+# marks); core.gfx also adds the global codes P D K, so a section-sign P / D / K works in every font.
+# Text keys: TOTU_FE_* / TOTU_IG_* / TOTU_MENU_* for text in these pixel fonts (glyph-checked), TOTU_TXT_* for text in
+# vanilla fonts (totu_body, totu_list), all in localisation/<lang>/totu_menu*_l_<lang>.yml (tools/fontcheck/README.txt).
 
 bitmapfonts = {
 
@@ -71,6 +79,82 @@ bitmapfonts = {
 			"gfx/fonts/hoi_20b_cryllic"
 		}
 		languages = { "l_russian" "l_polish" }
+	}
+
+	# as vanilla hoi_20b (interface/core.gfx, core_chinese.gfx, core_korean.gfx)
+	bitmapfont_override = {
+		name = "totu_body"
+		fontfiles = {
+			"gfx/fonts/japanese/hoi_20b"
+		}
+		languages = { "l_japanese" }
+	}
+
+	bitmapfont_override = {
+		name = "totu_body"
+		fontfiles = {
+			"gfx/fonts/chinese/hoi_20b_1of4EX"
+			"gfx/fonts/chinese/hoi_20b_2of4EX"
+			"gfx/fonts/chinese/hoi_20b_3of4EX"
+			"gfx/fonts/chinese/hoi_20b_4of4EX"
+		}
+		languages = { "l_simp_chinese" }
+	}
+
+	bitmapfont_override = {
+		name = "totu_body"
+		fontfiles = {
+			"gfx/fonts/korean/hoi_20b"
+		}
+		languages = { "l_korean" }
+	}
+
+	bitmapfont = {
+		name = "totu_list"
+		fontfiles = {
+			"gfx/fonts/hoi_16mbs"
+			"gfx/fonts/hoi_16mbs_cryllic"
+		}
+		color = 0xfff6f2ea		# caption white P
+
+		textcolors = {
+			P = { 246 242 234 }		# caption white
+			D = { 172 180 196 }		# dim grey; do not go darker
+			K = { 0 0 0 }			# black
+			G = { 86 172 91 }		# vanilla hoi_16mbs semantic colours
+			R = { 222 86 70 }
+			Y = { 238 201 35 }
+			H = { 238 201 35 }
+			O = { 238 123 35 }
+		}
+	}
+
+	# as vanilla hoi_16mbs (interface/core.gfx, core_chinese.gfx, core_korean.gfx)
+	bitmapfont_override = {
+		name = "totu_list"
+		fontfiles = {
+			"gfx/fonts/japanese/hoi_16mbs"
+		}
+		languages = { "l_japanese" }
+	}
+
+	bitmapfont_override = {
+		name = "totu_list"
+		fontfiles = {
+			"gfx/fonts/chinese/hoi_16mbs_1of4EX"
+			"gfx/fonts/chinese/hoi_16mbs_2of4EX"
+			"gfx/fonts/chinese/hoi_16mbs_3of4EX"
+			"gfx/fonts/chinese/hoi_16mbs_4of4EX"
+		}
+		languages = { "l_simp_chinese" }
+	}
+
+	bitmapfont_override = {
+		name = "totu_list"
+		fontfiles = {
+			"gfx/fonts/korean/hoi_16mbs"
+		}
+		languages = { "l_korean" }
 	}
 
 	bitmapfont = {
@@ -128,6 +212,8 @@ bitmapfonts = {
 			K = { 0 0 0 }
 			Y = { 246 242 234 }		# vanilla highlight codes in engine strings -> caption white
 			H = { 246 242 234 }
+			R = { 222 86 70 }		# vanilla semantic red / green (errors, +/- values), as in hoi_16mbs
+			G = { 86 172 91 }
 		}
 	}
 
@@ -155,6 +241,153 @@ bitmapfonts = {
 		name = "totu_caption_name"
 		fontfiles = {
 			"gfx/fonts/korean/hoi_16mbs"
+		}
+		languages = { "l_korean" }
+	}
+
+	# totu_h24: the broadcast teletext header atlas (tools/build_fonts.py) for the restyled menus, with vanilla hoi_24header
+	# behind it for any missing glyph (same lineHeight / base) and the vanilla CJK fonts. In game the vanilla header
+	# fonts stay as they are (no interface/core.gfx override).
+	bitmapfont = {
+		name = "totu_h24"
+		fontfiles = {
+			"gfx/fonts/totu_h24"
+			"gfx/fonts/hoi_24header"
+		}
+		color = 0xfff6f2ea
+		textcolors = {
+			P = { 246 242 234 }
+			D = { 172 180 196 }
+			K = { 0 0 0 }
+			G = { 86 172 91 }
+			R = { 222 86 70 }
+			Y = { 246 242 234 }
+			H = { 246 242 234 }
+			T = { 246 242 234 }
+		}
+	}
+
+	bitmapfont_override = {
+		name = "totu_h24"
+		fontfiles = {
+			"gfx/fonts/japanese/hoi_24header"
+		}
+		languages = { "l_japanese" }
+	}
+
+	bitmapfont_override = {
+		name = "totu_h24"
+		fontfiles = {
+			"gfx/fonts/chinese/hoi_24header_1of4"
+			"gfx/fonts/chinese/hoi_24header_2of4"
+			"gfx/fonts/chinese/hoi_24header_3of4"
+			"gfx/fonts/chinese/hoi_24header_4of4"
+		}
+		languages = { "l_simp_chinese" }
+	}
+
+	bitmapfont_override = {
+		name = "totu_h24"
+		fontfiles = {
+			"gfx/fonts/korean/hoi_24header"
+		}
+		languages = { "l_korean" }
+	}
+
+	# totu_h30: the broadcast teletext header atlas (tools/build_fonts.py) for the restyled menus, with vanilla hoi_30header
+	# behind it for any missing glyph (same lineHeight / base) and the vanilla CJK fonts. In game the vanilla header
+	# fonts stay as they are (no interface/core.gfx override).
+	bitmapfont = {
+		name = "totu_h30"
+		fontfiles = {
+			"gfx/fonts/totu_h30"
+			"gfx/fonts/hoi_30header"
+		}
+		color = 0xfff6f2ea
+		textcolors = {
+			P = { 246 242 234 }
+			D = { 172 180 196 }
+			K = { 0 0 0 }
+			G = { 86 172 91 }
+			R = { 222 86 70 }
+			Y = { 246 242 234 }
+			H = { 246 242 234 }
+			T = { 246 242 234 }
+		}
+	}
+
+	bitmapfont_override = {
+		name = "totu_h30"
+		fontfiles = {
+			"gfx/fonts/japanese/hoi_30header"
+		}
+		languages = { "l_japanese" }
+	}
+
+	bitmapfont_override = {
+		name = "totu_h30"
+		fontfiles = {
+			"gfx/fonts/chinese/hoi_30header_1of4"
+			"gfx/fonts/chinese/hoi_30header_2of4"
+			"gfx/fonts/chinese/hoi_30header_3of4"
+			"gfx/fonts/chinese/hoi_30header_4of4"
+		}
+		languages = { "l_simp_chinese" }
+	}
+
+	bitmapfont_override = {
+		name = "totu_h30"
+		fontfiles = {
+			"gfx/fonts/korean/hoi_30header"
+		}
+		languages = { "l_korean" }
+	}
+
+	# totu_h36: the broadcast teletext header atlas (tools/build_fonts.py) for the restyled menus, with vanilla hoi_36header
+	# behind it for any missing glyph (same lineHeight / base) and the vanilla CJK fonts. In game the vanilla header
+	# fonts stay as they are (no interface/core.gfx override).
+	bitmapfont = {
+		name = "totu_h36"
+		fontfiles = {
+			"gfx/fonts/totu_h36"
+			"gfx/fonts/hoi_36header"
+		}
+		color = 0xfff6f2ea
+		textcolors = {
+			P = { 246 242 234 }
+			D = { 172 180 196 }
+			K = { 0 0 0 }
+			G = { 86 172 91 }
+			R = { 222 86 70 }
+			Y = { 246 242 234 }
+			H = { 246 242 234 }
+			T = { 246 242 234 }
+		}
+	}
+
+	bitmapfont_override = {
+		name = "totu_h36"
+		fontfiles = {
+			"gfx/fonts/japanese/hoi_36header"
+		}
+		languages = { "l_japanese" }
+	}
+
+	bitmapfont_override = {
+		name = "totu_h36"
+		fontfiles = {
+			"gfx/fonts/chinese/hoi_36header_1of4"
+			"gfx/fonts/chinese/hoi_36header_2of4"
+			"gfx/fonts/chinese/hoi_36header_3of4"
+			"gfx/fonts/chinese/hoi_36header_4of4"
+		}
+		languages = { "l_simp_chinese" }
+	}
+
+	bitmapfont_override = {
+		name = "totu_h36"
+		fontfiles = {
+			"gfx/fonts/korean/hoi_36header"
 		}
 		languages = { "l_korean" }
 	}

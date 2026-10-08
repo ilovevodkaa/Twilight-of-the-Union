@@ -3,7 +3,7 @@
 spriteTypes = {
 	textSpriteType = {
 		name = "GFX_main_lobby_button"
-		textureFile = "gfx/interface/totu/menu_button.dds" # TotU
+		textureFile = "gfx/interface/totu/esc/lobby_button.dds" # TotU: 864x36 = 3 x 288x36, slate / keyer / pressed (tools/build_esc_gfx.py)
 		noOfFrames = 3
 		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
 	}

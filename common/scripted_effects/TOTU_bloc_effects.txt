@@ -1,0 +1,22 @@
+# Twilight of the Union: the Soviet bloc (socialist commonwealth states, common/autonomous_states/).
+# Texts: localisation/*/totu_world_l_*.yml.
+
+# Scope: a socialist commonwealth state. Leaves the Warsaw Pact and stops being Moscow's satellite. The flag goes first,
+# so the safety net in events/TOTU_bloc.txt does not put the country back into the Pact.
+TOTU_bloc_leave = {
+	custom_effect_tooltip = TOTU_bloc_leave_tt
+	set_country_flag = TOTU_left_warsaw_pact
+	if = {
+		limit = { is_in_faction = yes }
+		leave_faction = yes
+	}
+	if = {
+		limit = { is_subject = yes }
+		OVERLORD = {
+			set_autonomy = {
+				target = PREV
+				autonomy_state = autonomy_free
+			}
+		}
+	}
+}

@@ -1,0 +1,5 @@
+# tools/render_gui.py cache: the pickles are rebuilt on demand and stay out of git. map_backdrop.jpg (the
+# --bg map backdrop, cut from an in-game screenshot) may be committed: its source is not in the repo.
+*
+!.gitignore
+!map_backdrop.jpg

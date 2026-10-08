@@ -1,0 +1,45 @@
+# Twilight of the Union: multiplayer sprites (tools/build_mp_gfx.py). Generated; do not edit.
+
+spriteTypes = {
+	spriteType = {
+		name = "GFX_totu_mp_sort_106"	# column header 106x24: transparent / keyer / pressed
+		textureFile = "gfx/interface/totu/mp/sort_106.dds"
+		noOfFrames = 3
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+
+	spriteType = {
+		name = "GFX_totu_mp_sort_118"	# column header 118x24: transparent / keyer / pressed
+		textureFile = "gfx/interface/totu/mp/sort_118.dds"
+		noOfFrames = 3
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+
+	spriteType = {
+		name = "GFX_totu_mp_sort_166"	# column header 166x24: transparent / keyer / pressed
+		textureFile = "gfx/interface/totu/mp/sort_166.dds"
+		noOfFrames = 3
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+
+	spriteType = {
+		name = "GFX_totu_mp_sort_250"	# column header 250x24: transparent / keyer / pressed
+		textureFile = "gfx/interface/totu/mp/sort_250.dds"
+		noOfFrames = 3
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+
+	spriteType = {
+		name = "GFX_totu_mp_row_964"	# server row 964x30: transparent / keyer
+		textureFile = "gfx/interface/totu/mp/row_964.dds"
+		noOfFrames = 2
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+
+	spriteType = {
+		name = "GFX_totu_mp_lobby"	# lobby stats plate 214x24: slate / keyer / pressed
+		textureFile = "gfx/interface/totu/mp/lobby.dds"
+		noOfFrames = 3
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+}

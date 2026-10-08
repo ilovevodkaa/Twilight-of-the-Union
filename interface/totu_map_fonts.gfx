@@ -1,0 +1,26 @@
+# Twilight of the Union: city (victory point) names on the map, Play Bold with a dark edge.
+# Written by tools/build_map_font.py; the country names replace vanilla gfx/fonts/hoi_mapfont4 directly.
+bitmapfonts = {
+	bitmapfont = {
+		name = "totu_map_city"
+		fontfiles = { "gfx/fonts/map_city" }
+		color = 0xffffffff
+		textcolors = {
+			G = { 86 172 91 }
+			R = { 222 86 70 }
+			Y = { 238 201 35 }
+			H = { 238 203 35 }
+			T = { 255 255 255 }
+		}
+	}
+	bitmapfont_override = {
+		name = "totu_map_city"
+		fontfiles = { "gfx/fonts/japanese/hoi_20bs" }
+		languages = { "l_japanese" }
+	}
+	bitmapfont_override = {
+		name = "totu_map_city"
+		fontfiles = { "gfx/fonts/hoi_20bs" }
+		languages = { "l_simp_chinese" "l_korean" }
+	}
+}

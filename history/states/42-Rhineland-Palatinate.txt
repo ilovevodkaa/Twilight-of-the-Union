@@ -1,0 +1,33 @@
+state = {
+	id = 42
+	name = "STATE_42"
+	manpower = 2041010
+	resources = {
+		aluminium = 4
+		steel = 7
+	}
+	state_category = city
+
+	history = {
+		owner = GER
+		add_core_of = GER
+		add_core_of = RHI
+		add_core_of = PRE
+		buildings = {
+			infrastructure = 4
+		}
+		victory_points = { 3530 10 }
+		victory_points = { 6444 2 }
+		victory_points = { 9575 1 }
+		victory_points = { 11435 1 }
+		victory_points = { 13473 1 }
+		victory_points = { 13474 1 }
+		victory_points = { 13475 1 }
+	}
+
+	provinces = {
+		549 563 3423 3530 3558 6444 6542 9486 9575 11435 11494 11547 13473 13474 13475 13476 13477 13478 13479 13480 13481 13482
+	}
+
+	local_supplies = 3.7
+}

@@ -17,6 +17,7 @@ set_popularities = {
 }
 
 recruit_character = SOV_mikhail_gorbachev
+recruit_character = SOV_gennady_yanayev # no role yet: the focus SOV_remove_gorbachev makes him leader
 
 # Laws
 add_ideas = {
@@ -33,4 +34,46 @@ add_ideas = {
 	TOTU_SOV_bloated_mic
 	TOTU_SOV_afghan_syndrome
 	TOTU_SOV_conscript_army
+	TOTU_SOV_soviet_army
+	TOTU_SOV_soviet_air_force
+	TOTU_SOV_soviet_navy
+	TOTU_SOV_soviet_economy
+	TOTU_SOV_nuclear_parity
+	TOTU_SOV_chernobyl
+	TOTU_SOV_space_power
 }
+
+# The Warsaw Pact allies are Moscow's subjects of a special kind, "socialist commonwealth states"
+# (common/autonomous_states/TOTU_socialist_commonwealth.txt): their governments may change, they stay in the bloc.
+# freedom_level: how far each has drifted from Moscow by January 1990. Autonomy needs Together for Victory; without it
+# they are plain puppets. Subjects first, then the faction (as vanilla does).
+if = {
+	limit = { has_dlc = "Together for Victory" }
+	set_autonomy = { target = DDR autonomous_state = autonomy_totu_socialist_commonwealth freedom_level = 0.15 }
+	set_autonomy = { target = BUL autonomous_state = autonomy_totu_socialist_commonwealth freedom_level = 0.1 }
+	set_autonomy = { target = CZE autonomous_state = autonomy_totu_socialist_commonwealth freedom_level = 0.4 }
+	set_autonomy = { target = POL autonomous_state = autonomy_totu_socialist_commonwealth freedom_level = 0.45 }
+	set_autonomy = { target = HUN autonomous_state = autonomy_totu_socialist_commonwealth freedom_level = 0.45 }
+	set_autonomy = { target = ROM autonomous_state = autonomy_totu_socialist_commonwealth freedom_level = 0.5 }
+	# in history files the else sits inside the if (as in vanilla DEN/ENG history)
+	else = {
+		puppet = DDR
+		puppet = BUL
+		puppet = CZE
+		puppet = POL
+		puppet = HUN
+		puppet = ROM
+	}
+}
+
+# Warsaw Pact (common/factions/templates/TOTU_factions.txt). Albania left in 1968.
+create_faction_from_template = {
+	template = faction_template_totu_warsaw_pact
+	color = { 0.72 0.16 0.14 }
+}
+add_to_faction = POL
+add_to_faction = DDR
+add_to_faction = CZE
+add_to_faction = HUN
+add_to_faction = ROM
+add_to_faction = BUL

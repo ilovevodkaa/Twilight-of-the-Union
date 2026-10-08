@@ -8,6 +8,7 @@ from scipy import ndimage
 from scipy.optimize import linear_sum_assignment
 
 from . import cities as cities_mod
+from .check import x_crossings
 from .common import MIN_PROVINCE_PX, px_of, stable_seed
 from .partition import partition
 from .raster import label_zone
@@ -164,6 +165,7 @@ def assemble(vm, georef, zone, states, log=print):
             final[j] = nxt
             nxt += 1
     ids[m] = np.concatenate([[0], final])[newlab[m]]
+    fix_crossings(ids, {int(x) for x in final}, lambda q: q >= n or vm.provs[q].kind == "land")
 
     zm = ZoneMap(ids=ids, provs=dict(vm.provs), labels=labels, cities=city_list, pool=pool)
     zm.zone_provs = {int(final[j]): ui for j, (ui, _) in enumerate(meta)}
@@ -173,6 +175,33 @@ def assemble(vm, georef, zone, states, log=print):
     _states_of_units(zm, vm, zone, states, zone_px)
     _regions(zm, vm, zone)
     return zm
+
+
+SIDE = {0: (1, 2), 1: (0, 3), 2: (0, 3), 3: (1, 2)}     # 2x2 block: TL, TR, BL, BR and their side neighbours
+
+
+def fix_crossings(ids, zone_ids, is_land):
+    """Where four provinces meet in one point (the engine's "Map invalid X crossing") a pixel of a zone province
+    joins a side neighbour inside the block, a land province, preferably of the zone."""
+    size = Counter()
+    for _ in range(5):
+        rr, cc = np.nonzero(x_crossings(ids))
+        if not len(rr):
+            return
+        for p in set(ids[rr, cc].tolist()) | set(ids[rr + 1, cc + 1].tolist()) | set(ids[rr, cc + 1].tolist()) |                 set(ids[rr + 1, cc].tolist()):
+            size[p] = int((ids == p).sum())
+        for r, c in zip(rr.tolist(), cc.tolist()):
+            blk = [(r, c), (r, c + 1), (r + 1, c), (r + 1, c + 1)]
+            vals = [int(ids[x]) for x in blk]
+            if len(set(vals)) < 4:
+                continue
+            options = [(vals[j] not in zone_ids, -size[vals[i]], i, j) for i in range(4)
+                       if vals[i] in zone_ids and size[vals[i]] > MIN_PROVINCE_PX for j in SIDE[i] if is_land(vals[j])]
+            if options:
+                _, _, i, j = min(options)
+                size[vals[i]] -= 1
+                size[vals[j]] += 1
+                ids[blk[i]] = vals[j]
 
 
 def _drop_fragments(zone_px, labels, land, n_units):
@@ -224,7 +253,7 @@ def _define(zm, vm, city_list, key):
     rng = np.random.default_rng(stable_seed(key))
     big = [(c.row, c.col) for c in city_list if c.pop >= URBAN_POP]
     sea = np.isin(ids, [p for p, v in vm.provs.items() if v.kind == "sea"])
-    near_sea = ndimage.binary_dilation(sea, FOUR) & ~sea
+    near_sea = ndimage.binary_dilation(sea, np.ones((3, 3), bool)) & ~sea     # the engine counts diagonals
     coastal = set(np.unique(ids[near_sea]).tolist())
     objs = ndimage.find_objects(ids)
     for pid in sorted(zm.changed):

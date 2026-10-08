@@ -1,0 +1,476 @@
+# Twilight of the Union: multiplayer frontend windows in the broadcast style (full copy of vanilla 1.19.3
+# interface/frontendmultiplayerview.gui; every vanilla element name and type is kept).
+#   frontendmultiplayerview   no background; drawn over matchmaking_window (same 1022x560 rect, see matchmaking.gui):
+#                             player name field in the filter band, version in the title row, "Server ID" plate in
+#                             the plate row next to Back
+#   multiplayer_host_window   board 500x428: title, four labelled fields, visibility checkboxes, Back / Host
+#   multiplayer_info_window   board 480x200: message (totu_body), Back
+#   multiplayer_connect_window board 500x240: title, address / password fields, Back / Join
+guiTypes = {
+
+	containerWindowType = {
+		name ="frontendmultiplayerview"
+		position = { x=-511 y=-280 }
+		size = { width=1022 height=560 }
+		Orientation = center
+
+		ButtonType = {
+			name = "join_direct"
+			position = { x = 160 y = 520 }
+			quadTextureSprite ="GFX_totu_plate_352"	# tb.plate_sprite_for_key("TOTU_FE_MP_CONNECT_ID")
+			buttonText = "TOTU_FE_MP_CONNECT_ID"
+			buttonFont = "totu_button"
+			clicksound = click_ok
+			oversound = ui_menu_over
+		}
+
+		instantTextBoxType = {
+			name = "totu_mp_player_name_label"
+			position = { x = 22 y = 97 }
+			font = "totu_label"
+			text_color_code = D
+			borderSize = { x = 0 y = 0 }
+			text = "TOTU_FE_MP_PLAYER_NAME"
+			maxWidth = 216
+			maxHeight = 18
+			fixedsize = yes
+			format = left
+			alwaystransparent = yes
+		}
+
+		iconType =
+		{
+			name ="player_name_bg"
+			spriteType = "GFX_totu_field_216"
+			position = { x = 22 y = 120 }
+			alwaystransparent = yes
+		}
+
+		editBoxType = {
+			position = { x = 22 y = 120 }
+			name = "playername"
+			font = "totu_list"
+			borderSize = {x = 8 y = 8}
+			size = { x=216 y=32 }
+			text = "FE_PLAYER"
+			orientation = "UPPER_LEFT"
+		}
+
+		instantTextBoxType = {
+			name = "version_number"
+			position = { x = -314 y = 22 }
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = D
+			borderSize = {x = 0 y = 0}
+			text = "VERSION (ABCD)"
+			maxWidth = 256
+			maxHeight = 18
+			fixedsize = yes
+			orientation = "UPPER_RIGHT"
+			format = right
+		}
+	}
+
+	containerWindowType = {
+		name = "multiplayer_host_window"
+		size = { width = 500 height = 428 }
+		orientation = center
+		origo = center
+
+		background = {
+			name ="hosting_bg"
+			quadTextureSprite = "GFX_totu_board"
+		}
+
+		instantTextBoxType = {
+			name = "Title"
+			position = { x = 22 y = 22 }
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			text = "MATCHMAKING_SERVER_HOST_TITLE"
+			maxWidth = 456
+			maxHeight = 18
+			fixedsize = yes
+			format = left
+		}
+
+		# four fields on a 64 px pitch: label D at 56 + 64i, field at 76 + 64i
+		instantTextBoxType = {
+			name = "edit_title"
+			position = { x = 22 y = 56 }
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = D
+			borderSize = {x = 0 y = 0}
+			text = "MATCHMAKING_SERVER_NAME"
+			maxWidth = 456
+			maxHeight = 18
+			fixedsize = yes
+		}
+
+		iconType = {
+			name = "totu_mp_server_name_field"
+			spriteType = "GFX_totu_field_456"
+			position = { x = 22 y = 76 }
+			alwaystransparent = yes
+		}
+
+		editBoxType = {
+			position = { x = 22 y = 76 }
+			name = "server_name"
+			font = "totu_list"
+			borderSize = {x = 8 y = 8}
+			size = { x=456 y=32 }
+			text = "FE_MY_GAME"
+			orientation = "UPPER_LEFT"
+			ignore_enter = yes
+		}
+
+		instantTextBoxType = {
+			name = "password_title"
+			position = { x = 22 y = 120 }
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = D
+			borderSize = {x = 0 y = 0}
+			text = "MATCHMAKING_SERVER_PASSWORD"
+			maxWidth = 456
+			maxHeight = 18
+			fixedsize = yes
+		}
+
+		iconType = {
+			name = "totu_mp_password_field"
+			spriteType = "GFX_totu_field_456"
+			position = { x = 22 y = 140 }
+			alwaystransparent = yes
+		}
+
+		editBoxType = {
+			position = { x = 22 y = 140 }
+			name = "password"
+			font = "totu_list"
+			borderSize = {x = 8 y = 8}
+			size = { x=456 y=32 }
+			text = ""
+			orientation = "UPPER_LEFT"
+			ignore_enter = yes
+		}
+
+		instantTextBoxType = {
+			name = "tags_title"
+			position = { x = 22 y = 184 }
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = D
+			borderSize = {x = 0 y = 0}
+			text = "MATCHMAKING_SERVER_HOST_TAGS"
+			maxWidth = 456
+			maxHeight = 18
+			fixedsize = yes
+		}
+
+		iconType = {
+			name = "totu_mp_tags_field"
+			spriteType = "GFX_totu_field_456"
+			position = { x = 22 y = 204 }
+			alwaystransparent = yes
+		}
+
+		editBoxType = {
+			position = { x = 22 y = 204 }
+			name = "tags"
+			font = "totu_list"
+			borderSize = {x = 8 y = 8}
+			size = { x=456 y=32 }
+			text = ""
+			orientation = "UPPER_LEFT"
+			ignore_enter = yes
+		}
+
+		instantTextBoxType = {
+			name = "desc_title"
+			position = { x = 22 y = 248 }
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = D
+			borderSize = {x = 0 y = 0}
+			text = "MATCHMAKING_SERVER_DESC"
+			maxWidth = 456
+			maxHeight = 18
+			fixedsize = yes
+		}
+
+		iconType = {
+			name = "totu_mp_desc_field"
+			spriteType = "GFX_totu_field_456"
+			position = { x = 22 y = 268 }
+			alwaystransparent = yes
+		}
+
+		editBoxType = {
+			position = { x = 22 y = 268 }
+			name = "desc"
+			font = "totu_list"
+			borderSize = {x = 8 y = 8}
+			size = { x=456 y=32 }
+			text = ""
+			orientation = "UPPER_LEFT"
+			ignore_enter = yes
+		}
+
+		# visibility: rows 312 (public, private) and 344 (friends only: the Russian label needs the full measure)
+		checkboxType = {
+			name = "public_checkbox"
+			position = { x = 22 y = 318 }
+			quadTextureSprite = "GFX_totu_checkbox"
+			clicksound = click_checkbox
+		}
+
+		instantTextBoxType={
+			position = {x = 50 y = 321 }
+			name = "public_label"
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			maxWidth = 180
+			maxHeight = 18
+			fixedsize = yes
+			text = "SERVER_PUBLIC"
+			orientation = "UPPER_LEFT"
+			format = left
+			alwaystransparent = yes
+		}
+
+		checkboxType = {
+			name = "private_checkbox"
+			position = { x = 242 y = 318 }
+			quadTextureSprite = "GFX_totu_checkbox"
+			clicksound = click_checkbox
+		}
+
+		instantTextBoxType={
+			position = {x = 270 y = 321 }
+			name = "private_label"
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			maxWidth = 208
+			maxHeight = 18
+			fixedsize = yes
+			text = "SERVER_PRIVATE"
+			orientation = "UPPER_LEFT"
+			format = left
+			alwaystransparent = yes
+		}
+
+		checkboxType = {
+			name = "friends_only_checkbox"
+			position = { x = 22 y = 350 }
+			quadTextureSprite = "GFX_totu_checkbox"
+			clicksound = click_checkbox
+		}
+
+		instantTextBoxType={
+			position = {x = 50 y = 353 }
+			name = "friends_only_label"
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			maxWidth = 428
+			maxHeight = 18
+			fixedsize = yes
+			text = "SERVER_FRIENDS_ONLY"
+			orientation = "UPPER_LEFT"
+			format = left
+			alwaystransparent = yes
+		}
+
+		ButtonType = {
+			name = "host_button"
+			position = { x=292 y=388}
+			quadTextureSprite ="GFX_totu_slate_208"	# TOTU_FE_MP_HOST
+			buttonText = "TOTU_FE_MP_HOST"
+			buttonFont = "totu_button"
+			clicksound = click_ok
+			oversound = ui_menu_over
+			shortcut = "RETURN"
+		}
+
+		ButtonType = {
+			name = "close_button"
+			position = { x= 0 y=388}
+			quadTextureSprite ="GFX_totu_plate_160"	# TOTU_FE_BACK
+			buttonText = "TOTU_FE_BACK"
+			buttonFont = "totu_button"
+			clicksound = click_close
+			oversound = ui_menu_over
+			shortcut = "ESCAPE"
+		}
+	}
+
+	containerWindowType = {
+		name = "multiplayer_info_window"
+		size = { width=480 height=200}
+		orientation = center
+		origo = center
+		moveable = yes
+
+		background= {
+			name ="frontend_paper_bg"
+			quadTextureSprite = "GFX_totu_board"
+		}
+
+		instantTextboxType = {
+			name = "info_desc"
+			position = { x=22 y =22}
+			font = "totu_body"
+			text = ""
+			maxWidth = 436
+			maxHeight = 120
+			format = center
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "close"
+			position = { x = 0 y = 160 }
+			quadTextureSprite ="GFX_totu_plate_160"	# TOTU_FE_BACK
+			buttonText = "TOTU_FE_BACK"
+			buttonFont = "totu_button"
+			clicksound = click_close
+			oversound = ui_menu_over
+		}
+	}
+
+	containerWindowType = {
+		name = "multiplayer_connect_window"
+		size = { width = 500 height = 240 }
+		orientation = center
+		origo = center
+		moveable = yes
+		fade_time = 200
+		fade_type = linear
+
+		background = {
+			name = "Background"
+			quadTextureSprite ="GFX_totu_board"
+		}
+
+		iconType = {
+			name ="diplo_popup_header_bg"
+			spriteType = "GFX_diplo_popup_header_bg"
+			position = { x= -9000 y = -9000 }	# TotU: no header art
+		}
+
+		instantTextBoxType = {
+			name = "Title"
+			position = { x = 22 y = 22 }
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			text = "MATCHMAKING_SERVER_CONNECT_TITLE"
+			maxWidth = 456
+			maxHeight = 18
+			fixedsize = yes
+			format = left
+		}
+
+		instantTextBoxType = {
+			name = "edit_title"
+			position = { x = 22 y = 56 }
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = D
+			borderSize = {x = 0 y = 0}
+			text = "MATCHMAKING_SERVER_CONNECT_ADDRESS"
+			maxWidth = 456
+			maxHeight = 18
+			fixedsize = yes
+		}
+
+		iconType = {
+			name = "edit_bg1"
+			quadTextureSprite ="GFX_totu_field_456"
+			position = { x = 22 y = 76 }
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+
+		editBoxType = {
+			position = { x = 22 y = 76 }
+			name = "address"
+			font = "totu_list"
+			borderSize = {x = 8 y = 8}
+			size = { x=456 y=32 }
+			text = ""
+			orientation = "UPPER_LEFT"
+			ignore_enter = yes
+		}
+
+
+		instantTextBoxType = {
+			name = "password_title"
+			position = { x = 22 y = 120 }
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = D
+			borderSize = {x = 0 y = 0}
+			text = "MATCHMAKING_SERVER_PASSWORD"
+			maxWidth = 456
+			maxHeight = 18
+			fixedsize = yes
+		}
+
+		iconType = {
+			name = "edit_bg2"
+			quadTextureSprite ="GFX_totu_field_456"
+			position = { x = 22 y = 140 }
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+
+		editBoxType = {
+			position = { x = 22 y = 140 }
+			name = "password"
+			font = "totu_list"
+			borderSize = {x = 8 y = 8}
+			size = { x=456 y=32 }
+			text = ""
+			orientation = "UPPER_LEFT"
+			ignore_enter = yes
+		}
+
+		iconType = {
+				name ="connect_win_bottom"
+				spriteType = "GFX_diplo_popup_bottom"
+				position = { x= -9000 y = -9000 }	# TotU: no bottom art
+		}
+
+		buttonType = {
+			name = "join"
+			position = { x=340 y =200}
+			quadTextureSprite ="GFX_totu_slate_160"	# TOTU_FE_MP_JOIN
+			buttonText = "TOTU_FE_MP_JOIN"
+			buttonFont = "totu_button"
+			clicksound = click_ok
+			oversound = ui_menu_over
+			shortcut = "RETURN"
+		}
+
+		buttonType = {
+			name = "close"
+			position = { x=0 y =200}
+			quadTextureSprite ="GFX_totu_plate_160"	# TOTU_FE_BACK
+			buttonText = "TOTU_FE_BACK"
+			buttonFont = "totu_button"
+			clicksound = click_close
+			oversound = ui_menu_over
+			shortcut = "ESCAPE"
+		}
+	}
+}

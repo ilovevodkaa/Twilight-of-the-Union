@@ -1,0 +1,53 @@
+# TotU: full copy of vanilla 1.19.3 interface/frontendcreditview.gui, restyled as a broadcast "end credits roll".
+# The 500x560 centred column is kept on purpose: the engine scrolls the CreditsText / CreditsTextBold lines
+# (credits.gui) inside this window, and whether that scroll area follows a full-screen container is unverified.
+# So Back sits at the column's bottom (x 170 centres the 160 px plate in the 500 px column) instead of the main
+# menu's lower-left Back row. Element names and types are vanilla.
+guiTypes = {
+
+	containerWindowType = {
+		name ="frontendcreditsview"
+		position = { x=-251 y=-280 }
+		size = { width=500 height=560 }
+		Orientation = center
+
+		# TotU: column scrim (tools/build_misc_gfx.py) instead of the tiled window
+		background = {
+			name ="credit_bg"
+			spriteType = "GFX_totu_misc_credits_scrim"
+			position = { x= 0 y = 0 }
+		}
+
+		# TotU: vanilla overlay tile -> transparent
+		background = {
+			name ="credit_bg"
+			spriteType = "GFX_tiled_window_transparent"
+			position = { x= 0 y = 0 }
+		}
+
+		iconType = {
+			name = "pdx_logo_credits"
+			position = { x = -9000 y = -9000 }	# TotU: hidden (painted logo)
+			spriteType ="GFX_pdx_logo_credits"
+			orientation = center
+		}
+
+		iconType = {
+			name = "credits_bottom"
+			position = { x = -9000 y = -9000 }	# TotU: hidden (vanilla bottom ornament)
+			spriteType ="GFX_diplo_popup_bottom"
+		}
+
+		ButtonType = {
+			name = "back_button"
+			position = { x = 170 y = 512 }		# TotU: column bottom (560 - 48), centred
+			quadTextureSprite ="GFX_totu_plate_160"	# tb.plate_sprite_for_key("TOTU_FE_BACK")
+			buttonText = "TOTU_FE_BACK"
+			buttonFont = "totu_button"
+			Orientation = "UPPER_LEFT"
+			clicksound = click_close
+			oversound = ui_menu_over
+			shortcut = "ESCAPE"
+		}
+	}
+}

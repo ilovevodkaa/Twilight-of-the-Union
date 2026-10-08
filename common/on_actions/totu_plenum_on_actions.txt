@@ -1,0 +1,20 @@
+# Twilight of the Union: the Plenum of the Central Committee (common/scripted_effects/TOTU_plenum_effects.txt).
+# Lower-case file name on purpose: tools/build_world_1990.py keeps only common/on_actions files starting with "totu_".
+
+on_actions = {
+	# a new game: the 1 January 1990 balance of the Central Committee
+	on_startup = {
+		effect = {
+			if = {
+				limit = { country_exists = SOV }
+				SOV = { TOTU_pl_init = yes }
+			}
+		}
+	}
+
+	on_monthly_SOV = {
+		effect = {
+			TOTU_pl_monthly = yes
+		}
+	}
+}

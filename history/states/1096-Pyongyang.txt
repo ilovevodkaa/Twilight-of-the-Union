@@ -1,0 +1,27 @@
+state = {
+	id = 1096
+	name = "STATE_1096"
+	manpower = 2493935
+	resources = {
+		tungsten = 1
+		steel = 1
+	}
+	state_category = city
+
+	history = {
+		owner = PRK
+		add_core_of = PRK
+		add_core_of = KOR
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}
+		victory_points = { 13634 10 }
+	}
+
+	provinces = {
+		7171 13634
+	}
+
+	local_supplies = 0.0
+}

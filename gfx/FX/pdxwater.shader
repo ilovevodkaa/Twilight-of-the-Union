@@ -335,7 +335,8 @@ PixelShader =
 			float fresnel = saturate( dot( -vEyeDir, normal ) ) * 0.5f;
 			fresnel = saturate( fresnelBias + ( 1.0f - fresnelBias ) * pow( 1.0f - fresnel, 10.0) );
 			refractiveColor = refractiveColor * ( 1.0f - fresnel ) + reflectiveColor * fresnel;
-			refractiveColor *= 0.08f; // Twilight of the Union: black sea
+			// Twilight of the Union: black sea
+			refractiveColor = refractiveColor * 0.000f + float3( 0.003f, 0.004f, 0.006f );
 			
 			float vIceFade = 0.0f;
 		#ifndef LOW_END_GFX
@@ -372,7 +373,7 @@ PixelShader =
 			lightingProperties._Normal = normal;
 			lightingProperties._Diffuse = refractiveColor;
 			lightingProperties._Glossiness = vGlossiness;
-			lightingProperties._SpecularColor = vec3(vSpecularIntensity);
+			lightingProperties._SpecularColor = vec3(vSpecularIntensity) * 0.15f; // Twilight of the Union
 			lightingProperties._NonLinearGlossiness = GetNonLinearGlossiness(vGlossiness);
 			
 		

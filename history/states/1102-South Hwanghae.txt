@@ -1,0 +1,34 @@
+state = {
+	id = 1102
+	name = "STATE_1102"
+	manpower = 681969
+	resources = {
+		tungsten = 1
+		steel = 1
+	}
+	state_category = town
+
+	history = {
+		owner = PRK
+		add_core_of = PRK
+		add_core_of = KOR
+		buildings = {
+			infrastructure = 2
+			13670 = {
+				naval_base = 2
+			}
+		}
+		victory_points = { 1003 1 }
+		victory_points = { 7155 1 }
+		victory_points = { 12040 1 }
+		victory_points = { 13670 1 }
+		victory_points = { 13671 1 }
+		victory_points = { 13672 1 }
+	}
+
+	provinces = {
+		1003 4107 7155 12040 13670 13671 13672
+	}
+
+	local_supplies = 0.0
+}

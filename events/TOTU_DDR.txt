@@ -1,0 +1,87 @@
+# Twilight of the Union: GDR events of January-March 1990, scheduled at game start in
+# common/on_actions/totu_ddr_on_actions.txt. Texts: localisation/*/totu_ddr_politics_l_*.yml.
+# Pictures: tools/build_country_gfx.py -> interface/totu_events_countries.gfx.
+
+add_namespace = totu_ddr
+
+# 15 January 1990: citizens break into the State Security headquarters on Normannenstrasse.
+country_event = {
+	id = totu_ddr.1
+	title = totu_ddr.1.t
+	desc = totu_ddr.1.d
+	picture = GFX_report_event_totu_ddr_normannenstrasse
+	is_triggered_only = yes
+
+	# historical: the citizens' committees go in and seal the files
+	option = {
+		name = totu_ddr.1.a
+		ai_chance = { factor = 80 }
+		add_stability = 0.03
+		add_popularity = { ideology = democratic popularity = 0.03 }
+		set_country_flag = TOTU_DDR_stasi_files_saved
+	}
+
+	# keep the crowd out: the files stay with the officers
+	option = {
+		name = totu_ddr.1.b
+		ai_chance = { factor = 20 }
+		add_stability = -0.05
+		add_political_power = 25
+		add_popularity = { ideology = communism popularity = 0.02 }
+		set_country_flag = TOTU_DDR_stasi_cordon
+	}
+}
+
+# 18 March 1990: the vote is counted (hidden), then the result is announced.
+country_event = {
+	id = totu_ddr.2
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = TOTU_DDR_election_held }
+	}
+
+	immediate = {
+		set_country_flag = TOTU_DDR_election_held
+		TOTU_DDR_count_votes = yes
+		country_event = { id = totu_ddr.3 }
+	}
+}
+
+country_event = {
+	id = totu_ddr.3
+	title = totu_ddr.3.t
+	desc = {
+		text = totu_ddr.3.d_alliance
+		trigger = { has_country_flag = TOTU_DDR_winner_alliance }
+	}
+	desc = {
+		text = totu_ddr.3.d_spd
+		trigger = { has_country_flag = TOTU_DDR_winner_spd }
+	}
+	desc = {
+		text = totu_ddr.3.d_pds
+		trigger = { has_country_flag = TOTU_DDR_winner_pds }
+	}
+	picture = GFX_report_event_totu_ddr_volkskammer_election
+	is_triggered_only = yes
+
+	option = {
+		name = totu_ddr.3.a
+		trigger = { has_country_flag = TOTU_DDR_winner_alliance }
+		TOTU_DDR_alliance_government = yes
+	}
+
+	option = {
+		name = totu_ddr.3.b
+		trigger = { has_country_flag = TOTU_DDR_winner_spd }
+		TOTU_DDR_spd_government = yes
+	}
+
+	option = {
+		name = totu_ddr.3.c
+		trigger = { has_country_flag = TOTU_DDR_winner_pds }
+		TOTU_DDR_pds_government = yes
+	}
+}

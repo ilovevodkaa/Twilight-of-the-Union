@@ -1,0 +1,269 @@
+# Twilight of the Union: events of the Soviet political focus tree (fired from
+# common/scripted_effects/TOTU_SOV_focus_effects.txt). Texts: localisation/*/totu_sov_politics_l_*.yml.
+# Pictures: interface/totu_events.gfx. World news about the USSR: events/TOTU_SOV_news.txt.
+
+add_namespace = totu_sov_politics
+
+# Focus SOV_vice_president: December 1990, the Congress has to confirm the President's deputy.
+country_event = {
+	id = totu_sov_politics.1
+	title = totu_sov_politics.1.t
+	desc = totu_sov_politics.1.d
+	picture = GFX_report_event_totu_sov_vice_president
+	is_triggered_only = yes
+
+	# Gennady Yanayev, the trade union boss: loyal, grey, the apparatus's man. Historically confirmed on the second vote.
+	option = {
+		name = totu_sov_politics.1.a
+		ai_chance = { factor = 70 }
+		add_popularity = { ideology = communism popularity = 0.03 }
+		add_political_power = 25
+		set_country_flag = TOTU_vp_yanayev
+	}
+
+	# Eduard Shevardnadze: the reformers' choice (historically he resigned that month, warning of a coming dictatorship).
+	option = {
+		name = totu_sov_politics.1.b
+		ai_chance = { factor = 30 }
+		add_popularity = { ideology = democratic popularity = 0.05 }
+		set_country_flag = TOTU_vp_shevardnadze
+	}
+}
+
+# Focus SOV_order_in_the_baltics: the night of 13 January 1991 at the Vilnius TV tower.
+country_event = {
+	id = totu_sov_politics.2
+	title = totu_sov_politics.2.t
+	desc = totu_sov_politics.2.d
+	picture = GFX_report_event_totu_sov_vilnius_tv_tower
+	is_triggered_only = yes
+
+	# Take the tower: the republics fall quiet for a while, the West does not forget.
+	option = {
+		name = totu_sov_politics.2.a
+		ai_chance = { factor = 60 }
+		add_timed_idea = { idea = TOTU_SOV_baltic_crackdown days = 365 }
+		custom_effect_tooltip = totu_sov_politics.2.a_tt
+		every_country = {
+			limit = {
+				is_major = yes
+				has_government = democratic
+				NOT = { tag = ROOT }
+			}
+			add_opinion_modifier = { target = ROOT modifier = TOTU_vilnius_crackdown }
+		}
+		news_event = { id = totu_sov_news.3 hours = 6 }
+	}
+
+	# Pull the troops back before dawn.
+	option = {
+		name = totu_sov_politics.2.b
+		ai_chance = { factor = 40 }
+		add_stability = 0.03
+		add_war_support = -0.05
+		set_country_flag = TOTU_vilnius_pulled_back
+	}
+}
+
+# Focus SOV_28th_party_congress: 12-13 July 1990, Yeltsin hands in his party card, the Democratic Platform follows.
+# The focus already sets TOTU_yeltsin_left_cpsu and moves popularity; this is what the party does about it.
+country_event = {
+	id = totu_sov_politics.3
+	title = totu_sov_politics.3.t
+	desc = totu_sov_politics.3.d
+	picture = GFX_report_event_totu_sov_yeltsin_walkout
+	is_triggered_only = yes
+
+	# Let them go: a smaller, calmer party (historical).
+	option = {
+		name = totu_sov_politics.3.a
+		ai_chance = { factor = 70 }
+		TOTU_pl_dem_sub_10 = yes
+		TOTU_pl_rad_sub_5 = yes
+		TOTU_pl_str_sub_3 = yes
+	}
+
+	# Yeltsin is gone, but offer the Democratic Platform seats in the Central Committee to keep its members.
+	option = {
+		name = totu_sov_politics.3.b
+		ai_chance = { factor = 30 }
+		add_political_power = -50
+		TOTU_pl_dem_sub_3 = yes
+		TOTU_pl_str_add_3 = yes
+		TOTU_pl_rad_add_5 = yes
+		set_country_flag = TOTU_dem_platform_kept
+	}
+}
+
+# Focus SOV_500_days_program: autumn 1990, the Shatalin-Yavlinsky programme against the Ryzhkov government.
+# The focus sets TOTU_500_days_adopted and TOTU_yeltsin_backs_500_days; the compromise takes Yeltsin's backing away.
+country_event = {
+	id = totu_sov_politics.4
+	title = totu_sov_politics.4.t
+	desc = totu_sov_politics.4.d
+	picture = GFX_report_event_totu_sov_500_days
+	is_triggered_only = yes
+
+	# The programme as written; Ryzhkov's cabinet goes.
+	option = {
+		name = totu_sov_politics.4.a
+		ai_chance = { factor = 40 }
+		TOTU_pl_dem_add_5 = yes
+		TOTU_pl_cons_sub_5 = yes
+		TOTU_pl_rad_add_3 = yes
+		add_stability = -0.03
+		set_country_flag = TOTU_ryzhkov_resigned
+	}
+
+	# Gorbachev's "Basic Guidelines": a merged text, Ryzhkov stays, Yeltsin walks away from it (historical).
+	option = {
+		name = totu_sov_politics.4.b
+		ai_chance = { factor = 60 }
+		add_political_power = -50
+		TOTU_pl_gorb_add_5 = yes
+		TOTU_pl_dem_sub_5 = yes
+		add_stability = 0.03
+		custom_effect_tooltip = totu_sov_politics.4.b_tt
+		clr_country_flag = TOTU_yeltsin_backs_500_days
+		set_country_flag = TOTU_ryzhkov_kept
+	}
+}
+
+# Focus SOV_union_referendum: 17 March 1991, 76.4% yes, six republics boycott. What the result is used for.
+country_event = {
+	id = totu_sov_politics.5
+	title = totu_sov_politics.5.t
+	desc = totu_sov_politics.5.d
+	picture = GFX_report_event_totu_sov_referendum
+	is_triggered_only = yes
+
+	# The people have spoken: the boycotting republics are breaking the law.
+	option = {
+		name = totu_sov_politics.5.a
+		ai_chance = { factor = 35 }
+		TOTU_pl_cons_add_5 = yes
+		TOTU_pl_rad_add_3 = yes
+		add_war_support = 0.03
+		add_stability = -0.02
+		set_country_flag = TOTU_referendum_pressure
+	}
+
+	# A mandate to talk: Novo-Ogaryovo and the new union treaty (historical).
+	option = {
+		name = totu_sov_politics.5.b
+		ai_chance = { factor = 65 }
+		add_political_power = -25
+		TOTU_pl_gorb_add_5 = yes
+		TOTU_pl_rad_sub_3 = yes
+		add_stability = 0.02
+		set_country_flag = TOTU_referendum_treaty_mandate
+	}
+}
+
+# Focus SOV_remove_yeltsin: 28 March 1991, the extraordinary RSFSR Congress, troops in Moscow,
+# the rallies on Mayakovsky Square and the Arbat. The deputies remove Yeltsin either way; this is about the troops.
+country_event = {
+	id = totu_sov_politics.6
+	title = totu_sov_politics.6.t
+	desc = totu_sov_politics.6.d
+	picture = GFX_report_event_totu_sov_march_rally
+	is_triggered_only = yes
+
+	# The troops stay until the Congress closes.
+	option = {
+		name = totu_sov_politics.6.a
+		ai_chance = { factor = 45 }
+		TOTU_pl_cons_add_5 = yes
+		TOTU_pl_rad_add_5 = yes
+		add_war_support = 0.03
+		add_stability = -0.03
+	}
+
+	# Withdraw them the next morning (historically the troops left on 29 March).
+	option = {
+		name = totu_sov_politics.6.b
+		ai_chance = { factor = 55 }
+		add_political_power = -50
+		TOTU_pl_gorb_add_3 = yes
+		TOTU_pl_rad_sub_5 = yes
+		add_stability = 0.02
+	}
+}
+
+# Focus SOV_remove_gorbachev: Gorbachev cut off at Foros, Yanayev in charge. How Russia and the republics react.
+# The emergency itself is declared later, by the focus SOV_state_of_emergency: here it is not signed yet.
+country_event = {
+	id = totu_sov_politics.7
+	title = totu_sov_politics.7.t
+	desc = {
+		text = totu_sov_politics.7.d
+		trigger = { NOT = { has_country_flag = TOTU_yeltsin_removed } }
+	}
+	desc = {
+		text = totu_sov_politics.7.d_removed
+		trigger = { has_country_flag = TOTU_yeltsin_removed }
+	}
+	picture = GFX_report_event_totu_sov_foros
+	is_triggered_only = yes
+
+	# Send the Alpha group into the White House.
+	option = {
+		name = totu_sov_politics.7.a
+		ai_chance = { factor = 25 }
+		TOTU_pl_orth_add_5 = yes
+		TOTU_pl_dem_sub_5 = yes
+		TOTU_pl_rad_add_8 = yes
+		add_war_support = 0.05
+		add_stability = -0.05
+	}
+
+	# Call the republican leaders and buy their neutrality.
+	option = {
+		name = totu_sov_politics.7.b
+		ai_chance = { factor = 35 }
+		add_political_power = -75
+		TOTU_pl_cons_add_3 = yes
+		TOTU_pl_rad_sub_3 = yes
+		add_stability = 0.03
+	}
+
+	# Cordon off the White House and wait for it to fall apart (historical: the committee hesitated).
+	option = {
+		name = totu_sov_politics.7.c
+		ai_chance = { factor = 40 }
+		TOTU_pl_str_sub_5 = yes
+		TOTU_pl_dem_add_3 = yes
+		add_stability = -0.02
+		add_war_support = 0.02
+	}
+}
+
+# Focus SOV_war_of_laws: 24 October 1990, the RSFSR and the USSR each pass a law putting their own laws first.
+# The focus adds the spirit TOTU_SOV_war_of_laws; this is how the centre answers.
+country_event = {
+	id = totu_sov_politics.8
+	title = totu_sov_politics.8.t
+	desc = totu_sov_politics.8.d
+	picture = GFX_report_event_totu_sov_war_of_laws
+	is_triggered_only = yes
+
+	# A presidential decree declares the Russian acts void.
+	option = {
+		name = totu_sov_politics.8.a
+		ai_chance = { factor = 55 }
+		add_political_power = 50
+		TOTU_pl_cons_add_5 = yes
+		TOTU_pl_rad_add_5 = yes
+		add_stability = -0.03
+	}
+
+	# Send the dispute to Sergei Alekseyev's Committee of Constitutional Supervision.
+	option = {
+		name = totu_sov_politics.8.b
+		ai_chance = { factor = 45 }
+		add_political_power = -25
+		TOTU_pl_gorb_add_3 = yes
+		TOTU_pl_rad_sub_3 = yes
+		add_stability = 0.02
+	}
+}

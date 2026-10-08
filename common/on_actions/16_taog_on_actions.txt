@@ -1,3 +1,5 @@
+# NEUTRALISED COPY of vanilla common/on_actions/16_taog_on_actions.txt made by tools/strip_vanilla.py: references to the removed vanilla
+# events, decisions and focus trees are cut. Edit the tool, not this file.
  on_actions = {
 
  	on_join_faction = {
@@ -80,7 +82,7 @@
  		effect = {
  			if = {
  				limit = {
- 					has_completed_focus = INS_the_three_year_plan
+ 					always = no
  					NOT = {
  						has_country_flag = INS_three_year_plan_capped
  					}
@@ -235,7 +237,7 @@
 			if = {
 				limit = {
 					has_dlc = "Thunder at Our Gates"
-					has_completed_focus = SIA_use_ships_as_generators
+					always = no
 				}
 				subtract_from_variable = { SIA_aep_factory_energy_consumption = capital_ship_count }
 				set_variable = { capital_ship_count = 0 }
@@ -289,7 +291,7 @@
 			if = {
 				limit = {
 					has_dlc = "Thunder at Our Gates"
-					has_completed_focus = SIA_contingency_funds
+					always = no
 					NOT = { 
 						has_country_flag = has_released_contingency_funds 
 					}
@@ -431,7 +433,7 @@
 					if ={
 						limit = {
 							ENG = { communism > 0.099 }
-							ROOT = { has_completed_focus = AST_out_of_the_den }
+							ROOT = { always = no }
 						}
 						132 = {
 							teleport_armies = {
@@ -452,7 +454,7 @@
 				limit = {
 					ROOT = {
 						original_tag = SIA
-						has_completed_focus = SIA_plan_for_a_short_war
+						always = no
 						NOT = { has_country_flag = SIA_plan_for_a_short_war_fire_once }
 						NOT = { has_idea = idea_SIA_short_war_temp_buff }
 					}
@@ -477,7 +479,7 @@
 				FROM = {
 					if = {
 						limit = {
-							has_completed_focus = SIA_american_investment_aid
+							always = no
 						}
 						add_cic = 15000
 						add_equipment_to_stockpile = {
@@ -498,13 +500,13 @@
 					}
 					if = {
 						limit = {
-							has_completed_focus = SIA_thai_students_in_the_oss
+							always = no
 						}
 						SIA_thai_students_in_the_oss_effect = yes
 					}
 					if = {
 						limit = {
-							has_completed_focus = SIA_prepare_to_drop
+							always = no
 						}
 						division_template = {
 							name = "Expeditionary Paratrooper Division"
@@ -554,8 +556,8 @@
 						}
 						NOT = {
 							OR = {
-								has_completed_focus = SIA_reluctant_submission
-								has_completed_focus = SIA_standing_our_ground
+								always = no
+								always = no
 							}
 						}
 					}
@@ -568,10 +570,7 @@
 						var = SIA_first_major_attacking_country
 						value = ROOT
 					}
-					country_event = {
-						id = siam.34
-						hours = 1
-					}
+					
 				}
 			}
 
@@ -581,12 +580,12 @@
 					OR = {
 						FROM = {
 							original_tag = SIA
-							has_completed_focus = SIA_diversity_foreign_reserves
+							always = no
 							NOT = { has_country_flag = SIA_diversity_foreign_reserves_flag }
 						}
 						ROOT = {
 							original_tag = SIA
-							has_completed_focus = SIA_diversity_foreign_reserves
+							always = no
 							NOT = { has_country_flag = SIA_diversity_foreign_reserves_flag }
 						}
 					}
@@ -641,8 +640,8 @@
 				if = {
 					limit = {
 						SIA = {
-							has_completed_focus = SIA_support_songsuradets_military_clique
-							NOT = { has_completed_focus = SIA_the_songsuradet_rebellion }
+							always = no
+							NOT = { always = no }
 							NOT = { has_country_flag = has_spawned_senior_officer_loyalists }
 						}
 					}
@@ -682,7 +681,7 @@
 				if = {
 					limit = {
 						SIA = {
-							has_completed_focus = SIA_the_royal_police_counterweight 
+							always = no 
 							NOT = { has_country_flag = has_spawned_royal_police }
 						}
 					}
@@ -946,7 +945,7 @@
 					original_tag_to_check = INS
 					limit = {
 						OR = {
-							has_completed_focus = INS_musso_ascends
+							always = no
 							#has_completed_focus = INS_pacific_revolution
 						}
 						
@@ -1019,13 +1018,13 @@
 					}
 				}
 
-				ROOT = { country_event = { id = siam.9 hours = 2 } }
+				ROOT = {  }
 			}
 
 			if = {
 				limit = {
 					ROOT = { 
-						has_completed_focus = SIA_the_kings_gambit
+						always = no
 					}
 				}
 
@@ -1126,7 +1125,7 @@
 				limit = {
 					ROOT = {
 						original_tag = AST
-						has_completed_focus = AST_the_ultimate_overseas_duty
+						always = no
 					}
 					FROM = {
 						original_tag = ENG
@@ -1142,8 +1141,8 @@
 					ROOT = {
 						original_tag = AST
 						OR = {
-							has_completed_focus = AST_pankhurst_walsh
-							has_completed_focus = AST_stephensen
+							always = no
+							always = no
 						}
 					}
 				}
@@ -1228,9 +1227,7 @@
 	}
 
 	# Script Documentation - On Action ID 3: Events
-
 	# on_startup removed by Twilight of the Union (1936 setup)
-
 
 	###################
 	#### AUSTRALIA ####
@@ -1299,8 +1296,8 @@
 						NOT = {
 							has_government = democratic
 						}
-						has_completed_focus = AST_australia_first
-						has_completed_focus = AST_against_war_and_fascism
+						always = no
+						always = no
 					}
 				}
 				remove_ideas = AST_election_campaign_pp_cost_hidden_idea
@@ -1441,11 +1438,11 @@
 					limit = {
 						OR = {
 							AND = {
-								has_completed_focus = AST_pleading_britain
+								always = no
 								has_country_flag = AST_uap_50_discount
 							}
 							AND = {
-								has_completed_focus = AST_the_ultimate_overseas_duty
+								always = no
 								has_country_flag = AST_alp_50_discount
 							}
 						}
@@ -1472,11 +1469,11 @@
 					limit = {
 						OR = {
 							AND = {
-								has_completed_focus = AST_pleading_britain
+								always = no
 								has_country_flag = AST_uap_70_discount
 							}
 							AND = {
-								has_completed_focus = AST_the_ultimate_overseas_duty
+								always = no
 								has_country_flag = AST_alp_70_discount
 							}
 						}
@@ -1503,11 +1500,11 @@
 					limit = {
 						OR = {
 							AND = {
-								has_completed_focus = AST_bring_on_the_giant
+								always = no
 								has_country_flag = AST_uap_50_discount
 							}
 							AND = {
-								has_completed_focus = AST_inevitably_independent
+								always = no
 								has_country_flag = AST_alp_50_discount
 							}
 						}
@@ -1546,11 +1543,11 @@
 					limit = {
 						OR = {
 							AND = {
-								has_completed_focus = AST_bring_on_the_giant
+								always = no
 								has_country_flag = AST_uap_70_discount
 							}
 							AND = {
-								has_completed_focus = AST_inevitably_independent
+								always = no
 								has_country_flag = AST_alp_70_discount
 							}
 						}
@@ -1624,8 +1621,8 @@
 						NOT = {
 							has_government = democratic
 						}
-						has_completed_focus = AST_australia_first
-						has_completed_focus = AST_against_war_and_fascism
+						always = no
+						always = no
 					}
 				}
 				remove_ideas = AST_country_party_influence_uap
@@ -1638,8 +1635,8 @@
 						NOT = {
 							has_government = democratic
 						}
-						has_completed_focus = AST_australia_first
-						has_completed_focus = AST_against_war_and_fascism
+						always = no
+						always = no
 					}
 				}
 				remove_ideas = AST_country_party_influence_alp
@@ -1662,7 +1659,7 @@
 			IF = { #UAP Billy Hughes
 				limit = {
 					has_government = democratic
-					has_completed_focus = AST_war_is_coming
+					always = no
 					AST_billy_hughes = {
 						is_hired_as_advisor = yes
 					}
@@ -1680,7 +1677,7 @@
 			IF = { #ALP James Scullin
 				limit = {
 					has_government = democratic
-					has_completed_focus = AST_war_is_coming
+					always = no
 					AST_james_scullin = {
 						is_hired_as_advisor = yes
 					}
@@ -1698,7 +1695,7 @@
 			IF = { #Maurice Blackburn
 				limit = {
 					has_government = democratic
-					has_completed_focus = AST_war_is_coming
+					always = no
 					AST_maurice_blackburn = {
 						is_hired_as_advisor = yes
 					}
@@ -1778,12 +1775,12 @@
 			IF = {
 				limit = {
 					date > 1940.08.12
-					has_completed_focus = AST_against_war_and_fascism
+					always = no
 					NOT = { #Event has not been/waiting on to be triggered yet
 						has_country_flag = AST_com_late_canberra
 					}
 				}
-				country_event = { id = AST_canberra_air_disaster_events.1 hours = 1 }
+				
 				set_country_flag = AST_com_late_canberra #Make sure it doesn't trigger again, although it's not actually late canberra
 			}
 		}
@@ -1799,7 +1796,7 @@
 						has_country_flag = AST_1939_start
 					}
 				}
-				country_event = { id = AST_political_events.6 hours = 1 }
+				
 				set_country_flag = AST_the_1938_sesquicentenary_trigger
 			}
 		}
@@ -1818,7 +1815,7 @@
 					}
 					NOT = { has_country_flag = AST_platypus_event_trigger }
 				}
-				country_event = { id = AST_diplomatic_events.81 days = 90 }
+				
 				set_country_flag = AST_platypus_event_trigger
 			}
 		}
@@ -1835,7 +1832,7 @@
 					}
 					NOT = { has_country_flag = AST_brisbane_event_trigger }
 				}
-				country_event = { id = AST_political_events.10 days = 30 }
+				
 				set_country_flag = AST_brisbane_event_trigger
 			}
 		}
@@ -1844,14 +1841,14 @@
 			IF = {
 				limit = {
 					tag = AST
-					has_completed_focus = AST_war_is_coming
+					always = no
 					threat > 0.35
 					NOT = {
 						has_country_flag = AST_war_is_coming_decisions_trigger
 						has_country_flag = AST_1939_start
 					}
 				}
-				country_event = { id = AST_political_events.8 hours = 1 }
+				
 
 				ELSE_IF = {
 					limit = {
@@ -1861,7 +1858,7 @@
 						}
 						has_country_flag = AST_1939_start
 					}
-					country_event = { id = AST_diplomatic_events.77 hours = 3 }
+					
 				}
 			}
 		}
@@ -1876,13 +1873,13 @@
 					limit = {
 						date > 1937.06.17
 						NOT = {
-							has_completed_focus = AST_australia_first
-							has_completed_focus = AST_against_war_and_fascism
+							always = no
+							always = no
 							has_country_flag = AST_election_season_trigger_37
 							has_country_flag = AST_1939_start
 						}
 					}
-					country_event = { id = AST_election_events.3 hours = 1 }
+					
 					set_country_flag = AST_election_season_trigger_37
 				}
 
@@ -1890,12 +1887,12 @@
 					limit = {
 						date > 1940.06.17
 						NOT = {
-							has_completed_focus = AST_australia_first
-							has_completed_focus = AST_against_war_and_fascism
+							always = no
+							always = no
 							has_country_flag = AST_election_season_trigger_40
 						}
 					}
-					country_event = { id = AST_election_events.3 hours = 1 }
+					
 					set_country_flag = AST_election_season_trigger_40
 				}
 
@@ -1903,12 +1900,12 @@
 					limit = {
 						date > 1943.06.17
 						NOT = {
-							has_completed_focus = AST_australia_first
-							has_completed_focus = AST_against_war_and_fascism
+							always = no
+							always = no
 							has_country_flag = AST_election_season_trigger_43
 						}
 					}
-					country_event = { id = AST_election_events.3 hours = 1 }
+					
 					set_country_flag = AST_election_season_trigger_43
 				}
 
@@ -1916,12 +1913,12 @@
 					limit = {
 						date > 1946.06.17
 						NOT = {
-							has_completed_focus = AST_australia_first
-							has_completed_focus = AST_against_war_and_fascism
+							always = no
+							always = no
 							has_country_flag = AST_election_season_trigger_46
 						}
 					}
-					country_event = { id = AST_election_events.3 hours = 1 }
+					
 					set_country_flag = AST_election_season_trigger_46
 				}
 
@@ -1929,12 +1926,12 @@
 					limit = {
 						date > 1949.06.17
 						NOT = {
-							has_completed_focus = AST_australia_first
-							has_completed_focus = AST_against_war_and_fascism
+							always = no
+							always = no
 							has_country_flag = AST_election_season_trigger_49
 						}
 					}
-					country_event = { id = AST_election_events.3 hours = 1 }
+					
 					set_country_flag = AST_election_season_trigger_49
 				}
 			}
@@ -1944,7 +1941,7 @@
 			IF = {
 				limit = {
 					original_tag = AST
-					has_completed_focus = AST_the_ultimate_overseas_duty
+					always = no
 					NOT = {
 						is_subject_of = ENG
 						is_in_faction_with = ENG
@@ -1990,8 +1987,8 @@
 				limit = {
 					original_tag = AST
 					has_dlc = "Thunder at Our Gates"
-					NOT = { has_completed_focus = AST_australia_first }
-        			NOT = { has_completed_focus = AST_against_war_and_fascism }
+					NOT = { always = no }
+        			NOT = { always = no }
 					has_government = democratic
 				}
 				AST = {
@@ -2261,7 +2258,7 @@
 						min = 0
 						max = 100
 					}
-					country_event = AST_election_events.1
+					
 					set_country_flag = {
 						flag = AST_election_recently_concluded
 						days = 15 #Edit AST_election_recently_concluded /AND/ AST_15_natunity if changed
@@ -2277,7 +2274,7 @@
 		effect = {
 			if = {
 				limit = {
-					SIA = { has_active_mission = SIA_limited_war_indochina }
+					SIA = { always = no }
 					is_in_array = {
 						array = SIA.limited_war_states
 						value = FROM.FROM
@@ -2316,10 +2313,10 @@
 				limit = {
 					FROM = {
 						original_tag = INS
-						has_completed_focus = INS_the_jewel_in_the_crown
+						always = no
 						NOT = {
 							has_country_flag = INS_has_gotten_invasion_event
-							has_completed_focus = INSHOL_netherlands_indonesia_union
+							always = no
 						}
 					}
 					FROM.FROM = {
@@ -2351,22 +2348,16 @@
 					if = {
 						limit = {
 							FROM = {
-								has_completed_focus = INSHOL_industrialized_colony
+								always = no
 							}
 						}
 						FROM = {
-							country_event = {
-								id = INS_political_events.8
-								hours = 24
-							}
+							
 						}
 					}
 					else = {
 						ROOT = {
-							country_event = {
-								id = INS_political_events.12
-								hours = 12
-							}
+							
 						}
 					}
 				}
@@ -2381,10 +2372,7 @@
 						save_event_target_as = INS_invasion_event_invaded_state
 					}
 					FROM = {
-						country_event = {
-							id = INS_political_events.8
-							hours = 24
-						}
+						
 					}
 				}
 			}
@@ -2399,7 +2387,7 @@
 				limit = {
 					FROM = {
 						original_tag = SIA
-						has_completed_focus = SIA_asian_democratic_compact
+						always = no
 					}
 				}
 				
@@ -2445,7 +2433,7 @@
 				limit = {
 					ROOT = {
 						original_tag = SIA
-						has_completed_focus = SIA_asian_democratic_compact
+						always = no
 					}
 				}
 				
@@ -2491,7 +2479,7 @@
 					set_variable = { global.ABDA_screening_efficiency_snapshot = ABDA_screening_efficiency }
 					set_variable = { global.ABDA_screen_defence_factor_snapshot = ABDA_screen_defence_factor }
 					set_variable = { global.ABDA_experience_gain_navy_unit_factor_snapshot = ABDA_experience_gain_navy_unit_factor }
-					FROM = { country_event = { id = ABDA_events.5 days = 1 } }
+					FROM = {  }
 				}
 			}
 		}
@@ -2618,7 +2606,7 @@
 					set_variable = { global.ABDA_screening_efficiency_snapshot = ABDA_screening_efficiency }
 					set_variable = { global.ABDA_screen_defence_factor_snapshot = ABDA_screen_defence_factor }
 					set_variable = { global.ABDA_experience_gain_navy_unit_factor_snapshot = ABDA_experience_gain_navy_unit_factor }
-					PREV = { country_event = { id = ABDA_events.5 days = 1 } }
+					PREV = {  }
 				}
 			}
 		}
@@ -2629,7 +2617,7 @@
 				limit = {
 					FROM = {
 						original_tag = SIA
-						has_completed_focus = SIA_asian_democratic_compact
+						always = no
 					}
 				}
 
@@ -2722,7 +2710,7 @@
 				limit = {
 					FROM = {
 						original_tag = INS
-						has_completed_focus = INS_pan_economic_area
+						always = no
 					}
 					ROOT = {
 						is_subject_of = FROM
@@ -2805,7 +2793,7 @@
 				limit = {
 					ROOT = {
 						original_tag = AST
-						has_completed_focus = AST_stephensen
+						always = no
 						is_in_faction_with = ENG
 					}
 				}

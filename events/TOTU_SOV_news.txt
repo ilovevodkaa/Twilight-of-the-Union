@@ -1,0 +1,158 @@
+# Twilight of the Union: world news about the Soviet Union (major = yes: shown to every country,
+# like vanilla NewsEvents.txt and totu_plenum.41-.44). No effects: option .a is for other countries, .b for the USSR.
+# Texts: localisation/*/totu_sov_news_l_*.yml. Pictures: interface/totu_events.gfx.
+# Fired with news_event = { id = totu_sov_news.<n> hours = 6 } from focus effects and events.
+
+add_namespace = totu_sov_news
+
+# The CPSU gives up its monopoly: Article 6 of the Constitution amended (March 1990).
+news_event = {
+	id = totu_sov_news.1
+	title = totu_sov_news.1.t
+	desc = totu_sov_news.1.d
+	picture = GFX_news_event_totu_news_article_six
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = totu_sov_news.1.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {
+		name = totu_sov_news.1.b
+		trigger = { tag = SOV }
+	}
+}
+
+# Gorbachev elected President of the USSR by the Congress of People's Deputies (15 March 1990).
+news_event = {
+	id = totu_sov_news.2
+	title = totu_sov_news.2.t
+	desc = totu_sov_news.2.d
+	picture = GFX_news_event_totu_news_president
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = totu_sov_news.2.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {
+		name = totu_sov_news.2.b
+		trigger = { tag = SOV }
+	}
+}
+
+# Bloodshed at the Vilnius TV tower (13 January 1991); fired by totu_sov_politics.2 option a.
+news_event = {
+	id = totu_sov_news.3
+	title = totu_sov_news.3.t
+	desc = totu_sov_news.3.d
+	picture = GFX_news_event_totu_news_vilnius
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = totu_sov_news.3.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {
+		name = totu_sov_news.3.b
+		trigger = { tag = SOV }
+	}
+}
+
+# The Union referendum: 76.4% yes, six republics boycott (17 March 1991).
+news_event = {
+	id = totu_sov_news.4
+	title = totu_sov_news.4.t
+	desc = totu_sov_news.4.d
+	picture = GFX_news_event_totu_news_referendum
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = totu_sov_news.4.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {
+		name = totu_sov_news.4.b
+		trigger = { tag = SOV }
+	}
+}
+
+# Gorbachev removed at Foros, the State Emergency Committee in power.
+news_event = {
+	id = totu_sov_news.5
+	title = totu_sov_news.5.t
+	desc = totu_sov_news.5.d
+	picture = GFX_news_event_totu_news_putsch
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = totu_sov_news.5.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {
+		name = totu_sov_news.5.b
+		trigger = { tag = SOV }
+	}
+}
+
+# The Union of Sovereign States treaty is signed.
+news_event = {
+	id = totu_sov_news.6
+	title = totu_sov_news.6.t
+	desc = totu_sov_news.6.d
+	picture = GFX_news_event_totu_news_union_treaty
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = totu_sov_news.6.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {
+		name = totu_sov_news.6.b
+		trigger = { tag = SOV }
+	}
+}
+
+# A state of emergency in the USSR.
+news_event = {
+	id = totu_sov_news.7
+	title = totu_sov_news.7.t
+	desc = totu_sov_news.7.d
+	picture = GFX_news_event_totu_news_emergency
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = totu_sov_news.7.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {
+		name = totu_sov_news.7.b
+		trigger = { tag = SOV }
+	}
+}
+
+# Yeltsin elected Chairman of the RSFSR Supreme Soviet (29 May 1990).
+news_event = {
+	id = totu_sov_news.8
+	title = totu_sov_news.8.t
+	desc = totu_sov_news.8.d
+	picture = GFX_news_event_totu_news_yeltsin
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = totu_sov_news.8.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {
+		name = totu_sov_news.8.b
+		trigger = { tag = SOV }
+	}
+}

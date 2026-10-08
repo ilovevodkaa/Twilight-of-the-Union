@@ -1,0 +1,40 @@
+state = {
+	id = 50
+	name = "STATE_50"
+	manpower = 4377999
+	resources = {
+		aluminium = 6
+		steel = 12
+	}
+	state_category = large_city
+
+	history = {
+		owner = GER
+		add_core_of = GER
+		add_core_of = WUR
+		buildings = {
+			infrastructure = 4
+			arms_factory = 2
+			industrial_complex = 2
+		}
+		victory_points = { 519 3 }
+		victory_points = { 663 10 }
+		victory_points = { 708 3 }
+		victory_points = { 9517 1 }
+		victory_points = { 9638 5 }
+		victory_points = { 11486 1 }
+		victory_points = { 11499 3 }
+		victory_points = { 11640 1 }
+		victory_points = { 13484 2 }
+		victory_points = { 13485 2 }
+		victory_points = { 13486 1 }
+		victory_points = { 13487 1 }
+		victory_points = { 13488 1 }
+	}
+
+	provinces = {
+		519 663 694 708 3679 3690 3692 6555 6680 6712 6934 9517 9545 9638 9655 11486 11499 11623 11640 13484 13485 13486 13487 13488 13489 13490 13491 13492 13493 13494 13495 13496 13497 13498 13499 13500 13501 13502 13126
+	}
+
+	local_supplies = 6.2
+}

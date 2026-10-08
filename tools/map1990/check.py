@@ -15,6 +15,20 @@ SINGLE_TYPES = ("air_base", "synthetic_refinery", "nuclear_reactor_spawn", "rock
 PER_STATE_COUNTS = {**{t: 1 for t in SINGLE_TYPES}, "arms_factory": 6, "industrial_complex": 6,
                     "anti_air_building": 3}
 PER_PROVINCE_TYPES = ("bunker", "supply_node", "special_project_facility_spawn")
+COASTAL_TYPES = ("naval_base_spawn", "coastal_bunker", "naval_supply_hub", "naval_headquarters", "floating_harbor")
+
+
+def land_near(ids, is_land, state_of, sid, r, c, radius=3):
+    """The land province a building line belongs to: the one under it, else the nearest land province of its
+    state within the radius (coastal models such as floating harbours stand in the water), else any land."""
+    p = int(ids[r, c])
+    if is_land[p]:
+        return p
+    sub = ids[max(0, r - radius):r + radius + 1, max(0, c - radius):c + radius + 1]
+    cand = [int(q) for q in sub.ravel() if is_land[q]]
+    own = [q for q in cand if state_of.get(q) == sid]
+    pool = own or cand
+    return max(set(pool), key=pool.count) if pool else None
 MAX_SEGMENTS, MAX_PROVINCES = 62_000, 20_000
 
 
@@ -25,6 +39,13 @@ def _pairs(ids):
         lo, hi = np.minimum(a[m], b[m]).astype(np.int64), np.maximum(a[m], b[m]).astype(np.int64)
         out.append(lo * 100_000 + hi)
     return np.unique(np.concatenate(out))
+
+
+def x_crossings(ids):
+    """2x2 blocks where four different provinces meet: the engine stops with "Map invalid X crossing" (vanilla has
+    none)."""
+    a, b, c, d = ids[:-1, :-1], ids[:-1, 1:], ids[1:, :-1], ids[1:, 1:]
+    return (a != b) & (a != c) & (a != d) & (b != c) & (b != d) & (c != d)
 
 
 def border_segments(ids):
@@ -108,6 +129,8 @@ def problems_in(e, vanilla_bad=frozenset()):
     out += [f"province {p}: land province missing from provinces.bmp" for p in sorted(land - present)]
     if n > MAX_PROVINCES:
         out.append(f"{n} provinces > {MAX_PROVINCES}")
+    rr, cc = np.nonzero(x_crossings(ids))
+    out += [f"provinces.bmp: four provinces meet at x={c} y={r} (the engine's X crossing)" for r, c in zip(rr, cc)]
     seg = border_segments(ids)
     if seg > MAX_SEGMENTS:
         out.append(f"{seg} border segments > {MAX_SEGMENTS}")
@@ -140,6 +163,8 @@ def problems_in(e, vanilla_bad=frozenset()):
             out.append(f"state {sid}: provinces in several strategic regions {sorted(rs)}")
     # buildings
     per_state, per_prov = defaultdict(Counter), defaultdict(Counter)
+    is_land = np.zeros(int(ids.max()) + 1, bool)
+    is_land[[p for p in land if p < len(is_land)]] = True
     for f in e.buildings:
         sid, typ = int(f[0]), f[1]
         per_state[sid][typ] += 1
@@ -149,6 +174,16 @@ def problems_in(e, vanilla_bad=frozenset()):
             per_prov[pid][typ] += 1
             if pid in owner and owner[pid] != sid:
                 out.append(f"buildings.txt: {typ} of state {sid} stands in province {pid} of state {owner[pid]}")
+        elif typ in PER_STATE_COUNTS:                  # the engine ignores it: "location is not within specified state"
+            if pid in owner and owner[pid] != sid:
+                out.append(f"buildings.txt: {typ} of state {sid} stands in province {pid} of state {owner[pid]}")
+        elif typ == "naval_base_spawn":
+            q = land_near(ids, is_land, owner, sid, r, c)
+            if q is not None:
+                per_prov[q][typ] += 1
+                if q in owner and owner[q] != sid:      # the port goes to a province of the line's state
+                    out.append(f"buildings.txt: naval_base_spawn of state {sid} stands at province {q} of state "
+                               f"{owner[q]}")
     for sid in sids:
         for typ, k in PER_STATE_COUNTS.items():
             if per_state[sid][typ] != k:
@@ -157,6 +192,8 @@ def problems_in(e, vanilla_bad=frozenset()):
         for typ in PER_PROVINCE_TYPES:
             if per_prov[p][typ] != 1:
                 out.append(f"province {p}: {per_prov[p][typ]} x {typ} in buildings.txt, needs 1")
+        if provs[p].coastal and not per_prov[p]["naval_base_spawn"]:      # "will likely crash the game"
+            out.append(f"province {p}: coastal but no naval_base_spawn in buildings.txt")
     # railways: neighbours on the map or across a strait of adjacencies.csv
     adj = adjacency_pairs(ids) | strait_pairs(e.adjacency_lines)
     for line in e.railways:
@@ -170,6 +207,13 @@ def problems_in(e, vanilla_bad=frozenset()):
             for p in (int(f[0]), int(f[1])):
                 if p not in provs:
                     out.append(f"adjacencies.csv: province {p} does not exist")
+    # coastal flag = the engine's bitmap rule (touching a sea pixel, diagonals included)
+    sea_px = np.isin(ids, [pid for pid, v in provs.items() if v.kind == "sea"])
+    near = ndimage.binary_dilation(sea_px, np.ones((3, 3), bool)) & ~sea_px
+    coastal_px = set(np.unique(ids[near]).tolist())
+    for p in sorted(land & present):
+        if provs[p].coastal != (p in coastal_px):
+            out.append(f"province {p}: definition.csv coastal={provs[p].coastal}, the bitmap says {p in coastal_px}")
     # shape
     water = {pid for pid, v in provs.items() if v.kind != "land"}
     for p, why in shape_problems(ids, land & present, water).items():

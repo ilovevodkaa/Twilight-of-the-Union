@@ -1,0 +1,22 @@
+state = {
+	id = 1095
+	name = "STATE_1095"
+	manpower = 295186
+	state_category = rural
+
+	history = {
+		owner = KOR
+		add_core_of = KOR
+		add_core_of = PRK
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = { 1177 3 }
+	}
+
+	provinces = {
+		1177
+	}
+
+	local_supplies = 0.0
+}

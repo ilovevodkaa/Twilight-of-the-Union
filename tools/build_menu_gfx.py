@@ -605,7 +605,7 @@ CS_ART_RIGHT = (772, 1211)              # SOV banner x range
 CS_ART_FADE = 170                       # a banner's inner edge dissolves into the board over this many px
 CS_BANNER_GRADE = dict(sat=0.45, bright=0.95, contrast=1.08, shadow=(5, 10, 16), highlight=(222, 202, 216), mix=0.40)
 SOVIET_RED = (204, 0, 0)                # plain red base of the USSR banner (no glyphs under the photos)
-USA_PORTRAIT = "USA_george_bush"        # tools/src/portraits/<this>.(jpg|png|webp), supplied by the user
+USA_PORTRAIT = "USA_george_bush"        # tools/src/portraits/<this>.(jpg|png|webp): George H. W. Bush, official portrait
 USA_PORTRAIT_BARS = None                # optional eye bar, ((x1, y1), (x2, y2), thickness) in source px
 # Eye bars are a loading-screen rule; the country-selection banners show the leaders unbarred (approved by the user).
 SOV_PORTRAIT_BARS = None
@@ -725,7 +725,7 @@ def usa_banner_layers(lw):
     if portrait:
         if army:
             layers.append((army, (600, 450, 2220, 1810), 130, 330, 0.9, 0.4))
-        layers.append((portrait, (250, 120, 1350, 1560), 0, 220, 0.95, 0.7, USA_PORTRAIT_BARS))
+        layers.append((portrait, (200, 140, 1400, 1700), 0, 220, 0.95, 0.7, USA_PORTRAIT_BARS))
     elif army:
         layers.append((army, (600, 450, 2220, 1810), 0, lw - 1, 0.9, 0.4))
     return layers
@@ -810,7 +810,15 @@ def minor_portrait_overlay():
 # 156x210, from tools/src/portraits/<source>.(webp|jpg|png). out: (source, crop around head and shoulders or None).
 PORTRAITS = {
     "SOV_mikhail_gorbachev": ("SOV_mikhail_gorbachev", (330, 140, 1250, 1378)),
-    "USA_george_bush": ("USA_george_bush", (270, 120, 1310, 1520)),
+    "USA_george_bush": ("USA_george_bush", (250, 180, 1350, 1660)),   # official portrait (Valdez, 1989), public domain
+    "SOV_gennady_yanayev": ("SOV_gennady_yanayev", (90, 60, 934, 1196)),   # generated source (no free photo)
+    # GDR: Bundesarchiv photos on Wikimedia Commons, CC BY-SA 3.0 DE (Bild 183-1989-1117-431 cropped; "Maziere.jpg"
+    # from Bild 183-1990-08..; Bild 183-1990-0222-016 crop)
+    "DDR_hans_modrow": ("DDR_hans_modrow", (60, 0, 515, 612)),
+    "DDR_lothar_de_maiziere": ("DDR_lothar_de_maiziere", (40, 10, 383, 472)),
+    "DDR_ibrahim_boehme": ("DDR_ibrahim_boehme", (0, 10, 263, 364)),
+    # FRG: "Helmut Kohl (1989).jpg", Lothar Schaack, Wikimedia Commons, CC BY-SA 3.0 DE
+    "GER_helmut_kohl": ("GER_helmut_kohl", (20, 0, 362, 460)),
 }
 
 

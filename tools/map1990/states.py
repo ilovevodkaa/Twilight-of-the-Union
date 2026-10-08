@@ -6,13 +6,14 @@ from collections import Counter, defaultdict
 import numpy as np
 from scipy import ndimage
 
-from .assemble import anchor_of
+from .assemble import anchor_of, vp_markers
 from .common import px_of
 
 CATEGORIES = [(8_000_000, "megalopolis", 12), (5_000_000, "metropolis", 10), (3_000_000, "large_city", 8),
               (1_500_000, "city", 6), (800_000, "large_town", 5), (300_000, "town", 4), (100_000, "rural", 2),
               (0, "pastoral", 1)]
 SLOT_TYPES = ("arms_factory", "industrial_complex", "dockyard")
+FORTS = ("bunker", "coastal_bunker")     # stay with the country that built them when a province goes to the zone
 SINGLE_LEVELS = ("air_base", "anti_air_building", "synthetic_refinery", "fuel_silo", "radar_station", "rocket_site",
                  "nuclear_reactor")
 RESOURCES = ("oil", "aluminium", "rubber", "tungsten", "steel", "chromium")
@@ -103,7 +104,7 @@ def apply(zm, vm, zone, states, names, vp_names=None):
         lost = {p for p in st["provs"] if p in zm.pool}
         if lost:
             _, pl = hist_buildings(st["hist"])
-            prov_items += [(p, v) for p, v in pl.items() if p in lost]
+            prov_items += [(p, [x for x in v if x[0] not in FORTS]) for p, v in pl.items() if p in lost]
             vanilla_vp.update({p: v for p, v in hist_vps(st["hist"]).items() if p in lost})
             _drop_province_history(st["hist"], lost)
             st["provs"] = [p for p in st["provs"] if p not in lost]
@@ -156,7 +157,7 @@ def apply(zm, vm, zone, states, names, vp_names=None):
                                hist=[("buildings", "=", blv)], owner=tag, cores=cores, claims=claims)
             names.STATE_NAMES[sid] = (u.name_en, u.name_ru)
     _province_items(zm, vm, states, prov_items)
-    _victory_points(zm, states, vanilla_vp, vp_names, names)
+    _victory_points(zm, vm, states, vanilla_vp, vp_names, names)
     report = [f"states: {len(old)} vanilla states rebuilt into {len(zone.units)}, "
               f"{len(zm.moved_out)} provinces moved to outside states"]
     return {"capitals": capitals, "report": report}
@@ -238,12 +239,27 @@ def _nearest_coastal(zm, sid, point):
     return min(cands, key=lambda p: (zm.anchor[p][0] - point[0]) ** 2 + (zm.anchor[p][1] - point[1]) ** 2)
 
 
-def _victory_points(zm, states, vanilla_vp, vp_names, names):
+def _victory_points(zm, vm, states, vanilla_vp, vp_names, names):
+    """A vanilla victory point is a place: in the zone it goes to the province now under its marker (a reused id may
+    lie elsewhere), unless a 1990 city is there; the cities of the zone get theirs."""
     state_of = {p: s for s, st in states.items() for p in st["provs"]}
-    vps = {p: v for p, v in vanilla_vp.items() if p in state_of}   # vanilla VPs stay where their id now is
+    city_at = {p for _, p in zm.city_prov}
+    marks = vp_markers(vm)
+    place = {p: int(zm.ids[marks[p]]) if p in zm.pool and p in marks else p for p in vanilla_vp}
+    vps, came_from = {}, {}
+    for p, v in sorted(vanilla_vp.items()):
+        q = place[p]
+        if q not in state_of or (p in zm.pool and (q in city_at or q not in zm.zone_provs)):
+            continue                 # a 1990 city is there, or the place lies outside the zone (vanilla's Freiburg
+                                     # marker is west of the real Rhine) where the provinces keep their own points
+        if v > vps.get(q, 0):
+            vps[q], came_from[q] = v, p
+    for q, p in came_from.items():
+        if q != p and p in vp_names:
+            names.VP_NAMES[q] = vp_names[p]
     for c, p in zm.city_prov:
         vps[p] = max(vps.get(p, 0), c.vp)
-        if p not in vanilla_vp or p not in vp_names:
+        if place.get(p) != p or p not in vp_names:
             names.VP_NAMES[p] = (c.name_en, c.name_ru)
     for p in list(names.VP_NAMES):
         if p in zm.pool and p not in vps:

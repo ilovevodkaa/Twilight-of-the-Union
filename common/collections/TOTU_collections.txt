@@ -1,0 +1,21 @@
+# Twilight of the Union: collections for faction manifests (common/factions/goals/TOTU_faction_manifests.txt).
+# In a manifest the scope is the faction leader. Names: localisation/*/totu_world_l_*.yml.
+
+TOTU_faction_members = {
+	input = game:scope
+	operators = {
+		faction_members
+	}
+	name = TOTU_COLLECTION_FACTION_MEMBERS
+}
+
+TOTU_communist_faction_members = {
+	input = game:scope
+	operators = {
+		faction_members
+		limit = {
+			has_government = communism
+		}
+	}
+	name = TOTU_COLLECTION_COMMUNIST_FACTION_MEMBERS
+}

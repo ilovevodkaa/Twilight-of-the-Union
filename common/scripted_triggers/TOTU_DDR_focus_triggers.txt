@@ -1,0 +1,368 @@
+# Twilight of the Union: hand-written conditions of the GDR focus tree, picked up by tools/build_focus_tree.py as
+# <focus id>_available / _bypass / _allow_branch.
+
+### political ###
+
+### Political branch (branch_political.json) ###
+
+# The 18 March election has not happened yet (events/TOTU_DDR.txt sets TOTU_DDR_election_held).
+TOTU_DDR_pol_before_election = {
+	custom_trigger_tooltip = {
+		tooltip = DDR_pol_before_election_tt
+		NOT = { has_country_flag = TOTU_DDR_election_held }
+	}
+}
+
+# Modrow still heads the government: before the election, or after it under a PDS government.
+TOTU_DDR_pol_modrow_in_office = {
+	custom_trigger_tooltip = {
+		tooltip = DDR_pol_modrow_in_office_tt
+		OR = {
+			NOT = { has_country_flag = TOTU_DDR_election_held }
+			has_country_flag = TOTU_DDR_government_pds
+		}
+	}
+}
+
+# Unification can still go either way: both states exist, no unification, no referendum called (TOTU_unity_open).
+TOTU_DDR_pol_german_question_open = {
+	custom_trigger_tooltip = {
+		tooltip = DDR_pol_question_open_tt
+		TOTU_unity_open = yes
+	}
+}
+
+# ... and the talks are not frozen (TOTU_unity_active).
+TOTU_DDR_pol_talks_running = {
+	custom_trigger_tooltip = {
+		tooltip = DDR_pol_talks_running_tt
+		TOTU_unity_active = yes
+	}
+}
+
+# The Soviet hard-liners are in power: Gorbachev is held at Foros (SOV_remove_gorbachev_effect,
+# common/scripted_effects/TOTU_SOV_focus_effects.txt, sets TOTU_gorbachev_in_foros) or the Soviet focus
+# SOV_state_of_emergency has put in the spirit TOTU_SOV_emergency_rule. The same definition as the military branch
+# (DDR_mil_wgf_withdrawal_available, DDR_mil_call_from_wuensdorf_available); the Plenum result is left to the unity
+# system's Soviet event (totu_unity.30), which already weighs it.
+TOTU_DDR_pol_kremlin_hardliners = {
+	custom_trigger_tooltip = {
+		tooltip = DDR_pol_kremlin_hardliners_tt
+		country_exists = SOV
+		SOV = {
+			OR = {
+				has_country_flag = TOTU_gorbachev_in_foros
+				has_idea = TOTU_SOV_emergency_rule
+			}
+		}
+	}
+}
+
+TOTU_DDR_pol_kremlin_reformers = {
+	custom_trigger_tooltip = {
+		tooltip = DDR_pol_kremlin_reformers_tt
+		OR = {
+			NOT = { country_exists = SOV }
+			SOV = {
+				NOT = { has_country_flag = TOTU_gorbachev_in_foros }
+				NOT = { has_idea = TOTU_SOV_emergency_rule }
+			}
+		}
+	}
+}
+
+TOTU_DDR_pol_in_warsaw_pact = {
+	custom_trigger_tooltip = {
+		tooltip = DDR_pol_in_warsaw_pact_tt
+		NOT = { has_country_flag = TOTU_left_warsaw_pact }
+	}
+}
+
+# Moscow's own answer on the 2+4 talks: the USSR decides in totu_unity.30 when the scale first reaches 75 %
+# (TOTU_unity_soviet_consent / TOTU_unity_soviet_veto), unless Moscow has nothing left to decide (no USSR, or the GDR
+# is no longer its subject). While the USSR is still deciding (TOTU_unity_2p4_pending) neither flag is set.
+TOTU_DDR_pol_soviet_consent = {
+	custom_trigger_tooltip = {
+		tooltip = DDR_pol_soviet_consent_tt
+		OR = {
+			has_global_flag = TOTU_unity_soviet_consent
+			NOT = { country_exists = SOV }
+			NOT = { is_subject_of = SOV }
+		}
+	}
+	custom_trigger_tooltip = {
+		tooltip = DDR_pol_no_soviet_veto_tt
+		NOT = { has_global_flag = TOTU_unity_soviet_veto }
+	}
+}
+
+### Pre-election trunk ###
+
+DDR_national_responsibility_available = { TOTU_DDR_pol_before_election = yes }
+DDR_election_law_available = { TOTU_DDR_pol_before_election = yes }
+DDR_modrow_heads_the_list_available = { TOTU_DDR_pol_before_election = yes }
+DDR_unity_without_haste_available = { TOTU_DDR_pol_before_election = yes }
+DDR_accept_currency_union_available = { TOTU_DDR_pol_before_election = yes }
+
+# The appeal is a programme for the SED-PDS government; once the democrats govern it has no one to address.
+DDR_for_our_country_available = {
+	has_government = communism
+	TOTU_DDR_pol_before_election = yes
+}
+
+# The election renames the party anyway (TOTU_DDR_count_votes).
+DDR_party_of_democratic_socialism_bypass = {
+	has_country_flag = TOTU_DDR_election_held
+}
+
+DDR_moscow_visit_available = { TOTU_DDR_pol_modrow_in_office = yes }
+DDR_modrow_plan_available = { TOTU_DDR_pol_modrow_in_office = yes }
+DDR_bonn_visit_available = { TOTU_DDR_pol_modrow_in_office = yes }
+
+### Post-election branches: hidden until the government is known (the election marks the layout dirty) ###
+
+DDR_de_maiziere_cabinet_allow_branch = { has_country_flag = TOTU_DDR_government_alliance }
+DDR_boehme_cabinet_allow_branch = { has_country_flag = TOTU_DDR_government_spd }
+DDR_modrow_mandate_allow_branch = { has_country_flag = TOTU_DDR_government_pds }
+
+# The long-term focuses hang under the ends of all three sub-branches: shown once a government is elected.
+DDR_charter_of_paris_allow_branch = { has_country_flag = TOTU_DDR_election_held }
+
+# SPD
+DDR_confederation_available = { TOTU_DDR_pol_german_question_open = yes }
+DDR_neutral_germany_available = { TOTU_DDR_pol_german_question_open = yes }
+DDR_genscher_formula_available = { TOTU_DDR_pol_german_question_open = yes }
+DDR_article_146_available = { TOTU_DDR_pol_german_question_open = yes }
+DDR_constitution_referendum_available = { TOTU_DDR_pol_german_question_open = yes }
+
+# PDS
+DDR_treaty_community_available = { TOTU_DDR_pol_german_question_open = yes }
+DDR_talks_moratorium_available = {
+	TOTU_DDR_pol_german_question_open = yes
+	TOTU_DDR_pol_talks_running = yes
+}
+DDR_confederation_of_equals_available = { TOTU_DDR_pol_german_question_open = yes }
+DDR_neutral_fatherland_available = { TOTU_DDR_pol_german_question_open = yes }
+DDR_independent_gdr_available = { TOTU_DDR_pol_german_question_open = yes }
+
+# The Austrian deal is offered to reformers in the Kremlin who already talked unity with Modrow; Moscow then answers
+# in its own event (DDR_austrian_option_effect).
+DDR_austrian_option_available = {
+	has_completed_focus = DDR_moscow_visit
+	TOTU_DDR_pol_kremlin_reformers = yes
+	TOTU_DDR_pol_in_warsaw_pact = yes
+}
+
+# Already outside the Pact (the military branch's exit protocol): nothing left to offer, go on to neutrality.
+DDR_austrian_option_bypass = {
+	has_country_flag = TOTU_left_warsaw_pact
+}
+
+DDR_permanent_neutrality_available = {
+	custom_trigger_tooltip = {
+		tooltip = DDR_pol_left_warsaw_pact_tt
+		has_country_flag = TOTU_left_warsaw_pact
+	}
+}
+
+DDR_lean_on_moscow_available = {
+	TOTU_DDR_pol_kremlin_hardliners = yes
+	TOTU_DDR_pol_in_warsaw_pact = yes
+}
+
+# Alliance
+DDR_accession_at_once_available = { TOTU_DDR_pol_german_question_open = yes }
+DDR_accession_vote_available = { TOTU_DDR_pol_german_question_open = yes }
+DDR_unification_treaty_available = { TOTU_DDR_pol_german_question_open = yes }
+
+# The GDR signs only what Moscow has agreed to: no hard-liners in the Kremlin, talks running, and the USSR's own consent
+# from the unity system (or no Soviet say any more), never after a Soviet veto.
+DDR_two_plus_four_available = {
+	TOTU_DDR_pol_german_question_open = yes
+	TOTU_DDR_pol_talks_running = yes
+	TOTU_DDR_pol_kremlin_reformers = yes
+	TOTU_DDR_pol_soviet_consent = yes
+}
+
+DDR_leave_warsaw_pact_bypass = {
+	has_country_flag = TOTU_left_warsaw_pact
+}
+
+### economy ###
+
+# Freely elected governments after 18 March (events/TOTU_DDR.txt): the Alliance (de Maizière) or the SPD (Böhme).
+TOTU_DDR_eco_democrats_govern = {
+	OR = {
+		has_country_flag = TOTU_DDR_government_alliance
+		has_country_flag = TOTU_DDR_government_spd
+	}
+}
+
+# The PDS kept power on 18 March (Modrow).
+TOTU_DDR_eco_pds_governs = {
+	has_country_flag = TOTU_DDR_government_pds
+}
+
+# The money branches split by government; hidden until the election marks the layout dirty.
+DDR_eco_currency_union_allow_branch = { TOTU_DDR_eco_democrats_govern = yes }
+DDR_eco_unity_fund_allow_branch = { TOTU_DDR_eco_democrats_govern = yes }
+DDR_eco_social_market_allow_branch = { TOTU_DDR_eco_democrats_govern = yes }
+DDR_eco_privatisation_law_allow_branch = { TOTU_DDR_eco_democrats_govern = yes }
+DDR_eco_convertible_mark_allow_branch = { TOTU_DDR_eco_pds_governs = yes }
+DDR_eco_koko_accounts_allow_branch = { TOTU_DDR_eco_democrats_govern = yes }
+DDR_eco_social_charter_allow_branch = { has_country_flag = TOTU_DDR_government_spd }
+DDR_eco_socialist_market_allow_branch = { TOTU_DDR_eco_pds_governs = yes }
+
+# Ullmann's shares were talked about in February but only an elected parliament could issue them; this also keeps
+# the SED-PDS from closing the privatisation road before the voters have spoken.
+DDR_eco_share_certificates_available = {
+	custom_trigger_tooltip = {
+		tooltip = DDR_eco_after_election_tt
+		has_country_flag = TOTU_DDR_election_held
+	}
+}
+
+# Closing Wismut is a decision for an elected government (it came in 1990, effective 31 December).
+DDR_eco_close_wismut_available = {
+	custom_trigger_tooltip = {
+		tooltip = DDR_eco_after_election_tt
+		has_country_flag = TOTU_DDR_election_held
+	}
+}
+
+# The State Treaty needs a partner: Bonn has promised the mark (decision TOTU_unity_ger_dmark, GER flag
+# TOTU_unity_dmark_promised) or signed the treaty (decision TOTU_unity_ger_currency_treaty, global flag
+# TOTU_unity_monetary_union). The GDR's own acceptance before the election (political focus DDR_accept_currency_union)
+# also counts, so a hostile human FRG cannot leave a democratic GDR stuck with the open border. No FRG, no D-Mark.
+DDR_eco_currency_union_available = {
+	country_exists = GER
+	custom_trigger_tooltip = {
+		tooltip = DDR_eco_bonn_agrees_tt
+		OR = {
+			has_global_flag = TOTU_unity_monetary_union
+			GER = { has_country_flag = TOTU_unity_dmark_promised }
+			has_country_flag = TOTU_DDR_currency_union_promised
+		}
+	}
+}
+
+# Jena and Oberkochen only really talked after the spring of 1990; also keeps the research slot out of the first
+# three months.
+DDR_eco_carl_zeiss_jena_available = {
+	custom_trigger_tooltip = {
+		tooltip = DDR_eco_after_election_tt
+		has_country_flag = TOTU_DDR_election_held
+	}
+}
+
+### military ###
+
+# Twilight of the Union, GDR focus tree, military branch (keys f_ddr_mil_*).
+# 'Hard-liners in the Kremlin' is the political branch's definition (TOTU_DDR_pol_kremlin_hardliners / _reformers:
+# Plenum winner conservative or orthodox, Gorbachev in Foros, or the Soviet state of emergency).
+
+# The crackdown is an SED-PDS (or PDS) answer; a democratic government would not order it.
+DDR_mil_barracks_order_available = {
+	has_government = communism
+}
+
+# 20 July 1990: a new oath needs a freely elected government to swear to.
+DDR_mil_new_oath_available = {
+	has_country_flag = TOTU_DDR_election_held
+	date > 1990.7.1
+}
+
+# 13 June 1990: the official demolition started under the elected government.
+DDR_mil_tear_down_wall_available = {
+	has_country_flag = TOTU_DDR_election_held
+	date > 1990.6.1
+}
+
+# The Soviets leave only with reformers in the Kremlin and Moscow willing to talk: the 2+4 settlement (the Soviet
+# consent to the withdrawal itself), Modrow's visit of 30 January, or good relations.
+DDR_mil_wgf_withdrawal_available = {
+	has_country_flag = TOTU_DDR_election_held
+	TOTU_DDR_pol_kremlin_reformers = yes
+	custom_trigger_tooltip = {
+		tooltip = DDR_mil_moscow_consent_tt
+		OR = {
+			NOT = { country_exists = SOV }
+			has_country_flag = TOTU_DDR_two_plus_four
+			has_country_flag = TOTU_DDR_moscow_blessing
+			SOV = { has_opinion = { target = ROOT value > 24 } }
+		}
+	}
+}
+
+# The NVA leaves the Unified Command only with Moscow's consent: the 2+4 settlement (DDR_two_plus_four sets
+# TOTU_DDR_two_plus_four) or a PDS government dealing with reformers in the Kremlin.
+DDR_mil_leave_unified_command_available = {
+	custom_trigger_tooltip = {
+		tooltip = DDR_mil_unified_command_consent_tt
+		OR = {
+			has_country_flag = TOTU_DDR_two_plus_four
+			AND = {
+				has_country_flag = TOTU_DDR_government_pds
+				TOTU_DDR_pol_kremlin_reformers = yes
+			}
+		}
+	}
+}
+
+# Already outside the Pact (political branch, the unification referendum): nothing left to leave.
+DDR_mil_leave_unified_command_bypass = {
+	has_country_flag = TOTU_left_warsaw_pact
+}
+
+# The Bundeswehr keeps the MiGs only for a government heading for accession.
+DDR_mil_migs_for_luftwaffe_available = {
+	has_country_flag = TOTU_DDR_government_alliance
+}
+
+# Eppelmann's ministry and what follows: the democratic governments of 18 March.
+DDR_mil_disarmament_ministry_allow_branch = {
+	OR = {
+		has_country_flag = TOTU_DDR_government_alliance
+		has_country_flag = TOTU_DDR_government_spd
+	}
+}
+
+# The Alliance talks to the Bundeswehr at once; the SPD only when unity is close.
+DDR_mil_bundeswehr_talks_available = {
+	OR = {
+		has_country_flag = TOTU_DDR_government_alliance
+		custom_trigger_tooltip = {
+			tooltip = DDR_mil_spd_unity_60_tt
+			has_country_flag = TOTU_DDR_government_spd
+			check_variable = { global.TOTU_unity > 59 }
+		}
+	}
+}
+
+# The confederation army is the SPD's plan.
+DDR_mil_army_of_unity_available = {
+	has_country_flag = TOTU_DDR_government_spd
+}
+
+DDR_mil_neutral_army_allow_branch = {
+	has_country_flag = TOTU_DDR_government_pds
+}
+
+# The stationing treaty rewrites the terms of troops that are still here.
+DDR_mil_stationing_treaty_available = {
+	has_idea = TOTU_DDR_western_group
+}
+
+# Hidden: only a PDS government sees it, and it opens only if the hard-liners win in Moscow while Soviet troops
+# are still in the GDR.
+DDR_mil_call_from_wuensdorf_allow_branch = {
+	has_country_flag = TOTU_DDR_government_pds
+}
+
+DDR_mil_call_from_wuensdorf_available = {
+	OR = {
+		has_idea = TOTU_DDR_western_group
+		has_idea = TOTU_DDR_mil_stationing_treaty
+	}
+	TOTU_DDR_pol_kremlin_hardliners = yes
+}

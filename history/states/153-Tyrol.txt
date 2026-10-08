@@ -5,7 +5,6 @@ state={
 	history = {
 		owner = AUS
 		add_core_of = AUS
-		victory_points = { 673 5 }
 		buildings = {
 			infrastructure = 3
 			industrial_complex = 1
@@ -13,7 +12,7 @@ state={
 		}
 	}
 	provinces={
-		668 671 673 3675 6673 9633 9636 11618 11634
+		668 671 6673 9633
 	}
 	manpower=1500986
 	buildings_max_level_factor=1.000

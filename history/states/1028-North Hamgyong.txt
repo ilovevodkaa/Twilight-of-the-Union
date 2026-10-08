@@ -1,0 +1,30 @@
+state = {
+	id = 1028
+	name = "STATE_1028"
+	manpower = 253109
+	resources = {
+		tungsten = 3
+		steel = 3
+	}
+	state_category = rural
+
+	history = {
+		owner = PRK
+		add_core_of = PRK
+		add_core_of = KOR
+		buildings = {
+			infrastructure = 2
+			13662 = {
+				naval_base = 1
+			}
+		}
+		victory_points = { 898 1 }
+		victory_points = { 13657 2 }
+	}
+
+	provinces = {
+		898 959 6822 6944 13657 13658 13659 13660 13661 13662 13663 13664 13665
+	}
+
+	local_supplies = 0.0
+}

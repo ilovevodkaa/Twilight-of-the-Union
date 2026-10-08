@@ -1,0 +1,534 @@
+# Twilight of the Union: multiplayer lobby panel in the broadcast style (full copy of vanilla 1.19.3
+# interface/playerlobby.gui; every vanilla element name and type is kept). Used in the frontend lobby AND in game.
+#   player_lobby_stats_window  a 24 px slate plate row (GFX_totu_mp_lobby, tools/build_mp_gfx.py) at x 181,
+#                              H-148..H-124: above the frontend lobby's Back / Load plates (H-112..H-72), no longer
+#                              on top of them; lower left in game as before
+#   player_lobby_window        in-game board (GFX_totu_board_ig); player list and chat on raised sub-panels; info
+#                              texts and Start in one row inside the bottom edge. Widths are explicit; the negative
+#                              heights are tuned for "parent minus" (tools/render_gui.py): should the engine count
+#                              them from the element position instead, the panels only end higher, never overlap.
+guiTypes = {
+
+	containerWindowType = {
+		name ="player_lobby_stats_window"
+		position = { x= 181 y = -148 }
+		size = { width = 214 height = 24}
+		Orientation = lower_left
+
+		ButtonType = {
+			name = "player_lobby"
+			position = { x = 0 y = 0 }
+			quadTextureSprite ="GFX_totu_mp_lobby"
+#			buttonText = "LOBBY"
+#			buttonFont = "totu_h24"
+			#clicksound = click_ok
+			oversound = ui_menu_over
+		}
+
+		instantTextboxType = {
+			name = "player_lobby_title"
+			position = { x = 11 y = 5 }
+			font = "totu_label"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			text = "TOTU_FE_MP_LOBBY"
+			maxWidth = 69
+			maxHeight = 18
+			fixedsize = yes
+			format = left
+			alwaystransparent = yes
+		}
+
+		iconType ={
+			name ="genric_mini_bg1"
+			spriteType = "GFX_genric_mini_bg1"
+			position = { x = -9000 y = -9000 }	# TotU: no counter frames, the counters sit on the plate
+			alwaystransparent = yes
+		}
+
+		iconType ={
+			name ="players_icon"
+			spriteType = "GFX_players_icon"
+			position = { x = 80 y = 2 }
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "number_players"
+			position = { x = 104 y = 5 }
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			text = "MULTIPLAYER_PLAYERS"
+			maxWidth = 34
+			maxHeight = 18
+			fixedsize = yes
+			format = left
+			alwaystransparent = yes
+		}
+
+		iconType ={
+			name ="genric_mini_bg2"
+			spriteType = "GFX_genric_mini_bg2"
+			position = { x = -9000 y = -9000 }	# TotU: no counter frames
+			alwaystransparent = yes
+		}
+
+		iconType ={
+			name ="chat_mess_icon"
+			spriteType = "GFX_chat_mess_icon"
+			position = { x = 142 y = 2 }
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "number_chatmessage"
+			position = { x = 166 y = 5 }
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			text = "MULTIPLAYER_MESSAGES"
+			maxWidth = 34
+			maxHeight = 18
+			fixedsize = yes
+			format = left
+			alwaystransparent = yes
+		}
+	}
+
+	containerWindowType = {
+		name ="player_lobby_window"
+		position = { x= 550 y = 0 }
+#		show_position = { x=10% y =15% }
+#		hide_position = { x=10% y =110% }
+#		animation_type = decelerated
+#		animation_time = 1000
+		size = { width = 902 height = 50% }
+		orientation = center_left
+#		orientation = upper_left
+		origo = center
+		fade_time = 300
+		fade_type = linear
+		moveable = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite ="GFX_totu_board_ig"
+		}
+
+		iconType ={
+			name ="player_lobby_header"
+			spriteType = "GFX_player_lobby_header"
+			position = { x=-9000 y=-9000 }	# TotU: no header art
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "playerlobby_title"
+			position = { x = 22 y = 22 }
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			text = "MULTIPLAYER_LOBBY"
+			maxWidth = 800
+			maxHeight = 18
+			fixedsize = yes
+			format = left
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "close_button"
+			quadTextureSprite ="GFX_totu_close"
+			position = { x = -46 y = 19 }
+			Orientation = "UPPER_RIGHT"
+			clicksound = click_close
+		}
+
+		# player list: raised panel x 22..458, y 56..H-52
+		containerWindowType = {
+			name ="playerlobby_playerlist"
+			position = { x=22 y = 56 }
+			size = { width = 436 height = -108 }
+
+			background = {
+				name = "Background"
+				quadTextureSprite ="GFX_totu_raised"
+				alwaystransparent = yes
+			}
+
+			containerWindowType = {
+				name ="multiplayer_list_window"
+				position = { x=8 y = 8 }
+				size = { width = 428 height = -16 }
+				verticalScrollbar = "totu_vertical_slider"
+				scroll_wheel_factor = 40
+				smooth_scrolling = yes
+
+				background = {
+					name = "Background"
+					spriteType ="GFX_tiled_window_transparent"
+				}
+
+				gridboxtype = {
+					name = "multiplayer_list"
+					size = { width = 410 height = 100%%}
+					position = { x = 0 y = 0 }
+					slotsize = { width = 410 height = 80 }
+					max_slots_horizontal = 1
+				}
+			}
+		}
+
+		# chat: raised panel x 470..880, y 56..H-52; the input is a field at its bottom
+		containerWindowType = {
+			name ="playerlobby_chat"
+			position = { x=470 y = 56 }
+			size = { width = 410 height = -108 }
+			clipping = no
+
+			background = {
+				name = "Background"
+				quadTextureSprite ="GFX_totu_raised"
+				alwaystransparent = yes
+			}
+
+			containerWindowType = {
+				name ="chatlog_window"
+				position = { x=8 y = 8 }
+				size = { width = 394 height = -56 }
+				verticalScrollbar = "totu_vertical_slider"
+				scroll_wheel_factor = 36
+				smooth_scrolling = yes
+
+				background = {
+					name = "Background"
+					spriteType ="GFX_tiled_window_transparent"
+				}
+
+				gridboxtype = {
+					name ="chatlog"
+					position = { x = 0 y = 0 }
+					slotsize = { width = 100% height = 18 }
+					max_slots_horizontal = 1
+				}
+			}
+
+			containerWindowType = {
+				name ="lobby_chat_edit_bg"
+				position = { x = 8 y = -40 }
+				size = { width=394 height=32 }
+				orientation = lower_left
+				clipping = no
+
+				background = {
+					name = "Background"
+					quadTextureSprite = "GFX_totu_field_tile"
+					alwaystransparent = yes
+				}
+
+				editBoxType = {
+					position = { x = 0 y = 0 }
+					name = "lobby_chat_edit"
+					font = "totu_list"
+					borderSize = {x =8 y = 8}
+					size = { x=358 y=32 }
+					text = ""
+					instantTextBoxType = yes
+					orientation = "UPPER_LEFT"
+					cursor = { x = 0 y = 0 }
+				}
+
+				editBoxType = {
+					position = { x = 0 y = 3 }
+					name = "largefont_lobby_chat_edit"
+					font = "hoi_22chat"
+					borderSize = {x =8 y = 0}
+					size = { x=358 y=32 }
+					text = ""
+					instantTextBoxType = yes
+					orientation = "UPPER_LEFT"
+					cursor = { x = 0 y = 0 }
+				}
+
+				buttonType = {
+					name = "mic_button"
+					quadTextureSprite ="GFX_accessibility_mic"
+					font = "hoi_16mbs"
+					text = ""
+					position = { x= -32 y = -32 }
+					Orientation = "lower_right"
+				}
+			}
+		}
+
+		# bottom row inside the board's edge (H-40..H): info texts D, Start (slate) right-aligned
+		buttonType = {
+			name = "start_button"
+			quadTextureSprite ="GFX_totu_slate_160"	# TOTU_FE_START
+			buttonFont = "totu_button"
+			buttonText = "TOTU_FE_START"
+			position = { x= -160 y = -40 }
+			Orientation = "LOWER_RIGHT"
+			oversound = ui_menu_over
+			shortcut = "RETURN"
+		}
+
+		iconType ={
+			name ="num_players_bg"
+			spriteType = "GFX_generic_text_bg_154"
+			position = { x= -9000 y = -9000 }	# TotU: text on the board
+			Orientation = "LOWER_LEFT"
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "num_players"
+			position = { x = 22 y = -29 }
+			textureFile = ""
+			font = "totu_list"
+			text_color_code = D
+			borderSize = {x = 0 y = 0}
+			text = "Number of Players: 5"
+			maxWidth = 200
+			maxHeight = 18
+			fixedsize = yes
+			format = left
+			Orientation = "LOWER_LEFT"
+		}
+
+		iconType ={
+			name ="server_id_bg"
+			spriteType = "GFX_generic_text_bg_203"
+			position = { x= -9000 y = -9000 }	# TotU: text on the board
+			Orientation = "CENTER_DOWN"
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "server_id"
+			position = { x = 232 y = -29 }
+			textureFile = ""
+			font = "totu_list"
+			text_color_code = D
+			borderSize = {x = 0 y = 0}
+			text = "Server ID: 12345678-9abc-def0-123456780abc"
+			maxWidth = 360
+			maxHeight = 18
+			fixedsize = yes
+			format = left
+			Orientation = "LOWER_LEFT"
+		}
+
+		# click target over the server ID (copies it); its texture is transparent (tools/ingame/mp.py)
+		buttonType = {
+			name ="server_id_button"
+			spriteType = "GFX_generic_text_bg_203_transp"
+			position = { x = 226 y = -34 }
+			Orientation = "LOWER_LEFT"
+		}
+
+		iconType ={
+			name ="checksum_bg"
+			spriteType = "GFX_generic_text_bg_258"
+			position = { x= -9000 y = -9000 }	# TotU: text on the board
+			Orientation = "LOWER_RIGHT"
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "checksum"
+			position = { x = 600 y = -29 }
+			textureFile = ""
+			font = "totu_list"
+			text_color_code = D
+			borderSize = {x = 0 y = 0}
+			text = ""
+			maxWidth = 130
+			maxHeight = 18
+			fixedsize = yes
+			format = left
+			Orientation = "LOWER_LEFT"
+		}
+	}
+
+	containerWindowType = {
+		name = "ingame_multiplayer_entry"
+		position = { x = 0 y = 0 }
+		size = { width = 410 height= 76 }
+
+		containerWindowType = {
+			name = "white_background"
+			position = { x = 0 y = 0 }
+			size = { width = 100% height = 100% }
+
+			background = {
+				name = "Background"
+				spriteType = "gfx_transp_white_fade"
+			}
+		}
+
+		buttonType = {
+			name = "player_shield"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x= -40 y = 36 }
+			Orientation = upper_right
+			centerposition = yes
+		}
+
+		iconType ={
+			name = "player_shield_frame_ready"
+			spriteType = "GFX_small_flag_frame_thin3_gold"
+			position = { x = -40 y = 36 }
+			Orientation = upper_right
+			centerposition = yes
+			alwaystransparent = yes
+		}
+
+		iconType ={
+			name = "player_shield_frame_leader"
+			spriteType = "GFX_small_flag_frame_thin2_gold"
+			position = { x = -40 y = 36 }
+			Orientation = upper_right
+			centerposition = yes
+			alwaystransparent = yes
+		}
+
+		iconType ={
+			name = "player_shield_frame"
+			spriteType = "GFX_small_flag_frame_thin2"
+			position = { x = -40 y = 36 }
+			Orientation = upper_right
+			centerposition = yes
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "observer_icon"
+			quadTextureSprite ="GFX_observer_button"
+			position = { x = -40 y = 36 }
+			Orientation = upper_right
+			centerposition = yes
+		}
+
+		buttonType = {
+			name = "button_ban"
+			quadTextureSprite = "GFX_playerlobby_ban"
+			position = { x = -80 y = 34}
+			Orientation = upper_right
+			centerposition = yes
+		}
+
+		buttonType = {
+			name = "button_kick"
+			quadTextureSprite = "GFX_playerlobby_kick"
+			position = { x = -110 y = 34}
+			Orientation = upper_right
+			centerposition = yes
+		}
+	}
+
+	containerWindowType = {
+		name = "ingame_lobby_chat_text"
+		position = { x=0 y=0 }
+		size = { width=400 height= 26 }
+
+		background = {
+			name = "Background"
+			spriteType ="GFX_tiled_window_transparent"
+		}
+
+		instantTextBoxType = {
+			name = "messagelogtext"
+			position = { x = 0 y = 0 }
+			font = "hoi_16mbs"
+			borderSize = {x = 0 y = 0}
+			maxWidth = 100
+			maxHeight = 16
+
+			Orientation = "UPPER_LEFT"
+		}
+
+		buttonType =	{
+			name = "highlight"
+			spriteType = "GFX_pink_selection_frame"
+			position = { x = 0 y = 0 }
+			size = { x = 400 y = 26 }
+			no_clicksound = yes
+		}
+
+		buttonType =	{
+			name = "select"
+			spriteType = "GFX_tiled_window_transparent"
+			position = { x = -1 y = -1 }
+			size = { x = 401 y = 27 }
+			no_clicksound = yes
+		}
+	}
+
+	containerWindowType = {
+		name = "largefonts_ingame_lobby_chat_text"
+		position = { x=0 y=0 }
+		size = { width=400 height= 26 }
+
+		background = {
+			name = "Background"
+			spriteType ="GFX_tiled_window_transparent"
+		}
+
+		instantTextBoxType = {
+			name = "messagelogtext"
+			position = { x = 0 y = 0 }
+			font = "hoi_22chat"
+			borderSize = {x = 0 y = 0}
+			maxWidth = 100
+			maxHeight = 26
+
+			Orientation = "UPPER_LEFT"
+		}
+
+		buttonType =	{
+			name = "highlight"
+			spriteType = "GFX_pink_selection_frame"
+			position = { x = 0 y = 0 }
+			size = { x = 400 y = 26 }
+			no_clicksound = yes
+		}
+
+		buttonType =	{
+			name = "select"
+			spriteType = "GFX_tiled_window_transparent"
+			position = { x = -1 y = -1 }
+			size = { x = 401 y = 27 }
+			no_clicksound = yes
+		}
+	}
+
+
+	windowType = {
+		name = "lobby_chat_text"
+		backGround=""
+		position = { x=0 y=0 }
+		size = { x=100 y= 18 }
+		moveable = 0
+		dontRender = ""
+		horizontalBorder= ""
+		verticalBorder= ""
+		fullScreen = no
+
+		instantTextBoxType = {
+			name = "messagelogtext"
+			position = { x = 0 y = 0 }
+			textureFile = ""
+			font = "hoi_16mbs"
+			borderSize = {x = 1 y = 1}
+			text = ""
+			maxWidth = 300
+			maxHeight = 18
+
+			Orientation = "UPPER_LEFT"
+		}
+	}
+}

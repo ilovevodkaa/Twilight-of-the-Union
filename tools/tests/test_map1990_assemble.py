@@ -14,6 +14,35 @@ except SystemExit:
     GAME = None
 
 
+class CrossingTest(unittest.TestCase):
+    def test_four_provinces_never_meet_in_a_point(self):
+        from map1990.assemble import fix_crossings
+        from map1990.check import x_crossings
+        ids = np.kron(np.array([[1, 2], [3, 4]], np.int32), np.ones((4, 4), np.int32))   # 16 px each
+        fix_crossings(ids, zone_ids={1, 2, 3, 4}, is_land=lambda q: True)
+        self.assertFalse(x_crossings(ids).any())
+        self.assertEqual(set(np.unique(ids).tolist()), {1, 2, 3, 4})
+
+    def test_a_province_at_the_minimum_keeps_its_pixels(self):
+        from map1990.assemble import fix_crossings
+        ids = np.ones((6, 8), np.int32) * 9
+        ids[0:3, 0:4] = 1                       # 12 px: at the minimum
+        ids[0:3, 4:8] = 2
+        ids[3:6, 0:4] = 3
+        ids[3:6, 4:8] = 4
+        fix_crossings(ids, zone_ids={1, 2, 3, 4}, is_land=lambda q: True)
+        self.assertEqual(int((ids == 1).sum()), 12)
+
+    def test_only_zone_pixels_change(self):
+        from map1990.assemble import fix_crossings
+        ids = np.kron(np.array([[1, 2], [3, 4]], np.int32), np.ones((4, 4), np.int32))
+        before = ids.copy()
+        fix_crossings(ids, zone_ids={4}, is_land=lambda q: q != 3)
+        changed = ids != before
+        self.assertEqual(changed.sum(), 1)
+        self.assertTrue(changed[4, 4])                  # the corner pixel of province 4
+
+
 @unittest.skipUnless(GAME and (common.GEO / "vg-hist.gpkg").exists(), "game or geodata missing")
 class AssembleTest(unittest.TestCase):
     @classmethod

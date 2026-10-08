@@ -1,0 +1,42 @@
+# Twilight of the Union: the two blocs of 1 January 1990, created from the faction leaders' history files
+# (history/countries/SOV - Soviet union.txt, history/countries/USA - USA.txt). Script-only templates: an empty
+# visible block keeps them out of the "create faction" list.
+# Names: localisation/*/totu_world_l_*.yml. Logos: tools/build_country_gfx.py -> interface/totu_factions.gfx.
+
+# Warsaw Treaty Organization, 1955. By January 1990 only the GDR and Bulgaria are still ruled by communists among the
+# allies; Poland, Hungary and Czechoslovakia have opposition governments, Romania the National Salvation Front.
+# The allies are Soviet subjects ("socialist commonwealth states", common/autonomous_states/), so the Pact has no
+# ideology rule for joining or staying: members leave by event (the Pact dissolves on 1 July 1991).
+faction_template_totu_warsaw_pact = {
+	name = TOTU_warsaw_pact
+	icon = GFX_faction_logo_totu_warsaw_pact
+	manifest = faction_manifest_totu_socialist_commonwealth
+	can_leader_join_other_factions = no
+
+	default_rules = {
+		change_leader_rule_never
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_faction_leader_only
+		goals_only_faction_leader
+		faction_peace_rule_ideology_focus
+	}
+}
+
+# North Atlantic Treaty Organization, 1949: sixteen members in 1990 (France outside the integrated command since
+# 1966, still a member). A defensive alliance led by the United States.
+faction_template_totu_nato = {
+	name = TOTU_nato
+	icon = GFX_faction_logo_totu_nato
+	manifest = faction_manifest_containment_of_communism
+	can_leader_join_other_factions = no
+
+	default_rules = {
+		joining_rule_non_communist
+		joining_rule_has_no_offensive_war
+		change_leader_rule_never
+		call_to_war_rule_faction_leader_only
+		goals_only_faction_leader
+		government_in_exile_allowed
+		faction_peace_rule_liberation_focus
+	}
+}

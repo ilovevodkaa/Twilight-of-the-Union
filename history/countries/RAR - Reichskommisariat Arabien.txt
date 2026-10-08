@@ -1,0 +1,18 @@
+﻿capital = 291
+
+set_research_slots = 3
+set_stability = 0.5
+set_war_support = 0.2
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1988.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	democratic = 2
+	communism = 5
+	neutrality = 90
+	fascism = 3
+}

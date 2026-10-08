@@ -1,0 +1,29 @@
+state = {
+	id = 1093
+	name = "STATE_1093"
+	manpower = 597078
+	resources = {
+		tungsten = 1
+	}
+	state_category = town
+
+	history = {
+		owner = KOR
+		add_core_of = KOR
+		add_core_of = PRK
+		buildings = {
+			infrastructure = 2
+		}
+		victory_points = { 4126 1 }
+		victory_points = { 7175 2 }
+		victory_points = { 11977 1 }
+		victory_points = { 13624 3 }
+		victory_points = { 13625 2 }
+	}
+
+	provinces = {
+		4126 7175 10085 11977 13624 13625
+	}
+
+	local_supplies = 0.0
+}

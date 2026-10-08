@@ -1,0 +1,35 @@
+state = {
+	id = 58
+	name = "STATE_58"
+	manpower = 1666215
+	resources = {
+		aluminium = 3
+		steel = 6
+	}
+	state_category = city
+
+	history = {
+		owner = GER
+		add_core_of = GER
+		add_core_of = SHL
+		add_core_of = PRE
+		buildings = {
+			infrastructure = 4
+			dockyard = 4
+			13414 = {
+				naval_base = 8
+			}
+		}
+		victory_points = { 317 3 }
+		victory_points = { 6389 10 }
+		victory_points = { 9320 1 }
+		victory_points = { 13414 2 }
+		victory_points = { 13415 1 }
+	}
+
+	provinces = {
+		317 3231 3368 6257 6389 9320 11331 11366 13414 13415 13416 13417 13418 13419 13420 13421 13422 13423
+	}
+
+	local_supplies = 3.0
+}

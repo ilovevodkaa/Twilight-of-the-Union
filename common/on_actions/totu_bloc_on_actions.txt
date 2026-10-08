@@ -1,0 +1,25 @@
+# Twilight of the Union: the Soviet bloc keeps its members (events/TOTU_bloc.txt).
+
+on_actions = {
+	on_government_change = {
+		effect = {
+			if = {
+				limit = { has_autonomy_state = autonomy_totu_socialist_commonwealth }
+				country_event = { id = totu_bloc.1 days = 1 }
+			}
+		}
+	}
+
+	# ROOT is the country leaving, FROM the faction leader
+	on_leave_faction = {
+		effect = {
+			if = {
+				limit = {
+					has_autonomy_state = autonomy_totu_socialist_commonwealth
+					NOT = { has_country_flag = TOTU_left_warsaw_pact }
+				}
+				country_event = { id = totu_bloc.1 days = 1 }
+			}
+		}
+	}
+}

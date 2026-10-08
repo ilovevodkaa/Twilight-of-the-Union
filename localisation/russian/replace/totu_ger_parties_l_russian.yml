@@ -1,0 +1,10 @@
+﻿l_russian:
+ # Twilight of the Union: FRG parties of 1990 (replace/ beats vanilla's 1930s Zentrum, NSDAP...).
+ GER_democratic_party:0 "ХДС/ХСС"
+ GER_democratic_party_long:0 "Христианско-демократический союз / Христианско-социальный союз"
+ GER_communism_party:0 "ГКП"
+ GER_communism_party_long:0 "Германская коммунистическая партия"
+ GER_neutrality_party:0 "Республиканцы"
+ GER_neutrality_party_long:0 "Республиканцы"
+ GER_fascism_party:0 "НДПГ"
+ GER_fascism_party_long:0 "Национал-демократическая партия Германии"

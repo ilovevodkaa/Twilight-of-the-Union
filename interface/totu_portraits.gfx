@@ -9,4 +9,29 @@ spriteTypes = {
 		name = "GFX_portrait_USA_george_bush"
 		texturefile = "gfx/leaders/totu/USA_george_bush.dds"
 	}
+
+	spriteType = {
+		name = "GFX_portrait_SOV_gennady_yanayev"
+		texturefile = "gfx/leaders/totu/SOV_gennady_yanayev.dds"
+	}
+
+	spriteType = {
+		name = "GFX_portrait_DDR_hans_modrow"
+		texturefile = "gfx/leaders/totu/DDR_hans_modrow.dds"
+	}
+
+	spriteType = {
+		name = "GFX_portrait_DDR_lothar_de_maiziere"
+		texturefile = "gfx/leaders/totu/DDR_lothar_de_maiziere.dds"
+	}
+
+	spriteType = {
+		name = "GFX_portrait_DDR_ibrahim_boehme"
+		texturefile = "gfx/leaders/totu/DDR_ibrahim_boehme.dds"
+	}
+
+	spriteType = {
+		name = "GFX_portrait_GER_helmut_kohl"
+		texturefile = "gfx/leaders/totu/GER_helmut_kohl.dds"
+	}
 }

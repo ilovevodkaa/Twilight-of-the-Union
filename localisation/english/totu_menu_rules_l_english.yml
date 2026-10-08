@@ -1,0 +1,9 @@
+﻿l_english:
+ # Twilight of the Union: game rules, rule presets, random country (area 'rules'; interface/frontendgamesetupview.gui, savedgamerules.gui)
+ TOTU_FE_RULES_APPLY:0 "Apply"
+ TOTU_FE_RULES_RESET:0 "Reset"
+ TOTU_FE_RULES_LOAD_PRESET:0 "Load preset"
+ TOTU_FE_RULES_SAVE_PRESET:0 "Save preset"
+ TOTU_FE_RULES_LOAD:0 "Load"
+ TOTU_FE_RULES_SAVE:0 "Save"
+ TOTU_FE_RULES_FILENAME:0 "Preset name"

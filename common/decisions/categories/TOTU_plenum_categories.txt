@@ -1,0 +1,11 @@
+# Twilight of the Union: the Plenum of the Central Committee. The window on top of the category (hall, factions,
+# radicalization and strength) is the scripted GUI TOTU_plenum_gui; the icon, the picture and the decision icons are
+# drawn by tools/build_plenum.py too.
+
+TOTU_plenum_category = {
+	icon = GFX_decision_category_totu_plenum
+	picture = GFX_decision_cat_picture_totu_plenum
+	allowed = { original_tag = SOV }
+	scripted_gui = TOTU_plenum_gui
+	priority = 200
+}

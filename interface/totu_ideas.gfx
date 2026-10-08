@@ -34,4 +34,284 @@ spriteTypes = {
 		name = "GFX_idea_totu_conscript_army"
 		texturefile = "gfx/interface/ideas/totu/totu_conscript_army.dds"
 	}
+
+	spriteType = {
+		name = "GFX_idea_totu_soviet_army"
+		texturefile = "gfx/interface/ideas/totu/totu_soviet_army.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_soviet_air_force"
+		texturefile = "gfx/interface/ideas/totu/totu_soviet_air_force.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_soviet_navy"
+		texturefile = "gfx/interface/ideas/totu/totu_soviet_navy.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_soviet_economy"
+		texturefile = "gfx/interface/ideas/totu/totu_soviet_economy.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_nuclear_parity"
+		texturefile = "gfx/interface/ideas/totu/totu_nuclear_parity.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_chernobyl"
+		texturefile = "gfx/interface/ideas/totu/totu_chernobyl.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_space_power"
+		texturefile = "gfx/interface/ideas/totu/totu_space_power.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_sovereign_union"
+		texturefile = "gfx/interface/ideas/totu/totu_sovereign_union.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_emergency_rule"
+		texturefile = "gfx/interface/ideas/totu/totu_emergency_rule.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_andropov_discipline"
+		texturefile = "gfx/interface/ideas/totu/totu_andropov_discipline.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_democratic_socialism"
+		texturefile = "gfx/interface/ideas/totu/totu_democratic_socialism.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_market_reforms"
+		texturefile = "gfx/interface/ideas/totu/totu_market_reforms.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_yeltsin_tandem"
+		texturefile = "gfx/interface/ideas/totu/totu_yeltsin_tandem.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_war_of_laws"
+		texturefile = "gfx/interface/ideas/totu/totu_war_of_laws.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_party_control"
+		texturefile = "gfx/interface/ideas/totu/totu_party_control.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_great_power_patriotism"
+		texturefile = "gfx/interface/ideas/totu/totu_great_power_patriotism.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_social_payments"
+		texturefile = "gfx/interface/ideas/totu/totu_social_payments.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_cooperatives"
+		texturefile = "gfx/interface/ideas/totu/totu_cooperatives.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_rsfsr_budget"
+		texturefile = "gfx/interface/ideas/totu/totu_rsfsr_budget.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_baltic_crackdown"
+		texturefile = "gfx/interface/ideas/totu/totu_baltic_crackdown.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_army_at_a_loss"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_army_at_a_loss.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_border_regime"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_border_regime.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_brain_drain"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_brain_drain.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_cheap_bread"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_cheap_bread.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_democratic_socialism"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_democratic_socialism.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_dmark_shock"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_dmark_shock.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_ec_association"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_ec_association.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_grand_coalition"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_grand_coalition.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_indebted_plan"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_indebted_plan.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_joint_ventures"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_joint_ventures.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_maximilian_affair"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_maximilian_affair.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_mil_barracks_discipline"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_mil_barracks_discipline.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_mil_brotherhood_in_arms"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_mil_brotherhood_in_arms.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_mil_citizens_in_uniform"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_mil_citizens_in_uniform.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_mil_military_reform"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_mil_military_reform.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_mil_neutral_army"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_mil_neutral_army.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_mil_peace_dividend"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_mil_peace_dividend.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_mil_professional_army"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_mil_professional_army.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_mil_soldiers_councils"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_mil_soldiers_councils.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_mil_soldiers_in_factories"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_mil_soldiers_in_factories.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_mil_stationing_treaty"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_mil_stationing_treaty.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_mil_wgf_departure"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_mil_wgf_departure.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_national_responsibility"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_national_responsibility.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_neutral_republic"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_neutral_republic.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_open_border"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_open_border.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_price_reform"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_price_reform.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_restitution_claims"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_restitution_claims.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_round_table"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_round_table.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_short_time_work"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_short_time_work.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_social_charter"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_social_charter.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_social_market"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_social_market.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_socialist_market"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_socialist_market.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_stasi_besieged"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_stasi_besieged.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_third_way"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_third_way.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_wave_of_closures"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_wave_of_closures.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_totu_ddr_western_group"
+		texturefile = "gfx/interface/ideas/totu/totu_ddr_western_group.dds"
+	}
 }

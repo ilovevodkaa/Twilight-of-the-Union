@@ -1,0 +1,33 @@
+# NEUTRALISED COPY of vanilla common/ai_strategy/CHL.txt made by tools/strip_vanilla.py: references to the removed vanilla
+# events, decisions and focus trees are cut. Edit the tool, not this file.
+join_the_global_war_on_historical = {
+	allowed = {
+		original_tag = CHL
+	}
+	enable = {
+		original_tag = CHL
+		is_historical_focus_on = yes
+		always = no
+	}
+	abort = {
+		JAP = {
+			NOT = {
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+				}
+			}
+		}	
+	}
+
+	ai_strategy = {
+		type = conquer
+		id = "JAP"
+		value = 300
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "JAP"
+		value = 300
+	}
+}

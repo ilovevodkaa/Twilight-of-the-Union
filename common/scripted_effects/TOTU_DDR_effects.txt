@@ -1,0 +1,123 @@
+# Twilight of the Union: the GDR's Volkskammer election of 18 March 1990 (events/TOTU_DDR.txt).
+# Texts: localisation/*/totu_ddr_politics_l_*.yml.
+
+# Who wins: the PDS if communism is more popular than democracy; otherwise the Alliance for Germany if the GDR took
+# Kohl's currency union (focus DDR_accept_currency_union), else the SPD, the favourite of every poll until March.
+TOTU_DDR_count_votes = {
+	set_temp_variable = { pds_vote = party_popularity@communism }
+	set_temp_variable = { dem_vote = party_popularity@democratic }
+	if = {
+		limit = { check_variable = { pds_vote > dem_vote } }
+		set_country_flag = TOTU_DDR_winner_pds
+	}
+	else_if = {
+		limit = { has_country_flag = TOTU_DDR_currency_union_promised }
+		set_country_flag = TOTU_DDR_winner_alliance
+	}
+	else = {
+		set_country_flag = TOTU_DDR_winner_spd
+	}
+	# the SED-PDS dropped the "SED" on 4 February 1990
+	set_party_name = {
+		ideology = communism
+		name = DDR_pds_party
+		long_name = DDR_pds_party_long
+	}
+}
+
+# The Round Table met for the last time on 12 March: after the election the government has a mandate of its own.
+TOTU_DDR_end_round_table = {
+	if = {
+		limit = { has_idea = TOTU_DDR_round_table }
+		remove_ideas = TOTU_DDR_round_table
+	}
+	if = {
+		limit = { has_idea = TOTU_DDR_national_responsibility }
+		remove_ideas = TOTU_DDR_national_responsibility
+	}
+}
+
+# A freely elected government answers to its voters, not to Moscow: the GDR drifts further from the USSR but stays a
+# socialist commonwealth state (common/autonomous_states/TOTU_socialist_commonwealth.txt) and stays in the Pact.
+TOTU_DDR_free_election_autonomy = {
+	if = {
+		limit = { has_autonomy_state = autonomy_totu_socialist_commonwealth }
+		add_autonomy_ratio = {
+			value = 0.2
+			localization = TOTU_DDR_free_election_autonomy
+		}
+	}
+}
+
+# Historical result: Alliance 48 %, SPD 21.9 %, PDS 16.4 %, liberals 5.3 %, Alliance 90 2.9 %. Lothar de Maizière
+# (CDU) forms a grand coalition.
+TOTU_DDR_alliance_government = {
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1990.3.18"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic = 77
+		communism = 17
+		neutrality = 5
+		fascism = 1
+	}
+	add_country_leader_role = {
+		character = DDR_lothar_de_maiziere
+		promote_leader = yes
+		country_leader = {
+			ideology = conservatism
+			expire = "2030.1.1.1"
+		}
+	}
+	TOTU_DDR_end_round_table = yes
+	TOTU_DDR_free_election_autonomy = yes
+	add_stability = 0.05
+	set_country_flag = TOTU_DDR_government_alliance
+	mark_focus_tree_layout_dirty = yes   # post-election branches use allow_branch on this flag
+}
+
+# The SPD wins as the polls of January predicted: unity, but slower and without a sell-off.
+TOTU_DDR_spd_government = {
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1990.3.18"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_party_name = {
+		ideology = democratic
+		name = DDR_spd_party
+		long_name = DDR_spd_party_long
+	}
+	set_popularities = {
+		democratic = 74
+		communism = 19
+		neutrality = 6
+		fascism = 1
+	}
+	add_country_leader_role = {
+		character = DDR_ibrahim_boehme
+		promote_leader = yes
+		country_leader = {
+			ideology = socialism
+			expire = "2030.1.1.1"
+		}
+	}
+	TOTU_DDR_end_round_table = yes
+	TOTU_DDR_free_election_autonomy = yes
+	add_stability = 0.03
+	set_country_flag = TOTU_DDR_government_spd
+	mark_focus_tree_layout_dirty = yes   # post-election branches use allow_branch on this flag
+}
+
+# The PDS stays the strongest party and Modrow keeps the government: the GDR goes on, now with a mandate.
+TOTU_DDR_pds_government = {
+	TOTU_DDR_end_round_table = yes
+	add_stability = 0.05
+	add_political_power = 50
+	set_country_flag = TOTU_DDR_government_pds
+	mark_focus_tree_layout_dirty = yes   # post-election branches use allow_branch on this flag
+}

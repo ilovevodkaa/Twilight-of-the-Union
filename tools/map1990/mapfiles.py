@@ -8,10 +8,9 @@ from PIL import Image
 from scipy import ndimage
 
 from .assemble import anchor_of
-from .check import PER_PROVINCE_TYPES, PER_STATE_COUNTS, adjacency_pairs, strait_pairs
+from .check import COASTAL_TYPES, PER_PROVINCE_TYPES, PER_STATE_COUNTS, adjacency_pairs, land_near, strait_pairs
 from .common import MAP_H, px_of, stable_seed
 
-COASTAL_TYPES = ("naval_base_spawn", "coastal_bunker", "naval_supply_hub", "naval_headquarters", "floating_harbor")
 STACK_INLAND = (0, 1, 2, 3, 4, 5, 6, 9, 10, 21, 22, 23, 24, 25, 26, 27, 38)
 STACK_COASTAL_EXTRA = (19, 20)
 FOUR = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]], bool)
@@ -73,6 +72,8 @@ class _Ctx:
         self.is_sea = np.zeros(max(zm.provs) + 1, bool)
         self.is_sea[[p for p, k in kinds.items() if k == "sea"]] = True
         self.land = {p for p, k in kinds.items() if k == "land"}
+        self.vland = np.zeros(max(vm.provs) + 1, bool)
+        self.vland[[p for p, v in vm.provs.items() if v.kind == "land"]] = True
         self.zone_states = {zm.unit_state[u] for u in set(zm.zone_provs.values())}
 
     def y(self, row, col):
@@ -90,14 +91,14 @@ class _Ctx:
         sub = self.zm.ids[bb]
         pm = sub == p
         sea = self.is_sea[sub]
-        cand = pm & ndimage.binary_dilation(sea, FOUR)
+        cand = pm & ndimage.binary_dilation(sea, np.ones((3, 3), bool))       # diagonal sea counts too
         rr, cc = np.nonzero(cand)
         if not len(rr):
             return None
         ar, ac = self.zm.anchor.get(p, (rr.mean() + bb[0].start, cc.mean() + bb[1].start))
         k = int(np.argmin((rr + bb[0].start - ar) ** 2 + (cc + bb[1].start - ac) ** 2))
         r, c = rr[k], cc[k]
-        for dr, dc in RING[:4]:
+        for dr, dc in RING:
             if 0 <= r + dr < sub.shape[0] and 0 <= c + dc < sub.shape[1] and sea[r + dr, c + dc]:
                 return (r + bb[0].start, c + bb[1].start), int(sub[r + dr, c + dc])
         return None
@@ -106,6 +107,18 @@ class _Ctx:
         bb = self.objs[p - 1]
         rr, cc = np.nonzero(self.zm.ids[bb] == p)
         return rr + bb[0].start, cc + bb[1].start
+
+    def nearest_of_state(self, sid, r, c):
+        """The land pixel of state sid nearest to (r, c)."""
+        best = None
+        for p in self.states[sid]["provs"]:
+            if p in self.land:
+                rr, cc = self.pixels(p)
+                d = (rr - r) ** 2 + (cc - c) ** 2
+                k = int(np.argmin(d))
+                if best is None or d[k] < best[0]:
+                    best = (d[k], int(rr[k]), int(cc[k]))
+        return best[1], best[2]
 
 
 def write_all(zm, vm, states, out):
@@ -173,14 +186,19 @@ def _buildings(ctx, out):
     for f in vm.buildings:
         sid_v, typ = int(f[0]), f[1]
         r, c = px_of(float(f[2]), float(f[4]))
-        if typ in per_prov:
-            p_v = int(vm.ids[r, c])
-            if p_v in ctx.gone or p_v not in ctx.state_of:
+        if typ in per_prov:                     # coastal models often stand in the water: use the land beside them
+            p_v = land_near(vm.ids, ctx.vland, ctx.state_of, sid_v, r, c)
+            if p_v is None or p_v in ctx.gone or p_v not in ctx.state_of:
                 continue
             f = [str(ctx.state_of[p_v])] + f[1:]
         elif typ in per_state:
             if sid_v in ctx.zone_states or int(zm.ids[r, c]) in zm.zone_provs or sid_v not in ctx.states:
                 continue
+            q = int(zm.ids[r, c])
+            if q in ctx.land and ctx.state_of.get(q) != sid_v:     # its place went to a province of another state
+                r, c = ctx.nearest_of_state(sid_v, r, c)
+                x, z = pos_of(r, c)
+                f = f[:2] + [f"{x:.2f}", f"{ctx.y(r, c):.2f}", f"{z:.2f}"] + f[5:]
         else:                                   # dams, locks, landmarks: stay where they are
             p = int(zm.ids[r, c])
             if p not in ctx.state_of:
@@ -221,7 +239,8 @@ def _buildings(ctx, out):
                 (r, c), sea = cp
                 x, z = pos_of(r, c)
                 lines.append(fmt_building(sid, "dockyard", x, ctx.y(r, c), z, rng.uniform(0, 6.28), sea))
-    _write(out / "buildings.txt", lines)
+    # no final newline, as in vanilla: the engine reads one as an empty line with "invalid arguments count"
+    (out / "buildings.txt").write_text("\n".join(lines), encoding="utf-8", newline="\n")
 
 
 def _main_province(ctx, sid, provs):

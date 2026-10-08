@@ -1,0 +1,624 @@
+# Twilight of the Union: multiplayer server browser in the broadcast style (full copy of vanilla 1.19.3
+# interface/matchmaking.gui; every vanilla element name and type is kept).
+# One flat board 1022x560 (it overlays frontendmultiplayerview exactly, which is drawn on top and holds the player
+# name field, the version and the "Server ID" plate). Title (22,22); tabs on row 52 with the refresh plates
+# right-aligned; filter band rows 88 / 120 / 152; column headers on row 196 (GFX_totu_mp_sort_*, built by
+# tools/build_mp_gfx.py); list 224..488; plate row 520..560 inside the bottom edge: Back at x 0, Join / Host (slate)
+# right-aligned.
+guiTypes = {
+	containerWindowType = {
+		name = "matchmaking_window"
+		position = { x=0 y=0 }
+		size = { width=1022 height=560 }
+		Orientation = center
+		Origo = center
+
+		background = {
+			name = "totu_board"
+			quadTextureSprite = "GFX_totu_board"
+		}
+
+		containerWindowType = {
+			name = "matchmaking_servers_window"
+			position = { x=0 y=0 }
+			size = { width=1022 height=560 }
+
+			iconType = {
+				name ="background"
+				spriteType = "GFX_matchmaking_browser_bg"
+				position = { x= -9000 y = -9000 }	# TotU: painted browser art, the board is the background
+			}
+
+			# filter checkboxes: column x 270 (password / not full / has players), column x 520 (mod / version)
+			instantTextBoxType={
+				name = "filter_no_password_title"
+				position = { x= 298 y = 97 }
+				borderSize = {x = 0 y = 0}
+				maxWidth = 210
+				maxHeight = 18
+				fixedsize = yes
+				font = "totu_caption_name"
+				text_color_code = P
+				text = "MATCHMAKING_FILTER_NOPASSWORD"
+			}
+
+			checkboxType = {
+				name = "filter_no_password"
+				position = { x= 270 y = 94 }
+				quadTextureSprite ="GFX_totu_checkbox"
+				clicksound = click_checkbox
+			}
+
+			instantTextBoxType={
+				name = "filter_not_full_title"
+				position = { x= 298 y = 129 }
+				borderSize = {x = 0 y = 0}
+				maxWidth = 210
+				maxHeight = 18
+				fixedsize = yes
+				font = "totu_caption_name"
+				text_color_code = P
+				text = "MATCHMAKING_FILTER_NOTFULL"
+			}
+
+			checkboxType = {
+				name = "filter_not_full"
+				position = { x= 270 y = 126 }
+				quadTextureSprite ="GFX_totu_checkbox"
+				clicksound = click_checkbox
+			}
+
+			instantTextBoxType={
+				name = "filter_has_players_title"
+				position = { x= 298 y = 161 }
+				borderSize = {x = 0 y = 0}
+				maxWidth = 210
+				maxHeight = 18
+				fixedsize = yes
+				font = "totu_caption_name"
+				text_color_code = P
+				text = "MATCHMAKING_FILTER_HASPLAYERS"
+			}
+
+			checkboxType = {
+				name = "filter_has_players"
+				position = { x= 270 y = 158 }
+				quadTextureSprite ="GFX_totu_checkbox"
+				clicksound = click_checkbox
+			}
+
+			checkboxType = {
+				name = "filter_mod"
+				position = { x= 520 y = 94 }
+				quadTextureSprite ="GFX_totu_checkbox"
+				clicksound = click_checkbox
+			}
+
+			instantTextBoxType={
+				name = "filter_mod_title"
+				position = { x= 548 y = 97 }
+				borderSize = {x = 0 y = 0}
+				maxWidth = 210
+				maxHeight = 18
+				fixedsize = yes
+				font = "totu_caption_name"
+				text_color_code = P
+				text = "MATCHMAKING_FILTER_MOD"
+			}
+
+			checkboxType = {
+				name = "filter_version"
+				position = { x= 520 y = 126 }
+				quadTextureSprite ="GFX_totu_checkbox"
+				clicksound = click_checkbox
+			}
+
+			instantTextBoxType={
+				name = "filter_version_title"
+				position = { x= 548 y = 129}
+				borderSize = {x = 0 y = 0}
+				maxWidth = 210
+				maxHeight = 18
+				fixedsize = yes
+				font = "totu_caption_name"
+				text_color_code = P
+				text = "MATCHMAKING_FILTER_VERSION"
+			}
+
+			# text filters: column x 784..1000, the Filter plate right-aligned under them
+			iconType ={
+				name ="filter_name_bg"
+				spriteType = "GFX_totu_field_216"
+				position = { x = 784 y = 88 }
+				alwaystransparent = yes
+			}
+
+			editBoxType = {
+				position = { x = 784 y = 88 }
+				name = "filter_name"
+				font = "totu_list"
+				borderSize = {x = 8 y = 8}
+				size = { x=216 y=32 }
+				text = "MATCHMAKING_SERVER_FILTER_NAME"
+			}
+
+			iconType = {
+				name ="filter_tags_bg"
+				spriteType = "GFX_totu_field_216"
+				position = { x = 784 y = 126 }
+				alwaystransparent = yes
+			}
+
+			editBoxType = {
+				position = { x = 784 y = 126 }
+				name = "filter_tags"
+				font = "totu_list"
+				borderSize = {x = 8 y = 8}
+				size = { x=216 y=32 }
+				text = "MATCHMAKING_SERVER_FILTER_SEARCH"
+			}
+
+			buttonType = {
+				name = "filter_tags_search"
+				quadTextureSprite = "GFX_totu_slate_s_94"	# tb.plate_sprite_for_key("TOTU_FE_MP_FILTER", "small", "slate")
+				position = { x = 906 y = 164 }
+				buttonText = "TOTU_FE_MP_FILTER"
+				buttonFont = "totu_button_small"
+				clicksound = click_default
+				oversound = ui_menu_over
+			}
+
+			instantTextBoxType={
+				name = "no_servers"
+				position = {x = 22 y = 347 }
+				borderSize = {x = 0 y = 0}
+				maxWidth = 978
+				maxHeight = 18
+				fixedsize = yes
+				format = center
+				font = "totu_caption_name"
+				text_color_code = D
+				text = "MATCHMAKING_SERVERS_DOSEARCH"
+			}
+
+			# rule under the column headers
+			containerWindowType = {
+				name = "totu_mp_header_rule"
+				position = { x = 22 y = 220 }
+				size = { width = 970 height = 1 }
+				background = { name = "bg" quadTextureSprite = "GFX_totu_hairline" }
+			}
+
+			listboxType =
+			{
+				name ="servers"
+				position = { x = 22 y = 224 }
+				backGround=""
+				size = { x = 978 y = 264 }
+				Orientation = "UPPER_LEFT"
+				spacing = 1
+				scrollbartype = "totu_listbox_slider"
+				borderSize = {x = 0 y = 0}
+			}
+
+			# source plates on the tabs row, right-aligned (x 550..1000)
+			buttonType = {
+				name = "quick_refresh"
+				quadTextureSprite = "GFX_totu_plate_s_118"	# TOTU_FE_MP_REFRESH
+				position = { x = 550 y = 52 }
+				buttonText = "TOTU_FE_MP_REFRESH"
+				buttonFont = "totu_button_small"
+				clicksound = click_default
+				oversound = ui_menu_over
+			}
+
+			buttonType = {
+				name = "refresh_lan"
+				quadTextureSprite = "GFX_totu_plate_s_190"	# TOTU_FE_MP_LAN
+				position = { x = 680 y = 52 }
+				buttonText = "TOTU_FE_MP_LAN"
+				buttonFont = "totu_button_small"
+				clicksound = click_default
+				oversound = ui_menu_over
+			}
+
+			buttonType = {
+				name = "refresh_internet"
+				quadTextureSprite = "GFX_totu_plate_s_118"	# TOTU_FE_MP_INTERNET
+				position = { x = 882 y = 52 }
+				buttonText = "TOTU_FE_MP_INTERNET"
+				buttonFont = "totu_button_small"
+				clicksound = click_default
+				oversound = ui_menu_over
+			}
+
+			buttonType = {
+				name = "join"
+				quadTextureSprite = "GFX_totu_slate_160"	# TOTU_FE_MP_JOIN
+				position = { x = 642 y = 520 }
+				buttonText = "TOTU_FE_MP_JOIN"
+				buttonFont = "totu_button"
+				clicksound = click_ok
+				oversound = ui_menu_over
+			}
+
+			buttonType = {
+				name = "host"
+				quadTextureSprite = "GFX_totu_slate_208"	# TOTU_FE_MP_HOST
+				position = { x = 814 y = 520 }
+				buttonText = "TOTU_FE_MP_HOST"
+				buttonFont = "totu_button"
+				clicksound = click_default
+				oversound = ui_menu_over
+			}
+
+			# column headers on row 196: small plates, vanilla keys in hoi_24header (pixel, CJK keeps vanilla);
+			# columns match matchmaking_server_item below (list x 22)
+			buttonType = {
+				name = "sort_by_password"
+				quadTextureSprite = "GFX_totu_mp_sort_118"
+				position = { x= 22  y = 196  }
+				buttonText = "MATCHMAKING_SERVER_PASSWORD"
+				buttonFont = "totu_h24"
+				clicksound = click_default
+			}
+
+			buttonType = {
+				name = "sort_by_name"
+				quadTextureSprite = "GFX_totu_mp_sort_250"
+				position = { x= 140 y = 196  }
+				buttonText = "MATCHMAKING_SERVER_NAME"
+				buttonFont = "totu_h24"
+				clicksound = click_default
+			}
+
+			buttonType = {
+				name = "sort_by_slots"
+				quadTextureSprite = "GFX_totu_mp_sort_106"
+				position = { x= 390 y = 196  }
+				buttonText = "MATCHMAKING_SERVER_SLOTS"
+				buttonFont = "totu_h24"
+				clicksound = click_default
+			}
+
+			buttonType = {
+				name = "sort_by_version"
+				quadTextureSprite = "GFX_totu_mp_sort_118"
+				position = { x= 496 y = 196  }
+				buttonText = "MATCHMAKING_SERVER_VERSION"
+				buttonFont = "totu_h24"
+				clicksound = click_default
+			}
+
+			buttonType = {
+				name = "sort_by_tags"
+				quadTextureSprite = "GFX_totu_mp_sort_166"
+				position = { x= 614 y = 196  }
+				buttonText = "MATCHMAKING_SERVER_TAGS"
+				buttonFont = "totu_h24"
+				clicksound = click_default
+			}
+
+			buttonType = {
+				name = "sort_by_mod"
+				quadTextureSprite = "GFX_totu_mp_sort_106"
+				position = { x= 780 y = 196  }
+				buttonText = "MATCHMAKING_SERVER_MOD"
+				buttonFont = "totu_h24"
+				clicksound = click_default
+			}
+
+			buttonType = {
+				name = "sort_by_status"
+				quadTextureSprite = "GFX_totu_mp_sort_106"
+				position = { x= 886 y = 196  }
+				buttonText = "MATCHMAKING_SERVER_STATUS"
+				buttonFont = "totu_h24"
+				clicksound = click_default
+			}
+		}
+
+		containerWindowType = {
+			name = "matchmaking_community_window"
+			position = { x=0 y=0 }
+			size = { width=1022 height=560 }
+			Orientation = upper_left
+
+			iconType = {
+				name ="background"
+				spriteType = "GFX_matchmaking_browser_bg"
+				position = { x= -9000 y = -9000 }	# TotU: painted browser art
+			}
+
+			instantTextBoxType = {
+				name = "friends_title"
+				position = { x = 270 y = 97 }
+				textureFile = ""
+				font = "totu_label"
+				text_color_code = D
+				borderSize = {x = 0 y = 0}
+				text = "TOTU_FE_MP_FRIENDS"		# TotU: vanilla FRIENDS has no localisation
+				maxWidth = 400
+				maxHeight = 18
+				fixedsize = yes
+				format = left
+			}
+
+			listboxType = {
+				name = "friends"
+				position = { x = 270 y = 124 }
+				backGround=""
+				size = { x = 524 y = 364 }
+				Orientation = "UPPER_LEFT"
+				spacing = 1
+				scrollbartype = "totu_listbox_slider"
+				borderSize = {x = 0 y = 0}
+			}
+
+			buttonType={
+				name = "send_chat"
+				quadTextureSprite = "GFX_totu_slate_s_130"	# TOTU_FE_MP_SEND
+				position = { x = 806 y = 124  }
+				buttonText = "TOTU_FE_MP_SEND"
+				buttonFont = "totu_button_small"
+				clicksound = click_default
+				oversound = ui_menu_over
+			}
+		}
+
+		instantTextBoxType = {
+			name = "matchmaking_title"
+			position = { x = 22 y = 22 }
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			text = "MATCHMAKING_TITLE"
+			maxWidth = 600
+			maxHeight = 18
+			fixedsize = yes
+			format = left
+		}
+
+		#instantTextBoxType = {
+		#	name = "client_status_title"
+		#	position = { x = 512 y = 55 }
+		#	textureFile = ""
+		#	font = "totu_h36"
+		#	borderSize = {x = 4 y = 4}
+		#	text = "MATCHMAKING_CLIENT_STATUS"
+		#	maxWidth = 512
+		#	maxHeight = 32
+
+		#	format = centre
+		#}
+
+		#instantTextBoxType = {
+		#	name = "client_status"
+		#	position = { x = 825 y = 67 }
+		#	textureFile = ""
+		#	font = "hoi_20bs"
+		#	borderSize = {x = 4 y = 4}
+		#	text = ""
+		#	maxWidth = 512
+		#	maxHeight = 32
+
+		#	format = left
+		#}
+
+		# tabs: checkboxType (kept), bank tab plates, labels over them (full plate width, centred)
+		checkboxType = {
+			name = "servers_tab"
+			position = { x = 22 y = 52 }
+			quadTextureSprite = "GFX_totu_tab_s_106"	# tb.plate_sprite_for_key("MATCHMAKING_SERVERS", "small", "tab")
+			clicksound = click_default
+		}
+
+		checkboxType = {
+			name = "community_tab"
+			position = { x= 140 y = 52 }
+			quadTextureSprite = "GFX_totu_tab_s_142"	# tb.plate_sprite_for_key("MATCHMAKING_COMMUNITY", "small", "tab")
+			clicksound = click_default
+		}
+
+		instantTextBoxType = {
+			name = "servers_tab_title"
+			position = { x = 22 y = 57}
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			text = "MATCHMAKING_SERVERS"
+			maxWidth = 106
+			maxHeight = 18
+			fixedsize = yes
+			format = centre
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "community_tab_title"
+			position = { x = 140 y = 57}
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			text = "MATCHMAKING_COMMUNITY"
+			maxWidth = 142
+			maxHeight = 18
+			fixedsize = yes
+			format = centre
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "back"
+			quadTextureSprite = "GFX_totu_plate_160"	# TOTU_FE_BACK
+			position = { x = 0 y = 520  }
+			buttonText = "TOTU_FE_BACK"
+			buttonFont = "totu_button"
+			clicksound = click_close
+			oversound = ui_menu_over
+			shortcut = "ESCAPE"
+		}
+
+		buttonType ={
+			name = "close"
+			quadTextureSprite = "GFX_totu_close"
+			position = { x= 976 y = 19 }
+			Orientation = "UPPER_LEFT"
+			clicksound = click_close
+		}
+	}
+
+	# one server row: 978x30 (list 978 wide, spacing 1); columns as the headers above (x relative to the list)
+	containerWindowType = {
+		name = "matchmaking_server_item"
+		position = { x = 0 y = 0 }
+		size = { width = 978 height = 30 }
+
+		buttonType = {
+			name = "select"
+			quadTextureSprite = "GFX_totu_mp_row_964"
+			position = { x = 0 y = 0  }
+		}
+
+		instantTextBoxType={
+			name = "name"
+			position = {x = 129 y = 7 }
+			borderSize = {x = 0 y = 0}
+			maxWidth = 230
+			maxHeight = 18
+			font = "totu_list"
+			text_color_code = P
+			text = ""
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType={
+			name = "slots"
+			position = {x = 368 y = 7 }
+			borderSize = {x = 0 y = 0}
+			maxWidth = 106
+			maxHeight = 18
+			font = "totu_list"
+			text_color_code = D
+			text = ""
+			fixedsize = yes
+			format = centre
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType={
+			name = "version"
+			position = {x = 474 y = 7 }
+			borderSize = {x = 0 y = 0}
+			maxWidth = 118
+			maxHeight = 18
+			font = "totu_list"
+			text_color_code = D
+			text = "1.0.2"
+			fixedsize = yes
+			format = centre
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType={
+			name = "tags"
+			position = {x = 592 y = 7 }
+			borderSize = {x = 0 y = 0}
+			maxWidth = 166
+			maxHeight = 18
+			font = "totu_list"
+			text_color_code = D
+			text = ""
+			fixedsize = yes
+			format = centre
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType={
+			name = "mod"
+			position = {x = 758 y = 7 }
+			borderSize = {x = 0 y = 0}
+			maxWidth = 106
+			maxHeight = 18
+			font = "totu_list"
+			text_color_code = D
+			text = "Sengoku"
+			fixedsize = yes
+			format = centre
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType={
+			name = "status"
+			position = {x = 864 y = 7 }
+			borderSize = {x = 0 y = 0}
+			maxWidth = 100
+			maxHeight = 18
+			font = "totu_list"
+			text_color_code = D
+			text = ""
+			fixedsize = yes
+			format = centre
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "password"
+			spriteType = "GFX_password_icon"
+			position = { x = 46 y = 7 }
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+	}
+
+	# one friend row: a raised slab (matchmaking_friend_bg, flattened by tools/ingame/mp.py), name P / status D
+	containerWindowType = {
+		name = "matchmaking_friend_item"
+		position = { x = 0 y = 0 }
+		size = { width = 512 height = 56 }
+
+		buttonType ={
+			name = "select"
+			quadTextureSprite = "GFX_matchmaking_friend_bg"
+			position = { x = 0 y = 0  }
+		}
+
+		buttonType ={
+			name ="icon"
+			spriteType = "GFX_button_kick"
+			position = { x = 8 y = 6 }
+			frame = 1
+			scale = 0.8
+		}
+
+		instantTextBoxType={
+			name = "name"
+			position = {x = 52 y = 10 }
+			borderSize = {x = 0 y = 0}
+			maxWidth = 296
+			maxHeight = 18
+			font = "totu_list"
+			text_color_code = P
+			text = "Player"
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType={
+			name = "status"
+			position = {x = 52 y = 30 }
+			borderSize = {x = 0 y = 0}
+			maxWidth = 296
+			maxHeight = 18
+			font = "totu_list"
+			text_color_code = D
+			text = "ONLINE"
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+	}
+}

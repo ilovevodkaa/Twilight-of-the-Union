@@ -1,0 +1,135 @@
+# Twilight of the Union: decisions of the Plenum of the Central Committee (category TOTU_plenum_category).
+# Effects go through the wrappers of common/scripted_effects/TOTU_plenum_generated.txt. The AI keeps to
+# Gorbachev's centre and calms the party when it gets radical.
+
+TOTU_plenum_category = {
+
+	# Lean on a faction: the extremes (Democratic Platform, orthodox) radicalize the party more.
+	TOTU_pl_lean_dem = {
+		icon = GFX_decision_totu_pl_lean_dem
+		cost = 50
+		days_re_enable = 60
+		available = { check_variable = { TOTU_pl_dem < 85 } }
+		complete_effect = {
+			TOTU_pl_dem_add_5 = yes
+			TOTU_pl_rad_add_3 = yes
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = { add = 3 has_country_flag = TOTU_plenum_concluded check_variable = { TOTU_pl_ruling = 1 } check_variable = { TOTU_pl_dem < 55 } }
+		}
+	}
+
+	TOTU_pl_lean_gorb = {
+		icon = GFX_decision_totu_pl_lean_gorb
+		cost = 50
+		days_re_enable = 60
+		available = { check_variable = { TOTU_pl_gorb < 85 } }
+		complete_effect = {
+			TOTU_pl_gorb_add_5 = yes
+			TOTU_pl_rad_add_2 = yes
+		}
+		ai_will_do = {
+			factor = 3
+			modifier = { factor = 0 check_variable = { TOTU_pl_gorb > 54.99 } }
+			modifier = { factor = 0 has_country_flag = TOTU_plenum_concluded NOT = { check_variable = { TOTU_pl_ruling = 2 } } }
+		}
+	}
+
+	TOTU_pl_lean_cons = {
+		icon = GFX_decision_totu_pl_lean_cons
+		cost = 50
+		days_re_enable = 60
+		available = { check_variable = { TOTU_pl_cons < 85 } }
+		complete_effect = {
+			TOTU_pl_cons_add_5 = yes
+			TOTU_pl_rad_add_2 = yes
+		}
+		ai_will_do = {
+			factor = 0.5
+			modifier = { factor = 0 check_variable = { TOTU_pl_cons > 39.99 } }
+			modifier = { factor = 0 has_country_flag = TOTU_plenum_concluded NOT = { check_variable = { TOTU_pl_ruling = 3 } } }
+			modifier = { add = 3 has_country_flag = TOTU_plenum_concluded check_variable = { TOTU_pl_ruling = 3 } check_variable = { TOTU_pl_cons < 55 } }
+		}
+	}
+
+	TOTU_pl_lean_orth = {
+		icon = GFX_decision_totu_pl_lean_orth
+		cost = 50
+		days_re_enable = 60
+		available = { check_variable = { TOTU_pl_orth < 85 } }
+		complete_effect = {
+			TOTU_pl_orth_add_5 = yes
+			TOTU_pl_rad_add_3 = yes
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = { add = 3 has_country_flag = TOTU_plenum_concluded check_variable = { TOTU_pl_ruling = 4 } check_variable = { TOTU_pl_orth < 55 } }
+		}
+	}
+
+	# Calm the party down.
+	TOTU_pl_unity_appeal = {
+		icon = GFX_decision_totu_pl_unity_appeal
+		cost = 35
+		days_re_enable = 90
+		available = { check_variable = { TOTU_pl_rad > 9.99 } }
+		complete_effect = {
+			TOTU_pl_rad_sub_10 = yes
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { factor = 5 check_variable = { TOTU_pl_rad > 54.99 } }
+			modifier = { factor = 0 check_variable = { TOTU_pl_rad < 35 } }
+		}
+	}
+
+	# Tighten the apparatus: a stronger party, a more nervous one.
+	TOTU_pl_strengthen_apparatus = {
+		icon = GFX_decision_totu_pl_strengthen_apparatus
+		cost = 50
+		days_re_enable = 90
+		available = { check_variable = { TOTU_pl_str < 95 } }
+		complete_effect = {
+			TOTU_pl_str_add_10 = yes
+			TOTU_pl_rad_add_3 = yes
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { factor = 3 check_variable = { TOTU_pl_str < 45 } }
+			modifier = { factor = 0 check_variable = { TOTU_pl_str > 74.99 } }
+		}
+	}
+
+	# A purge of the membership: the conservatives' remedy.
+	TOTU_pl_purge = {
+		icon = GFX_decision_totu_pl_purge
+		cost = 75
+		days_re_enable = 180
+		available = { check_variable = { TOTU_pl_str < 95 } }
+		complete_effect = {
+			TOTU_pl_str_add_15 = yes
+			TOTU_pl_rad_add_10 = yes
+			TOTU_pl_cons_add_5 = yes
+			add_stability = -0.05
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = { add = 1 check_variable = { TOTU_pl_str < 30 } }
+		}
+	}
+
+	# Open the floor and the television cameras: the reformers gain, the apparatus loses its grip.
+	TOTU_pl_open_tribune = {
+		icon = GFX_decision_totu_pl_open_tribune
+		cost = 25
+		days_re_enable = 120
+		complete_effect = {
+			TOTU_pl_str_sub_10 = yes
+			TOTU_pl_dem_add_3 = yes
+			TOTU_pl_gorb_add_2 = yes
+			TOTU_pl_rad_sub_3 = yes
+		}
+		ai_will_do = { factor = 0 }
+	}
+}

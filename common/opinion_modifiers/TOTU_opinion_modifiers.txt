@@ -1,0 +1,9 @@
+# Twilight of the Union: opinion modifiers. Names: localisation/*/totu_sov_politics_l_*.yml.
+
+opinion_modifiers = {
+	# Event totu_sov_politics.2: the democracies' view of Moscow after the storming of the Vilnius TV tower.
+	TOTU_vilnius_crackdown = {
+		value = -30
+		decay = 1
+	}
+}

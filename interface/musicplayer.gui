@@ -1,0 +1,206 @@
+# TotU: full copy of vanilla 1.19.3 interface/musicplayer.gui, restyled as a broadcast board (frontend Options ->
+# Audio and the in-game topbar both open this window, so it uses the in-game board GFX_totu_board_ig).
+# Layout: title (22,22) and close (upper right); the station faceplate (music_station_*.gui) under it, centred on
+# the playlist; stations column (x 22) and playlist (x 208) from y 160 to the board's 22 px bottom measure.
+# Every vanilla element name and type is kept.
+guiTypes = {
+	containerWindowType = {
+		name = "musicplayer_window"
+		size = { width = 780 height = 600 }
+		orientation= center
+		origo = center
+		moveable = yes
+		fade_time = 200
+		fade_type = linear
+		click_to_front = yes
+
+
+		background = {
+			name = "Background"
+			quadTextureSprite ="GFX_totu_board_ig"		# TotU: board (vanilla GFX_tiled_bg)
+		}
+
+		instantTextBoxType = {
+			name = "totu_title"
+			position = { x = 22 y = 22 }
+			font = "totu_label"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			maxWidth = 400
+			maxHeight = 18
+			fixedsize = yes
+			format = left
+			text = "TOTU_FE_MISC_MUSIC_TITLE"
+			alwaystransparent = yes
+		}
+
+		# TotU: the vanilla radio plaque becomes the stations column label (RADIO_TITLE "Stations")
+		containerWindowType = {
+			name = "radio_decoration"
+			position = { x = 0 y = 124 }
+			size = { width = 190 height = 30 }
+
+			background = {
+				name = "Background"
+				quadTextureSprite ="GFX_tiled_window_transparent"	# TotU: vanilla paper frame
+			}
+
+			iconType = {
+				name = "radio_icon"
+				position = { x = -9000 y = -9000 }	# TotU: hidden (painted radio art)
+				quadTextureSprite ="GFX_radio_detection_medium"
+				alwaystransparent = yes
+			}
+
+			instantTextboxType = {
+				name = "cake"
+				position = { x = 22 y = 9 }
+				textureFile = ""
+				font = "totu_caption_name"
+				text_color_code = D
+				borderSize = {x = 0 y = 0}
+				text = "RADIO_TITLE"
+				maxWidth = 162
+				maxHeight = 18
+				fixedsize = yes
+				format = left
+			}
+
+
+		}
+
+		# TotU: the engine fills this with the station's faceplate (music_station_base.gui / _classic.gui / DLC):
+		# track name at +20, times at +30, transport buttons hang below it (LOWER_LEFT, +66), volume to about +91.
+		# x 188 centres the 590 px plate on the playlist column.
+		containerWindowType = {
+			name = "faceplate"
+			position = { x = 188 y = 40 }
+			size = { width = 590 height = 46 }
+		}
+
+		containerWindowType = {
+			name = "default_playlist_window"
+			position = { x = 208 y = 160 }
+			size = { width = 550 height = 418 }		# TotU: ends on the 22 px bottom measure
+			verticalScrollbar = "totu_vertical_slider"
+			margin = {top=0 left=0 bottom=0 right=0}
+
+			background = {
+				name = "Background"
+				quadTextureSprite ="GFX_totu_raised"		# TotU: sub-panel (vanilla paper frame)
+			}
+
+			gridBoxType = {
+				name = "tracks_grid"
+				position = { x = 0 y = 0 }
+				size = { width = 536 height =100 }
+				slotsize = { width = 536 height = 30 }
+				max_slots_horizontal = 1
+				format = "UPPER_LEFT"
+			}
+		}
+
+		containerWindowType = {
+			name = "default_stations_window"
+			position = { x = 22 y = 160 }
+			size = { width = 186 height = 418 }
+			verticalScrollbar = "totu_vertical_slider"
+			autohide_scrollbars = no
+			margin = {top=0 left=0 bottom=0 right=0}
+
+			background = {
+				name = "Background"
+				quadTextureSprite ="GFX_tiled_window_transparent"	# TotU: vanilla tiled_bg_1_scrollbar
+			}
+			gridBoxType = {
+				name = "stations_grid"
+				position = { x = 0 y = 0 }
+				size = { width = 162 height =130 }
+				slotsize = { width = 162 height = 136 }
+				max_slots_horizontal = 1
+				format = "UPPER_LEFT"
+			}
+		}
+
+		buttonType = {
+			name = "close_button"
+			position = { x = -46 y = 19 }
+			quadTextureSprite ="GFX_totu_close"
+			shortcut = "ESCAPE"
+			Orientation = "UPPER_RIGHT"
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+	}
+
+	# TotU: playlist row, 536 px (the playlist column minus the 12 px scrollbar + 2). Current track = keyer row.
+	containerWindowType={
+		name = "music_track_entry"
+		size = { width = 536 height = 30 }
+
+		background = {
+			name = "Background"
+			quadTextureSprite ="GFX_tiled_window_transparent"
+		}
+
+		iconType = {
+			name = "song_divider"
+			position = { x = -9000 y = -9000 }	# TotU: hidden (vanilla divider art)
+			quadTextureSprite ="GFX_musicplayer_entry_bg"
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "current_track"
+			position = {x= 0 y=0}
+			quadTextureSprite ="GFX_totu_misc_track_row"	# TotU: keyer row (vanilla GFX_selected_song)
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "disabled_track"
+			position = {x=-14 y=6}
+			quadTextureSprite ="GFX_disabled_song"
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "play_track_button"
+			quadTextureSprite ="GFX_music_pause_button"
+			position = { x= 0 y = -2}
+			pdx_tooltip = "MUSICPLAYER_PLAY_TRACK"
+		}
+
+		buttonType = {
+			name = "disable_track_button"
+			quadTextureSprite ="GFX_accept_decline_icon"
+			position = { x= 34 y = 4 }
+		}
+
+		instantTextboxType = {
+			name = "track_label"
+			position = { x = 64 y = 8 }
+			font = "totu_list"
+			text_color_code = P
+			maxWidth = 390
+			maxHeight = 18
+			format = left
+			fixedsize= yes
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "track_length"
+			position = { x = -72 y = 8 }
+			font = "totu_list"
+			text_color_code = D
+			text = "9:33"
+			maxWidth = 60
+			maxHeight = 18
+			format = right
+			fixedsize= yes
+			orientation = "UPPER_RIGHT"
+		}
+	}
+
+}

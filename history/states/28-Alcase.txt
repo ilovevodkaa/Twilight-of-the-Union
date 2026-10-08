@@ -19,26 +19,20 @@ state={
 		buildings = {
 			infrastructure = 4
 			industrial_complex = 3
-			549 = {
-				bunker = 10
-			}
 			678 = {
-				bunker = 10
-			}
-			3629 = {
-				bunker = 10
+				bunker = 3
 			}
 			6529 = {
-				bunker = 10
+				bunker = 3
 			}
 			9503 = {
-				bunker = 10
+				bunker = 3
 			}
 			9559 = {
-				bunker = 10
+				bunker = 3
 			}
 			11502 = {
-				bunker = 10
+				bunker = 3
 			}
 			anti_air_building = 5
 			air_base = 5
@@ -46,7 +40,7 @@ state={
 	}
 
 	provinces={
-		549 678 1346 3629 6529 9503 9559 11502
+		678 1346 6529 9503 9559 11502
 	}
 
 	local_supplies=14.0 

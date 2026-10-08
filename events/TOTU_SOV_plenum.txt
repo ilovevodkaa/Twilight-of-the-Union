@@ -1,0 +1,905 @@
+# Twilight of the Union: the Central Committee Plenum event chain.
+# Spec: docs/superpowers/specs/2026-10-08-plenum-design.md.
+# Texts: localisation/*/totu_sov_plenum_l_*.yml. Pictures: interface/totu_events.gfx.
+#
+# .1-.3   preparation, fired by the selected focus SOV_central_committee_plenum (days 10, 30, 50)
+# .11-.18 sessions, .11 fired by the completed focus, each fires the next 25 days later
+# .30     hidden dispatcher: TOTU_pl_conclude, then the winner's result event
+# .31-.34 results (dem, gorb, cons, orth), each shows the world a news event .41-.44
+# .50-.53 crises fired by TOTU_pl_monthly, repeatable for the whole game
+#
+# Option effects use only the plenum API (TOTU_pl_<f>_add/sub_<n>, TOTU_pl_rad_*, TOTU_pl_str_*)
+# and plain vanilla effects.
+
+add_namespace = totu_plenum
+
+###########################################################################
+# Preparation
+###########################################################################
+
+# The draft platform "Towards a Humane, Democratic Socialism".
+country_event = {
+	id = totu_plenum.1
+	title = totu_plenum.1.t
+	desc = totu_plenum.1.d
+	picture = GFX_report_event_totu_plenum_documents
+	is_triggered_only = yes
+
+	# Keep Yakovlev's wording: the centre gains, the apparatus grumbles.
+	option = {
+		name = totu_plenum.1.a
+		ai_chance = { factor = 45 }
+		TOTU_pl_gorb_add_5 = yes
+		TOTU_pl_cons_sub_3 = yes
+		TOTU_pl_rad_add_3 = yes
+	}
+
+	# Restore the leading role of the party: the apparatus is pleased, the radicals are not.
+	option = {
+		name = totu_plenum.1.b
+		ai_chance = { factor = 30 }
+		TOTU_pl_cons_add_5 = yes
+		TOTU_pl_str_add_3 = yes
+		TOTU_pl_rad_add_3 = yes
+	}
+
+	# Publish the draft for an open party discussion.
+	option = {
+		name = totu_plenum.1.c
+		ai_chance = { factor = 25 }
+		TOTU_pl_dem_add_5 = yes
+		TOTU_pl_str_sub_5 = yes
+		TOTU_pl_rad_sub_3 = yes
+	}
+}
+
+# Letters from the regional committees (obkoms) after the January 1990 ousters.
+country_event = {
+	id = totu_plenum.2
+	title = totu_plenum.2.t
+	desc = totu_plenum.2.d
+	picture = GFX_report_event_totu_plenum_backroom
+	is_triggered_only = yes
+
+	# Protect the obkom secretaries.
+	option = {
+		name = totu_plenum.2.a
+		ai_chance = { factor = 30 }
+		TOTU_pl_cons_add_5 = yes
+		TOTU_pl_str_add_5 = yes
+		TOTU_pl_rad_add_3 = yes
+		add_stability = -0.02
+	}
+
+	# Let the party conferences re-elect their leaders.
+	option = {
+		name = totu_plenum.2.b
+		ai_chance = { factor = 30 }
+		TOTU_pl_dem_add_3 = yes
+		TOTU_pl_gorb_add_3 = yes
+		TOTU_pl_str_sub_5 = yes
+		add_stability = 0.02
+	}
+
+	# Send Central Committee commissions to the regions.
+	option = {
+		name = totu_plenum.2.c
+		ai_chance = { factor = 40 }
+		TOTU_pl_gorb_add_3 = yes
+		TOTU_pl_rad_sub_3 = yes
+		add_political_power = -25
+	}
+}
+
+# On the eve of the plenum: the 4 February rally, the Democratic Platform wants the floor, Ligachev rallies the apparatus.
+country_event = {
+	id = totu_plenum.3
+	title = totu_plenum.3.t
+	desc = totu_plenum.3.d
+	picture = GFX_report_event_totu_plenum_rally
+	is_triggered_only = yes
+
+	# Give the Democratic Platform the floor.
+	option = {
+		name = totu_plenum.3.a
+		ai_chance = { factor = 25 }
+		TOTU_pl_dem_add_5 = yes
+		TOTU_pl_rad_add_3 = yes
+		TOTU_pl_str_sub_3 = yes
+	}
+
+	# The Politburo approves the list of speakers.
+	option = {
+		name = totu_plenum.3.b
+		ai_chance = { factor = 45 }
+		TOTU_pl_gorb_add_3 = yes
+		TOTU_pl_str_add_3 = yes
+		TOTU_pl_rad_add_2 = yes
+		add_political_power = -25
+	}
+
+	# Leave Ligachev to gather the first secretaries.
+	option = {
+		name = totu_plenum.3.c
+		ai_chance = { factor = 30 }
+		TOTU_pl_cons_add_5 = yes
+		TOTU_pl_orth_add_3 = yes
+		TOTU_pl_rad_add_5 = yes
+		add_political_power = 25
+	}
+}
+
+###########################################################################
+# Sessions
+###########################################################################
+
+# Session 1: Article 6 of the Constitution.
+country_event = {
+	id = totu_plenum.11
+	title = totu_plenum.11.t
+	desc = totu_plenum.11.d
+	picture = GFX_report_event_totu_plenum_hall
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = { country_event = { id = totu_plenum.12 days = 25 } }
+	}
+
+	# Abolish the monopoly at once.
+	option = {
+		name = totu_plenum.11.a
+		ai_chance = { factor = 25 }
+		TOTU_pl_dem_add_8 = yes
+		TOTU_pl_str_sub_8 = yes
+		TOTU_pl_rad_sub_3 = yes
+		add_popularity = { ideology = democratic popularity = 0.03 }
+	}
+
+	# Give up the article through the Congress of People's Deputies, by law.
+	option = {
+		name = totu_plenum.11.b
+		ai_chance = { factor = 50 }
+		TOTU_pl_gorb_add_5 = yes
+		TOTU_pl_str_sub_3 = yes
+		TOTU_pl_rad_add_3 = yes
+	}
+
+	# Keep Article 6.
+	option = {
+		name = totu_plenum.11.c
+		ai_chance = { factor = 25 }
+		TOTU_pl_cons_add_5 = yes
+		TOTU_pl_orth_add_3 = yes
+		TOTU_pl_str_add_5 = yes
+		TOTU_pl_rad_add_8 = yes
+		add_stability = -0.03
+	}
+}
+
+# Session 2: the Democratic Platform's programme and the CC open letter against it.
+country_event = {
+	id = totu_plenum.12
+	title = totu_plenum.12.t
+	desc = totu_plenum.12.d
+	picture = GFX_report_event_totu_plenum_documents
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = { country_event = { id = totu_plenum.13 days = 25 } }
+	}
+
+	# Recognise the right to platforms inside the party.
+	option = {
+		name = totu_plenum.12.a
+		ai_chance = { factor = 25 }
+		TOTU_pl_dem_add_8 = yes
+		TOTU_pl_str_sub_5 = yes
+		TOTU_pl_rad_add_3 = yes
+	}
+
+	# Publish the open letter "For consolidation on a principled basis".
+	option = {
+		name = totu_plenum.12.b
+		ai_chance = { factor = 35 }
+		TOTU_pl_cons_add_5 = yes
+		TOTU_pl_dem_sub_5 = yes
+		TOTU_pl_str_add_5 = yes
+		TOTU_pl_rad_add_5 = yes
+	}
+
+	# Bring the authors into the programme commission.
+	option = {
+		name = totu_plenum.12.c
+		ai_chance = { factor = 40 }
+		TOTU_pl_gorb_add_3 = yes
+		TOTU_pl_rad_sub_5 = yes
+		add_political_power = -50
+	}
+}
+
+# Session 3: Ligachev against Yakovlev.
+country_event = {
+	id = totu_plenum.13
+	title = totu_plenum.13.t
+	desc = totu_plenum.13.d
+	picture = GFX_report_event_totu_plenum_tribune
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = { country_event = { id = totu_plenum.14 days = 25 } }
+	}
+
+	# Back Yakovlev.
+	option = {
+		name = totu_plenum.13.a
+		ai_chance = { factor = 35 }
+		TOTU_pl_gorb_add_5 = yes
+		TOTU_pl_dem_add_3 = yes
+		TOTU_pl_cons_sub_5 = yes
+		TOTU_pl_rad_add_3 = yes
+	}
+
+	# Back Ligachev.
+	option = {
+		name = totu_plenum.13.b
+		ai_chance = { factor = 30 }
+		TOTU_pl_cons_add_8 = yes
+		TOTU_pl_gorb_sub_5 = yes
+		TOTU_pl_str_add_3 = yes
+		add_political_power = 25
+		add_stability = -0.02
+	}
+
+	# Move both of them into separate commissions.
+	option = {
+		name = totu_plenum.13.c
+		ai_chance = { factor = 35 }
+		TOTU_pl_gorb_add_3 = yes
+		TOTU_pl_rad_sub_3 = yes
+		TOTU_pl_str_sub_2 = yes
+		add_political_power = -25
+	}
+}
+
+# Session 4: the Baltic question (the Lithuanian party split, Brazauskas and Burokevicius).
+country_event = {
+	id = totu_plenum.14
+	title = totu_plenum.14.t
+	desc = totu_plenum.14.d
+	picture = GFX_report_event_totu_plenum_hall
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = { country_event = { id = totu_plenum.15 days = 25 } }
+	}
+
+	# Allow a federation of republican parties.
+	option = {
+		name = totu_plenum.14.a
+		ai_chance = { factor = 25 }
+		TOTU_pl_dem_add_5 = yes
+		TOTU_pl_gorb_add_3 = yes
+		TOTU_pl_str_sub_8 = yes
+		TOTU_pl_rad_sub_3 = yes
+	}
+
+	# Rely on Burokevicius and the loyal minority.
+	option = {
+		name = totu_plenum.14.b
+		ai_chance = { factor = 30 }
+		TOTU_pl_orth_add_5 = yes
+		TOTU_pl_cons_add_3 = yes
+		TOTU_pl_str_add_3 = yes
+		TOTU_pl_rad_add_5 = yes
+	}
+
+	# Press with the economy, not with the party rules.
+	option = {
+		name = totu_plenum.14.c
+		ai_chance = { factor = 45 }
+		TOTU_pl_gorb_add_3 = yes
+		TOTU_pl_cons_add_3 = yes
+		TOTU_pl_str_add_3 = yes
+		TOTU_pl_rad_add_3 = yes
+		add_stability = -0.02
+	}
+}
+
+# Session 5: Yeltsin's speech.
+country_event = {
+	id = totu_plenum.15
+	title = totu_plenum.15.t
+	desc = totu_plenum.15.d
+	picture = GFX_report_event_totu_plenum_tribune
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = { country_event = { id = totu_plenum.16 days = 25 } }
+	}
+
+	# Let Yeltsin finish.
+	option = {
+		name = totu_plenum.15.a
+		ai_chance = { factor = 25 }
+		TOTU_pl_dem_add_8 = yes
+		TOTU_pl_rad_add_5 = yes
+		TOTU_pl_str_sub_5 = yes
+	}
+
+	# Let Polozkov condemn him: the party closes ranks, Yeltsin's popularity grows.
+	option = {
+		name = totu_plenum.15.b
+		ai_chance = { factor = 30 }
+		TOTU_pl_cons_add_5 = yes
+		TOTU_pl_orth_add_3 = yes
+		TOTU_pl_str_add_3 = yes
+		TOTU_pl_rad_add_5 = yes
+		add_popularity = { ideology = democratic popularity = 0.02 }
+	}
+
+	# Offer Yeltsin a deal.
+	option = {
+		name = totu_plenum.15.c
+		ai_chance = { factor = 45 }
+		TOTU_pl_gorb_add_5 = yes
+		TOTU_pl_rad_sub_3 = yes
+		add_political_power = -50
+	}
+}
+
+# Session 6: the economic programme (Ryzhkov's regulated market, Shatalin and Yavlinsky, Gosplan).
+country_event = {
+	id = totu_plenum.16
+	title = totu_plenum.16.t
+	desc = totu_plenum.16.d
+	picture = GFX_report_event_totu_plenum_documents
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = { country_event = { id = totu_plenum.17 days = 25 } }
+	}
+
+	# Ryzhkov's regulated market.
+	option = {
+		name = totu_plenum.16.a
+		ai_chance = { factor = 45 }
+		TOTU_pl_gorb_add_5 = yes
+		TOTU_pl_str_add_2 = yes
+		add_stability = -0.03
+	}
+
+	# A fast transition along the Shatalin plan.
+	option = {
+		name = totu_plenum.16.b
+		ai_chance = { factor = 25 }
+		TOTU_pl_dem_add_8 = yes
+		TOTU_pl_cons_sub_5 = yes
+		TOTU_pl_rad_add_5 = yes
+		add_stability = -0.02
+	}
+
+	# Defend the planned economy.
+	option = {
+		name = totu_plenum.16.c
+		ai_chance = { factor = 30 }
+		TOTU_pl_cons_add_5 = yes
+		TOTU_pl_orth_add_3 = yes
+		TOTU_pl_rad_add_3 = yes
+		add_stability = 0.02
+	}
+}
+
+# Session 7: party property.
+country_event = {
+	id = totu_plenum.17
+	title = totu_plenum.17.t
+	desc = totu_plenum.17.d
+	picture = GFX_report_event_totu_plenum_backroom
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = { country_event = { id = totu_plenum.18 days = 25 } }
+	}
+
+	# Hand the buildings over to the Soviets.
+	option = {
+		name = totu_plenum.17.a
+		ai_chance = { factor = 25 }
+		TOTU_pl_dem_add_5 = yes
+		TOTU_pl_str_sub_8 = yes
+		add_stability = 0.03
+	}
+
+	# Invest the funds in joint ventures and banks.
+	option = {
+		name = totu_plenum.17.b
+		ai_chance = { factor = 35 }
+		TOTU_pl_cons_add_3 = yes
+		TOTU_pl_str_add_5 = yes
+		TOTU_pl_rad_add_5 = yes
+		add_political_power = 50
+	}
+
+	# Audit first.
+	option = {
+		name = totu_plenum.17.c
+		ai_chance = { factor = 40 }
+		TOTU_pl_gorb_add_3 = yes
+		TOTU_pl_rad_sub_3 = yes
+		add_political_power = -25
+	}
+}
+
+# Session 8: Nina Andreyeva's appeal. Fires the vote 20 days later.
+country_event = {
+	id = totu_plenum.18
+	title = totu_plenum.18.t
+	desc = totu_plenum.18.d
+	picture = GFX_report_event_totu_plenum_hall
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = { country_event = { id = totu_plenum.30 days = 20 } }
+	}
+
+	# Condemn "neo-Stalinism".
+	option = {
+		name = totu_plenum.18.a
+		ai_chance = { factor = 40 }
+		TOTU_pl_gorb_add_3 = yes
+		TOTU_pl_dem_add_3 = yes
+		TOTU_pl_orth_sub_8 = yes
+		TOTU_pl_rad_add_3 = yes
+	}
+
+	# Recognise their right to this position.
+	option = {
+		name = totu_plenum.18.b
+		ai_chance = { factor = 25 }
+		TOTU_pl_orth_add_8 = yes
+		TOTU_pl_str_add_3 = yes
+		TOTU_pl_rad_add_5 = yes
+	}
+
+	# Leave the appeal unanswered.
+	option = {
+		name = totu_plenum.18.c
+		ai_chance = { factor = 35 }
+		TOTU_pl_orth_add_3 = yes
+		TOTU_pl_str_sub_3 = yes
+		TOTU_pl_rad_sub_3 = yes
+	}
+}
+
+###########################################################################
+# The vote
+###########################################################################
+
+# Hidden dispatcher: count the votes, then show the winner's result.
+country_event = {
+	id = totu_plenum.30
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		TOTU_pl_conclude = yes
+		if = {
+			limit = { has_country_flag = TOTU_plenum_winner_dem }
+			country_event = { id = totu_plenum.31 }
+		}
+		else_if = {
+			limit = { has_country_flag = TOTU_plenum_winner_cons }
+			country_event = { id = totu_plenum.33 }
+		}
+		else_if = {
+			limit = { has_country_flag = TOTU_plenum_winner_orth }
+			country_event = { id = totu_plenum.34 }
+		}
+		else = {
+			country_event = { id = totu_plenum.32 }
+		}
+	}
+}
+
+# Result: the Democratic Platform wins.
+country_event = {
+	id = totu_plenum.31
+	title = totu_plenum.31.t
+	desc = totu_plenum.31.d
+	picture = GFX_report_event_totu_plenum_vote
+	is_triggered_only = yes
+
+	immediate = {
+		news_event = { id = totu_plenum.41 hours = 6 }
+	}
+
+	# Towards the market and a multi-party system.
+	option = {
+		name = totu_plenum.31.a
+		ai_chance = { factor = 60 }
+		TOTU_pl_str_sub_5 = yes
+		add_popularity = { ideology = democratic popularity = 0.05 }
+		add_stability = 0.02
+	}
+
+	# First keep the party from falling apart.
+	option = {
+		name = totu_plenum.31.b
+		ai_chance = { factor = 40 }
+		TOTU_pl_str_add_3 = yes
+		TOTU_pl_rad_sub_5 = yes
+		add_popularity = { ideology = democratic popularity = 0.02 }
+	}
+}
+
+# Result: Gorbachev's centre holds.
+country_event = {
+	id = totu_plenum.32
+	title = totu_plenum.32.t
+	desc = totu_plenum.32.d
+	picture = GFX_report_event_totu_plenum_vote
+	is_triggered_only = yes
+
+	immediate = {
+		news_event = { id = totu_plenum.42 hours = 6 }
+	}
+
+	# A humane, democratic socialism.
+	option = {
+		name = totu_plenum.32.a
+		ai_chance = { factor = 60 }
+		TOTU_pl_rad_sub_5 = yes
+		add_stability = 0.03
+		add_popularity = { ideology = democratic popularity = 0.02 }
+	}
+
+	# Rely on the presidency, not on the Central Committee.
+	option = {
+		name = totu_plenum.32.b
+		ai_chance = { factor = 40 }
+		TOTU_pl_str_sub_5 = yes
+		add_political_power = 75
+	}
+}
+
+# Result: the conservatives win.
+country_event = {
+	id = totu_plenum.33
+	title = totu_plenum.33.t
+	desc = totu_plenum.33.d
+	picture = GFX_report_event_totu_plenum_vote
+	is_triggered_only = yes
+
+	immediate = {
+		news_event = { id = totu_plenum.43 hours = 6 }
+	}
+
+	# Order and a great power.
+	option = {
+		name = totu_plenum.33.a
+		ai_chance = { factor = 60 }
+		TOTU_pl_str_add_8 = yes
+		TOTU_pl_rad_add_3 = yes
+		add_stability = 0.02
+		add_war_support = 0.03
+	}
+
+	# Do not quarrel with the reformers yet.
+	option = {
+		name = totu_plenum.33.b
+		ai_chance = { factor = 40 }
+		TOTU_pl_str_add_3 = yes
+		TOTU_pl_rad_sub_3 = yes
+		add_political_power = 25
+	}
+}
+
+# Result: the orthodox wing wins.
+country_event = {
+	id = totu_plenum.34
+	title = totu_plenum.34.t
+	desc = totu_plenum.34.d
+	picture = GFX_report_event_totu_plenum_vote
+	is_triggered_only = yes
+
+	immediate = {
+		news_event = { id = totu_plenum.44 hours = 6 }
+	}
+
+	# Back to the Leninist norms.
+	option = {
+		name = totu_plenum.34.a
+		ai_chance = { factor = 60 }
+		TOTU_pl_str_add_5 = yes
+		TOTU_pl_rad_add_8 = yes
+		add_popularity = { ideology = communism popularity = 0.05 }
+		add_stability = -0.03
+	}
+
+	# Do not start with purges.
+	option = {
+		name = totu_plenum.34.b
+		ai_chance = { factor = 40 }
+		TOTU_pl_str_add_3 = yes
+		TOTU_pl_rad_add_3 = yes
+		add_political_power = -25
+	}
+}
+
+###########################################################################
+# News for the world (major = yes: shown to every country, like vanilla NewsEvents.txt)
+###########################################################################
+
+news_event = {
+	id = totu_plenum.41
+	title = totu_plenum.41.t
+	desc = totu_plenum.41.d
+	picture = GFX_news_event_totu_news_plenum
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = totu_plenum.41.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {
+		name = totu_plenum.41.b
+		trigger = { tag = SOV }
+	}
+}
+
+news_event = {
+	id = totu_plenum.42
+	title = totu_plenum.42.t
+	desc = totu_plenum.42.d
+	picture = GFX_news_event_totu_news_plenum
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = totu_plenum.42.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {
+		name = totu_plenum.42.b
+		trigger = { tag = SOV }
+	}
+}
+
+news_event = {
+	id = totu_plenum.43
+	title = totu_plenum.43.t
+	desc = totu_plenum.43.d
+	picture = GFX_news_event_totu_news_plenum
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = totu_plenum.43.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {
+		name = totu_plenum.43.b
+		trigger = { tag = SOV }
+	}
+}
+
+news_event = {
+	id = totu_plenum.44
+	title = totu_plenum.44.t
+	desc = totu_plenum.44.d
+	picture = GFX_news_event_totu_news_plenum
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = totu_plenum.44.a
+		trigger = { NOT = { tag = SOV } }
+	}
+	option = {
+		name = totu_plenum.44.b
+		trigger = { tag = SOV }
+	}
+}
+
+###########################################################################
+# Crises (fired by TOTU_pl_monthly, can repeat for the whole game)
+###########################################################################
+
+# Demarche of the Democratic Platform: they call on members to leave the party.
+country_event = {
+	id = totu_plenum.50
+	title = totu_plenum.50.t
+	desc = totu_plenum.50.d
+	picture = GFX_report_event_totu_plenum_rally
+	is_triggered_only = yes
+
+	# Let them go: the party is smaller but calmer.
+	option = {
+		name = totu_plenum.50.a
+		ai_chance = { factor = 30 }
+		TOTU_pl_dem_sub_10 = yes
+		TOTU_pl_str_sub_5 = yes
+		TOTU_pl_rad_sub_8 = yes
+		add_popularity = { ideology = democratic popularity = 0.03 }
+	}
+
+	# Persuade them to stay.
+	option = {
+		name = totu_plenum.50.b
+		ai_chance = { factor = 45 }
+		TOTU_pl_dem_add_3 = yes
+		TOTU_pl_rad_sub_3 = yes
+		add_political_power = -50
+	}
+
+	# Expel the ringleaders.
+	option = {
+		name = totu_plenum.50.c
+		ai_chance = { factor = 25 }
+		TOTU_pl_dem_sub_5 = yes
+		TOTU_pl_cons_add_3 = yes
+		TOTU_pl_str_add_3 = yes
+		TOTU_pl_rad_add_5 = yes
+		add_stability = -0.02
+	}
+}
+
+# Plot of the orthodox wing: signatures for an emergency plenum and a change of leadership.
+country_event = {
+	id = totu_plenum.51
+	title = totu_plenum.51.t
+	desc = totu_plenum.51.d
+	picture = GFX_report_event_totu_plenum_backroom
+	is_triggered_only = yes
+
+	# Expose them at a Central Committee session.
+	option = {
+		name = totu_plenum.51.a
+		ai_chance = { factor = 40 }
+		TOTU_pl_orth_sub_8 = yes
+		TOTU_pl_gorb_add_3 = yes
+		TOTU_pl_rad_add_3 = yes
+		add_political_power = -25
+	}
+
+	# Make concessions.
+	option = {
+		name = totu_plenum.51.b
+		ai_chance = { factor = 30 }
+		TOTU_pl_orth_add_5 = yes
+		TOTU_pl_str_add_3 = yes
+		TOTU_pl_rad_sub_3 = yes
+		add_stability = -0.02
+	}
+
+	# Leave it to the KGB, which has its own sympathies.
+	option = {
+		name = totu_plenum.51.c
+		ai_chance = { factor = 30 }
+		TOTU_pl_orth_sub_3 = yes
+		TOTU_pl_cons_add_3 = yes
+		TOTU_pl_rad_sub_5 = yes
+		add_political_power = -25
+	}
+}
+
+# Party split: parallel organisations, each claiming to be the real CPSU.
+country_event = {
+	id = totu_plenum.52
+	title = totu_plenum.52.t
+	desc = totu_plenum.52.d
+	picture = GFX_report_event_totu_plenum_crisis
+	is_triggered_only = yes
+
+	# Recognise the split and divide the party.
+	option = {
+		name = totu_plenum.52.a
+		ai_chance = { factor = 25 }
+		TOTU_pl_rad_sub_15 = yes
+		TOTU_pl_str_sub_10 = yes
+		add_stability = -0.03
+	}
+
+	# Keep the party united at any price.
+	option = {
+		name = totu_plenum.52.b
+		ai_chance = { factor = 40 }
+		TOTU_pl_rad_sub_5 = yes
+		TOTU_pl_str_sub_3 = yes
+		add_political_power = -75
+	}
+
+	# Convene an extraordinary party congress.
+	option = {
+		name = totu_plenum.52.c
+		ai_chance = { factor = 35 }
+		TOTU_pl_str_add_5 = yes
+		TOTU_pl_rad_sub_8 = yes
+		add_political_power = -50
+		add_stability = -0.02
+	}
+}
+
+# Crisis in the Central Committee: a rival faction has overtaken the ruling one.
+country_event = {
+	id = totu_plenum.53
+	title = totu_plenum.53.t
+	desc = totu_plenum.53.d
+	picture = GFX_report_event_totu_plenum_crisis
+	is_triggered_only = yes
+
+	# Give posts to the new majority.
+	option = {
+		name = totu_plenum.53.a
+		ai_chance = { factor = 35 }
+		if = {
+			limit = { check_variable = { TOTU_pl_ruling = 1 } }
+			TOTU_pl_dem_add_3 = yes
+		}
+		else_if = {
+			limit = { check_variable = { TOTU_pl_ruling = 2 } }
+			TOTU_pl_gorb_add_3 = yes
+		}
+		else_if = {
+			limit = { check_variable = { TOTU_pl_ruling = 3 } }
+			TOTU_pl_cons_add_3 = yes
+		}
+		else_if = {
+			limit = { check_variable = { TOTU_pl_ruling = 4 } }
+			TOTU_pl_orth_add_3 = yes
+		}
+		TOTU_pl_rad_sub_8 = yes
+		TOTU_pl_str_sub_5 = yes
+		add_political_power = -25
+	}
+
+	# Rely on those who stayed loyal: the ruling faction gains, the hall heats up.
+	option = {
+		name = totu_plenum.53.b
+		ai_chance = { factor = 35 }
+		if = {
+			limit = { check_variable = { TOTU_pl_ruling = 1 } }
+			TOTU_pl_dem_add_5 = yes
+		}
+		else_if = {
+			limit = { check_variable = { TOTU_pl_ruling = 2 } }
+			TOTU_pl_gorb_add_5 = yes
+		}
+		else_if = {
+			limit = { check_variable = { TOTU_pl_ruling = 3 } }
+			TOTU_pl_cons_add_5 = yes
+		}
+		else_if = {
+			limit = { check_variable = { TOTU_pl_ruling = 4 } }
+			TOTU_pl_orth_add_5 = yes
+		}
+		TOTU_pl_rad_add_5 = yes
+		add_stability = -0.02
+	}
+
+	# Reshuffle the Politburo.
+	option = {
+		name = totu_plenum.53.c
+		ai_chance = { factor = 30 }
+		if = {
+			limit = { check_variable = { TOTU_pl_ruling = 1 } }
+			TOTU_pl_dem_add_2 = yes
+		}
+		else_if = {
+			limit = { check_variable = { TOTU_pl_ruling = 2 } }
+			TOTU_pl_gorb_add_2 = yes
+		}
+		else_if = {
+			limit = { check_variable = { TOTU_pl_ruling = 3 } }
+			TOTU_pl_cons_add_2 = yes
+		}
+		else_if = {
+			limit = { check_variable = { TOTU_pl_ruling = 4 } }
+			TOTU_pl_orth_add_2 = yes
+		}
+		TOTU_pl_str_add_3 = yes
+		TOTU_pl_rad_sub_3 = yes
+		add_political_power = -50
+	}
+}

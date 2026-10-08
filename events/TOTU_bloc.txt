@@ -1,0 +1,26 @@
+# Twilight of the Union: the Soviet bloc (socialist commonwealth states, common/autonomous_states/).
+# Fired from common/on_actions/totu_bloc_on_actions.txt.
+
+add_namespace = totu_bloc
+
+# A new government (an election, a coup) can make the engine drop a member from its faction. A socialist commonwealth
+# state stays in its overlord's Pact unless a scripted exit set TOTU_left_warsaw_pact. Checked a day after the change,
+# when the engine has finished it.
+country_event = {
+	id = totu_bloc.1
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_autonomy_state = autonomy_totu_socialist_commonwealth
+		NOT = { has_country_flag = TOTU_left_warsaw_pact }
+		OVERLORD = {
+			is_faction_leader = yes
+			NOT = { is_in_faction_with = PREV }
+		}
+	}
+
+	immediate = {
+		OVERLORD = { add_to_faction = PREV }
+	}
+}

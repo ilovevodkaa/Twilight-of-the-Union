@@ -1,0 +1,208 @@
+# Twilight of the Union: the Plenum of the Central Committee (docs/superpowers/specs/2026-10-08-plenum-design.md).
+# State lives in variables of SOV: TOTU_pl_dem/gorb/cons/orth (support, sum 100), TOTU_pl_rad (radicalization
+# 0..100), TOTU_pl_str (party strength 0..100). Events and decisions change them only through the wrappers in
+# TOTU_plenum_generated.txt (tools/build_plenum.py), which call TOTU_pl_shift and TOTU_pl_update_gfx.
+# Faction numbers: 1 = dem (Democratic Platform), 2 = gorb (Gorbachevites), 3 = cons (Conservatives), 4 = orth.
+
+# Start values, run once from on_startup (common/on_actions/TOTU_plenum_on_actions.txt).
+TOTU_pl_init = {
+	set_variable = { TOTU_pl_dem = 12 }
+	set_variable = { TOTU_pl_gorb = 43 }
+	set_variable = { TOTU_pl_cons = 33 }
+	set_variable = { TOTU_pl_orth = 12 }
+	set_variable = { TOTU_pl_rad = 30 }
+	set_variable = { TOTU_pl_str = 65 }
+	set_variable = { TOTU_pl_ruling = 0 }
+	set_variable = { TOTU_pl_dirty = 0 }
+	TOTU_pl_update_modifier = yes
+	add_dynamic_modifier = { modifier = TOTU_party_state }
+	TOTU_pl_update_gfx = yes
+}
+
+# Changes faction pl_faction by pl_amount (temp variables); the other three give or take the difference in
+# proportion to their size, so the sum stays 100 and nobody drops below 1.
+TOTU_pl_shift = {
+	set_temp_variable = { pl_v1 = TOTU_pl_dem }
+	set_temp_variable = { pl_v2 = TOTU_pl_gorb }
+	set_temp_variable = { pl_v3 = TOTU_pl_cons }
+	set_temp_variable = { pl_v4 = TOTU_pl_orth }
+	if = { limit = { check_variable = { pl_faction = 1 } } set_temp_variable = { pl_old = pl_v1 } }
+	else_if = { limit = { check_variable = { pl_faction = 2 } } set_temp_variable = { pl_old = pl_v2 } }
+	else_if = { limit = { check_variable = { pl_faction = 3 } } set_temp_variable = { pl_old = pl_v3 } }
+	else = { set_temp_variable = { pl_old = pl_v4 } }
+
+	set_temp_variable = { pl_new = pl_old }
+	add_to_temp_variable = { pl_new = pl_amount }
+	clamp_temp_variable = { var = pl_new min = 1 max = 97 }
+
+	# the others are scaled by k = 1 - (new - old) / (100 - old)
+	set_temp_variable = { pl_k = pl_new }
+	subtract_from_temp_variable = { pl_k = pl_old }
+	set_temp_variable = { pl_rest = 100 }
+	subtract_from_temp_variable = { pl_rest = pl_old }
+	divide_temp_variable = { pl_k = pl_rest }
+	multiply_temp_variable = { pl_k = -1 }
+	add_to_temp_variable = { pl_k = 1 }
+	if = { limit = { NOT = { check_variable = { pl_faction = 1 } } } multiply_temp_variable = { pl_v1 = pl_k } clamp_temp_variable = { var = pl_v1 min = 1 max = 97 } }
+	if = { limit = { NOT = { check_variable = { pl_faction = 2 } } } multiply_temp_variable = { pl_v2 = pl_k } clamp_temp_variable = { var = pl_v2 min = 1 max = 97 } }
+	if = { limit = { NOT = { check_variable = { pl_faction = 3 } } } multiply_temp_variable = { pl_v3 = pl_k } clamp_temp_variable = { var = pl_v3 min = 1 max = 97 } }
+	if = { limit = { NOT = { check_variable = { pl_faction = 4 } } } multiply_temp_variable = { pl_v4 = pl_k } clamp_temp_variable = { var = pl_v4 min = 1 max = 97 } }
+
+	# the moving faction takes exactly what the others left, so rounding and the floor of 1 never break the sum
+	set_temp_variable = { pl_sum = 0 }
+	if = { limit = { NOT = { check_variable = { pl_faction = 1 } } } add_to_temp_variable = { pl_sum = pl_v1 } }
+	if = { limit = { NOT = { check_variable = { pl_faction = 2 } } } add_to_temp_variable = { pl_sum = pl_v2 } }
+	if = { limit = { NOT = { check_variable = { pl_faction = 3 } } } add_to_temp_variable = { pl_sum = pl_v3 } }
+	if = { limit = { NOT = { check_variable = { pl_faction = 4 } } } add_to_temp_variable = { pl_sum = pl_v4 } }
+	set_temp_variable = { pl_new = 100 }
+	subtract_from_temp_variable = { pl_new = pl_sum }
+	if = { limit = { check_variable = { pl_faction = 1 } } set_temp_variable = { pl_v1 = pl_new } }
+	else_if = { limit = { check_variable = { pl_faction = 2 } } set_temp_variable = { pl_v2 = pl_new } }
+	else_if = { limit = { check_variable = { pl_faction = 3 } } set_temp_variable = { pl_v3 = pl_new } }
+	else = { set_temp_variable = { pl_v4 = pl_new } }
+
+	set_variable = { TOTU_pl_dem = pl_v1 }
+	set_variable = { TOTU_pl_gorb = pl_v2 }
+	set_variable = { TOTU_pl_cons = pl_v3 }
+	set_variable = { TOTU_pl_orth = pl_v4 }
+	TOTU_pl_update_modifier = yes
+	TOTU_pl_update_gfx = yes
+}
+
+# Values for the dynamic modifier TOTU_party_state (common/dynamic_modifiers/TOTU_plenum.txt):
+#   strength 0..100 -> political power -0.25..+0.25 per day, stability -5%..+5%, democratic drift up to +0.05 below 50
+#   radicalization 0..100 -> stability 0..-10%
+#   after the plenum: the ruling faction's support >= 50 gives +5% stability, below 30 -5% and -0.1 political power
+TOTU_pl_update_modifier = {
+	set_variable = { TOTU_pl_mod_pp = TOTU_pl_str }
+	subtract_from_variable = { TOTU_pl_mod_pp = 50 }
+	divide_variable = { TOTU_pl_mod_pp = 200 }
+
+	set_variable = { TOTU_pl_mod_stab = TOTU_pl_str }
+	subtract_from_variable = { TOTU_pl_mod_stab = 50 }
+	subtract_from_variable = { TOTU_pl_mod_stab = TOTU_pl_rad }
+	divide_variable = { TOTU_pl_mod_stab = 1000 }
+
+	set_variable = { TOTU_pl_mod_drift = 50 }
+	subtract_from_variable = { TOTU_pl_mod_drift = TOTU_pl_str }
+	divide_variable = { TOTU_pl_mod_drift = 1000 }
+	clamp_variable = { var = TOTU_pl_mod_drift min = 0 max = 0.05 }
+
+	if = {
+		limit = { has_country_flag = TOTU_plenum_concluded }
+		TOTU_pl_ruling_support = yes
+		if = {
+			limit = { check_variable = { pl_ruling_support > 49.99 } }
+			add_to_variable = { TOTU_pl_mod_stab = 0.05 }
+		}
+		else_if = {
+			limit = { check_variable = { pl_ruling_support < 30 } }
+			subtract_from_variable = { TOTU_pl_mod_stab = 0.05 }
+			subtract_from_variable = { TOTU_pl_mod_pp = 0.1 }
+		}
+	}
+	force_update_dynamic_modifier = yes   # apply today, not at the next daily update
+}
+
+# temp variable pl_ruling_support = support of the faction that won the plenum
+TOTU_pl_ruling_support = {
+	if = { limit = { check_variable = { TOTU_pl_ruling = 1 } } set_temp_variable = { pl_ruling_support = TOTU_pl_dem } }
+	else_if = { limit = { check_variable = { TOTU_pl_ruling = 2 } } set_temp_variable = { pl_ruling_support = TOTU_pl_gorb } }
+	else_if = { limit = { check_variable = { TOTU_pl_ruling = 3 } } set_temp_variable = { pl_ruling_support = TOTU_pl_cons } }
+	else = { set_temp_variable = { pl_ruling_support = TOTU_pl_orth } }
+}
+
+# temp variable pl_top = largest support among the factions other than the ruling one
+TOTU_pl_top_rival = {
+	set_temp_variable = { pl_top = 0 }
+	if = { limit = { NOT = { check_variable = { TOTU_pl_ruling = 1 } } check_variable = { TOTU_pl_dem > pl_top } } set_temp_variable = { pl_top = TOTU_pl_dem } }
+	if = { limit = { NOT = { check_variable = { TOTU_pl_ruling = 2 } } check_variable = { TOTU_pl_gorb > pl_top } } set_temp_variable = { pl_top = TOTU_pl_gorb } }
+	if = { limit = { NOT = { check_variable = { TOTU_pl_ruling = 3 } } check_variable = { TOTU_pl_cons > pl_top } } set_temp_variable = { pl_top = TOTU_pl_cons } }
+	if = { limit = { NOT = { check_variable = { TOTU_pl_ruling = 4 } } check_variable = { TOTU_pl_orth > pl_top } } set_temp_variable = { pl_top = TOTU_pl_orth } }
+}
+
+# on_monthly_SOV: the party drifts on its own, and a radical or divided party produces crises.
+TOTU_pl_monthly = {
+	# radicalization drifts one point a month towards 10 + 1.5 x (Democratic Platform + orthodox); +1 in session
+	set_temp_variable = { pl_target = TOTU_pl_dem }
+	add_to_temp_variable = { pl_target = TOTU_pl_orth }
+	multiply_temp_variable = { pl_target = 1.5 }
+	add_to_temp_variable = { pl_target = 10 }
+	if = { limit = { check_variable = { TOTU_pl_rad < pl_target } } add_to_variable = { TOTU_pl_rad = 1 } }
+	else_if = { limit = { check_variable = { TOTU_pl_rad > pl_target } } subtract_from_variable = { TOTU_pl_rad = 1 } }
+	if = { limit = { has_country_flag = TOTU_plenum_in_session } add_to_variable = { TOTU_pl_rad = 1 } }
+	clamp_variable = { var = TOTU_pl_rad min = 0 max = 100 }
+
+	# strength drifts one point a month towards 80 - 60 x democratic popularity
+	set_temp_variable = { pl_target = party_popularity@democratic }
+	multiply_temp_variable = { pl_target = -60 }
+	add_to_temp_variable = { pl_target = 80 }
+	if = { limit = { check_variable = { TOTU_pl_str < pl_target } } add_to_variable = { TOTU_pl_str = 1 } }
+	else_if = { limit = { check_variable = { TOTU_pl_str > pl_target } } subtract_from_variable = { TOTU_pl_str = 1 } }
+	clamp_variable = { var = TOTU_pl_str min = 0 max = 100 }
+
+	TOTU_pl_update_modifier = yes
+	TOTU_pl_update_gfx = yes
+
+	# a radical party: demarches, plots, a split (one at a time, then 120 days of quiet)
+	if = {
+		limit = {
+			check_variable = { TOTU_pl_rad > 69.99 }
+			NOT = { has_country_flag = TOTU_pl_unrest_cooldown }
+		}
+		random = {
+			chance = 25
+			set_country_flag = { flag = TOTU_pl_unrest_cooldown days = 120 value = 1 }
+			if = {
+				limit = { check_variable = { TOTU_pl_rad > 84.99 } }
+				country_event = { id = totu_plenum.52 }
+			}
+			else_if = {
+				limit = { check_variable = { TOTU_pl_dem > TOTU_pl_orth } }
+				country_event = { id = totu_plenum.50 }
+			}
+			else = {
+				country_event = { id = totu_plenum.51 }
+			}
+		}
+	}
+
+	# after the plenum: a rival that overtakes the ruling faction by more than 5 points opens a crisis
+	if = {
+		limit = {
+			has_country_flag = TOTU_plenum_concluded
+			NOT = { has_country_flag = TOTU_pl_crisis_cooldown }
+		}
+		TOTU_pl_ruling_support = yes
+		TOTU_pl_top_rival = yes
+		subtract_from_temp_variable = { pl_top = pl_ruling_support }
+		if = {
+			limit = { check_variable = { pl_top > 5 } }
+			random = {
+				chance = 35
+				set_country_flag = { flag = TOTU_pl_crisis_cooldown days = 180 value = 1 }
+				country_event = { id = totu_plenum.53 }
+			}
+		}
+	}
+}
+
+# Event totu_plenum.30: the vote. The faction with the largest support wins (ties go to the Gorbachevites, then
+# the conservatives); its branch and course of the focus tree become visible.
+TOTU_pl_conclude = {
+	set_temp_variable = { pl_best = 2 }
+	set_temp_variable = { pl_top = TOTU_pl_gorb }
+	if = { limit = { check_variable = { TOTU_pl_cons > pl_top } } set_temp_variable = { pl_best = 3 } set_temp_variable = { pl_top = TOTU_pl_cons } }
+	if = { limit = { check_variable = { TOTU_pl_dem > pl_top } } set_temp_variable = { pl_best = 1 } set_temp_variable = { pl_top = TOTU_pl_dem } }
+	if = { limit = { check_variable = { TOTU_pl_orth > pl_top } } set_temp_variable = { pl_best = 4 } set_temp_variable = { pl_top = TOTU_pl_orth } }
+	set_variable = { TOTU_pl_ruling = pl_best }
+	if = { limit = { check_variable = { pl_best = 1 } } set_country_flag = TOTU_plenum_winner_dem }
+	else_if = { limit = { check_variable = { pl_best = 2 } } set_country_flag = TOTU_plenum_winner_gorb }
+	else_if = { limit = { check_variable = { pl_best = 3 } } set_country_flag = TOTU_plenum_winner_cons }
+	else = { set_country_flag = TOTU_plenum_winner_orth }
+	clr_country_flag = TOTU_plenum_in_session
+	set_country_flag = TOTU_plenum_concluded
+	TOTU_pl_update_modifier = yes
+	TOTU_pl_update_gfx = yes
+	mark_focus_tree_layout_dirty = yes
+}

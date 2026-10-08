@@ -1,0 +1,27 @@
+# Twilight of the Union: faction manifests. Texts: localisation/*/totu_world_l_*.yml.
+
+# Warsaw Pact: the share of member governments that are still communist. At the start it is 3 of 7 (USSR, GDR,
+# Bulgaria), so the manifest is far from fulfilled: the commonwealth is coming apart.
+faction_manifest_totu_socialist_commonwealth = {
+	name = TOTU_socialist_commonwealth_goal_name
+	description = TOTU_socialist_commonwealth_goal_desc
+	is_manifest = yes
+	ratio_progress = {
+		total_amount_collection = collection:TOTU_faction_members
+		completed_amount_collection = collection:TOTU_communist_faction_members
+
+		scale = {
+			communism_drift = 0.03
+		}
+
+		progress_sections = {
+			manifest_fulfilled = {
+				min = 0.75
+				modifier = {
+					stability_factor = 0.05
+					required_garrison_factor = -0.15
+				}
+			}
+		}
+	}
+}

@@ -1,18 +1,40 @@
-﻿capital = 64
+﻿# Twilight of the Union: German Democratic Republic, 1 January 1990.
+# Hand-written (tools/build_world_1990.py leaves it alone). Modrow's SED-PDS government still rules, but the Wall is
+# open, the Round Table shares power and the Volkskammer election of 18 March decides who governs next
+# (events/TOTU_DDR.txt, scheduled in common/on_actions/totu_ddr_on_actions.txt).
+capital = 1088 # East Berlin (its own state since the 1990 map rebuild)
 
 set_research_slots = 3
-set_stability = 0.5
-set_war_support = 0.2
+set_stability = 0.4
+set_war_support = 0.1
 
 set_politics = {
 	ruling_party = communism
-	last_election = "1988.1.1"
+	last_election = "1986.6.8" # the last single-list Volkskammer vote
 	election_frequency = 48
 	elections_allowed = no
 }
 set_popularities = {
-	democratic = 35
-	communism = 55
+	democratic = 50
+	communism = 40
 	neutrality = 8
 	fascism = 2
+}
+
+recruit_character = DDR_hans_modrow
+# no role yet: the election of 18 March makes one of them prime minister (events/TOTU_DDR.txt)
+recruit_character = DDR_lothar_de_maiziere
+recruit_character = DDR_ibrahim_boehme
+
+# Laws: the NVA is a conscript army (18 months)
+add_ideas = limited_conscription
+
+# Starting national spirits, designed in the focus editor (common/ideas/TOTU_DDR_focus.txt)
+add_ideas = {
+	TOTU_DDR_open_border
+	TOTU_DDR_round_table
+	TOTU_DDR_stasi_besieged
+	TOTU_DDR_indebted_plan
+	TOTU_DDR_western_group
+	TOTU_DDR_army_at_a_loss
 }

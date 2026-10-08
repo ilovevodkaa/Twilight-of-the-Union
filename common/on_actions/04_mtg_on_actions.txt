@@ -1,8 +1,8 @@
+# NEUTRALISED COPY of vanilla common/on_actions/04_mtg_on_actions.txt made by tools/strip_vanilla.py: references to the removed vanilla
+# events, decisions and focus trees are cut. Edit the tool, not this file.
 on_actions = {
 	on_new_term_election = {
-		random_events = {
-			100 = mexico.18 # 1940 Mexican election
-		}
+		
 	}
 	
 	#Root is exile
@@ -73,7 +73,7 @@ on_actions = {
 					trickster					
 				}
 
-				unit_leader_event = { id = mtg_exile_leader_added.1 }
+				
 			}
 		}
 	}
@@ -86,10 +86,10 @@ on_actions = {
 				limit = {
 					original_tag = ENG
 					has_government = fascism
-					has_completed_focus = ENG_organize_the_blackshirts
+					always = no
 				}
 				set_country_flag = { flag = won_british_civil_war value = 1 days = 365 }
-				country_event = { id = mtg_britain.34 }
+				
 			}
 			#End of British Fascist Civil War - Democrats won
 			if = {
@@ -98,21 +98,21 @@ on_actions = {
 					has_government = democratic
 					FROM = {
 						has_government = fascism
-						has_completed_focus = ENG_organize_the_blackshirts
+						always = no
 					}
 				}
 				delete_unit_template_and_units = { division_template = "Loyalist Brigade" }
-				load_focus_tree = { tree = british_focus keep_completed = no }
-				unlock_national_focus = ENG_steady_as_she_goes
-				unlock_national_focus = limited_rearmament_focus
-				unlock_national_focus = shadow_scheme_focus
-				unlock_national_focus = uk_industrial_focus
+				
+				
+				
+				
+				
 				unlock_national_focus = royal_ordnance_factories
 				if = {
 					limit = {
 						amount_research_slots > 4
 					}
-					unlock_national_focus = uk_extra_tech_slot
+					
 				}
 			}
 			# Give back ENG focus tree to Communist ENG if they win a civil war.
@@ -126,7 +126,7 @@ on_actions = {
 						has_government = communism
 					}
 				}
-				load_focus_tree = { tree = british_focus keep_completed = yes }
+				
 			}
 			# Give back MEX focus tree to rebel MEX if they win a civil war.
 			if = {
@@ -138,7 +138,7 @@ on_actions = {
 						original_tag = MEX
 					}
 				}
-				load_focus_tree = { tree = mexico_focus_tree keep_completed = yes }
+				
 			}
 			# Give back USA focus tree to CSA if they win a civil war.
 			if = {
@@ -161,9 +161,9 @@ on_actions = {
 				limit = {
 					original_tag = ENG
 					has_government = democratic
-					has_completed_focus = ENG_concessions_to_the_trade_unions
+					always = no
 				}
-				country_event = { id = mtg_britain.56 }
+				
 			}
 			#End of Imperialist Loyalist civil war
 			if = {
@@ -175,10 +175,10 @@ on_actions = {
 						original_tag = NZL
 					}
 					has_government = neutrality
-					ENG = { has_completed_focus = ENG_appeal_to_imperial_loyalists }
+					ENG = { always = no }
 					NOT = { is_subject_of = ENG }
 				}
-				ENG = { country_event = { id = mtg_britain.113 hours = 6 } }
+				ENG = {  }
 			}
 			if = {
 				limit = {
@@ -199,7 +199,7 @@ on_actions = {
 				limit = {
 					original_tag = ENG
 					has_government = fascism
-					has_completed_focus = ENG_organize_the_blackshirts
+					always = no
 				}
 				random_other_country = {
 					limit = {
@@ -448,7 +448,7 @@ on_actions = {
 					original_tag = HOL
 					has_country_flag = HOL_prepared_evacuation_of_gold_reserves_flag
 				}
-				country_event = { id = mtg_netherlands.63 days = 1 }
+				
 			}
 		}
 	}
@@ -508,7 +508,7 @@ on_actions = {
 						original_tag = ENG
 						NOT = { has_government = communism }
 					}
-					has_completed_focus = MEX_focus_nationalize_the_oil_fields
+					always = no
 				}
 				set_cosmetic_tag = ENG_MEX_dominion
 			}	
@@ -516,7 +516,6 @@ on_actions = {
 	}
 
 	# on_startup removed by Twilight of the Union (1936 setup)
-
 
 	# ROOT is capitulated country, FROM is winner
 	on_capitulation = {
@@ -582,10 +581,10 @@ on_actions = {
 					tag = GER
 					FROM = {
 						tag = HOL
-						has_completed_focus = HOL_wilhelminism
+						always = no
 					}
 				}
-				HOL = { country_event = { id = mtg_netherlands.76 } }
+				HOL = {  }
 			}
 		}
 	}
@@ -606,11 +605,11 @@ on_actions = {
 					tag = CSA
 					FROM = { original_tag = USA }
 				}
-				load_focus_tree = { tree = usa_focus keep_completed = no }
-				unlock_national_focus = USA_reestablish_the_gold_standard
-				complete_national_focus = USA_america_first
-				unlock_national_focus = USA_ally_with_the_silver_shirts
-				unlock_national_focus = USA_invite_foreign_support
+				
+				
+				
+				
+				
 			}
 			if = {
 				limit = {
@@ -651,7 +650,7 @@ on_actions = {
 			if = {
 				limit = {
 					original_tag = HOL
-					has_completed_focus = HOL_wilhelminism
+					always = no
 					FROM = {
 						original_tag = GER
 						has_government = fascism
@@ -664,7 +663,7 @@ on_actions = {
 				FROM.FROM = { 
 					set_state_flag = HOL_german_states_kaiser
 				}
-				country_event = { id = mtg_netherlands.73 }
+				
 			}
 			if = {
 				limit = {
@@ -775,10 +774,7 @@ on_actions = {
 					}
 					MEX = { # I know I don't need to do this but I don't want to take my chances 
 						set_country_flag = MEX_trotsky_event_triggered
-						country_event = {
-							id = mexico.17
-							days = 8
-						}
+						
 					}
 				}
 			}

@@ -1,0 +1,21 @@
+# check_ui.py baseline: known issues, not reported as new. One per line:
+# CODE<TAB>file<TAB>subject<TAB># line and message when recorded.
+# Add the current issues: python tools/check_ui.py --baseline (fix issues rather than baseline them);
+# drop entries that no longer occur: python tools/check_ui.py --prune-baseline
+E_TEXTURE	interface/dod_small_background.gfx	GFX_load_dod_small|gfx/loadingscreens/load_dod_small.dds	# line 4: sprite 'GFX_load_dod_small': texturefile "gfx/loadingscreens/load_dod_small.dds" is in neither the mod nor the game (the game has it, but the mod's replace_path "gfx/loadingscreens" hides that folder)
+E_TEXTURE	interface/mtg_small_background.gfx	GFX_load_mtg_2_small|gfx/loadingscreens/load_mtg_2_small.dds	# line 9: sprite 'GFX_load_mtg_2_small': texturefile "gfx/loadingscreens/load_mtg_2_small.dds" is in neither the mod nor the game (the game has it, but the mod's replace_path "gfx/loadingscreens" hides that fol
+E_TEXTURE	interface/mtg_small_background.gfx	GFX_load_mtg_small|gfx/loadingscreens/load_mtg_small.dds	# line 4: sprite 'GFX_load_mtg_small': texturefile "gfx/loadingscreens/load_mtg_small.dds" is in neither the mod nor the game (the game has it, but the mod's replace_path "gfx/loadingscreens" hides that folder)
+E_TEXTURE	interface/small_backgrounds.gfx	GFX_load_ncns_chi_small|gfx/loadingscreens/load_ncns_chi_small.dds	# line 13: sprite 'GFX_load_ncns_chi_small': texturefile "gfx/loadingscreens/load_ncns_chi_small.dds" is in neither the mod nor the game (the game has it, but the mod's replace_path "gfx/loadingscreens" hides th
+E_TEXTURE	interface/small_backgrounds.gfx	GFX_load_ncns_jap_small|gfx/loadingscreens/load_ncns_jap_small.dds	# line 4: sprite 'GFX_load_ncns_jap_small': texturefile "gfx/loadingscreens/load_ncns_jap_small.dds" is in neither the mod nor the game (the game has it, but the mod's replace_path "gfx/loadingscreens" hides th
+E_TEXTURE	interface/taog_small_backgrounds.gfx	GFX_load_taog_ast_small|gfx/loadingscreens/load_taog_ast_small.dds	# line 4: sprite 'GFX_load_taog_ast_small': texturefile "gfx/loadingscreens/load_taog_ast_small.dds" is in neither the mod nor the game (the game has it, but the mod's replace_path "gfx/loadingscreens" hides th
+E_TEXTURE	interface/tfv_small_background.gfx	GFX_load_tfv_small|gfx/loadingscreens/load_tfv_small.dds	# line 4: sprite 'GFX_load_tfv_small': texturefile "gfx/loadingscreens/load_tfv_small.dds" is in neither the mod nor the game (the game has it, but the mod's replace_path "gfx/loadingscreens" hides that folder)
+E_TEXTURE	interface/wtt_small_background.gfx	GFX_load_tiger_small|gfx/loadingscreens/load_tiger_small.dds	# line 4: sprite 'GFX_load_tiger_small': texturefile "gfx/loadingscreens/load_tiger_small.dds" is in neither the mod nor the game (the game has it, but the mod's replace_path "gfx/loadingscreens" hides that fol
+W_ENCODING	interface/frontendgamesetupview.gui	crlf	# line 1: CRLF line ends (2739 lines); the mod writes LF
+W_ENCODING	interface/load_screen_font.gfx	nonascii|499e6e3c	# line 6: non-ASCII text in a comment (keep .gfx files ASCII): ...k under P and under the \xa7D of the name strap....
+W_ENCODING	localisation/english/replace/totu_countries_l_english.yml	crlf	# line 1: CRLF line ends (12718 lines); the mod writes LF
+W_ENCODING	localisation/english/replace/totu_places_l_english.yml	crlf	# line 1: CRLF line ends (117 lines); the mod writes LF
+W_ENCODING	localisation/russian/replace/totu_countries_l_russian.yml	crlf	# line 1: CRLF line ends (12718 lines); the mod writes LF
+W_ENCODING	localisation/russian/replace/totu_places_l_russian.yml	crlf	# line 1: CRLF line ends (117 lines); the mod writes LF
+W_OFFSCREEN	interface/frontendmainview.gui	change_background|position	# line 67: containerWindowType change_background: position x = -9920 y = -9920 (the hide convention is x = -9000 y = -9000)
+W_OFFSCREEN	interface/frontendmainview.gui	mainmenu_dlc_ownership|position	# line 193: containerWindowType mainmenu_dlc_ownership: position y = 9000 (the hide convention is x = -9000 y = -9000)
+W_SPRITE_GEOMETRY	interface/frontendmainview.gfx	GFX_main_lobby_button	# line 4: sprite 'GFX_main_lobby_button': a frame is now 356x50 (3 frames, texture gfx/interface/totu/menu_button.dds), in vanilla 288x36 (3 frames); vanilla .gui files the mod does not replace still use it: in

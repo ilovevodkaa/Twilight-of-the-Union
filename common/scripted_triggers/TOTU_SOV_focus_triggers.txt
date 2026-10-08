@@ -1,0 +1,32 @@
+# Twilight of the Union: hand-written conditions of the Soviet political focus tree, picked up by
+# tools/build_focus_tree.py as <focus id>_available / <focus id>_bypass. Tooltips: localisation/*/totu_sov_politics_l_*.yml.
+
+### The Plenum decides the branch (docs/superpowers/specs/2026-10-08-plenum-design.md). Until the vote nothing
+### but the plenum focus is visible; then only the winner's branch and course. TOTU_pl_conclude refreshes the tree.
+
+SOV_abolish_article_six_allow_branch = {
+	OR = {
+		has_country_flag = TOTU_plenum_winner_dem
+		has_country_flag = TOTU_plenum_winner_gorb
+	}
+}
+
+SOV_renew_the_party_allow_branch = {
+	OR = {
+		has_country_flag = TOTU_plenum_winner_cons
+		has_country_flag = TOTU_plenum_winner_orth
+	}
+}
+
+SOV_right_market_democracy_allow_branch = { has_country_flag = TOTU_plenum_winner_dem }
+SOV_left_democratic_socialism_allow_branch = { has_country_flag = TOTU_plenum_winner_gorb }
+SOV_right_great_power_allow_branch = { has_country_flag = TOTU_plenum_winner_cons }
+SOV_left_leninist_norms_allow_branch = { has_country_flag = TOTU_plenum_winner_orth }
+
+# Only a sitting Gorbachev can be "taken ill" at Foros.
+SOV_remove_gorbachev_available = {
+	custom_trigger_tooltip = {
+		tooltip = SOV_gorbachev_in_power_tt
+		has_country_leader = { character = SOV_mikhail_gorbachev ruling_only = yes }
+	}
+}

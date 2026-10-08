@@ -1,0 +1,27 @@
+state = {
+	id = 54
+	name = "STATE_54"
+	manpower = 502000
+	resources = {
+		steel = 2
+	}
+	state_category = town
+
+	history = {
+		owner = DDR
+		add_core_of = DDR
+		add_core_of = GER
+		add_core_of = BAY
+		buildings = {
+			infrastructure = 4
+		}
+		victory_points = { 6421 2 }
+		victory_points = { 13590 1 }
+	}
+
+	provinces = {
+		3474 6421 13116 13590 13591
+	}
+
+	local_supplies = 0.2
+}

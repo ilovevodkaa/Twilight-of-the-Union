@@ -1,0 +1,3 @@
+# area 'misc': vanilla keys drawn in pixel fonts
+RADIO_TITLE               # musicplayer.gui: stations column label "cake" (totu_caption_name)
+ACHIEVEMENTS              # achievements.gui: title_label (totu_caption_name)

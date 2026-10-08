@@ -1,0 +1,59 @@
+state = {
+	id = 59
+	name = "STATE_59"
+	manpower = 5399745
+	resources = {
+		oil = 1
+		aluminium = 8
+		steel = 16
+	}
+	state_category = metropolis
+
+	history = {
+		owner = GER
+		add_core_of = GER
+		add_core_of = HAN
+		add_core_of = PRE
+		buildings = {
+			infrastructure = 4
+			arms_factory = 2
+			industrial_complex = 2
+			dockyard = 6
+			241 = {
+				naval_base = 8
+				naval_headquarters = {
+					level = 1
+					allowed = {
+						has_dlc = "No Compromise, No Surrender"
+					}
+				}
+			}
+			13432 = {
+				naval_base = 1
+			}
+			374 = {
+				naval_base = 1
+			}
+		}
+		victory_points = { 241 5 }
+		victory_points = { 309 1 }
+		victory_points = { 374 2 }
+		victory_points = { 3326 1 }
+		victory_points = { 3561 5 }
+		victory_points = { 6377 10 }
+		victory_points = { 9375 1 }
+		victory_points = { 11360 1 }
+		victory_points = { 13424 3 }
+		victory_points = { 13425 3 }
+		victory_points = { 13426 1 }
+		victory_points = { 13427 1 }
+		victory_points = { 13428 1 }
+		victory_points = { 13429 1 }
+	}
+
+	provinces = {
+		241 247 309 336 374 526 3234 3271 3326 3395 3561 6218 6263 6298 6325 6349 6377 6513 9264 9281 9375 11233 11264 11360 11402 11493 13424 13425 13426 13427 13428 13429 13430 13431 13432 13433 13434 13435 13436 13437 13438 13439 13440 13441 13442 13443 13444 13445 13446 13447
+	}
+
+	local_supplies = 8.3
+}

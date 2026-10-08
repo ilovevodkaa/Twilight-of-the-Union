@@ -1,0 +1,27 @@
+state = {
+	id = 1088
+	name = "STATE_1088"
+	manpower = 3480294
+	state_category = large_city
+
+	history = {
+		owner = DDR
+		add_core_of = DDR
+		add_core_of = PRE
+		add_claim_by = GER
+		buildings = {
+			infrastructure = 4
+			arms_factory = 8
+			air_base = 6
+			anti_air_building = 2
+			fuel_silo = 1
+		}
+		victory_points = { 13601 10 }
+	}
+
+	provinces = {
+		13601
+	}
+
+	local_supplies = 0.0
+}

@@ -3,7 +3,10 @@
 Reads the vanilla game install (states, buildings, colours, flags) and writes:
   history/states/*.txt             every vanilla state with 1990 owner / cores / claims, 1936 date blocks removed
   map/buildings.txt                vanilla positions, state ids fixed for provinces moved between states
-  history/countries/*.txt          one file per 1990 country (SOV and USA are hand-written and left alone)
+  map/*, history/states (zone)     tools/map1990 rebuilds the 1990 zone (real states, dense provinces, cities)
+                                   right after assign(); --no-map keeps the vanilla provinces
+  history/countries/*.txt          one file per 1990 country (SOV, USA, DDR and GER are hand-written and left alone),
+                                   and capital + politics for every other tag (releasables: UKR, BAY, RKO, ...)
   common/country_tags/totu_1990_countries.txt + common/countries/*.txt   tags vanilla does not have
   common/countries/colors.txt      dark map colours for every tag
   localisation/*/replace/totu_countries_l_*.yml   1990 names for all ideologies
@@ -14,7 +17,6 @@ Usage:  python tools/build_world_1990.py [--game "D:/steam/steamapps/common/Hear
 import argparse
 import colorsys
 import re
-import shutil
 import sys
 from pathlib import Path
 
@@ -27,7 +29,6 @@ from world1990 import borders, countries, flags, names  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 GAME_GUESSES = [r"D:\steam\steamapps\common\Hearts of Iron IV",
                 r"C:\Program Files (x86)\Steam\steamapps\common\Hearts of Iron IV"]
-HANDWRITTEN = {"SOV", "USA"}          # history files with real content, not generated
 IDEOLOGIES = ["democratic", "communism", "neutrality", "fascism"]
 GOV_PARTY = {"D": "democratic", "C": "communism", "N": "neutrality"}
 # 1936 setup that must not run in 1990. The IF/if blocks are DLC-dependent 1936 transfers (Belgian Congo states to
@@ -35,6 +36,8 @@ GOV_PARTY = {"D": "democratic", "C": "communism", "N": "neutrality"}
 DROP_KEYS = {"owner", "controller", "add_core_of", "add_claim_by", "set_compliance", "set_resistance",
              "start_resistance", "set_demilitarized_zone", "add_dynamic_modifier", "set_variable", "IF", "if"}
 DATE = re.compile(r"^\d+\.\d+\.\d+(\.\d+)?$")
+MAX_BUNKER = 3        # the 1990 start refuses vanilla's level 10 Maginot forts ("Trying to set invalid province
+                      # building"); 1 to 3 load, and the line was mothballed by then anyway
 
 # tags vanilla does not have: tag -> (file name, graphical culture, 2d culture)
 NEW_TAGS = {
@@ -176,10 +179,19 @@ def assign(states):
 
 
 def write_states(states, out):
-    shutil.rmtree(out, ignore_errors=True)
-    out.mkdir(parents=True)
+    out.mkdir(parents=True, exist_ok=True)
+    for p in out.glob("*.txt"):                 # only the files of the states written here (their names may change):
+        m = re.search(r"\bid\s*=\s*(\d+)", p.read_text(encoding="utf-8-sig", errors="ignore"))
+        if m and int(m.group(1)) in states:     # other sessions may keep files here
+            p.unlink()
+        else:
+            print("history/states: kept", p.name, "(not a state written here)")
     for sid, s in sorted(states.items()):
         keep = [it for it in s["hist"] if it[0] not in DROP_KEYS and not (it[0] and DATE.match(it[0]))]
+        for k, _, b in keep:
+            for p, _, items in b if k == "buildings" else []:
+                if p.isdigit():
+                    items[:] = [(t, e, str(min(int(v), MAX_BUNKER)) if t == "bunker" else v) for t, e, v in items]
         head = [("owner", "=", s["owner"])] + [("add_core_of", "=", c) for c in s["cores"]] + \
                [("add_claim_by", "=", c) for c in s["claims"]]
         hist = "history = {\n" + "\n".join(dump(head + keep, 2)) + "\n\t}"
@@ -246,41 +258,106 @@ def vanilla_capitals(game):
     return caps
 
 
+def country_body(cap, party, elections, pops):
+    dem, com, neu, fas = pops
+    return (f"capital = {cap}\n\n"
+            f"set_research_slots = 3\n"
+            f"set_stability = 0.5\nset_war_support = 0.2\n\n"
+            f"set_politics = {{\n\truling_party = {party}\n\tlast_election = \"1988.1.1\"\n"
+            f"\telection_frequency = 48\n\telections_allowed = {elections}\n}}\n"
+            f"set_popularities = {{\n\tdemocratic = {dem}\n\tcommunism = {com}\n"
+            f"\tneutrality = {neu}\n\tfascism = {fas}\n}}\n")
+
+
+def generated_histories(out):
+    """Country history files written here earlier: the shape of country_body (its keys and layout, any values).
+    Hand-written ones (DDR, GER, SOV, USA and whatever other sessions add) are kept."""
+    def shape(text):
+        return re.sub(r"=.*", "=", text)
+    want = shape(country_body(1, "x", "no", (0, 0, 0, 0)))
+    return sorted(p for p in out.glob("*.txt") if shape(p.read_text(encoding="utf-8-sig")) == want)
+
+
 def write_country_history(states, game, out):
     caps = vanilla_capitals(game)
-    for p in out.glob("*.txt"):
-        if p.name[:3] not in HANDWRITTEN:
-            p.unlink()
+    for p in generated_histories(out):
+        p.unlink()
+    handwritten = {p.name[:3] for p in out.glob("*.txt")}
     for tag, (en, ru, adj, adj_ru, gov) in sorted(countries.COUNTRIES.items()):
         cap = capital_of(tag, states, caps)
-        if tag in HANDWRITTEN:
+        if tag in handwritten:
             text = next(out.glob(tag + " - *.txt")).read_text(encoding="utf-8-sig")
             have = int(re.search(r"^\s*capital\s*=\s*(\d+)", text, re.M).group(1))
             assert have == cap, f"{tag}: hand-written capital {have}, expected {cap}"
             continue
-        dem, com, neu, fas = countries.POP.get(tag, countries.GOV_POP[gov])
-        party = GOV_PARTY[gov]
-        elections = "yes" if gov == "D" else "no"
-        body = (f"capital = {cap}\n\n"
-                f"set_research_slots = 3\n"
-                f"set_stability = 0.5\nset_war_support = 0.2\n\n"
-                f"set_politics = {{\n\truling_party = {party}\n\tlast_election = \"1988.1.1\"\n"
-                f"\telection_frequency = 48\n\telections_allowed = {elections}\n}}\n"
-                f"set_popularities = {{\n\tdemocratic = {dem}\n\tcommunism = {com}\n"
-                f"\tneutrality = {neu}\n\tfascism = {fas}\n}}\n")
+        pops = countries.POP.get(tag, countries.GOV_POP[gov])
+        body = country_body(cap, GOV_PARTY[gov], "yes" if gov == "D" else "no", pops)
         safe = re.sub(r"[^A-Za-z0-9 ]", "", en)
         (out / f"{tag} - {safe}.txt").write_text(body, encoding="utf-8-sig")
 
 
+def country_tags(game, root):
+    """Tags the game loads -> their country file: vanilla and mod common/country_tags (a mod file replaces the vanilla
+    file of its name), without the civil war tags after dynamic_tags = yes, which never get a history."""
+    files = {p.name: p for p in (game / "common/country_tags").glob("*.txt")}
+    files.update({p.name: p for p in (root / "common/country_tags").glob("*.txt")})
+    tags = {}
+    for _, p in sorted(files.items()):
+        text = re.sub(r"#[^\n]*", "", p.read_text(encoding="utf-8-sig", errors="ignore"))
+        text = re.split(r"\bdynamic_tags\s*=\s*yes", text)[0]
+        tags.update(re.findall(r'^\s*([A-Z0-9]{3})\s*=\s*"([^"]+)"', text, re.M))
+    return tags
+
+
+def vp_total(state):
+    return sum(float(v[1][0]) for k, _, v in state["hist"]
+               if k == "victory_points" and isinstance(v, list) and len(v) > 1)
+
+
+def release_capital(tag, states, vanilla_caps):
+    """The vanilla capital if the tag has a core there in 1990, else its biggest cored state; a tag without cores
+    (Reichskommissariats, ...) keeps the vanilla capital. None when neither is a 1990 state."""
+    cored = [sid for sid, s in states.items() if tag in s["cores"]]
+    cap = vanilla_caps.get(tag)
+    if cap in cored or (not cored and cap in states):
+        return cap
+    if cored:
+        return max(cored, key=lambda sid: (vp_total(states[sid]), len(states[sid]["provs"]), -sid))
+    return None
+
+
+def write_release_histories(states, game, root):
+    """history/countries is a replace_path: every tag without a history file (the releasables, UKR, BAY, RKO, ...)
+    gets a country_body() file, so write_country_history() replaces it on the next build like the other generated
+    ones. Capital and politics only (those of the capital's 1990 owner) - nothing that spawns the country."""
+    out = root / "history/countries"
+    caps = vanilla_capitals(game)
+    have = {p.name[:3] for p in out.glob("*.txt")}
+    written = 0
+    for tag, path in sorted(country_tags(game, root).items()):
+        if tag in have:
+            continue
+        cap = release_capital(tag, states, caps)
+        if cap is None:
+            print(f"history/countries: no history for {tag} (no core, vanilla capital {caps.get(tag)} is gone)")
+            continue
+        owner = states[cap]["owner"]
+        gov = countries.COUNTRIES[owner][4]
+        pops = countries.POP.get(owner, countries.GOV_POP[gov])
+        body = country_body(cap, GOV_PARTY[gov], "yes" if gov == "D" else "no", pops)
+        safe = re.sub(r"[^A-Za-z0-9 ]", "", Path(path).stem)
+        (out / f"{tag} - {safe}.txt").write_text(body, encoding="utf-8-sig")
+        written += 1
+    print("history/countries:", written, "releasable tags")
+
+
 def new_tags(root, game):
-    tags = root / "common/country_tags"
-    shutil.rmtree(tags, ignore_errors=True)
-    tags.mkdir(parents=True)
+    tags = root / "common/country_tags"                  # only this function's own files are rewritten here:
+    tags.mkdir(parents=True, exist_ok=True)               # other sessions may keep tags and countries next to them
     lines = [f'{t} = "countries/{n}.txt"' for t, (n, _, _) in NEW_TAGS.items()]
     (tags / "totu_1990_countries.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
     cdir = root / "common/countries"
-    shutil.rmtree(cdir, ignore_errors=True)
-    cdir.mkdir(parents=True)
+    cdir.mkdir(parents=True, exist_ok=True)
     for t, (n, g3d, g2d) in NEW_TAGS.items():
         (cdir / f"{n}.txt").write_text(
             f"graphical_culture = {g3d}\ngraphical_culture_2d = {g2d}\n\ncolor = {{ 80 80 80 }}\n", encoding="utf-8")
@@ -390,69 +467,55 @@ def write_loc(root, game):
 
 
 # ------------------------------------------------------------------ on_actions
-def block_span(text, start):
-    """End index (exclusive) of the {...} block opening at or after `start`, skipping comments and strings."""
-    i = text.index("{", start)
-    depth = 0
-    while i < len(text):
-        c = text[i]
-        if c == "#":
-            i = text.find("\n", i)
-            if i < 0:
-                break
-            continue
-        if c == '"':
-            i = text.index('"', i + 1)
-        elif c == "{":
-            depth += 1
-        elif c == "}":
-            depth -= 1
-            if depth == 0:
-                return i + 1
-        i += 1
-    raise ValueError("unbalanced block")
-
-
 def strip_on_startup(game, root):
     """Vanilla on_startup effects set up 1936 (Spanish Civil War, Chinese warlords, colonies, DLC puppets). On the
-    1990 world they crash the game when a campaign starts, so the mod ships copies of those files without them."""
-    out = root / "common/on_actions"
-    out.mkdir(parents=True, exist_ok=True)
-    for p in out.glob("*.txt"):
-        if not p.name.startswith("totu_"):
-            p.unlink()
-    n = 0
-    for f in sorted((game / "common/on_actions").glob("*.txt")):
-        text = f.read_text(encoding="utf-8-sig")
-        pos, cut = 0, []
-        for m in re.finditer(r"^\s*on_startup\s*=\s*\{", text, re.M):
-            if m.start() < pos:
-                continue
-            end = block_span(text, m.start())
-            cut.append((m.start(), end))
-            pos = end
-        if not cut:
-            continue
-        for a, b in reversed(cut):
-            text = text[:a] + "\n\t# on_startup removed by Twilight of the Union (1936 setup)\n" + text[b:]
-        (out / f.name).write_text(text, encoding="utf-8")       # no BOM: on_actions with a BOM fail to parse
-        n += len(cut)
-    print("on_actions: removed", n, "on_startup blocks")
+    1990 world they crash the game when a campaign starts, so the mod ships copies of those files without them.
+    tools/strip_vanilla.py owns those copies (it also cuts their calls of the removed vanilla events) and never touches
+    the mod's own on_actions files; this runs it on game and root."""
+    import strip_vanilla
+    saved = strip_vanilla.GAME, strip_vanilla.ROOT
+    strip_vanilla.GAME, strip_vanilla.ROOT = Path(game), Path(root)
+    try:
+        strip_vanilla.main()
+    finally:
+        strip_vanilla.GAME, strip_vanilla.ROOT = saved
+
+
+def vanilla_vp_names(game):
+    """Province -> (English, Russian) victory point names: vanilla localisation, then the 1990 renames."""
+    out = {}
+    for lang, i in (("english", 0), ("russian", 1)):
+        for f in (game / "localisation" / lang).glob("*victory_points*.yml"):
+            for k, v in re.findall(r'^\s*VICTORY_POINTS_(\d+):\d*\s*"(.*)"', f.read_text(encoding="utf-8-sig"), re.M):
+                out.setdefault(int(k), ["", ""])[i] = v
+    for p, (en, ru) in names.VP_NAMES.items():
+        out[p] = [en, ru]
+    return {p: tuple(v) for p, v in out.items()}
 
 
 # ------------------------------------------------------------------ main
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--game", default=next((g for g in GAME_GUESSES if Path(g).exists()), None))
+    ap.add_argument("--no-map", action="store_true", help="keep the vanilla provinces (skip tools/map1990)")
     args = ap.parse_args()
     game = Path(args.game)
     states = load_states(game)
     assign(states)
+    from map1990 import build as map_build
+    rebuilt = None
+    if args.no_map:
+        map_build.clean(ROOT / "map")
+    else:               # real 1990 states and dense provinces in the zone (tools/map1990, docs/superpowers/specs)
+        rebuilt = map_build.run(game, states, ROOT, names, vp_names=vanilla_vp_names(game))
+        CAPITALS.update(rebuilt["capitals"])
     write_states(states, ROOT / "history/states")
     (ROOT / "map").mkdir(exist_ok=True)
-    write_buildings(game, states, ROOT / "map/buildings.txt")
+    if rebuilt is None:
+        write_buildings(game, states, ROOT / "map/buildings.txt")
     write_country_history(states, game, ROOT / "history/countries")
     new_tags(ROOT, game)
+    write_release_histories(states, game, ROOT)
     write_colors(game, ROOT)
     write_loc(ROOT, game)
     flags.write_flags(game, ROOT, NEW_TAGS)

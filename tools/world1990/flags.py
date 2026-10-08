@@ -28,8 +28,23 @@ def save_all(img, root, name):
         img.resize(size, Image.LANCZOS).save(p)
 
 
+def repair_vanilla(game, root):
+    """The engine refuses RLE-compressed TGAs ("Unsupported format. Expected 32bpp, uncompressed"), and vanilla ships
+    a few (medium/BUK_communism, ...); the releasables have histories now, so these flags load. Uncompressed copies,
+    unless the mod already has a file of that name."""
+    for p in sorted((game / "gfx/flags").rglob("*.tga")):
+        dst = root / "gfx/flags" / p.relative_to(game / "gfx/flags")
+        with p.open("rb") as f:
+            rle = f.read(3)[2] == 10
+        if rle and not dst.exists():
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            Image.open(p).convert("RGBA").save(dst, compression=None)    # PIL would keep the source's tga_rle
+
+
 def write_flags(game, root, new_tags):
-    shutil.rmtree(root / "gfx/flags", ignore_errors=True)
+    # no clean-up of gfx/flags: other parts of the mod keep their own flags there (TOTU_* cosmetic flags); every file
+    # written below is simply overwritten
+    repair_vanilla(game, root)
     for tag, src in COPY.items():
         for sub in SIZES:
             dst = root / "gfx/flags" / sub / f"{tag}.tga"

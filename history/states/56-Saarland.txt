@@ -1,0 +1,28 @@
+state = {
+	id = 56
+	name = "STATE_56"
+	manpower = 409547
+	resources = {
+		aluminium = 1
+		steel = 1
+	}
+	state_category = town
+
+	history = {
+		owner = GER
+		add_core_of = GER
+		add_core_of = RHI
+		add_core_of = PRE
+		buildings = {
+			infrastructure = 4
+		}
+		victory_points = { 3629 1 }
+		victory_points = { 11531 5 }
+	}
+
+	provinces = {
+		3629 11531 13483
+	}
+
+	local_supplies = 0.6
+}

@@ -1,0 +1,10 @@
+﻿l_korean:
+ # GENERATED copy of localisation/english/replace/totu_ger_parties_l_english.yml (no translation yet).
+ GER_democratic_party:0 "CDU/CSU"
+ GER_democratic_party_long:0 "Christian Democratic Union / Christian Social Union"
+ GER_communism_party:0 "DKP"
+ GER_communism_party_long:0 "German Communist Party"
+ GER_neutrality_party:0 "REP"
+ GER_neutrality_party_long:0 "The Republicans"
+ GER_fascism_party:0 "NPD"
+ GER_fascism_party_long:0 "National Democratic Party of Germany"

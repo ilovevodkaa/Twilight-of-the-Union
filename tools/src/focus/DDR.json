@@ -1,0 +1,5686 @@
+{
+ "focuses": [
+  {
+   "ai": "10",
+   "available": "",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "On 13 November 1989 the Volkskammer made Hans Modrow prime minister, a Dresden party secretary with a reformer's reputation. He inherited a country people are leaving and a party people are quitting.",
+   "desc_ru": "13 ноября 1989 года Народная палата сделала премьером Ханса Модрова, дрезденского секретаря с репутацией реформатора. Ему досталась страна, из которой уезжают, и партия, из которой выходят.",
+   "effects": [
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "Подсказка о выборах 18 марта: кто и при каком условии их выиграет"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "Модров на трибуне Народной палаты под гербом ГДР",
+   "id": "DDR_modrow_government",
+   "key": "f_ddr_modrow",
+   "mutex": [],
+   "name_en": "Modrow's Government",
+   "name_ru": "Правительство Модрова",
+   "notes": "Корень дерева.",
+   "prereq": [],
+   "x": 7,
+   "y": 0
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "Since December the government and the opposition have met every week at one table: New Forum, the churches, the new parties. The Round Table's decisions have no force of law, yet nothing is decided without it.",
+   "desc_ru": "С декабря правительство и оппозиция каждую неделю садятся за один стол: Новый форум, церковь, новые партии. Решения Круглого стола не имеют силы закона, но без него уже ничего не решается.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "круглый стол с табличками и микрофонами, говорит пастор",
+   "id": "DDR_round_table_course",
+   "key": "f_ddr_roundtable",
+   "mutex": [],
+   "name_en": "The Round Table Course",
+   "name_ru": "Курс Круглого стола",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_modrow"
+    ]
+   ],
+   "x": 2,
+   "y": 1
+  },
+  {
+   "ai": "4",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "The Office for National Security, the Stasi under its last name, is shut down. Citizens' committees seal the archives before the officers can burn everything, and argue over what to do with files on six million people.",
+   "desc_ru": "Ведомство национальной безопасности, последняя вывеска Штази, закрывается. Гражданские комитеты опечатывают архивы, пока офицеры не успели сжечь всё, и спорят, что делать с досье на шесть миллионов человек.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_DDR_stasi_besieged"
+     },
+     "t": "remove_idea"
+    },
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 3
+     },
+     "t": "popularity"
+    }
+   ],
+   "icon": "стеллажи с папками Штази и бумажная пломба на шкафу",
+   "id": "DDR_dissolve_stasi",
+   "key": "f_ddr_stasi",
+   "mutex": [],
+   "name_en": "Dissolve the Stasi",
+   "name_ru": "Распустить Штази",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_roundtable"
+    ]
+   ],
+   "x": 0,
+   "y": 2
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "In February the Round Table lets the Main Intelligence Directorate, the Stasi's foreign arm, wind itself up. The officers promise to go quietly and spend the next few months methodically burning the files on their agents in the West.",
+   "desc_ru": "В феврале Круглый стол разрешает Главному управлению разведки, внешней разведке Штази, распустить себя самому. Офицеры обещают уйти тихо и несколько месяцев методично жгут дела своей агентуры на Западе.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": -2
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "text": "Москва довольна: СССР относится к ГДР лучше (TOTU_ddr_hva_dissolved)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "горящие папки в железной урне и коробка микроплёнки",
+   "id": "DDR_hva_self_dissolution",
+   "key": "f_ddr_hva",
+   "mutex": [
+    "f_ddr_committees"
+   ],
+   "name_en": "The Spies Disband Themselves",
+   "name_ru": "Самороспуск разведки",
+   "notes": "Исторический выбор Круглого стола. Против «Архивов под охраной граждан».",
+   "prereq": [
+    [
+     "f_ddr_stasi"
+    ]
+   ],
+   "x": 0,
+   "y": 3
+  },
+  {
+   "ai": "2",
+   "available": "",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "The citizens' committees demand that not a single folder leave the archives, the spies' folders included. The keys to the stores are now held by pastors, students and engineers who keep watch in shifts.",
+   "desc_ru": "Гражданские комитеты требуют, чтобы ни одна папка не покинула архив, включая папки разведки. Ключи от хранилищ теперь у пасторов, студентов и инженеров, которые дежурят посменно.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 3
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": -2
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "name": "TOTU_DDR_files_guarded"
+     },
+     "t": "flag"
+    }
+   ],
+   "icon": "дежурные гражданского комитета у опечатанной двери архива",
+   "id": "DDR_citizens_committees",
+   "key": "f_ddr_committees",
+   "mutex": [
+    "f_ddr_hva"
+   ],
+   "name_en": "Archives in Citizens' Hands",
+   "name_ru": "Архивы под охраной граждан",
+   "notes": "Флаг TOTU_DDR_files_guarded усиливает закон о досье (Альянс: «Закон о досье Штази», СДПГ: «Право на своё досье») и ревизию имущества СЕПГ у ПДС.",
+   "prereq": [
+    [
+     "f_ddr_stasi"
+    ]
+   ],
+   "x": 1,
+   "y": 3
+  },
+  {
+   "ai": "2",
+   "available": "",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "On 5 February the Volkskammer guarantees freedom of opinion, information and the media, and puts television under a Media Control Council instead of the Party. Newspapers that printed Honecker's speeches yesterday learn to print readers' letters.",
+   "desc_ru": "5 февраля Народная палата гарантирует свободу мнений, информации и СМИ, а над телевидением ставит не партию, а Совет по контролю над СМИ. Газеты, вчера печатавшие речи Хонеккера, учатся печатать письма читателей.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 3
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "телекамера ДФФ, стол диктора и пачка свежих газет",
+   "id": "DDR_media_law",
+   "key": "f_ddr_media",
+   "mutex": [],
+   "name_en": "The Media Resolution",
+   "name_ru": "Постановление о СМИ",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_roundtable"
+    ]
+   ],
+   "x": 2,
+   "y": 2
+  },
+  {
+   "ai": "4",
+   "available": "Только до выборов 18 марта",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "On 5 February eight ministers without portfolio from the opposition join Modrow's cabinet. The government is no longer the Party's alone, and now everyone will answer for it.",
+   "desc_ru": "5 февраля восемь министров без портфеля от оппозиции входят в кабинет Модрова. Правительство больше не только партийное, и отвечать теперь будут все.",
+   "effects": [
+    {
+     "p": {
+      "from": "TOTU_DDR_round_table",
+      "to": "TOTU_DDR_national_responsibility"
+     },
+     "t": "swap_idea"
+    }
+   ],
+   "icon": "стол правительства: старые министры и молодые оппозиционеры в свитерах",
+   "id": "DDR_national_responsibility",
+   "key": "f_ddr_natresp",
+   "mutex": [],
+   "name_en": "Government of National Responsibility",
+   "name_ru": "Правительство национальной ответственности",
+   "notes": "После выборов дух снимается TOTU_DDR_end_round_table, поэтому фокус только до выборов.",
+   "prereq": [
+    [
+     "f_ddr_roundtable"
+    ]
+   ],
+   "x": 4,
+   "y": 2
+  },
+  {
+   "ai": "3",
+   "available": "Только до выборов 18 марта",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "On 20 February the Volkskammer passes the law on free elections: no threshold, no single list, Western observers welcome. The Round Table asks Western politicians not to campaign in the GDR, and of course they come.",
+   "desc_ru": "20 февраля Народная палата принимает закон о свободных выборах: без процентного барьера, без единого списка, с западными наблюдателями. Круглый стол просит западных политиков не ездить на митинги в ГДР, и они, конечно, едут.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "name": "TOTU_DDR_election_law"
+     },
+     "t": "flag"
+    },
+    {
+     "p": {
+      "text": "Первый фокус правительства, избранного 18 марта, даст ещё 50 политической власти"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "опечатанная урна для голосования и стопка бюллетеней",
+   "id": "DDR_election_law",
+   "key": "f_ddr_electlaw",
+   "mutex": [],
+   "name_en": "The Election Law",
+   "name_ru": "Закон о выборах",
+   "notes": "Флаг TOTU_DDR_election_law читает TOTU_DDR_pol_election_law_bonus в корнях трёх веток.",
+   "prereq": [
+    [
+     "f_ddr_natresp"
+    ],
+    [
+     "f_ddr_media"
+    ]
+   ],
+   "x": 3,
+   "y": 3
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "После выборов: партия уже называется ПДС",
+   "days": 7,
+   "desc_en": "On 4 February the SED-PDS cuts the first three letters off its name. Gysi explains that the party has broken with its past; former members, that the past has broken with the party: of two million, fewer than a million are left.",
+   "desc_ru": "4 февраля СЕПГ-ПДС отрезает от своего имени первые четыре буквы. Гизи объясняет, что партия порвала с прошлым, бывшие члены — что прошлое порвало с партией: из двух миллионов в ней осталось меньше миллиона.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "communism",
+      "value": 3
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": 25
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "Партия отныне называется ПДС"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "Гизи у трибуны, рабочие снимают старый партийный транспарант",
+   "id": "DDR_party_of_democratic_socialism",
+   "key": "f_ddr_pdsrename",
+   "mutex": [],
+   "name_en": "Party of Democratic Socialism",
+   "name_ru": "Партия демократического социализма",
+   "notes": "Выборы сами переименовывают партию (TOTU_DDR_count_votes), поэтому после них фокус пропускается.",
+   "prereq": [
+    [
+     "f_ddr_modrow"
+    ]
+   ],
+   "x": 7,
+   "y": 1
+  },
+  {
+   "ai": "2",
+   "available": "",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "On 29 January prosecutors arrest Erich Honecker as he leaves the Charité hospital and release him the next day on doctors' orders. The country's former master finds shelter in Lobetal with Pastor Uwe Holmer, whose children were kept out of university under Honecker.",
+   "desc_ru": "29 января прокуратура арестовывает Эриха Хонеккера на выходе из больницы «Шарите» и на следующий день отпускает: врачи против. Бывшего хозяина страны приютит в Лобетале пастор Уве Хольмер, чьих детей при Хонеккере не брали в вузы.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "ideology": "communism",
+      "value": 3
+     },
+     "t": "popularity"
+    }
+   ],
+   "icon": "Хонеккера выводят из дверей больницы к чёрной «Вольво»",
+   "id": "DDR_honecker_warrant",
+   "key": "f_ddr_honecker",
+   "mutex": [],
+   "name_en": "A Warrant for Honecker",
+   "name_ru": "Ордер на Хонеккера",
+   "notes": "Партия показывает, что старая верхушка отвечает за своё. Арест 29 января раньше переименования 4 февраля, поэтому фокус сразу под корнем.",
+   "prereq": [
+    [
+     "f_ddr_modrow"
+    ]
+   ],
+   "x": 6,
+   "y": 1
+  },
+  {
+   "ai": "2",
+   "available": "Только до выборов 18 марта",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "The most popular politician in the country agrees to head the PDS list. The prime minister of a government of national responsibility is now campaigning for one party, and the opposition ministers without portfolio ask whose government it is.",
+   "desc_ru": "Самый популярный политик страны соглашается возглавить список ПДС. Премьер правительства национальной ответственности теперь агитирует за одну партию, и оппозиционные министры без портфеля спрашивают, чьё это правительство.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "communism",
+      "value": 5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": -3
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "Модров жмёт руки рабочим у проходной завода",
+   "id": "DDR_modrow_heads_the_list",
+   "key": "f_ddr_modrowlist",
+   "mutex": [],
+   "name_en": "Modrow Heads the List",
+   "name_ru": "Модров во главе списка",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_pdsrename"
+    ]
+   ],
+   "x": 8,
+   "y": 2
+  },
+  {
+   "ai": "1",
+   "available": "Только пока правит СЕПГ-ПДС, до выборов 18 марта",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "The appeal of Christa Wolf and Stefan Heym: there is still a chance to build a socialist alternative to the Federal Republic. Over a million people signed it, Egon Krenz among them, which made many signatories want their names back.",
+   "desc_ru": "Воззвание Кристы Вольф и Стефана Гейма: ещё есть шанс построить социалистическую альтернативу ФРГ. Его подписали больше миллиона человек, и Эгон Кренц тоже, отчего многие подписанты захотели вычеркнуть свои имена.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "communism",
+      "value": 10
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": -5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "idea": "TOTU_DDR_third_way"
+     },
+     "t": "add_idea"
+    },
+    {
+     "p": {
+      "text": "Подсказка: ПДС удержит власть на выборах, если коммунизм популярнее демократии; шкала объединения −3 %"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "лист с подписями, свеча и ручка на церковной скамье",
+   "id": "DDR_for_our_country",
+   "key": "f_ddr_ourcountry",
+   "mutex": [
+    "f_ddr_dmark",
+    "f_ddr_slowunity"
+   ],
+   "name_en": "For Our Country",
+   "name_ru": "За нашу страну",
+   "notes": "Один из трёх предвыборных курсов (ПДС).",
+   "prereq": [
+    [
+     "f_ddr_honecker",
+     "f_ddr_modrowlist"
+    ]
+   ],
+   "x": 7,
+   "y": 4
+  },
+  {
+   "ai": "8",
+   "available": "Пока правительство возглавляет Модров (до выборов или при правительстве ПДС)",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "On 30 January Modrow flies to Gorbachev and hears what he did not expect: in principle, nobody in Moscow objects to German unity. The Kremlin no longer holds on to the GDR; now it bargains over it.",
+   "desc_ru": "30 января Модров летит к Горбачёву и слышит то, чего не ждал: в принципе против объединения немцев в Москве никто не возражает. Кремль больше не держит ГДР, теперь он за неё торгуется.",
+   "effects": [
+    {
+     "p": {
+      "value": 25
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "Москва готова обсуждать объединение: флаг TOTU_DDR_moscow_blessing, СССР относится к ГДР лучше, шкала объединения +3 %"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "рукопожатие Модрова и Горбачёва в Кремле",
+   "id": "DDR_moscow_visit",
+   "key": "f_ddr_moscow",
+   "mutex": [],
+   "name_en": "Visit to Moscow",
+   "name_ru": "Визит в Москву",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_modrow"
+    ]
+   ],
+   "x": 11,
+   "y": 1
+  },
+  {
+   "ai": "8",
+   "available": "Пока правительство возглавляет Модров (до выборов или при правительстве ПДС)",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "On 1 February Modrow puts forward his plan: a treaty community, then a confederation, then one state, a neutral one. 'Germany, united fatherland', a line from the GDR anthem that had gone unsung for years, is heard aloud again.",
+   "desc_ru": "1 февраля Модров предлагает свой план: договорное сообщество, конфедерация, затем единое государство, нейтральное. Строка «Германия, единое отечество» из гимна ГДР, который годами пели без слов, снова звучит вслух.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 3
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "text": "ФРГ относится к ГДР лучше: флаг TOTU_DDR_modrow_plan; ГДР тянет объединение на себя: +3"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "Модров на пресс-конференции с листком своего плана",
+   "id": "DDR_modrow_plan",
+   "key": "f_ddr_plan",
+   "mutex": [],
+   "name_en": "Germany, United Fatherland",
+   "name_ru": "Германия, единое отечество",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_moscow"
+    ]
+   ],
+   "x": 11,
+   "y": 2
+  },
+  {
+   "ai": "8",
+   "available": "Пока правительство возглавляет Модров (до выборов или при правительстве ПДС)",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "On 13 February Modrow asks Kohl for a fifteen-billion-mark 'solidarity contribution' and leaves empty-handed. Instead of money, Bonn offers something else: the Deutsche Mark for everyone, on Western terms.",
+   "desc_ru": "13 февраля Модров просит у Коля пятнадцать миллиардов марок «солидарного взноса» и уезжает ни с чем. Вместо денег Бонн предлагает другое: западную марку для всех, но на западных условиях.",
+   "effects": [
+    {
+     "p": {
+      "value": 25
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "Бонн предлагает валютный союз: флаг TOTU_DDR_kohl_offer, ФРГ относится к ГДР лучше; ФРГ тянет объединение на себя: +3"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "Модров и Коль за столом в ведомстве канцлера в Бонне",
+   "id": "DDR_bonn_visit",
+   "key": "f_ddr_bonn",
+   "mutex": [],
+   "name_en": "Visit to Bonn",
+   "name_ru": "Визит в Бонн",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_plan"
+    ]
+   ],
+   "x": 11,
+   "y": 3
+  },
+  {
+   "ai": "2",
+   "available": "Только до выборов 18 марта",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "At their Leipzig congress of 22–25 February the Social Democrats elect Ibrahim Böhme chairman and Willy Brandt honorary chairman. Their answer to Kohl: yes to unity, but through a new constitution, with a social charter and without a sell-off.",
+   "desc_ru": "На съезде в Лейпциге 22–25 февраля социал-демократы избирают председателем Ибрагима Бёме, а почётным председателем — Вилли Брандта. Их ответ Колю: единству — да, но через новую конституцию, с социальной хартией и без распродажи.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": 2
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Подсказка: СДПГ победит, если демократия популярнее коммунизма; обе стороны тянут объединение: ГДР +2, ФРГ +2"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "Вилли Брандт на трибуне съезда, гвоздики в вазе",
+   "id": "DDR_unity_without_haste",
+   "key": "f_ddr_slowunity",
+   "mutex": [
+    "f_ddr_dmark",
+    "f_ddr_ourcountry"
+   ],
+   "name_en": "Unity Without Haste",
+   "name_ru": "Единство без спешки",
+   "notes": "Один из трёх предвыборных курсов (СДПГ): не даёт флага валютного союза. Съезд СДПГ не зависит от поездки Модрова в Бонн, поэтому курс сразу после плана Модрова.",
+   "prereq": [
+    [
+     "f_ddr_plan"
+    ]
+   ],
+   "x": 9,
+   "y": 3
+  },
+  {
+   "ai": "10",
+   "available": "Только до выборов 18 марта",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "Kohl promises East Germans the Deutsche Mark, and the demonstrators in Leipzig answer in their own way: 'If the D-Mark comes, we stay; if it doesn't, we go to it.' The 18 March election will be a referendum on the mark.",
+   "desc_ru": "Коль обещает восточным немцам западную марку, а демонстранты в Лейпциге отвечают по-своему: «Придёт марка — останемся, не придёт — пойдём к ней». Выборы 18 марта станут референдумом о марке.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 8
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Подсказка: если демократия популярнее коммунизма, выборы выиграет «Альянс за Германию»; ФРГ тянет объединение на себя: +5"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "веер западных марок над ночной демонстрацией в Лейпциге",
+   "id": "DDR_accept_currency_union",
+   "key": "f_ddr_dmark",
+   "mutex": [
+    "f_ddr_ourcountry",
+    "f_ddr_slowunity"
+   ],
+   "name_en": "Accept the Currency Union",
+   "name_ru": "Принять валютный союз",
+   "notes": "Один из трёх предвыборных курсов (Альянс). Флаг TOTU_DDR_currency_union_promised; ведёт к ветке Альянса.",
+   "prereq": [
+    [
+     "f_ddr_bonn"
+    ]
+   ],
+   "x": 11,
+   "y": 4
+  },
+  {
+   "ai": "10",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "The winter polls were right after all: the Social Democrats win and form a coalition with Alliance 90 and the Liberals. Ibrahim Böhme promises unity step by step, and no step without social protection.",
+   "desc_ru": "Зимние опросы не ошиблись: социал-демократы побеждают и собирают коалицию с «Союзом 90» и либералами. Ибрагим Бёме обещает объединение шаг за шагом и ни одного шага без социальной защиты.",
+   "effects": [
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Если принят закон о выборах: +50 политической власти. Снимает «Третий путь». Шкала объединения +2 %. Через неделю — дело «Максимилиана» (событие totu_ddr_pol.1)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "Бёме принимает присягу на трибуне Народной палаты",
+   "id": "DDR_boehme_cabinet",
+   "key": "f_ddr_spdcab",
+   "mutex": [],
+   "name_en": "The Böhme Cabinet",
+   "name_ru": "Кабинет Бёме",
+   "notes": "allow_branch: TOTU_DDR_government_spd. Без пререквизитов.",
+   "prereq": [],
+   "x": 2,
+   "y": 5
+  },
+  {
+   "ai": "4",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "On 4 April the Round Table's working group presents its draft of a new GDR constitution: the right to work and to housing, referendums, citizens' movements as part of the state. The Böhme government puts it before the Volkskammer as the basis for talks with Bonn.",
+   "desc_ru": "4 апреля рабочая группа Круглого стола представляет проект новой конституции ГДР: право на труд и жильё, народные референдумы, гражданские движения как часть государства. Правительство Бёме вносит его в Народную палату как основу для переговоров с Бонном.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 3
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "ГДР тянет объединение на себя: +3"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "толстый проект конституции на круглом столе",
+   "id": "DDR_round_table_constitution",
+   "key": "f_ddr_rtconst",
+   "mutex": [],
+   "name_en": "The Round Table's Constitution",
+   "name_ru": "Конституция Круглого стола",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_spdcab"
+    ]
+   ],
+   "x": 1,
+   "y": 6
+  },
+  {
+   "ai": "5",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "The Volkskammer decides to check all 400 deputies against the Stasi card index. The results are read behind closed doors, and a few seats in the chamber fall empty without explanation.",
+   "desc_ru": "Народная палата решает проверить всех 400 депутатов по картотекам Штази. Результаты читают за закрытыми дверями, и несколько кресел в зале пустеют без объяснений.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Снимает дух «Дело „Максимилиана“», если он есть"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "выдвинутый ящик картотеки и удостоверение депутата",
+   "id": "DDR_deputies_check",
+   "key": "f_ddr_mpcheck",
+   "mutex": [],
+   "name_en": "Vetting the Deputies",
+   "name_ru": "Проверка депутатов",
+   "notes": "Способ избавиться от последствий события totu_ddr_pol.1.",
+   "prereq": [
+    [
+     "f_ddr_spdcab"
+    ]
+   ],
+   "x": 3,
+   "y": 6
+  },
+  {
+   "ai": "4",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "On 6 May the GDR elects its town and district assemblies, which then choose the mayors, and on 17 May the Volkskammer hands the communes their own affairs. The Böhme government promises to send them money from East Berlin, not instructions.",
+   "desc_ru": "6 мая ГДР выбирает городские и районные собрания, а те — бургомистров, и 17 мая Народная палата отдаёт общинам их собственные дела. Правительство Бёме обещает присылать из Восточного Берлина деньги, а не указания.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 3
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": 25
+     },
+     "t": "pp"
+    }
+   ],
+   "icon": "урна в сельском клубе и круглая печать общины",
+   "id": "DDR_municipal_constitution",
+   "key": "f_ddr_spdcommune",
+   "mutex": [],
+   "name_en": "The Municipal Constitution",
+   "name_ru": "Коммунальная конституция",
+   "notes": "Версия СДПГ коммунальных выборов (у Альянса — «Коммунальные выборы»).",
+   "prereq": [
+    [
+     "f_ddr_spdcab"
+    ]
+   ],
+   "x": 4,
+   "y": 6
+  },
+  {
+   "ai": "4",
+   "available": "",
+   "bypass": "",
+   "days": 28,
+   "desc_en": "The Social Democrats also want to bring back the Länder abolished in 1952, but they argue over the borders: Berlin with Brandenburg or on its own, Saxony with or without its scrap of Silesia. While they argue, the fifteen district councils wait to learn who will pay their staff.",
+   "desc_ru": "Социал-демократы тоже хотят вернуть земли, упразднённые в 1952 году, но спорят о границах: Берлин с Бранденбургом или отдельно, Саксония с клочком Силезии или без. Пока спорят, пятнадцать окружных советов ждут, кто будет платить их служащим.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "Шкала объединения +2 %"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "карта ГДР с карандашными спорными границами земель",
+   "id": "DDR_laender_not_districts",
+   "key": "f_ddr_spdlaender",
+   "mutex": [],
+   "name_en": "Länder Instead of Districts",
+   "name_ru": "Земли вместо округов",
+   "notes": "Версия СДПГ «Пяти земель».",
+   "prereq": [
+    [
+     "f_ddr_spdcommune"
+    ]
+   ],
+   "x": 4,
+   "y": 7
+  },
+  {
+   "ai": "4",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "The Böhme government passes a Stasi files law: the archives stay in the East, and everyone who was written about will have the right to read their own file. Bonn advises locking the archives away for a long time, preferably for ever.",
+   "desc_ru": "Правительство Бёме проводит закон о досье Штази: архивы остаются на востоке, и каждый, о ком писали, получит право прочесть своё дело. В Бонне советуют запереть архивы надолго, а лучше навсегда.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 3
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": -2
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Если архивы сберегли гражданские комитеты (фокус или событие 15 января): ещё +5 % стабильности"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "человек читает своё досье в читальном зале архива",
+   "id": "DDR_right_to_ones_file",
+   "key": "f_ddr_spdfiles",
+   "mutex": [],
+   "name_en": "The Right to One's File",
+   "name_ru": "Право на своё досье",
+   "notes": "Версия СДПГ закона о досье: при СДПГ флаг TOTU_DDR_files_guarded тоже приносит пользу.",
+   "prereq": [
+    [
+     "f_ddr_mpcheck"
+    ]
+   ],
+   "x": 3,
+   "y": 7
+  },
+  {
+   "ai": "4",
+   "available": "",
+   "bypass": "",
+   "days": 28,
+   "desc_en": "In March the Round Table adopted a social charter: the right to work, to housing, to a kindergarten place and to equal pay for women. The Böhme government makes it a condition: whatever is signed with Bonn, the charter goes into the treaty.",
+   "desc_ru": "В марте Круглый стол принял социальную хартию: право на труд, жильё, место в детском саду и равную оплату для женщин. Правительство Бёме ставит условие: что бы ни подписали с Бонном, хартия войдёт в договор.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_DDR_social_charter"
+     },
+     "t": "add_idea"
+    },
+    {
+     "p": {
+      "name": "TOTU_DDR_pol_social_charter_done"
+     },
+     "t": "flag"
+    }
+   ],
+   "icon": "работница с ребёнком у ворот детского сада",
+   "id": "DDR_social_charter",
+   "key": "f_ddr_socialcharter",
+   "mutex": [],
+   "name_en": "The Charter as a Condition",
+   "name_ru": "Хартия — условие договора",
+   "notes": "Шкалу не двигает: это делает решение «Социальная хартия» (TOTU_unity_ddr_social_charter). Флаг TOTU_DDR_pol_social_charter_done — для сборщика решений.",
+   "prereq": [
+    [
+     "f_ddr_rtconst"
+    ]
+   ],
+   "x": 0,
+   "y": 7
+  },
+  {
+   "ai": "4",
+   "available": "Германский вопрос ещё не решён",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "Two states, one parliamentary council and joint commissions on currency, transport and law. Bonn calls it an unnecessary stage; Böhme calls it a way not to lose a single job on the road.",
+   "desc_ru": "Два государства, один парламентский совет и общие комиссии по валюте, транспорту и праву. Бонн называет это лишним этапом, Бёме — способом не потерять по дороге ни одного рабочего места.",
+   "effects": [
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "Обе стороны тянут объединение: ГДР +3, ФРГ +3"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "два кресла парламентов за одним длинным столом",
+   "id": "DDR_confederation",
+   "key": "f_ddr_confed",
+   "mutex": [],
+   "name_en": "Confederation",
+   "name_ru": "Конфедерация",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_rtconst"
+    ]
+   ],
+   "x": 2,
+   "y": 7
+  },
+  {
+   "ai": "2",
+   "available": "Германский вопрос ещё не решён",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "A united Germany outside both NATO and the Warsaw Pact, as Moscow and half the Round Table proposed. Moscow is pleased; Washington and Bonn are reminded of Stalin's note of 1952.",
+   "desc_ru": "Единая Германия вне НАТО и вне Варшавского договора, как предлагали Москва и половина Круглого стола. В Москве довольны, в Вашингтоне и Бонне вспоминают ноту Сталина 1952 года.",
+   "effects": [
+    {
+     "p": {
+      "text": "СССР относится к ГДР лучше, ФРГ и США — хуже; ГДР тянет объединение на себя: +5"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "карта Германии без границ блоков и значок с голубем",
+   "id": "DDR_neutral_germany",
+   "key": "f_ddr_neutralde",
+   "mutex": [
+    "f_ddr_genscher"
+   ],
+   "name_en": "A Neutral Germany",
+   "name_ru": "Нейтральная Германия",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_confed"
+    ]
+   ],
+   "x": 1,
+   "y": 8
+  },
+  {
+   "ai": "4",
+   "available": "Германский вопрос ещё не решён",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "On 31 January in Tutzing Hans-Dietrich Genscher proposed that a united Germany stay in NATO while the alliance's troops stay out of the East. The Böhme government accepts the formula and asks Bonn to pay for the Soviet withdrawal while it is at it.",
+   "desc_ru": "31 января в Тутцинге Ханс-Дитрих Геншер предложил: единая Германия остаётся в НАТО, но войска альянса не заходят на восток. Правительство Бёме принимает формулу и заодно просит Бонн оплатить вывод советских войск.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "ФРГ относится к ГДР лучше; ФРГ тянет объединение на себя: +5"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "Геншер в жёлтом пуловере у кафедры",
+   "id": "DDR_genscher_formula",
+   "key": "f_ddr_genscher",
+   "mutex": [
+    "f_ddr_neutralde"
+   ],
+   "name_en": "The Genscher Formula",
+   "name_ru": "Формула Геншера",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_confed"
+    ]
+   ],
+   "x": 2,
+   "y": 8
+  },
+  {
+   "ai": "6",
+   "available": "Германский вопрос ещё не решён",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "The Basic Law provides for its own end: Article 146 promises a constitution adopted by the whole German people. Deputies of both parliaments sit down to write it together, and the Western members soon find that their Eastern colleagues have read the Round Table draft more closely than the Basic Law.",
+   "desc_ru": "Основной закон ФРГ сам предусматривает свой конец: статья 146 обещает конституцию, которую примет весь немецкий народ. Депутаты обоих парламентов садятся писать её вместе, и западные коллеги быстро выясняют, что восточные читали проект Круглого стола внимательнее, чем Основной закон.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "value": 100
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "name": "TOTU_DDR_pol_article_146_done"
+     },
+     "t": "flag"
+    },
+    {
+     "p": {
+      "text": "Обе стороны тянут объединение: ГДР +3, ФРГ +3"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "раскрытый Основной закон с закладкой и бюллетень",
+   "id": "DDR_article_146",
+   "key": "f_ddr_art146",
+   "mutex": [],
+   "name_en": "A Constituent Assembly",
+   "name_ru": "Учредительное собрание",
+   "notes": "Шкалу двигает слабее, чем решение «Конституция по статье 146» (TOTU_unity_ddr_article_146): фокус — само собрание, решение — политическое требование. Флаг TOTU_DDR_pol_article_146_done — для сборщика решений.",
+   "prereq": [
+    [
+     "f_ddr_neutralde",
+     "f_ddr_genscher"
+    ],
+    [
+     "f_ddr_socialcharter"
+    ]
+   ],
+   "x": 2,
+   "y": 9
+  },
+  {
+   "ai": "6",
+   "available": "Германский вопрос ещё не решён",
+   "bypass": "",
+   "days": 49,
+   "desc_en": "The draft of a common constitution goes to a referendum in both German states on the same day. In the West they argue over the right to work, in the East over the right to abortion, and in the end both vote yes rather than start again.",
+   "desc_ru": "Проект общей конституции выносят на референдум в обоих германских государствах в один день. На западе спорят о праве на труд, на востоке — о праве на аборт, и в итоге голосуют за, лишь бы не начинать заново.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "text": "Обе стороны тянут объединение: ГДР +5, ФРГ +5"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "два бюллетеня, восточный и западный, на одной урне",
+   "id": "DDR_constitution_referendum",
+   "key": "f_ddr_spdreferendum",
+   "mutex": [],
+   "name_en": "The Constitutional Referendum",
+   "name_ru": "Референдум о конституции",
+   "notes": "Итог ветки СДПГ по германскому вопросу.",
+   "prereq": [
+    [
+     "f_ddr_art146"
+    ]
+   ],
+   "x": 2,
+   "y": 10
+  },
+  {
+   "ai": "10",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "Modrow stays prime minister, an elected one this time. The PDS governs with the former bloc parties, the streets chant 'We are one people' again, and Bonn shelves the talks until better times.",
+   "desc_ru": "Модров остаётся премьером, теперь уже избранным. ПДС правит с бывшими блоковыми партиями, на улицах снова скандируют «Мы один народ», а Бонн откладывает переговоры до лучших времён.",
+   "effects": [
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "Если принят закон о выборах: +50 политической власти. Шкала объединения −3 %"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "Модров на пресс-конференции после подсчёта голосов",
+   "id": "DDR_modrow_mandate",
+   "key": "f_ddr_pdscab",
+   "mutex": [],
+   "name_en": "Modrow's Mandate",
+   "name_ru": "Мандат Модрова",
+   "notes": "allow_branch: TOTU_DDR_government_pds. Без пререквизитов.",
+   "prereq": [],
+   "x": 7,
+   "y": 5
+  },
+  {
+   "ai": "6",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "Gysi's programme: a market without a sell-off, ownership by the workforces, free elections and no leading role. Inside the party they argue whether this is socialism; in the West, whether it is democracy.",
+   "desc_ru": "Программа Гизи: рынок без распродажи, собственность трудовых коллективов, свободные выборы и никакой руководящей роли. В партии спорят, социализм ли это, на Западе — демократия ли это.",
+   "effects": [
+    {
+     "p": {
+      "from": "TOTU_DDR_third_way",
+      "to": "TOTU_DDR_democratic_socialism"
+     },
+     "t": "swap_idea"
+    },
+    {
+     "p": {
+      "ideology": "communism",
+      "value": 3
+     },
+     "t": "popularity"
+    }
+   ],
+   "icon": "Гизи с тонкой брошюрой программы на съезде",
+   "id": "DDR_democratic_socialism",
+   "key": "f_ddr_demsoc",
+   "mutex": [],
+   "name_en": "Democratic Socialism",
+   "name_ru": "Демократический социализм",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_pdscab"
+    ]
+   ],
+   "x": 6,
+   "y": 6
+  },
+  {
+   "ai": "4",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "An independent commission lists what the SED acquired in forty years: holiday homes, printing works, hotels and accounts not even Gysi knew about. The PDS keeps the Karl Liebknecht House and hands the rest to the state, loudly and, as it will turn out, not all of it.",
+   "desc_ru": "Независимая комиссия описывает, что СЕПГ нажила за сорок лет: дома отдыха, типографии, гостиницы и счета, о которых не знал даже Гизи. ПДС оставляет себе Дом Карла Либкнехта и отдаёт остальное государству, громко и, как выяснится, не всё.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "Если архивы сберегли гражданские комитеты (фокус или событие 15 января): комиссия находит больше, ещё +3 % стабильности"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "связки ключей от домов отдыха и сберкнижки на столе",
+   "id": "DDR_sed_property_review",
+   "key": "f_ddr_sedassets",
+   "mutex": [],
+   "name_en": "Auditing the SED's Property",
+   "name_ru": "Ревизия имущества СЕПГ",
+   "notes": "При ПДС флаг TOTU_DDR_files_guarded (или TOTU_DDR_stasi_files_saved) окупается здесь.",
+   "prereq": [
+    [
+     "f_ddr_pdscab"
+    ]
+   ],
+   "x": 8,
+   "y": 6
+  },
+  {
+   "ai": "6",
+   "available": "Германский вопрос ещё не решён",
+   "bypass": "",
+   "days": 28,
+   "desc_en": "Modrow proposed a treaty community back in November 1989, and even Kohl put one into his ten points. Now it is given some substance: joint commissions on the economy, law and the environment, harmonised laws and no deadlines.",
+   "desc_ru": "Модров предлагал договорное сообщество ещё в ноябре 1989-го, и даже Коль включил его в свои десять пунктов. Теперь его наполняют делом: общие комиссии по экономике, праву и экологии, согласованные законы и никаких сроков.",
+   "effects": [
+    {
+     "p": {
+      "name": "TOTU_DDR_pol_treaty_community_done"
+     },
+     "t": "flag"
+    },
+    {
+     "p": {
+      "text": "ФРГ относится к ГДР лучше; ГДР тянет объединение на себя: +2"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "две кожаные папки договора и две ручки",
+   "id": "DDR_treaty_community",
+   "key": "f_ddr_treatycomm",
+   "mutex": [
+    "f_ddr_moratorium"
+   ],
+   "name_en": "Treaty Community Commissions",
+   "name_ru": "Комиссии договорного сообщества",
+   "notes": "Путь к объединению на условиях ГДР. Главный рывок шкалы — решение «Договорное сообщество» (TOTU_unity_ddr_treaty_community); фокус — его комиссии. Флаг TOTU_DDR_pol_treaty_community_done — для сборщика решений.",
+   "prereq": [
+    [
+     "f_ddr_demsoc"
+    ]
+   ],
+   "x": 5,
+   "y": 7
+  },
+  {
+   "ai": "2",
+   "available": "Германский вопрос не решён, переговоры не заморожены",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "The government declares a pause: no talks on unification until the GDR has put its own house in order. Bonn calls it blackmail; the factories call it a breathing space.",
+   "desc_ru": "Правительство объявляет паузу: никаких переговоров об объединении, пока ГДР не наведёт порядок в собственном доме. В Бонне это называют шантажом, на заводах — передышкой.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Переговоры заморожены на 180 дней, шкала объединения −5 %, ФРГ относится к ГДР хуже"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "пустой зал переговоров, перегороженный красным шнуром",
+   "id": "DDR_talks_moratorium",
+   "key": "f_ddr_moratorium",
+   "mutex": [
+    "f_ddr_treatycomm"
+   ],
+   "name_en": "A Moratorium on Talks",
+   "name_ru": "Мораторий на переговоры",
+   "notes": "Путь к самостоятельной ГДР. Заморозка через TOTU_unity_freeze_180.",
+   "prereq": [
+    [
+     "f_ddr_demsoc"
+    ]
+   ],
+   "x": 7,
+   "y": 7
+  },
+  {
+   "ai": "5",
+   "available": "Германский вопрос ещё не решён",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "The second step of the Modrow plan: a joint council of the two parliaments, where the GDR has as many votes as a Federal Republic four times its size. Bonn counts what it will cost; Berlin counts what it will mean.",
+   "desc_ru": "Второй шаг плана Модрова: общий совет двух парламентов, где у ГДР столько же голосов, сколько у вчетверо большей ФРГ. В Бонне подсчитывают, сколько это будет стоить, в Берлине — сколько это будет значить.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "ГДР тянет объединение на себя: +8"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "весы с двумя равными стопками мандатов",
+   "id": "DDR_confederation_of_equals",
+   "key": "f_ddr_equalconf",
+   "mutex": [],
+   "name_en": "A Confederation of Equals",
+   "name_ru": "Конфедерация на равных",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_treatycomm"
+    ]
+   ],
+   "x": 5,
+   "y": 8
+  },
+  {
+   "ai": "5",
+   "available": "Германский вопрос ещё не решён",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "The last step of the Modrow plan: one Germany outside the blocs, with no foreign troops and a constitution that keeps room for the GDR's social rights. Moscow has wanted this since 1952, and Washington has feared it just as long.",
+   "desc_ru": "Последний шаг плана Модрова: единая Германия вне блоков, без иностранных войск и с конституцией, где осталось место для социальных прав ГДР. Москва хотела этого с 1952 года, Вашингтон столько же лет этого боялся.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "communism",
+      "value": 3
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "text": "СССР относится к ГДР лучше, США — хуже; ГДР тянет объединение на себя: +10"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "голубь над Бранденбургскими воротами, на земле две фуражки",
+   "id": "DDR_neutral_fatherland",
+   "key": "f_ddr_neutralunity",
+   "mutex": [],
+   "name_en": "One Neutral Fatherland",
+   "name_ru": "Единое нейтральное отечество",
+   "notes": "Итог ветки ПДС: объединение на условиях ГДР.",
+   "prereq": [
+    [
+     "f_ddr_equalconf"
+    ]
+   ],
+   "x": 5,
+   "y": 9
+  },
+  {
+   "ai": "3",
+   "available": "Германский вопрос ещё не решён",
+   "bypass": "",
+   "days": 28,
+   "desc_en": "The government declares that the GDR is neither a provisional state nor a queue for accession. Nobody writes a new anthem; the old one is finally sung with its words again, except the line about one fatherland.",
+   "desc_ru": "Правительство объявляет: ГДР — не временное государство и не очередь на присоединение. Новый гимн не пишут, старый наконец поют со словами, кроме строки про единое отечество.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "ideology": "communism",
+      "value": 3
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "text": "Шкала объединения −10 %"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "небольшой рабочий хор в цеху и ноты гимна на пюпитре",
+   "id": "DDR_independent_gdr",
+   "key": "f_ddr_independent",
+   "mutex": [
+    "f_ddr_leanmoscow"
+   ],
+   "name_en": "An Independent GDR",
+   "name_ru": "Самостоятельная ГДР",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_moratorium"
+    ]
+   ],
+   "x": 7,
+   "y": 8
+  },
+  {
+   "ai": "3",
+   "available": "Модров был в Москве, в Кремле не победили сторонники жёсткой линии, ГДР ещё в Варшавском договоре",
+   "bypass": "ГДР уже вышла из Варшавского договора",
+   "days": 35,
+   "desc_en": "In 1955 the USSR withdrew from Austria in exchange for permanent neutrality. East Berlin offers Moscow the same deal: the GDR leaves the Warsaw Pact but does not go West.",
+   "desc_ru": "В 1955 году СССР вывел войска из Австрии в обмен на вечный нейтралитет. Восточный Берлин предлагает Москве ту же сделку: ГДР выходит из Варшавского договора, но не уходит на Запад.",
+   "effects": [
+    {
+     "p": {
+      "text": "Предложение Москве (событие СССР «Протокол из Восточного Берлина»): если СССР согласится, ГДР выйдет из Варшавского договора; если откажет, останется в нём"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "советский генерал и дипломат ГДР жмут руки над папкой",
+   "id": "DDR_austrian_option",
+   "key": "f_ddr_austria",
+   "mutex": [],
+   "name_en": "The Austrian Option",
+   "name_ru": "Австрийский вариант",
+   "notes": "Решает СССР: фокус шлёт ему событие военной ветки totu_ddr_mil.1, ответ приходит в ГДР событием totu_ddr_mil.2 (TOTU_bloc_leave только при согласии). Пропускается, если ГДР уже вне Договора (например, через DDR_mil_pact_exit).",
+   "prereq": [
+    [
+     "f_ddr_independent"
+    ]
+   ],
+   "x": 7,
+   "y": 9
+  },
+  {
+   "ai": "5",
+   "available": "ГДР вышла из Варшавского договора",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "The Volkskammer writes into the constitution what Austria wrote in 1955: no alliances and no foreign bases. Soviet troop trains head east, and Wünsdorf empties for the first time since 1945.",
+   "desc_ru": "Народная палата записывает в конституцию то, что Австрия записала в 1955 году: никаких союзов и никаких иностранных баз. Советские эшелоны уходят на восток, и Вюнсдорф впервые с 1945 года пустеет.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_DDR_neutral_republic"
+     },
+     "t": "add_idea"
+    },
+    {
+     "p": {
+      "text": "Если советские войска ещё в ГДР: снимает «Западную группу войск» и даёт «Уходящую армию» на два года"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "пустой плац советского гарнизона и опущенный флаг",
+   "id": "DDR_permanent_neutrality",
+   "key": "f_ddr_neutrality",
+   "mutex": [],
+   "name_en": "Permanent Neutrality",
+   "name_ru": "Вечный нейтралитет",
+   "notes": "Итог пути самостоятельной ГДР. Доступен только после выхода из Договора с согласия Москвы (событие totu_ddr_mil.1 после «Австрийского варианта» или «Протокола о выходе» военной ветки).",
+   "prereq": [
+    [
+     "f_ddr_austria"
+    ]
+   ],
+   "x": 6,
+   "y": 10
+  },
+  {
+   "ai": "3",
+   "available": "В Кремле победили сторонники жёсткой линии (Горбачёв в Форосе или чрезвычайное положение), ГДР ещё в Варшавском договоре",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "The new men in the Kremlin point out that 380,000 Soviet servicemen have not gone anywhere, and offer oil at the old prices. The GDR has to choose between help and isolation, and the government chooses help.",
+   "desc_ru": "Новые люди в Кремле напоминают, что 380 тысяч советских военных никуда не уехали, и предлагают нефть по старым ценам. ГДР выбирает между помощью и одиночеством, и правительство выбирает помощь.",
+   "effects": [
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "value": -3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "ГДР ближе к Москве (автономия −15 %), СССР относится к ГДР лучше; переговоры заморожены на 180 дней, шкала объединения −10 %"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "советский посланник и чиновник ГДР у нефтяной задвижки",
+   "id": "DDR_lean_on_moscow",
+   "key": "f_ddr_leanmoscow",
+   "mutex": [
+    "f_ddr_independent"
+   ],
+   "name_en": "Leaning on Moscow",
+   "name_ru": "Опора на Москву",
+   "notes": "Жёсткий путь, видимый, но запертый: доступен только при флаге СССР TOTU_gorbachev_in_foros или нацдухе TOTU_SOV_emergency_rule (то же определение, что в военной ветке) и пока ГДР в Варшавском договоре.",
+   "prereq": [
+    [
+     "f_ddr_moratorium"
+    ]
+   ],
+   "x": 8,
+   "y": 8
+  },
+  {
+   "ai": "2",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "The Wall is not rebuilt, but the crossings once again ask for a visa and a note from your employer. The flow to the West shrinks to a trickle, and the Western evening news talks of nothing else.",
+   "desc_ru": "Стену не восстанавливают, но на переходах снова требуют визу и справку с места работы. Отъезд на Запад сокращается до ручейка, а западные вечерние новости говорят только об этом.",
+   "effects": [
+    {
+     "p": {
+      "from": "TOTU_DDR_open_border",
+      "to": "TOTU_DDR_border_regime"
+     },
+     "t": "swap_idea"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": -5
+     },
+     "t": "popularity"
+    }
+   ],
+   "icon": "опущенный шлагбаум, пограничник штампует паспорт",
+   "id": "DDR_border_regime",
+   "key": "f_ddr_border",
+   "mutex": [],
+   "name_en": "The Border Regime",
+   "name_ru": "Пограничный режим",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_leanmoscow"
+    ]
+   ],
+   "x": 8,
+   "y": 9
+  },
+  {
+   "ai": "1",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "'Aktuelle Kamera' clears its reports with the government again. For a while newsstands become the most interesting place in town: they still sell Western magazines.",
+   "desc_ru": "«Актуальная камера» снова согласует сюжеты с правительством. Газетные киоски на время становятся самым интересным местом в городе: там ещё продают западные журналы.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": -5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "ideology": "communism",
+      "value": 3
+     },
+     "t": "popularity"
+    }
+   ],
+   "icon": "студийная камера под чехлом и красный карандаш цензора",
+   "id": "DDR_order_on_air",
+   "key": "f_ddr_mediaorder",
+   "mutex": [],
+   "name_en": "Order on the Air",
+   "name_ru": "Порядок в эфире",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_border"
+    ]
+   ],
+   "x": 8,
+   "y": 10
+  },
+  {
+   "ai": "10",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "On 12 April the Volkskammer elects Lothar de Maizière prime minister. The coalition of the CDU, the DSU, Democratic Awakening, the Social Democrats and the Liberals holds more than two thirds of the seats: enough to change the constitution and, as it will turn out, to abolish the state.",
+   "desc_ru": "12 апреля Народная палата избирает премьером Лотара де Мезьера. Коалиция ХДС, ДСС, «Демократического прорыва», социал-демократов и либералов набирает больше двух третей голосов: достаточно, чтобы менять конституцию, и, как выяснится, чтобы упразднить государство.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_DDR_grand_coalition"
+     },
+     "t": "add_idea"
+    },
+    {
+     "p": {
+      "text": "Если принят закон о выборах: +50 политической власти. Снимает «Третий путь». ФРГ тянет объединение на себя: +3"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "де Мезьер на трибуне, у скамьи правительства футляр альта",
+   "id": "DDR_de_maiziere_cabinet",
+   "key": "f_ddr_alcab",
+   "mutex": [],
+   "name_en": "The de Maizière Cabinet",
+   "name_ru": "Кабинет де Мезьера",
+   "notes": "allow_branch: TOTU_DDR_government_alliance. Без пререквизитов, как корни СДПГ и ПДС: если флаг валютного союза когда-нибудь поставит не фокус, ветка не умрёт.",
+   "prereq": [],
+   "x": 11,
+   "y": 5
+  },
+  {
+   "ai": "6",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "On 17 June the Volkskammer passes the law on constitutional principles: the GDR is a free, democratic, federal, social and ecological state under the rule of law. Its key clause allows sovereignty to be transferred, and Moscow reads that too.",
+   "desc_ru": "17 июня Народная палата принимает закон о конституционных принципах: ГДР — свободное, демократическое, федеративное, социальное и экологическое правовое государство. Главное в законе — право передавать суверенитет, и Москва это тоже читает.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "ГДР дальше от Москвы (автономия +10 %); шкала объединения +3 %"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "тонкий том закона и поднятая карточка для голосования",
+   "id": "DDR_constitutional_principles",
+   "key": "f_ddr_principles",
+   "mutex": [],
+   "name_en": "Constitutional Principles",
+   "name_ru": "Конституционные принципы",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_alcab"
+    ]
+   ],
+   "x": 11,
+   "y": 6
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "On 6 May the GDR elects its town and district assemblies, which then choose the mayors, and on 17 May the municipalities get the right to run their own affairs. For the first time in forty years a mayor answers to the townspeople, not to the first secretary.",
+   "desc_ru": "6 мая ГДР выбирает городские и районные собрания, а те — бургомистров, и 17 мая общины получают право сами решать свои дела. Впервые за сорок лет бургомистр отвечает перед горожанами, а не перед первым секретарём.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 3
+     },
+     "t": "popularity"
+    }
+   ],
+   "icon": "цепь бургомистра на столе ратуши и урна",
+   "id": "DDR_municipal_elections",
+   "key": "f_ddr_municipal",
+   "mutex": [],
+   "name_en": "Local Elections",
+   "name_ru": "Коммунальные выборы",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_alcab"
+    ]
+   ],
+   "x": 13,
+   "y": 6
+  },
+  {
+   "ai": "4",
+   "available": "",
+   "bypass": "",
+   "days": 28,
+   "desc_en": "On 22 July the Volkskammer restores the Länder abolished in 1952: Mecklenburg-Western Pomerania, Brandenburg, Saxony-Anhalt, Thuringia and Saxony. The fifteen districts pass into history, and with them fifteen district Party committees.",
+   "desc_ru": "22 июля Народная палата возрождает земли, упразднённые в 1952 году: Мекленбург-Переднюю Померанию, Бранденбург, Саксонию-Анхальт, Тюрингию и Саксонию. Пятнадцать округов уходят в прошлое, а с ними пятнадцать окружных комитетов партии.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "Шкала объединения +3 %"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "карта ГДР: округа закрашены, обведены пять земель",
+   "id": "DDR_five_laender",
+   "key": "f_ddr_laender",
+   "mutex": [],
+   "name_en": "Five Länder",
+   "name_ru": "Пять земель",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_municipal"
+    ]
+   ],
+   "x": 13,
+   "y": 7
+  },
+  {
+   "ai": "5",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "On 24 August the Volkskammer decides that the files stay in the East and that everyone may read what was written about them. Their keeper will be Pastor Joachim Gauck, who knows more about these folders than he would like.",
+   "desc_ru": "24 августа Народная палата решает: досье остаются на востоке, и каждый может прочесть, что о нём писали. Хранителем станет пастор Йоахим Гаук, который знает об этих папках больше, чем хотел бы.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 3
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": -3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Если архивы сберегли гражданские комитеты (фокус или событие 15 января): ещё +5 % стабильности"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "Гаук идёт между бесконечными стеллажами с папками",
+   "id": "DDR_stasi_files_law",
+   "key": "f_ddr_fileslaw",
+   "mutex": [
+    "f_ddr_koblenz"
+   ],
+   "name_en": "The Stasi Files Law",
+   "name_ru": "Закон о досье Штази",
+   "notes": "Исторический путь. Закон 24 августа раньше договора 31 августа, поэтому фокус под конституционными принципами.",
+   "prereq": [
+    [
+     "f_ddr_principles"
+    ]
+   ],
+   "x": 9,
+   "y": 7
+  },
+  {
+   "ai": "2",
+   "available": "Германский вопрос ещё не решён",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "On 17 June the DSU moved to join the Federal Republic that same day, without treaties or deadlines, and the motion was sent to committee. Now a majority votes for it, and the coalition loses the Social Democrats and the Liberals.",
+   "desc_ru": "17 июня ДСС предлагала присоединиться к ФРГ в тот же день, без договоров и сроков, и предложение отправили в комиссию. Теперь за него голосует большинство, а коалиция теряет социал-демократов и либералов.",
+   "effects": [
+    {
+     "p": {
+      "value": -8
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Распад коалиции: снимает «Большую коалицию»; ФРГ тянет объединение на себя: +10"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "депутат бежит к трибуне с одним листком, пустые места коалиции",
+   "id": "DDR_accession_at_once",
+   "key": "f_ddr_atonce",
+   "mutex": [
+    "f_ddr_accvote"
+   ],
+   "name_en": "Accession at Once",
+   "name_ru": "Присоединение немедленно",
+   "notes": "Быстро и грязно. Против «Решения 23 августа».",
+   "prereq": [
+    [
+     "f_ddr_principles"
+    ]
+   ],
+   "x": 10,
+   "y": 7
+  },
+  {
+   "ai": "8",
+   "available": "Германский вопрос ещё не решён",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "In a night sitting the Volkskammer votes to join the Federal Republic under Article 23 of the Basic Law, 294 to 62. Gysi remarks from the rostrum that parliament has just abolished its own state, and the chamber applauds.",
+   "desc_ru": "В ночном заседании Народная палата голосует за присоединение к ФРГ по статье 23 Основного закона: 294 голоса за, 62 против. Гизи с трибуны замечает, что парламент только что упразднил собственное государство, и зал аплодирует.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "name": "TOTU_DDR_pol_article_23_done"
+     },
+     "t": "flag"
+    },
+    {
+     "p": {
+      "text": "ФРГ тянет объединение на себя: +5"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "ночной зал Народной палаты, поднятые карточки, часы за полночь",
+   "id": "DDR_accession_vote",
+   "key": "f_ddr_accvote",
+   "mutex": [
+    "f_ddr_atonce"
+   ],
+   "name_en": "The Vote of 23 August",
+   "name_ru": "Решение 23 августа",
+   "notes": "Исторический путь. Тянет слабее решения «Присоединение по статье 23» (TOTU_unity_ddr_article_23); флаг TOTU_DDR_pol_article_23_done — для сборщика решений.",
+   "prereq": [
+    [
+     "f_ddr_principles"
+    ]
+   ],
+   "x": 12,
+   "y": 7
+  },
+  {
+   "ai": "8",
+   "available": "Германский вопрос ещё не решён",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "From July Günther Krause's delegation bargains with Wolfgang Schäuble over a thousand-page treaty: which West German laws apply in the East from day one, who pays the pensions and what happens to abortion. On 20 August the Social Democrats leave the coalition; on 31 August the treaty is signed.",
+   "desc_ru": "С июля делегация Гюнтера Краузе торгуется с Вольфгангом Шойбле о договоре на тысячу страниц: какие законы ФРГ действуют на востоке с первого дня, кто платит пенсии и что будет с абортами. 20 августа из коалиции уходят социал-демократы, 31 августа договор подписан.",
+   "effects": [
+    {
+     "p": {
+      "value": 100
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "name": "TOTU_DDR_pol_unification_treaty_done"
+     },
+     "t": "flag"
+    },
+    {
+     "p": {
+      "text": "Социал-демократы уходят из коалиции: снимает «Большую коалицию», если она ещё есть; ФРГ тянет объединение на себя: +5"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "длинный стол переговоров с горой проектов договора",
+   "id": "DDR_unification_treaty",
+   "key": "f_ddr_einigung",
+   "mutex": [],
+   "name_en": "The Krause Delegation",
+   "name_ru": "Делегация Краузе",
+   "notes": "Переговоры ГДР о договоре; сам договор — решение ФРГ «Договор об объединении» (TOTU_unity_ger_unification_treaty). Флаг TOTU_DDR_pol_unification_treaty_done — для сборщика решений.",
+   "prereq": [
+    [
+     "f_ddr_atonce",
+     "f_ddr_accvote"
+    ]
+   ],
+   "x": 11,
+   "y": 8
+  },
+  {
+   "ai": "2",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "Under the first text of the treaty the Stasi archives go under lock to the Federal Archives in Koblenz. Bonn is pleased; the Stasi's former prisoners take a different view.",
+   "desc_ru": "По первому тексту договора архивы Штази уезжают под замок в Федеральный архив в Кобленце. Бонн доволен, у бывших узников Штази другое мнение.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "ФРГ относится к ГДР лучше. Через две недели — голодовка на Норманненштрассе (событие totu_ddr_pol.2)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "грузчики носят опечатанные ящики архива в западный грузовик",
+   "id": "DDR_files_to_koblenz",
+   "key": "f_ddr_koblenz",
+   "mutex": [
+    "f_ddr_fileslaw"
+   ],
+   "name_en": "The Files to Koblenz",
+   "name_ru": "Досье — в Кобленц",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_einigung"
+    ]
+   ],
+   "x": 9,
+   "y": 9
+  },
+  {
+   "ai": "8",
+   "available": "Германский вопрос не решён, переговоры не заморожены, в Кремле не победили сторонники жёсткой линии; Москва дала согласие на «Два плюс четыре» (решение СССР при шкале 75 %) или ГДР больше не зависит от СССР, и вето Москвы нет",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "On 12 September in Moscow the two German states and the four victorious powers sign the final settlement: a united Germany is sovereign and the Soviet troops leave by the end of 1994. Gorbachev's consent cost Bonn twelve billion marks.",
+   "desc_ru": "12 сентября в Москве два германских государства и четыре державы-победительницы подписывают окончательное урегулирование: единая Германия суверенна, советские войска уходят до конца 1994 года. Согласие Горбачёва обошлось Бонну в двенадцать миллиардов марок.",
+   "effects": [
+    {
+     "p": {
+      "text": "Договор подписан: флаг TOTU_DDR_two_plus_four, СССР относится к ГДР лучше; шкала объединения +8 %"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "ручки министров на одной папке на длинном столе в московской гостинице",
+   "id": "DDR_two_plus_four",
+   "key": "f_ddr_2plus4",
+   "mutex": [],
+   "name_en": "Two Plus Four",
+   "name_ru": "Два плюс четыре",
+   "notes": "Согласие Москвы не выдумывается фокусом: его даёт СССР в событии totu_unity.30 (флаг TOTU_unity_soviet_consent). После вето (TOTU_unity_soviet_veto) фокус закрыт навсегда.",
+   "prereq": [
+    [
+     "f_ddr_einigung"
+    ]
+   ],
+   "x": 12,
+   "y": 9
+  },
+  {
+   "ai": "8",
+   "available": "",
+   "bypass": "ГДР уже вышла из Варшавского договора",
+   "days": 14,
+   "desc_en": "After Two Plus Four, Moscow has nothing left in the GDR to guard with the treaty of 1955. The exit is settled by protocol and without speeches: a country that stood on the bloc's front line for thirty-five years leaves it before the bloc itself is gone.",
+   "desc_ru": "После «Двух плюс четырёх» Москве больше нечего охранять в ГДР договором 1955 года. Выход оформляют протоколом и без речей: страна, тридцать пять лет стоявшая на переднем крае блока, покидает его раньше, чем исчезает сам блок.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "ГДР выходит из Варшавского договора и перестаёт быть страной соцсодружества (TOTU_bloc_leave)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "пустое кресло ГДР за столом Варшавского договора",
+   "id": "DDR_leave_warsaw_pact",
+   "key": "f_ddr_leavepact",
+   "mutex": [],
+   "name_en": "Leaving the Warsaw Pact",
+   "name_ru": "Выход из Варшавского договора",
+   "notes": "TOTU_bloc_leave только здесь, после настоящего согласия Москвы на «2+4».",
+   "prereq": [
+    [
+     "f_ddr_2plus4"
+    ]
+   ],
+   "x": 12,
+   "y": 10
+  },
+  {
+   "ai": "5",
+   "available": "",
+   "bypass": "",
+   "days": 49,
+   "desc_en": "On 21 November in Paris the CSCE states sign a charter for a new Europe and declare the era of confrontation and division over. The GDR signs it as a state in its own right, to its neighbours' mild surprise.",
+   "desc_ru": "21 ноября в Париже государства СБСЕ подписывают хартию для новой Европы и объявляют, что эпоха конфронтации и раскола закончилась. ГДР подписывает её как самостоятельное государство, чем немало удивляет соседей.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "ФРГ, Франция, Великобритания, США, Польша и Чехословакия охотнее торгуют с ГДР (+15 к отношению в торговле)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "переплетённая хартия, ручка и флажок ГДР на столе",
+   "id": "DDR_charter_of_paris",
+   "key": "f_ddr_paris",
+   "mutex": [],
+   "name_en": "The Charter of Paris",
+   "name_ru": "Парижская хартия",
+   "notes": "Долгая ветка для ГДР, пережившей 1990 год: открывается концом любой послевыборной ветки (СДПГ, ПДС, Альянс).",
+   "prereq": [
+    [
+     "f_ddr_spdreferendum",
+     "f_ddr_spdlaender",
+     "f_ddr_neutralunity",
+     "f_ddr_austria",
+     "f_ddr_mediaorder",
+     "f_ddr_einigung",
+     "f_ddr_laender"
+    ]
+   ],
+   "x": 7,
+   "y": 11
+  },
+  {
+   "ai": "4",
+   "available": "",
+   "bypass": "",
+   "days": 63,
+   "desc_en": "In the spring of 1990 the GDR signed a trade and cooperation agreement with the European Community. Now East Berlin asks for the association that Poland, Hungary and Czechoslovakia are already negotiating, and Brussels finds itself discussing a state everyone had thought provisional.",
+   "desc_ru": "Весной 1990 года ГДР подписала с Европейским сообществом договор о торговле и сотрудничестве. Теперь Восточный Берлин просит ассоциации, о которой уже ведут переговоры Польша, Венгрия и Чехословакия, и Брюссель обсуждает государство, которое все считали временным.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_DDR_ec_association"
+     },
+     "t": "add_idea"
+    },
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    }
+   ],
+   "icon": "рукопожатие над толстой папкой норм ЕС",
+   "id": "DDR_ec_association",
+   "key": "f_ddr_ecassoc",
+   "mutex": [],
+   "name_en": "An EC Association Agreement",
+   "name_ru": "Соглашение с ЕС",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_paris"
+    ]
+   ],
+   "x": 6,
+   "y": 12
+  },
+  {
+   "ai": "4",
+   "available": "",
+   "bypass": "",
+   "days": 56,
+   "desc_en": "The coalition put together in the spring for a single question cannot agree on anything else by the winter. The Volkskammer dissolves itself, and the country goes to its second free election in a year, this time without Western speakers in the squares.",
+   "desc_ru": "Коалиция, собранная весной ради одного вопроса, к зиме не может договориться ни о чём другом. Народная палата распускает себя сама, и страна идёт на вторые свободные выборы за год, на этот раз без западных ораторов на площадях.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "value": 75
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "Новый мандат: снимает «Большую коалицию» и «Дело „Максимилиана“», если они есть"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "стена с порванными предвыборными плакатами",
+   "id": "DDR_snap_election",
+   "key": "f_ddr_snapvote",
+   "mutex": [],
+   "name_en": "A Snap Election",
+   "name_ru": "Досрочные выборы",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_paris"
+    ]
+   ],
+   "x": 8,
+   "y": 12
+  },
+  {
+   "ai": "5",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "The Schürer report, locked in a Politburo safe since October, lands on the Volkskammer's table. The country lives on Western credit, and to stop borrowing it would have to cut living standards by a quarter.",
+   "desc_ru": "Отчёт Шюрера, спрятанный в сейфе Политбюро, ложится на стол Народной палаты. Страна живёт в долг у Запада, и чтобы перестать занимать, уровень жизни придётся урезать на четверть.",
+   "effects": [
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "value": -3
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "секретный доклад в красной папке и арифмометр с лентой",
+   "id": "DDR_truth_about_debts",
+   "key": "f_ddr_debts",
+   "mutex": [],
+   "name_en": "The Truth about the Debt",
+   "name_ru": "Правда о долгах",
+   "notes": "Корень экономической ветки (без предпосылок).",
+   "prereq": [],
+   "x": 18,
+   "y": 0
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "On 3 December 1989 Alexander Schalck-Golodkowski, head of Commercial Coordination, flees to West Berlin. His domain turns out to hold an arms and antiques trade, secret accounts and warehouses of Western machine tools bought around the embargo for the microelectronics programme.",
+   "desc_ru": "3 декабря 1989 года Александр Шальк-Голодковский, глава Коммерческой координации, бежит в Западный Берлин. В его хозяйстве находят торговлю оружием и антиквариатом, тайные счета и склады западных станков, купленных в обход эмбарго для микроэлектроники.",
+   "effects": [
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "bonus": 50,
+      "category": "electronics",
+      "uses": 1
+     },
+     "t": "research"
+    }
+   ],
+   "icon": "открытый пустой сейф в кабинете Шалька, папки на полу",
+   "id": "DDR_eco_koko_legacy",
+   "key": "f_ddr_eco_koko",
+   "mutex": [],
+   "name_en": "The KoKo Legacy",
+   "name_ru": "Наследство КоКо",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_debts"
+    ]
+   ],
+   "x": 15,
+   "y": 1
+  },
+  {
+   "ai": "2",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "Intershops sell Western coffee, jeans and tape recorders for hard currency, and East Germans pay with Forum cheques bought for West German marks. The chain is taken away from KoKo, and its takings now go to the budget rather than to accounts even the Planning Commission never knew about.",
+   "desc_ru": "В интершопах за валюту продают западный кофе, джинсы и магнитофоны, а граждане ГДР платят форум-чеками, выменянными на марки ФРГ. Сеть забирают у КоКо, и её выручка идёт в бюджет, а не на счета, о которых не знал даже Госплан.",
+   "effects": [
+    {
+     "p": {
+      "value": 75
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "value": 2
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "витрина интершопа с кофе и джинсами, веер форум-чеков",
+   "id": "DDR_eco_intershops",
+   "key": "f_ddr_eco_intershop",
+   "mutex": [],
+   "name_en": "Intershops and Forum Cheques",
+   "name_ru": "Интершопы и форум-чеки",
+   "notes": "Валюта КоКо и интершопов нужна для конвертируемой марки (путь ПДС); у демократического правительства эта линия ведёт к «Счетам КоКо».",
+   "prereq": [
+    [
+     "f_ddr_eco_koko"
+    ]
+   ],
+   "x": 15,
+   "y": 2
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "A bread roll has cost five pfennigs since the fifties, rents are frozen at 1936 levels, and subsidies eat a fifth of the budget. The government decides to leave prices alone: something in the country ought to stay the same.",
+   "desc_ru": "Булочка стоит пять пфеннигов с пятидесятых, квартплата заморожена на уровне 1936 года, а дотации съедают пятую часть бюджета. Правительство решает не трогать цены: хоть что-то в стране должно остаться прежним.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_DDR_cheap_bread"
+     },
+     "t": "add_idea"
+    },
+    {
+     "p": {
+      "ideology": "communism",
+      "value": 2
+     },
+     "t": "popularity"
+    }
+   ],
+   "icon": "булочка на весах и горстка алюминиевых пфеннигов",
+   "id": "DDR_eco_cheap_bread",
+   "key": "f_ddr_eco_bread",
+   "mutex": [
+    "f_ddr_eco_prices"
+   ],
+   "name_en": "The Five-Pfennig Roll",
+   "name_ru": "Булочка за пять пфеннигов",
+   "notes": "Исторический выбор Модрова: цены не трогали до валютного союза. Дух «Дотированные цены» снимают «Валютный союз» и «Конвертируемая марка» (с потерей стабильности).",
+   "prereq": [
+    [
+     "f_ddr_debts"
+    ]
+   ],
+   "x": 16,
+   "y": 1
+  },
+  {
+   "ai": "1",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "Since the Wall opened, West Berliners have been buying up cheap bread, meat and children's clothes, and taking them out had to be banned. Subsidies go and people get a cash supplement instead: prices rise, but wallets hold for now.",
+   "desc_ru": "С открытием Стены дешёвые хлеб, мясо и детскую одежду скупают западные берлинцы, и вывоз пришлось запретить. Дотации отменяют, а людям доплачивают деньгами: цены растут, но кошелёк пока держится.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_DDR_price_reform"
+     },
+     "t": "add_idea"
+    },
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "value": -3
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "мясной прилавок с пустой доской цен и конверт с доплатой",
+   "id": "DDR_eco_price_reform",
+   "key": "f_ddr_eco_prices",
+   "mutex": [
+    "f_ddr_eco_bread"
+   ],
+   "name_en": "Prices without Subsidies",
+   "name_ru": "Цены без дотаций",
+   "notes": "Дух снимают «Валютный союз» или «Социалистическая рыночная экономика».",
+   "prereq": [
+    [
+     "f_ddr_debts"
+    ]
+   ],
+   "x": 17,
+   "y": 1
+  },
+  {
+   "ai": "10",
+   "available": "Бонн обещал марку или подписал договор (или ГДР ещё до выборов приняла валютный союз).",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "The State Treaty is signed on 18 May, and on 1 July the Deutsche Mark arrives: wages and pensions convert one to one, savings above a limit two to one. Overnight the East gets a hard currency, and its factories get Western prices for everything they make.",
+   "desc_ru": "18 мая подписан Государственный договор, и 1 июля в ГДР приходит западная марка: зарплаты и пенсии меняют один к одному, сбережения сверх лимита — два к одному. Восток за одну ночь получает твёрдую валюту, а его заводы — западные цены на свою продукцию.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "text": "Снимает «Открытую границу», «Дотированные цены» и «Цены без дотаций»; даёт «Шок марки» (или сразу «Работу на нуле», если уже есть страхование от безработицы). Объединение: ФРГ тянет на себя +5; при правительстве СДПГ ФРГ +3 и ГДР +2. Флаг TOTU_DDR_currency_union."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "ночная очередь у сберкассы, кассир отсчитывает западные марки",
+   "id": "DDR_eco_currency_union",
+   "key": "f_ddr_eco_wwsu",
+   "mutex": [
+    "f_ddr_eco_ostmark"
+   ],
+   "name_en": "Currency Union",
+   "name_ru": "Валютный союз",
+   "notes": "allow_branch: демократическое правительство (Альянс или СДПГ). available: ФРГ существует и Бонн обещал марку (решение «Обещание марки») или подписал договор, либо ГДР приняла валютный союз до выборов (иначе враждебная ФРГ-игрок навсегда оставила бы «Открытую границу»). Главный шаг к объединению в экономике: вместе с решениями Бонна (+8 и +15) около 28 пунктов.",
+   "prereq": [
+    [
+     "f_ddr_eco_bread",
+     "f_ddr_eco_prices"
+    ]
+   ],
+   "x": 16,
+   "y": 2
+  },
+  {
+   "ai": "4",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "In March the Round Table adopted a Social Charter: the rights to work, housing and a pension that the GDR wants to take with it into any Germany. The SPD government makes it a condition of the treaty with Bonn: wages, pensions and savings up to a limit at one to one.",
+   "desc_ru": "В марте Круглый стол принял Социальную хартию: право на труд, жильё и пенсию, которое ГДР хочет унести с собой в любую Германию. Правительство СДПГ делает её условием договора с Бонном: зарплаты, пенсии и сбережения до лимита — один к одному.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "value": 25
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "Объединение поровну: ГДР +3 и ФРГ +3."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "проект социальной хартии, пенсионная книжка и расчётный листок",
+   "id": "DDR_eco_social_charter",
+   "key": "f_ddr_eco_charter",
+   "mutex": [],
+   "name_en": "The Social Charter",
+   "name_ru": "Социальная хартия",
+   "notes": "allow_branch: правительство СДПГ. Медленный, равный путь СДПГ: объединение поровну, валютный союз потом тоже делится (ФРГ +3, ГДР +2).",
+   "prereq": [
+    [
+     "f_ddr_eco_bread",
+     "f_ddr_eco_prices"
+    ]
+   ],
+   "x": 17,
+   "y": 2
+  },
+  {
+   "ai": "5",
+   "available": "",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "Christa Luft expected to reach a convertible mark over several years; the PDS government covers the distance in one. KoKo's reserves and the Intershop takings go into a stabilisation fund, and the GDR mark is made freely exchangeable, as Poland did with the zloty in January.",
+   "desc_ru": "Криста Луфт рассчитывала прийти к обратимой марке за несколько лет, правительство ПДС проходит этот путь за один. Резервы КоКо и выручка интершопов уходят в стабилизационный фонд, и марку ГДР пускают в свободный обмен, как в январе Польша пустила злотый.",
+   "effects": [
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "«Открытая граница» сменяется «Оттоком специалистов»; «Дотированные цены» отменяются (стабильность −5). Объединение −5. Флаг TOTU_DDR_convertible_mark."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "банкнота в сто марок ГДР на табло обменного пункта и слиток",
+   "id": "DDR_eco_convertible_mark",
+   "key": "f_ddr_eco_ostmark",
+   "mutex": [
+    "f_ddr_eco_wwsu"
+   ],
+   "name_en": "A Convertible Mark",
+   "name_ru": "Конвертируемая марка",
+   "notes": "allow_branch: правительство ПДС. Взаимоисключение с валютным союзом формальное: их никогда не видно одновременно.",
+   "prereq": [
+    [
+     "f_ddr_eco_intershop"
+    ]
+   ],
+   "x": 15,
+   "y": 3
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "A Volkskammer committee goes through Schalck's empire, and West German auditors help to trace his accounts. KoKo's firms go to the Finance Ministry, and for the first time the money found goes into a budget that parliament knows about.",
+   "desc_ru": "Комиссия Народной палаты разбирает хозяйство Шалька, а западногерманские ревизоры помогают искать его счета. Фирмы КоКо передают министерству финансов, и найденные деньги впервые идут в бюджет, о котором знает парламент.",
+   "effects": [
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "ФРГ относится лучше. Объединение: ФРГ тянет на себя +2."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "банковские выписки КоКо на столе ревизора и калькулятор",
+   "id": "DDR_eco_koko_accounts",
+   "key": "f_ddr_eco_kokoaccounts",
+   "mutex": [],
+   "name_en": "KoKo's Accounts to the Budget",
+   "name_ru": "Счета КоКо — в бюджет",
+   "notes": "allow_branch: демократическое правительство (Альянс или СДПГ). Выход линии КоКо → интершопы для демократов; у ПДС на её месте конвертируемая марка.",
+   "prereq": [
+    [
+     "f_ddr_eco_intershop"
+    ]
+   ],
+   "x": 15,
+   "y": 4
+  },
+  {
+   "ai": "6",
+   "available": "",
+   "bypass": "",
+   "days": 28,
+   "desc_en": "On 16 May Bonn and the Länder set up a fund of 115 billion marks to plug the GDR budget for four and a half years. With Western money the East repairs roads, lays telephone lines and builds sewage works.",
+   "desc_ru": "16 мая Бонн и земли учредили фонд в 115 миллиардов марок, чтобы четыре с половиной года закрывать дыры бюджета ГДР. На западные деньги восток чинит дороги, тянет телефонные линии и строит очистные сооружения.",
+   "effects": [
+    {
+     "p": {
+      "bonus": 75,
+      "category": "construction_tech",
+      "uses": 1
+     },
+     "t": "research"
+    },
+    {
+     "p": {
+      "text": "+1 инфраструктура в двух областях (не в столице). Объединение: ФРГ тянет на себя +5."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "дорожный каток на свежем асфальте и барабан телефонного кабеля",
+   "id": "DDR_eco_unity_fund",
+   "key": "f_ddr_eco_fund",
+   "mutex": [],
+   "name_en": "The German Unity Fund",
+   "name_ru": "Фонд германского единства",
+   "notes": "allow_branch: демократическое правительство.",
+   "prereq": [
+    [
+     "f_ddr_eco_wwsu"
+    ]
+   ],
+   "x": 16,
+   "y": 3
+  },
+  {
+   "ai": "5",
+   "available": "",
+   "bypass": "",
+   "days": 49,
+   "desc_en": "The State Treaty names it the common order of both German states. The first winter with the mark is over: the Kombinate have split into hundreds of firms, queues have given way to prices, and short time to retraining.",
+   "desc_ru": "Государственный договор называет её общим строем обеих Германий. Первая зима с маркой позади: комбинаты распались на сотни фирм, очереди сменились ценами, а работа на нуле — переобучением.",
+   "effects": [
+    {
+     "p": {
+      "from": "TOTU_DDR_joint_ventures",
+      "to": "TOTU_DDR_social_market"
+     },
+     "t": "swap_idea"
+    },
+    {
+     "p": {
+      "text": "Снимает «Шок марки» и «Работу на нуле». Объединение +5 (нейтрально)."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "рабочий на лестнице вешает вывеску частной фирмы на ворота завода",
+   "id": "DDR_eco_social_market",
+   "key": "f_ddr_eco_socmarket",
+   "mutex": [],
+   "name_en": "Social Market Economy",
+   "name_ru": "Социальная рыночная экономика",
+   "notes": "allow_branch: демократическое правительство. Итог демократического пути.",
+   "prereq": [
+    [
+     "f_ddr_eco_fund"
+    ],
+    [
+     "f_ddr_eco_unemp"
+    ]
+   ],
+   "x": 16,
+   "y": 5
+  },
+  {
+   "ai": "5",
+   "available": "",
+   "bypass": "",
+   "days": 49,
+   "desc_en": "The Kombinate are joint-stock companies with their shares held by citizens and the state, prices are free, and any bank changes GDR marks into dollars. Modrow calls it socialism; the Western papers call it the Hungarian model.",
+   "desc_ru": "Комбинаты стали акционерными обществами, их акции у граждан и государства, цены свободны, а марку ГДР меняют на доллары в любом банке. Модров называет это социализмом, западные газеты — венгерской моделью.",
+   "effects": [
+    {
+     "p": {
+      "from": "TOTU_DDR_joint_ventures",
+      "to": "TOTU_DDR_socialist_market"
+     },
+     "t": "swap_idea"
+    },
+    {
+     "p": {
+      "text": "Снимает «Отток специалистов» и «Цены без дотаций». Объединение: ГДР тянет на себя +5."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "акция комбината, доллар и банкнота марки ГДР на подносе кассира",
+   "id": "DDR_eco_socialist_market",
+   "key": "f_ddr_eco_socialism",
+   "mutex": [],
+   "name_en": "Socialist Market Economy",
+   "name_ru": "Социалистическая рыночная экономика",
+   "notes": "allow_branch: правительство ПДС. Итог пути ПДС.",
+   "prereq": [
+    [
+     "f_ddr_eco_ostmark"
+    ],
+    [
+     "f_ddr_eco_unemp"
+    ]
+   ],
+   "x": 15,
+   "y": 5
+  },
+  {
+   "ai": "5",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "A decree of 25 January lets Western capital into the people's enterprises. The first to arrive in East Berlin are not investors but consultants with calculators.",
+   "desc_ru": "Постановление 25 января разрешает западному капиталу входить в народные предприятия. Первыми в Восточный Берлин приезжают не инвесторы, а консультанты с калькуляторами.",
+   "effects": [
+    {
+     "p": {
+      "from": "TOTU_DDR_indebted_plan",
+      "to": "TOTU_DDR_joint_ventures"
+     },
+     "t": "swap_idea"
+    }
+   ],
+   "icon": "западный бизнесмен и директор завода жмут руки над контрактом",
+   "id": "DDR_joint_ventures",
+   "key": "f_ddr_jv",
+   "mutex": [],
+   "name_en": "Joint Ventures",
+   "name_ru": "Совместные предприятия",
+   "notes": "Снимает стартовый дух «План в долгах». «Совместные предприятия» потом сменяются итоговым духом рыночной экономики.",
+   "prereq": [
+    [
+     "f_ddr_debts"
+    ]
+   ],
+   "x": 18,
+   "y": 1
+  },
+  {
+   "ai": "4",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "On 1 March the government sets up an agency to keep the people's property from being sold off. Within half a year it will be the biggest seller in the country.",
+   "desc_ru": "1 марта правительство учреждает ведомство, которое должно сберечь народную собственность от распродажи. Через полгода оно станет главным продавцом в стране.",
+   "effects": [
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "name": "TOTU_DDR_treuhand"
+     },
+     "t": "flag"
+    }
+   ],
+   "icon": "вход в контору Попечительского ведомства и тележка с делами заводов",
+   "id": "DDR_treuhand",
+   "key": "f_ddr_treuhand",
+   "mutex": [],
+   "name_en": "The Trust Agency",
+   "name_ru": "Попечительское ведомство",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_jv"
+    ]
+   ],
+   "x": 18,
+   "y": 2
+  },
+  {
+   "ai": "5",
+   "available": "",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "On 17 June the Volkskammer passes the Treuhand law: eight thousand people's enterprises are to find private owners. 'Privatise quickly, restructure decisively, close carefully,' as its future head Detlev Rohwedder will put it.",
+   "desc_ru": "17 июня Народная палата принимает закон о Попечительском ведомстве: восемь тысяч народных предприятий должны найти частных владельцев. «Быстро приватизировать, решительно санировать, осторожно закрывать», — сформулирует его будущий глава Детлев Роведдер.",
+   "effects": [
+    {
+     "p": {
+      "value": -5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "+1 гражданский завод в одной из областей (не в столице); на 180 дней дух «Волна закрытий». Объединение: ФРГ тянет на себя +3. Флаг TOTU_DDR_privatisation."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "печать опускается на договор продажи завода, связка ключей",
+   "id": "DDR_eco_privatisation_law",
+   "key": "f_ddr_eco_privlaw",
+   "mutex": [
+    "f_ddr_eco_shares"
+   ],
+   "name_en": "The Privatisation Law",
+   "name_ru": "Закон о приватизации",
+   "notes": "allow_branch: демократическое правительство. Исторический путь: немного новых заводов, но сначала закрытия (−10 % производительности на полгода).",
+   "prereq": [
+    [
+     "f_ddr_treuhand"
+    ]
+   ],
+   "x": 17,
+   "y": 3
+  },
+  {
+   "ai": "2",
+   "available": "После выборов 18 марта.",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "Back in February Wolfgang Ullmann of Democracy Now proposed to the Round Table that the people's enterprises be handed to the citizens in shares. Now the certificates are printed: the Kombinate have sixteen million co-owners and not a single outside buyer.",
+   "desc_ru": "Ещё в феврале Вольфганг Ульман из «Демократии сейчас» предлагал Круглому столу раздать народные предприятия гражданам в долях. Теперь сертификаты печатают: у комбинатов шестнадцать миллионов совладельцев и ни одного покупателя со стороны.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Объединение: ГДР тянет на себя +3. Флаг TOTU_DDR_people_shares."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "лист сертификатов с узорной рамкой, штемпель на стойке сберкассы",
+   "id": "DDR_eco_share_certificates",
+   "key": "f_ddr_eco_shares",
+   "mutex": [
+    "f_ddr_eco_privlaw"
+   ],
+   "name_en": "Shares in the People's Property",
+   "name_ru": "Доли в народной собственности",
+   "notes": "Единственный путь для ПДС; для демократов — альтернатива закону о приватизации.",
+   "prereq": [
+    [
+     "f_ddr_treuhand"
+    ]
+   ],
+   "x": 18,
+   "y": 3
+  },
+  {
+   "ai": "4",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "For forty years the GDR officially had no unemployment; in February the Modrow government brought in the first benefits, and in summer job centres open. The factories discover Kurzarbeit Null, short time zero: the job is still yours, but there is no work.",
+   "desc_ru": "Сорок лет безработицы в ГДР официально не было; в феврале правительство Модрова ввело первые пособия, летом открываются биржи труда. На заводах появляется Kurzarbeit Null, работа на нуле: рабочее место за тобой, но работы нет.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Если действует «Шок марки», он сменяется «Работой на нуле»."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "рабочий на скамье у двери новой биржи труда",
+   "id": "DDR_eco_unemployment_insurance",
+   "key": "f_ddr_eco_unemp",
+   "mutex": [],
+   "name_en": "Unemployment Insurance",
+   "name_ru": "Страхование от безработицы",
+   "notes": "Нужен обоим итоговым фокусам (социальной и социалистической рыночной экономике).",
+   "prereq": [
+    [
+     "f_ddr_eco_privlaw",
+     "f_ddr_eco_shares"
+    ]
+   ],
+   "x": 17,
+   "y": 4
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 28,
+   "desc_en": "Who owns a house on confiscated land: the people who live in it, or the heirs of those who left for the West? Bonn says the former owners, except for land from the 1945–49 land reform; the PDS says the tenants.",
+   "desc_ru": "Кому принадлежит дом на конфискованной земле: тем, кто в нём живёт, или наследникам уехавших на Запад? Бонн отвечает «прежним владельцам», кроме земли земельной реформы 1945–1949 годов, ПДС — «жильцам».",
+   "effects": [
+    {
+     "p": {
+      "text": "Демократическое правительство: совместное заявление 15 июня (возврат прежде компенсации) — ФРГ относится лучше, объединение +3, на год дух «Заявки на возврат». Правительство ПДС: закон Модрова (дома — жильцам) — стабильность +5, коммунизм +3, ФРГ относится хуже."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "ключи от дома на кадастровой карте, письмо с заявкой из ФРГ",
+   "id": "DDR_eco_property_question",
+   "key": "f_ddr_eco_property",
+   "mutex": [],
+   "name_en": "The Property Question",
+   "name_ru": "Имущественный вопрос",
+   "notes": "Ветвится по правительству в эффекте.",
+   "prereq": [
+    [
+     "f_ddr_eco_privlaw",
+     "f_ddr_eco_shares"
+    ]
+   ],
+   "x": 18,
+   "y": 4
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 28,
+   "desc_en": "A law of 29 June lets members of the farm co-operatives take back their land and livestock. Farms that delivered milk to the plan for forty years now have to sell it to shops already stocked with Western brands.",
+   "desc_ru": "Закон 29 июня разрешает членам сельхозкооперативов забрать свою землю и скот. Хозяйствам, которые сорок лет сдавали молоко по плану, теперь надо продавать его в магазины, где уже стоит западное.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "value": 25
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "Демократическое правительство: крестьяне забирают землю, демократия +3. Правительство ПДС: кооперативы остаются, коммунизм +3."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "бидоны с молоком у ворот кооператива и трактор «Фортшритт»",
+   "id": "DDR_eco_lpg_reform",
+   "key": "f_ddr_eco_lpg",
+   "mutex": [],
+   "name_en": "Co-ops on the Market",
+   "name_ru": "Кооперативы на рынке",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_eco_property"
+    ]
+   ],
+   "x": 18,
+   "y": 5
+  },
+  {
+   "ai": "4",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "The State Planning Commission no longer hands down targets, and the directors-general of the Kombinate decide for the first time what to make and whom to sell it to. Many promptly find there is no one to sell to.",
+   "desc_ru": "Госплан больше не спускает показатели, и генеральные директора комбинатов впервые сами решают, что выпускать и кому продавать. Многие тут же выясняют, что продавать некому.",
+   "effects": [
+    {
+     "p": {
+      "bonus": 50,
+      "category": "industry",
+      "uses": 1
+     },
+     "t": "research"
+    },
+    {
+     "p": {
+      "value": 25
+     },
+     "t": "pp"
+    }
+   ],
+   "icon": "том пятилетнего плана в мусорной корзине у стола директора",
+   "id": "DDR_eco_kombinate",
+   "key": "f_ddr_eco_kombinate",
+   "mutex": [],
+   "name_en": "Kombinate without a Plan",
+   "name_ru": "Комбинаты без плана",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_debts"
+    ]
+   ],
+   "x": 21,
+   "y": 1
+  },
+  {
+   "ai": "4",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "In September 1988 Honecker was handed the GDR's first megabit chip, at over five hundred marks each against a world price of a few dollars. Expensive, but the Dresden Microelectronics Centre can do what nobody else in the Eastern bloc can.",
+   "desc_ru": "В сентябре 1988 года Хонеккеру вручили первый мегабитный чип ГДР, обошедшийся в пятьсот с лишним марок при мировой цене в несколько долларов. Дорого, но дрезденский Центр микроэлектроники умеет то, чего не умеет больше никто в Восточном блоке.",
+   "effects": [
+    {
+     "p": {
+      "bonus": 75,
+      "category": "electronics",
+      "uses": 2
+     },
+     "t": "research"
+    }
+   ],
+   "icon": "чип в белой перчатке над кремниевой пластиной",
+   "id": "DDR_eco_dresden_megabit",
+   "key": "f_ddr_eco_robotron",
+   "mutex": [],
+   "name_en": "The Dresden Megabit",
+   "name_ru": "Мегабит из Дрездена",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_eco_kombinate"
+    ]
+   ],
+   "x": 22,
+   "y": 2
+  },
+  {
+   "ai": "4",
+   "available": "После выборов 18 марта.",
+   "bypass": "",
+   "days": 42,
+   "desc_en": "The Jena opticians built the steppers for the megabit chip, projectors for planetariums around the world and sights for the army. For forty years a Western Zeiss with the same name has worked in Oberkochen, and in 1990 the two firms sit down together for something other than a dispute over the name.",
+   "desc_ru": "Йенские оптики делали установки фотолитографии для мегабитного чипа, проекторы для планетариев всего мира и прицелы для армии. Сорок лет в Оберкохене работает западный «Цейс» с тем же именем, и в 1990-м два концерна садятся за один стол уже не ради спора о названии.",
+   "effects": [
+    {
+     "p": {
+      "text": "+1 исследовательский слот."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "линза под лампой и проектор планетария",
+   "id": "DDR_eco_carl_zeiss_jena",
+   "key": "f_ddr_eco_zeiss",
+   "mutex": [],
+   "name_en": "Carl Zeiss Jena",
+   "name_ru": "Карл Цейс Йена",
+   "notes": "Награда электронной ветки: исследовательский слот. Только после выборов (Йена и Оберкохен заговорили весной 1990-го), так что слот приходит не раньше конца апреля.",
+   "prereq": [
+    [
+     "f_ddr_eco_robotron"
+    ]
+   ],
+   "x": 22,
+   "y": 3
+  },
+  {
+   "ai": "1",
+   "available": "",
+   "bypass": "",
+   "days": 28,
+   "desc_en": "From May Zwickau builds the Trabant with a Volkswagen four-stroke engine, the kind the Wartburg got back in 1988. The cars finally run without blue smoke, but cost almost as much as a used Golf.",
+   "desc_ru": "С мая в Цвиккау собирают «трабант» с четырёхтактным мотором «Фольксвагена», какой «Вартбург» получил ещё в 1988-м. Машины наконец ездят без сизого дыма, но стоят почти как подержанный «Гольф».",
+   "effects": [
+    {
+     "p": {
+      "text": "+1 гражданский завод в одной из внутренних областей (не в столице)."
+     },
+     "t": "text"
+    },
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "новый трабант с открытым капотом в конце конвейера",
+   "id": "DDR_eco_trabant",
+   "key": "f_ddr_eco_trabant",
+   "mutex": [
+    "f_ddr_eco_vw"
+   ],
+   "name_en": "The Trabant 1.1",
+   "name_ru": "Трабант 1.1",
+   "notes": "Свои марки с западным мотором: меньше заводов, зато рабочие места остаются.",
+   "prereq": [
+    [
+     "f_ddr_jv"
+    ]
+   ],
+   "x": 19,
+   "y": 2
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 28,
+   "desc_en": "Volkswagen and IFA set up a joint company, the Mosel works near Zwickau assemble the Polo, and in Eisenach Opel starts building the Vectra. The Trabant and the Wartburg have until spring.",
+   "desc_ru": "«Фольксваген» и IFA создают совместную фирму, в цехах Мозеля под Цвиккау собирают «Поло», а в Айзенахе «Опель» начинает собирать «Вектру». «Трабанту» и «Вартбургу» остаётся доработать до весны.",
+   "effects": [
+    {
+     "p": {
+      "text": "+2 гражданских завода в одной из внутренних областей (не в столице)."
+     },
+     "t": "text"
+    },
+    {
+     "p": {
+      "value": -3
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "белый Поло на конвейере рядом с отставленным трабантом",
+   "id": "DDR_eco_volkswagen_mosel",
+   "key": "f_ddr_eco_vw",
+   "mutex": [
+    "f_ddr_eco_trabant"
+   ],
+   "name_en": "Volkswagen in Mosel",
+   "name_ru": "Фольксваген в Мозеле",
+   "notes": "Исторический исход: заводы уходят к западным концернам.",
+   "prereq": [
+    [
+     "f_ddr_jv"
+    ]
+   ],
+   "x": 20,
+   "y": 2
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 28,
+   "desc_en": "The Eisenhüttenstadt combine smelts Soviet ore and rolls thin sheet, but brings in its hot strip from elsewhere: its own hot mill was never built. Without one, EKO can be neither saved nor sold.",
+   "desc_ru": "Комбинат в Айзенхюттенштадте плавит советскую руду и катает тонкий лист, а горячий прокат возит со стороны: своего стана ему так и не построили. Без него ЭКО не спасти и не продать.",
+   "effects": [
+    {
+     "p": {
+      "value": 2
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "+3 стали в одной из внутренних областей (не в столице)."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "раскалённая стальная полоса на рольганге прокатного стана",
+   "id": "DDR_eco_eko_hot_mill",
+   "key": "f_ddr_eco_eko",
+   "mutex": [],
+   "name_en": "A Hot Mill for EKO",
+   "name_ru": "Горячий прокат для ЭКО",
+   "notes": "Дело Попечительского ведомства: после выбора между приватизацией и долями.",
+   "prereq": [
+    [
+     "f_ddr_eco_privlaw",
+     "f_ddr_eco_shares"
+    ]
+   ],
+   "x": 19,
+   "y": 4
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 28,
+   "desc_en": "The Warnow yard at Warnemünde and its neighbours in Rostock, Wismar and Stralsund build container ships and trawlers, most of them for the Soviet Union. As long as Moscow pays in transferable roubles, there are orders for years ahead.",
+   "desc_ru": "Варновская верфь в Варнемюнде и её соседи в Ростоке, Висмаре и Штральзунде строят контейнеровозы и траулеры, больше всего для Советского Союза. Пока Москва платит переводными рублями, заказов хватает на годы вперёд.",
+   "effects": [
+    {
+     "p": {
+      "value": 25
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "+2 верфи в приморской области."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "корпус контейнеровоза на стапеле под портальным краном",
+   "id": "DDR_eco_warnow_yards",
+   "key": "f_ddr_eco_warnow",
+   "mutex": [],
+   "name_en": "The Warnow Yards",
+   "name_ru": "Верфи Варнова",
+   "notes": "Дело Попечительского ведомства.",
+   "prereq": [
+    [
+     "f_ddr_eco_privlaw",
+     "f_ddr_eco_shares"
+    ]
+   ],
+   "x": 20,
+   "y": 4
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 28,
+   "desc_en": "In January 1990 the Comecon session in Sofia decided to trade at world prices and in hard currency from 1991. The transferable rouble is dying, and with it the orders that kept the shipyards, Robotron and EKO going.",
+   "desc_ru": "В январе 1990-го сессия СЭВ в Софии решила с 1991 года торговать по мировым ценам и в свободной валюте. Переводный рубль умирает, а с ним заказы, на которых держались верфи, «Роботрон» и ЭКО.",
+   "effects": [
+    {
+     "p": {
+      "value": 25
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "Демократическое правительство: Бонн страхует восточный экспорт гарантиями «Гермес» — стабильность +3, ФРГ относится лучше, ФРГ тянет объединение +3. Правительство ПДС: клиринг с Москвой — +50 политической власти, СССР относится лучше."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "экспортные ящики на пустом причале и стопка банковских выписок",
+   "id": "DDR_eco_comecon_dollars",
+   "key": "f_ddr_eco_comecon",
+   "mutex": [],
+   "name_en": "Comecon Goes to Dollars",
+   "name_ru": "СЭВ переходит на доллары",
+   "notes": "Ветвится по правительству в эффекте.",
+   "prereq": [
+    [
+     "f_ddr_eco_eko",
+     "f_ddr_eco_warnow"
+    ]
+   ],
+   "x": 19,
+   "y": 5
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "Since 1982 data on the state of the environment had been a state secret. In spring 1990 they are published: Bitterfeld and Leuna are the dirtiest places in Europe, and people take dosimeters to the uranium heaps around Ronneburg and Aue.",
+   "desc_ru": "С 1982 года сведения о состоянии природы в ГДР были государственной тайной. Весной 1990-го их публикуют: Биттерфельд и Лойна — самые грязные места Европы, а урановые отвалы у Роннебурга и Ауэ меряют дозиметрами.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 3
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": -2
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "дозиметр и пробирка с бурой речной водой",
+   "id": "DDR_eco_pollution_data",
+   "key": "f_ddr_eco_ecology",
+   "mutex": [],
+   "name_en": "The Pollution Data",
+   "name_ru": "Данные о загрязнении",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_eco_kombinate"
+    ]
+   ],
+   "x": 21,
+   "y": 3
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 28,
+   "desc_en": "The works that have made chlorine and carbide since before the war are shut down, and the Silver Lake of toxic sludge is fenced off. Bitterfeld loses thousands of jobs and sees the sky for the first time in decades.",
+   "desc_ru": "Цеха, где с довоенных времён делают хлор и карбид, останавливают, а Серебряное озеро с ядовитой жижей огораживают. Биттерфельд теряет тысячи рабочих мест и впервые за десятилетия видит над собой небо.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": -2
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "ФРГ относится лучше: Бонн обещает деньги на очистку."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "холодная труба и забор вокруг ядовитого озера",
+   "id": "DDR_eco_shut_bitterfeld",
+   "key": "f_ddr_eco_bitterfeld",
+   "mutex": [
+    "f_ddr_eco_leuna"
+   ],
+   "name_en": "Shut Old Bitterfeld",
+   "name_ru": "Закрыть старый Биттерфельд",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_eco_ecology"
+    ]
+   ],
+   "x": 21,
+   "y": 4
+  },
+  {
+   "ai": "1",
+   "available": "",
+   "bypass": "",
+   "days": 28,
+   "desc_en": "Leuna refines Soviet oil from the Druzhba pipeline and Buna makes rubber from lignite and carbide; shutting them would put tens of thousands out of work. The plants are patched up while they run.",
+   "desc_ru": "Лойна перерабатывает советскую нефть из «Дружбы», Буна делает каучук из бурого угля и карбида, и закрыть их значит оставить без работы десятки тысяч человек. Заводы чинят на ходу.",
+   "effects": [
+    {
+     "p": {
+      "text": "+1 завод синтетического топлива в одной из внутренних областей (не в столице)."
+     },
+     "t": "text"
+    },
+    {
+     "p": {
+      "value": 2
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": -3
+     },
+     "t": "popularity"
+    }
+   ],
+   "icon": "дымящие колонны химзавода и тюк синтетического каучука",
+   "id": "DDR_eco_leuna_buna",
+   "key": "f_ddr_eco_leuna",
+   "mutex": [
+    "f_ddr_eco_bitterfeld"
+   ],
+   "name_en": "Leuna and Buna Keep Running",
+   "name_ru": "Лойна и Буна работают",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_eco_ecology"
+    ]
+   ],
+   "x": 22,
+   "y": 4
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 28,
+   "desc_en": "The GDR mines three hundred million tonnes of lignite a year, more than anyone in the world, and Schwarze Pumpe turns it into briquettes, coke and gas for half the country. The combine stays open, with filters fitted: without Lusatian coal there is neither light nor heat.",
+   "desc_ru": "ГДР добывает триста миллионов тонн бурого угля в год, больше всех в мире, и Шварце Пумпе делает из него брикеты, кокс и газ для половины страны. Комбинат не закрывают, а ставят фильтры: без угля в Лаузице не будет ни света, ни тепла.",
+   "effects": [
+    {
+     "p": {
+      "text": "+1 гражданский завод в одной из внутренних областей (не в столице)."
+     },
+     "t": "text"
+    },
+    {
+     "p": {
+      "value": 2
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "гора угольных брикетов на транспортёре и градирни",
+   "id": "DDR_eco_schwarze_pumpe",
+   "key": "f_ddr_eco_pumpe",
+   "mutex": [],
+   "name_en": "Schwarze Pumpe",
+   "name_ru": "Шварце Пумпе",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_eco_bitterfeld",
+     "f_ddr_eco_leuna"
+    ]
+   ],
+   "x": 20,
+   "y": 5
+  },
+  {
+   "ai": "3",
+   "available": "После выборов 18 марта.",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "The Soviet-German company Wismut has mined uranium for Soviet bombs and reactors for forty years. Mining is to end by the close of the year: Moscow no longer needs the uranium so badly, and the heaps at Ronneburg are radiating across the district.",
+   "desc_ru": "Советско-германское АО «Висмут» сорок лет добывало уран для советских бомб и реакторов. Добычу решают прекратить к концу года: Москве уран уже не так нужен, а отвалы у Роннебурга фонят на всю округу.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 3
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "text": "СССР относится хуже; ГДР становится чуть самостоятельнее от Москвы (+5 % к автономии)."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "остановленный копёр урановой шахты и серый конус отвала",
+   "id": "DDR_eco_close_wismut",
+   "key": "f_ddr_eco_wismutclose",
+   "mutex": [
+    "f_ddr_eco_wismutkeep"
+   ],
+   "name_en": "Close the Wismut Mines",
+   "name_ru": "Закрыть шахты «Висмута»",
+   "notes": "Исторический исход: добыча прекращена 31 декабря 1990 года.",
+   "prereq": [
+    [
+     "f_ddr_eco_bitterfeld",
+     "f_ddr_eco_leuna"
+    ]
+   ],
+   "x": 21,
+   "y": 5
+  },
+  {
+   "ai": "1",
+   "available": "",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "Forty-odd thousand miners in the Ore Mountains and Thuringia keep their jobs, and the uranium keeps going east. Moscow is pleased; the doctors in Aue are not.",
+   "desc_ru": "Сорок с лишним тысяч горняков Рудных гор и Тюрингии остаются на работе, и уран по-прежнему уходит на восток. Москва довольна, врачи в Ауэ — нет.",
+   "effects": [
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "value": -2
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "СССР относится лучше."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "вагонетка с рудой и бочки уранового концентрата у вагона",
+   "id": "DDR_eco_uranium_for_moscow",
+   "key": "f_ddr_eco_wismutkeep",
+   "mutex": [
+    "f_ddr_eco_wismutclose"
+   ],
+   "name_en": "Uranium for Moscow",
+   "name_ru": "Уран для Москвы",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_eco_bitterfeld",
+     "f_ddr_eco_leuna"
+    ]
+   ],
+   "x": 22,
+   "y": 5
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "On 18 November 1989 Admiral Theodor Hoffmann, commander of the Volksmarine, became Minister of National Defence. His predecessors sat in the Politburo; he is spared that, since the Politburo resigned on 3 December.",
+   "desc_ru": "18 ноября 1989 года министром национальной обороны стал адмирал Теодор Хоффман, командующий Фольксмарине. Его предшественники заседали в Политбюро; ему это не грозит, Политбюро ушло в отставку 3 декабря.",
+   "effects": [
+    {
+     "p": {
+      "value": 10
+     },
+     "t": "army_xp"
+    },
+    {
+     "p": {
+      "value": 10
+     },
+     "t": "navy_xp"
+    }
+   ],
+   "icon": "адмирал Хоффман в морской форме за столом министра",
+   "id": "DDR_mil_admiral_hoffmann",
+   "key": "f_ddr_mil_admiral",
+   "mutex": [],
+   "name_en": "An Admiral at the Ministry",
+   "name_ru": "Адмирал в министерстве",
+   "notes": "Корень военной ветки.",
+   "prereq": [],
+   "x": 27,
+   "y": 0
+  },
+  {
+   "ai": "4",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "The SED's party cells leave the barracks and the Main Political Administration is wound up. The political officers are left without a party and with a great deal of free time.",
+   "desc_ru": "Парторганизации СЕПГ уходят из казарм, Главное политическое управление распускают. Политработники остаются без партии, но с большим количеством свободного времени.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 2
+     },
+     "t": "popularity"
+    }
+   ],
+   "icon": "солдат выносит из казармы портрет лицом вниз",
+   "id": "DDR_mil_army_without_party",
+   "key": "f_ddr_mil_noparty",
+   "mutex": [],
+   "name_en": "An Army Without the Party",
+   "name_ru": "Армия без партии",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_admiral"
+    ]
+   ],
+   "x": 24,
+   "y": 1
+  },
+  {
+   "ai": "5",
+   "available": "",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "In January soldiers at Beelitz refuse to go on duty: they want to wear civilian clothes on leave, spend weekends at home and serve less time. The ministry sends people to negotiate, not to punish.",
+   "desc_ru": "В январе солдаты в Белице отказываются заступать на службу: они хотят ходить в увольнение в гражданском, проводить выходные дома и служить меньше. Из министерства приезжают договариваться, а не наказывать.",
+   "effects": [
+    {
+     "p": {
+      "from": "TOTU_DDR_army_at_a_loss",
+      "to": "TOTU_DDR_mil_soldiers_councils"
+     },
+     "t": "swap_idea"
+    },
+    {
+     "p": {
+      "value": 2
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "солдаты ННА слушают офицера во дворе казармы",
+   "id": "DDR_mil_beelitz_demands",
+   "key": "f_ddr_mil_beelitz",
+   "mutex": [
+    "f_ddr_mil_order"
+   ],
+   "name_en": "The Beelitz Demands",
+   "name_ru": "Требования Белица",
+   "notes": "Исторический выбор (Хоффман пошёл на уступки). Снимает «Растерянную армию».",
+   "prereq": [
+    [
+     "f_ddr_mil_noparty"
+    ]
+   ],
+   "x": 24,
+   "y": 2
+  },
+  {
+   "ai": "1",
+   "available": "Только пока правит СЕПГ-ПДС или ПДС (коммунизм у власти)",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "The ringleaders go to the guardhouse and all leave is cancelled until further notice; that evening West German television reports it. The ranks hold, but they look at their officers differently now.",
+   "desc_ru": "Зачинщиков отправляют на гауптвахту, увольнения отменяют до особого распоряжения, а вечером об этом рассказывает западное телевидение. Строй держится, но на офицеров теперь смотрит иначе.",
+   "effects": [
+    {
+     "p": {
+      "from": "TOTU_DDR_army_at_a_loss",
+      "to": "TOTU_DDR_mil_barracks_discipline"
+     },
+     "t": "swap_idea"
+    },
+    {
+     "p": {
+      "value": -3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 2
+     },
+     "t": "popularity"
+    }
+   ],
+   "icon": "караульный у запертой двери гауптвахты",
+   "id": "DDR_mil_barracks_order",
+   "key": "f_ddr_mil_order",
+   "mutex": [
+    "f_ddr_mil_beelitz"
+   ],
+   "name_en": "Order in the Barracks",
+   "name_ru": "Порядок в казармах",
+   "notes": "Жёсткий вариант: организация выше, мораль и стабильность ниже. Снимает «Растерянную армию».",
+   "prereq": [
+    [
+     "f_ddr_mil_noparty"
+    ]
+   ],
+   "x": 25,
+   "y": 2
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "The ordinance of 20 February 1990: anyone who will not bear arms may serve in a hospital or an old people's home. The construction soldiers, who since 1964 had dug trenches without rifles, have their law at last.",
+   "desc_ru": "Постановление от 20 февраля 1990 года: кто не хочет брать в руки оружие, служит в больнице или доме престарелых. Стройсолдаты, с 1964 года копавшие траншеи без автоматов, дождались своего закона.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 3
+     },
+     "t": "popularity"
+    }
+   ],
+   "icon": "юноша-санитар катит кресло по больничному коридору",
+   "id": "DDR_mil_civil_service",
+   "key": "f_ddr_mil_zivildienst",
+   "mutex": [],
+   "name_en": "Civilian Service",
+   "name_ru": "Гражданская служба",
+   "notes": "Открыта при любом выборе в Белице; нужна для новой присяги.",
+   "prereq": [
+    [
+     "f_ddr_mil_beelitz",
+     "f_ddr_mil_order"
+    ]
+   ],
+   "x": 24,
+   "y": 3
+  },
+  {
+   "ai": "4",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "The government commission on military reform writes what the GDR never had: a defence doctrine for a parliament rather than a Politburo. Item one cuts conscription from eighteen months to twelve.",
+   "desc_ru": "Правительственная комиссия по военной реформе пишет то, чего у ГДР никогда не было: оборонную доктрину для парламента, а не для Политбюро. Первым пунктом срок службы сокращают с восемнадцати месяцев до двенадцати.",
+   "effects": [
+    {
+     "p": {
+      "text": "«Солдатские советы» или «Казарменный порядок» заменяются нацдухом «Военная реформа»"
+     },
+     "t": "text"
+    },
+    {
+     "p": {
+      "value": 15
+     },
+     "t": "army_xp"
+    }
+   ],
+   "icon": "генералы и депутат склонились над проектом реформы",
+   "id": "DDR_mil_military_reform",
+   "key": "f_ddr_mil_reform",
+   "mutex": [],
+   "name_en": "The Military Reform",
+   "name_ru": "Военная реформа",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_beelitz",
+     "f_ddr_mil_order"
+    ]
+   ],
+   "x": 25,
+   "y": 3
+  },
+  {
+   "ai": "3",
+   "available": "После выборов 18 марта, не раньше июля 1990 года",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "On 20 July 1990, the anniversary of the attempt on Hitler's life, NVA soldiers take a new oath: not to the workers' and peasants' government or to brotherhood with the Soviet Army, but to the republic, its people and the law.",
+   "desc_ru": "20 июля 1990 года, в годовщину покушения на Гитлера, солдаты ННА присягают заново: не рабоче-крестьянскому правительству и не братству с Советской армией, а республике, её народу и закону.",
+   "effects": [
+    {
+     "p": {
+      "text": "«Военная реформа» заменяется на «Граждане в форме»"
+     },
+     "t": "text"
+    },
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "строй солдат ННА принимает присягу у знамени",
+   "id": "DDR_mil_new_oath",
+   "key": "f_ddr_mil_oath",
+   "mutex": [],
+   "name_en": "The New Oath",
+   "name_ru": "Новая присяга",
+   "notes": "Нужны и военная реформа, и гражданская служба: армейские нацдухи не складываются.",
+   "prereq": [
+    [
+     "f_ddr_mil_reform"
+    ],
+    [
+     "f_ddr_mil_zivildienst"
+    ]
+   ],
+   "x": 24,
+   "y": 4
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "The Combat Groups of the Working Class, some hundred and ninety thousand men with rifles attached to factories and combines, are being disbanded under the government's decision of 14 December. The weapons go to the depots, the men go back to the machines, which are short of hands anyway.",
+   "desc_ru": "Боевые группы рабочего класса, около ста девяноста тысяч человек с автоматами при заводах и комбинатах, распускаются по решению правительства от 14 декабря. Оружие свозят на склады, бойцы возвращаются к станкам, у которых и так некому стоять.",
+   "effects": [
+    {
+     "p": {
+      "value": 2
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "+3000 единиц стрелкового снаряжения на склады"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "автоматы сложены в ящики у заводских ворот",
+   "id": "DDR_mil_kampfgruppen",
+   "key": "f_ddr_mil_kampfgruppen",
+   "mutex": [],
+   "name_en": "Disarm the Combat Groups",
+   "name_ru": "Разоружить боевые группы",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_admiral"
+    ]
+   ],
+   "x": 26,
+   "y": 1
+  },
+  {
+   "ai": "2",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "The State Security guard regiment 'Feliks Dzierzynski', eleven thousand men with armoured carriers, loses both its patron and its master. Its conscripts finish their service on building sites and in hospitals, and the barracks in Adlershof wait for new tenants.",
+   "desc_ru": "Караульный полк госбезопасности «Феликс Дзержинский», одиннадцать тысяч человек с бронетранспортёрами, лишается и шефа, и хозяина. Срочники дослуживают на стройках и в больницах, казармы в Адлерсхофе ждут новых жильцов.",
+   "effects": [
+    {
+     "p": {
+      "value": 10000
+     },
+     "t": "manpower"
+    },
+    {
+     "p": {
+      "value": 2
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "пустой плац и снятая табличка с профилем Дзержинского",
+   "id": "DDR_mil_guard_regiment",
+   "key": "f_ddr_mil_guardreg",
+   "mutex": [],
+   "name_en": "The Guard Regiment",
+   "name_ru": "Караульный полк",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_kampfgruppen"
+    ]
+   ],
+   "x": 26,
+   "y": 2
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "Two thousand people leave the country every day and the army plugs the gaps: after the former guard regiment's conscripts, NVA soldiers unload freight wagons, stoke boiler houses and work as orderlies in Berlin hospitals. Many call it the most useful duty of their whole service.",
+   "desc_ru": "Из страны уезжают по две тысячи человек в день, и дыры затыкает армия: вслед за срочниками бывшего караульного полка солдаты ННА разгружают вагоны, кочегарят в котельных и работают санитарами в берлинских больницах. Многие называют это самой полезной службой за весь срок.",
+   "effects": [
+    {
+     "p": {
+      "text": "Нацдух «Солдаты в народном хозяйстве» на 180 дней"
+     },
+     "t": "text"
+    },
+    {
+     "p": {
+      "value": 2
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "солдаты ННА разгружают товарный вагон",
+   "id": "DDR_mil_soldiers_in_factories",
+   "key": "f_ddr_mil_economy",
+   "mutex": [],
+   "name_en": "Soldiers in the Factories",
+   "name_ru": "Солдаты на заводах",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_guardreg"
+    ]
+   ],
+   "x": 26,
+   "y": 3
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "The Border Troops, almost fifty thousand men, are learning to let people through rather than stop them. Each week another crossing opens on the old strip, and sappers cut gaps in the fence for roads severed decades ago.",
+   "desc_ru": "Пограничные войска, почти пятьдесят тысяч человек, учатся пропускать, а не задерживать. Каждую неделю на бывшей полосе открывают новый переход, и сапёры режут в заборе проходы для дорог, перерезанных десятилетия назад.",
+   "effects": [
+    {
+     "p": {
+      "count": 1,
+      "type": "infrastructure"
+     },
+     "t": "building"
+    },
+    {
+     "p": {
+      "value": 2
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "пограничник поднимает шлагбаум на новой дороге",
+   "id": "DDR_mil_border_troops",
+   "key": "f_ddr_mil_border",
+   "mutex": [],
+   "name_en": "New Crossings",
+   "name_ru": "Новые переходы",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_admiral"
+    ]
+   ],
+   "x": 27,
+   "y": 1
+  },
+  {
+   "ai": "4",
+   "available": "После выборов 18 марта, не раньше июня 1990 года",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "On 13 June 1990 GDR border troops officially begin demolishing the Wall they used to guard, starting on Bernauer Strasse. The painted segments go under the hammer in Monte Carlo; the rest is crushed into gravel for roads.",
+   "desc_ru": "13 июня 1990 года на Бернауэр-штрассе пограничники ГДР официально начинают сносить Стену, которую сами охраняли. Расписанные сегменты уходят с аукциона в Монте-Карло, остальное дробят в щебень для дорог.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 3
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "text": "Объединение Германии: +3 % (нейтрально)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "кран поднимает сегмент Стены с граффити",
+   "id": "DDR_mil_tear_down_wall",
+   "key": "f_ddr_mil_wall",
+   "mutex": [],
+   "name_en": "Demolishing the Wall",
+   "name_ru": "Снос Стены",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_border"
+    ]
+   ],
+   "x": 27,
+   "y": 2
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "The government assures the allies that the GDR stays in the Warsaw Pact. The NVA is the only army of the bloc entirely assigned to the Unified Command, which for now still sounds like a guarantee rather than a sentence.",
+   "desc_ru": "Правительство заверяет союзников, что ГДР остаётся в Варшавском договоре. ННА — единственная армия блока, целиком переданная Объединённому командованию, и пока это ещё звучит как гарантия, а не как приговор.",
+   "effects": [
+    {
+     "p": {
+      "value": 10
+     },
+     "t": "army_xp"
+    },
+    {
+     "p": {
+      "text": "СССР относится к ГДР лучше (+15)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "советский и восточногерманский офицеры над общей картой",
+   "id": "DDR_mil_pact_loyalty",
+   "key": "f_ddr_mil_pact",
+   "mutex": [],
+   "name_en": "True to the Alliance",
+   "name_ru": "Верность союзу",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_admiral"
+    ]
+   ],
+   "x": 28,
+   "y": 1
+  },
+  {
+   "ai": "2",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "The Warsaw Pact's defensive doctrine of 1987 finally reaches the regiments: six NVA tank regiments were disbanded back in 1989, and the exercises are rewritten for defence. For the first time the General Staff counts how much army the country needs, not how much it is told to have.",
+   "desc_ru": "Доктрина Варшавского договора 1987 года наконец доходит до полков: шесть танковых полков ННА распустили ещё в 1989-м, учения переписывают под оборону. Генштаб впервые считает, сколько армии стране нужно, а не сколько велено.",
+   "effects": [
+    {
+     "p": {
+      "bonus": 75,
+      "category": "land_doctrine",
+      "uses": 1
+     },
+     "t": "research"
+    },
+    {
+     "p": {
+      "value": -2
+     },
+     "t": "war"
+    }
+   ],
+   "icon": "танки на стоянке с зачехлёнными стволами",
+   "id": "DDR_mil_defensive_sufficiency",
+   "key": "f_ddr_mil_sufficiency",
+   "mutex": [],
+   "name_en": "Defensive Sufficiency",
+   "name_ru": "Оборонительная достаточность",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_vienna"
+    ]
+   ],
+   "x": 28,
+   "y": 3
+  },
+  {
+   "ai": "2",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "For forty years the GDR has kept the Soviet troops: land, barracks, coal, rail wagons, and training grounds unrecognisable after every exercise. For the first time the Ministry of Finance is told to put a figure on it.",
+   "desc_ru": "Сорок лет ГДР содержит советские войска: земля, казармы, уголь, вагоны и полигоны, которые после учений не узнать. Министерство финансов впервые получает задание всё это посчитать.",
+   "effects": [
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "СССР относится к ГДР хуже (−10)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "счёты и папка со счетами на фоне советской казармы",
+   "id": "DDR_mil_wgf_bill",
+   "key": "f_ddr_mil_bill",
+   "mutex": [],
+   "name_en": "A Bill for the Western Group",
+   "name_ru": "Счёт Западной группе",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_pact"
+    ]
+   ],
+   "x": 29,
+   "y": 2
+  },
+  {
+   "ai": "2",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "In Vienna twenty-three states haggle over tanks, guns and aircraft from the Atlantic to the Urals. For the first time the GDR delegation speaks there from more than a script sent by Moscow.",
+   "desc_ru": "В Вене двадцать три страны торгуются о танках, пушках и самолётах от Атлантики до Урала. Делегация ГДР впервые говорит там не только по бумажке из Москвы.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "ФРГ и США относятся к ГДР лучше (+10)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "делегаты за длинным столом в венском дворце",
+   "id": "DDR_mil_vienna_talks",
+   "key": "f_ddr_mil_vienna",
+   "mutex": [],
+   "name_en": "The Vienna Talks",
+   "name_ru": "Венские переговоры",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_pact"
+    ]
+   ],
+   "x": 28,
+   "y": 2
+  },
+  {
+   "ai": "4",
+   "available": "После выборов; в Кремле не правят сторонники жёсткой линии; Москва согласна (урегулирование «Два плюс четыре», визит Модрова в Москву или отношение СССР выше 24)",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "The Western Group goes home: half a million people with their families, four thousand tanks, and washing lines in every garrison yard. The treaty gives them four years, though most of the trains will leave in the first two; who pays for the journey and the officers' flats is argued to the last line.",
+   "desc_ru": "Западная группа уходит домой: полмиллиона человек вместе с семьями, четыре тысячи танков и бельевые верёвки во дворах гарнизонов. Договор даёт на вывод четыре года, но больше всего эшелонов уйдёт в первые два, а кто оплатит дорогу и квартиры для офицеров, спорят до последней строки.",
+   "effects": [
+    {
+     "p": {
+      "text": "Снимает «Западную группу войск» (или «Гарнизоны по договору», «Братство по оружию»), даёт «Уходящую армию» на два года, ГДР дальше от Москвы; при «Альянсе» или при СДПГ после «Формулы Геншера» вывод оплачивает Бонн (ФРГ тянет +5), иначе −50 политической власти"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "советский эшелон с танками под брезентом",
+   "id": "DDR_mil_wgf_withdrawal",
+   "key": "f_ddr_mil_withdrawal",
+   "mutex": [],
+   "name_en": "The Withdrawal Treaty",
+   "name_ru": "Договор о выводе войск",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_bill",
+     "f_ddr_mil_vienna"
+    ]
+   ],
+   "x": 29,
+   "y": 3
+  },
+  {
+   "ai": "3",
+   "available": "Подписано урегулирование «Два плюс четыре» или правительство ПДС договаривается с реформаторами в Кремле",
+   "bypass": "ГДР уже вышла из Варшавского договора",
+   "days": 21,
+   "desc_en": "The NVA's liaison officers come home from the Unified Armed Forces headquarters in Moscow, the air-defence duty forces stop reporting to the joint command post, and the plans with red arrows pointing west go to the archive. The protocol on membership of the Pact is for the politicians to sign; the army has already left the bloc.",
+   "desc_ru": "Офицеры связи ННА возвращаются из штаба Объединённых вооружённых сил в Москве, дежурные силы ПВО больше не докладывают на общий командный пункт, а планы с красными стрелками на запад сдают в архив. Протокол о членстве в договоре пусть подписывают политики; армия из блока уже ушла.",
+   "effects": [
+    {
+     "p": {
+      "value": 15
+     },
+     "t": "army_xp"
+    },
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "name": "TOTU_DDR_mil_left_unified_command"
+     },
+     "t": "flag"
+    },
+    {
+     "p": {
+      "text": "СССР относится к ГДР лучше (+10): выход идёт по правилам"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "свёрнутая штабная карта и выключенный пульт ПВО",
+   "id": "DDR_mil_leave_unified_command",
+   "key": "f_ddr_mil_exit",
+   "mutex": [],
+   "name_en": "Leaving the Unified Command",
+   "name_ru": "Выход из Объединённого командования",
+   "notes": "Военная половина выхода из блока. TOTU_bloc_leave остаётся в политической ветке (DDR_leave_warsaw_pact, DDR_austrian_option); флаг TOTU_DDR_mil_left_unified_command — для неё.",
+   "prereq": [
+    [
+     "f_ddr_mil_withdrawal"
+    ]
+   ],
+   "x": 29,
+   "y": 4
+  },
+  {
+   "ai": "2",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "The Volksmarine: three flotillas, fourteen thousand sailors and headquarters in Rostock. The Wolgast yard builds small anti-submarine ships both for it and for the Soviet Baltic Fleet, for as long as the orders last.",
+   "desc_ru": "Фольксмарине — три флотилии, четырнадцать тысяч моряков и штаб в Ростоке. Верфь в Вольгасте строит малые противолодочные корабли и для своих, и для Балтийского флота, пока на них есть заказы.",
+   "effects": [
+    {
+     "p": {
+      "value": 25
+     },
+     "t": "navy_xp"
+    },
+    {
+     "p": {
+      "text": "+1 верфь в приморской области"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "малый противолодочный корабль у стенки верфи",
+   "id": "DDR_mil_volksmarine",
+   "key": "f_ddr_mil_navy",
+   "mutex": [],
+   "name_en": "The Volksmarine",
+   "name_ru": "Фольксмарине",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_admiral"
+    ]
+   ],
+   "x": 30,
+   "y": 1
+  },
+  {
+   "ai": "2",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "Since 1988 the 3rd Fighter Wing at Preschen has flown twenty-four MiG-29s, the newest aircraft the GDR ever had. NATO staffs would very much like a closer look at them.",
+   "desc_ru": "С 1988 года 3-я истребительная эскадра в Прешене летает на двадцати четырёх МиГ-29, самых новых самолётах, какие были у ГДР. В штабах НАТО очень хотели бы посмотреть на них поближе.",
+   "effects": [
+    {
+     "p": {
+      "value": 25
+     },
+     "t": "air_xp"
+    },
+    {
+     "p": {
+      "bonus": 50,
+      "category": "air_doctrine",
+      "uses": 1
+     },
+     "t": "research"
+    }
+   ],
+   "icon": "МиГ-29 у капонира и пилот со шлемом",
+   "id": "DDR_mil_mig29",
+   "key": "f_ddr_mil_migs",
+   "mutex": [],
+   "name_en": "Twenty-Four MiGs",
+   "name_ru": "Двадцать четыре МиГа",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_admiral"
+    ]
+   ],
+   "x": 31,
+   "y": 1
+  },
+  {
+   "ai": "2",
+   "available": "",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "The Dresden aircraft works, which serviced warplanes, looks for civilian orders, and the Wolgast yard for ferry contracts. 'Swords into ploughshares', a patch the police cut off jackets in 1982, becomes industrial policy.",
+   "desc_ru": "Дрезденская авиаверфь, чинившая военные самолёты, ищет гражданские заказы, а верфь в Вольгасте — заказы на паромы. Значок «Мечи на орала», который в 1982 году полиция срезала с курток, становится промышленной политикой.",
+   "effects": [
+    {
+     "p": {
+      "count": 1,
+      "type": "industrial_complex"
+     },
+     "t": "building"
+    },
+    {
+     "p": {
+      "bonus": 50,
+      "category": "industry",
+      "uses": 1
+     },
+     "t": "research"
+    },
+    {
+     "p": {
+      "text": "−1 военный завод (если есть)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "нашивка «Мечи на орала» на верстаке у разобранного двигателя",
+   "id": "DDR_mil_conversion",
+   "key": "f_ddr_mil_conversion",
+   "mutex": [
+    "f_ddr_mil_sales"
+   ],
+   "name_en": "Swords into Ploughshares",
+   "name_ru": "Мечи на орала",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_baltic",
+     "f_ddr_mil_lw"
+    ]
+   ],
+   "x": 30,
+   "y": 3
+  },
+  {
+   "ai": "1",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "ITA, the foreign trade firm that sold arms to friendly regimes for hard currency, gets a new catalogue: the NVA's own surplus. The buyers ask about the MiGs; the ministry offers boots.",
+   "desc_ru": "Внешнеторговая фирма ITA, продававшая оружие дружественным режимам за валюту, получает новый каталог: излишки самой ННА. Покупатели спрашивают про МиГи, министерство предлагает сапоги.",
+   "effects": [
+    {
+     "p": {
+      "value": 100
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "value": -2
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "−1000 единиц стрелкового снаряжения со складов"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "ящики с оружием и ряды сапог на складе",
+   "id": "DDR_mil_arms_sales",
+   "key": "f_ddr_mil_sales",
+   "mutex": [
+    "f_ddr_mil_conversion"
+   ],
+   "name_en": "Selling the Arsenals",
+   "name_ru": "Распродажа арсеналов",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_baltic",
+     "f_ddr_mil_lw"
+    ]
+   ],
+   "x": 31,
+   "y": 3
+  },
+  {
+   "ai": "5",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "In April 1990 the coalition government's new minister is Rainer Eppelmann, pastor of the Samaritan Church, who in 1966 went to prison for refusing the oath. His first act is to rename the ministry: disarmament first, defence second.",
+   "desc_ru": "В апреле 1990 года министром в коалиционном правительстве становится Райнер Эппельман, пастор Самаритянской церкви, в 1966-м отсидевший за отказ принести присягу. Первым делом он переименовывает министерство: сначала разоружение, потом оборона.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_DDR_mil_peace_dividend"
+     },
+     "t": "add_idea"
+    },
+    {
+     "p": {
+      "value": 2
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "бородатый пастор Эппельман в кабинете министра",
+   "id": "DDR_mil_disarmament_ministry",
+   "key": "f_ddr_mil_ministry",
+   "mutex": [],
+   "name_en": "Ministry of Disarmament",
+   "name_ru": "Министерство разоружения",
+   "notes": "allow_branch: правительство «Альянса» или СДПГ (ветка скрыта до выборов и при ПДС).",
+   "prereq": [
+    [
+     "f_ddr_mil_reform"
+    ]
+   ],
+   "x": 25,
+   "y": 4
+  },
+  {
+   "ai": "6",
+   "available": "Правительство «Альянса»; при СДПГ — когда шкала объединения дойдёт до 60 %",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "In late April the two German defence ministers sit down at one table for the first time. Stoltenberg speaks of one army in NATO; the NVA officers listen and update their CVs.",
+   "desc_ru": "В конце апреля два немецких министра обороны впервые садятся за один стол. Штольтенберг говорит об одной армии в НАТО, офицеры ННА слушают и обновляют свои автобиографии.",
+   "effects": [
+    {
+     "p": {
+      "value": 15
+     },
+     "t": "army_xp"
+    },
+    {
+     "p": {
+      "text": "Объединение Германии: +5 % (нейтрально); ФРГ относится к ГДР лучше (+15)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "Штольтенберг и генерал ННА за столом переговоров",
+   "id": "DDR_mil_bundeswehr_talks",
+   "key": "f_ddr_mil_bwtalks",
+   "mutex": [
+    "f_ddr_mil_twoarmies"
+   ],
+   "name_en": "Talks with the Bundeswehr",
+   "name_ru": "Переговоры с бундесвером",
+   "notes": "Исторический путь (присоединение НВА к бундесверу).",
+   "prereq": [
+    [
+     "f_ddr_mil_ministry"
+    ]
+   ],
+   "x": 25,
+   "y": 5
+  },
+  {
+   "ai": "2",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "Eppelmann proposes what Bonn does not want to hear: for a transitional period a reduced NVA stays a separate East German army, outside NATO and alongside the Soviet troops. For the first time the NVA officers applaud their pastor.",
+   "desc_ru": "Эппельман предлагает то, чего в Бонне не хотят слышать: на переходный срок сокращённая ННА остаётся отдельной восточногерманской армией, вне НАТО и рядом с советскими войсками. Офицеры ННА впервые аплодируют своему пастору.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "ГДР тянет объединение на себя (+3); СССР относится к ГДР лучше (+10)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "фуражка ННА и берет бундесвера по разные стороны линейки",
+   "id": "DDR_mil_two_armies",
+   "key": "f_ddr_mil_twoarmies",
+   "mutex": [
+    "f_ddr_mil_bwtalks"
+   ],
+   "name_en": "Two Armies in One Country",
+   "name_ru": "Две армии в одной стране",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_ministry"
+    ]
+   ],
+   "x": 26,
+   "y": 5
+  },
+  {
+   "ai": "6",
+   "available": "",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "In Strausberg, home of the NVA ministry, a staff is being prepared for Lieutenant-General Jörg Schönbohm. On the day of unity he will take command of ninety thousand men and keep few of them.",
+   "desc_ru": "В Штраусберге, где сидит министерство ННА, готовят штаб генерал-лейтенанта Йорга Шёнбома. В день объединения он примет под команду девяносто тысяч человек и оставит из них немногих.",
+   "effects": [
+    {
+     "p": {
+      "value": 15
+     },
+     "t": "army_xp"
+    },
+    {
+     "p": {
+      "value": -3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "ФРГ тянет объединение на себя (+8)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "генерал бундесвера идёт по коридору штаба в Штраусберге",
+   "id": "DDR_mil_bundeswehr_command_east",
+   "key": "f_ddr_mil_kommandoost",
+   "mutex": [],
+   "name_en": "Bundeswehr Command East",
+   "name_ru": "Командование бундесвера «Восток»",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_bwtalks"
+    ]
+   ],
+   "x": 25,
+   "y": 6
+  },
+  {
+   "ai": "3",
+   "available": "Правительство СДПГ",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "The Social Democrats propose a joint security council for the confederation and two armies, each cut by half, with no foreign troops by the end of the decade. Bonn calls it naive; Moscow calls it reasonable.",
+   "desc_ru": "Социал-демократы предлагают конфедерации общий Совет безопасности и две урезанные вдвое армии без иностранных войск к концу десятилетия. В Бонне это называют наивным, в Москве — разумным.",
+   "effects": [
+    {
+     "p": {
+      "value": 15
+     },
+     "t": "army_xp"
+    },
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Объединение Германии: +5 % (нейтрально)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "солдаты ННА и бундесвера у одной полосатой будки",
+   "id": "DDR_mil_army_of_unity",
+   "key": "f_ddr_mil_unityarmy",
+   "mutex": [],
+   "name_en": "An Army of Unity",
+   "name_ru": "Армия единства",
+   "notes": "Путь СДПГ: медленное, сбалансированное объединение (конфедерация).",
+   "prereq": [
+    [
+     "f_ddr_mil_twoarmies"
+    ]
+   ],
+   "x": 26,
+   "y": 6
+  },
+  {
+   "ai": "5",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "The PDS takes the core of Modrow's plan: a Germany outside the blocs and, until then, a GDR that threatens no one. The NVA becomes an army of territorial defence, and the Warsaw Pact a treaty one leaves by the rules.",
+   "desc_ru": "ПДС берёт у плана Модрова главное: Германия вне блоков, а пока — ГДР, которая никому не угрожает. ННА становится армией территориальной обороны, а Варшавский договор — договором, из которого выходят по правилам.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_DDR_mil_neutral_army"
+     },
+     "t": "add_idea"
+    },
+    {
+     "p": {
+      "text": "ГДР тянет объединение на себя (+3)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "солдат ННА у пограничного столба в тихом лесу",
+   "id": "DDR_mil_neutral_army",
+   "key": "f_ddr_mil_neutral",
+   "mutex": [
+    "f_ddr_mil_wuensdorf"
+   ],
+   "name_en": "The Army of a Neutral GDR",
+   "name_ru": "Армия нейтральной ГДР",
+   "notes": "allow_branch: правительство ПДС.",
+   "prereq": [
+    [
+     "f_ddr_mil_sufficiency"
+    ]
+   ],
+   "x": 28,
+   "y": 4
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "Swiss and Austrian officers are invited to Strausberg to explain how a small neutral country defends itself without threatening anyone. The depots have rifles enough for a militia: more rifles than volunteers.",
+   "desc_ru": "В Штраусберг приглашают швейцарских и австрийских офицеров объяснить, как маленькая нейтральная страна обороняется, никому не угрожая. Винтовок для ополчения на складах хватает: их там больше, чем желающих.",
+   "effects": [
+    {
+     "p": {
+      "value": 20000
+     },
+     "t": "manpower"
+    },
+    {
+     "p": {
+      "bonus": 75,
+      "category": "infantry_weapons",
+      "uses": 1
+     },
+     "t": "research"
+    }
+   ],
+   "icon": "резервисты получают винтовки со склада",
+   "id": "DDR_mil_territorial_defence",
+   "key": "f_ddr_mil_territorial",
+   "mutex": [],
+   "name_en": "Territorial Defence",
+   "name_ru": "Территориальная оборона",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_neutral"
+    ]
+   ],
+   "x": 28,
+   "y": 5
+  },
+  {
+   "ai": "1",
+   "available": "Советские войска ещё в ГДР, а в Кремле взяли верх сторонники жёсткой линии (Пленум, Форос или чрезвычайное положение)",
+   "bypass": "",
+   "days": 7,
+   "desc_en": "In Moscow the hard-liners have prevailed, and Wünsdorf, the Western Group's headquarters, calls Strausberg asking to coordinate 'measures to maintain order'. For now, they ask politely.",
+   "desc_ru": "В Москве взяли верх сторонники жёсткой линии, и из Вюнсдорфа, штаба Западной группы, в Штраусберг звонят с просьбой согласовать «меры по поддержанию порядка». Пока просят вежливо.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "war"
+    },
+    {
+     "p": {
+      "value": -3
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "чёрный правительственный телефон на столе генерала",
+   "id": "DDR_mil_call_from_wuensdorf",
+   "key": "f_ddr_mil_wuensdorf",
+   "mutex": [
+    "f_ddr_mil_neutral"
+   ],
+   "name_en": "A Call from Wünsdorf",
+   "name_ru": "Звонок из Вюнсдорфа",
+   "notes": "Скрытая ветка: allow_branch — правительство ПДС; доступна, только если в СССР победила жёсткая линия (общий помощник TOTU_DDR_pol_kremlin_hardliners политической ветки). Без предпосылок.",
+   "prereq": [],
+   "x": 27,
+   "y": 4
+  },
+  {
+   "ai": "1",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "Leave is cancelled, the tanks are fuelled, and the NVA and the Western Group have a joint staff again. Bonn puts all talks on hold, and Berliners look at the barracks the way they did in October 1989.",
+   "desc_ru": "Увольнения отменены, танки заправлены, у ННА и Западной группы снова общий штаб. В Бонне откладывают все переговоры, а берлинцы смотрят на казармы так же, как в октябре 1989-го.",
+   "effects": [
+    {
+     "p": {
+      "text": "«Западная группа войск» (или «Гарнизоны по договору») становится «Братством по оружию»; объединение Германии −10 %; ФРГ относится к ГДР хуже (−25)"
+     },
+     "t": "text"
+    },
+    {
+     "p": {
+      "value": 25
+     },
+     "t": "army_xp"
+    }
+   ],
+   "icon": "колонна танков на мокрой ночной дороге",
+   "id": "DDR_mil_nva_on_alert",
+   "key": "f_ddr_mil_alert",
+   "mutex": [],
+   "name_en": "The NVA on Alert",
+   "name_ru": "ННА в боевой готовности",
+   "notes": "«Братство по оружию» снимает «Вернуть ННА в казармы» (или вывод войск).",
+   "prereq": [
+    [
+     "f_ddr_mil_wuensdorf"
+    ]
+   ],
+   "x": 27,
+   "y": 5
+  },
+  {
+   "ai": "3",
+   "available": "Нацдух «Западная группа войск» ещё действует",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "The 1957 agreement on the 'temporary' stationing of Soviet troops is rewritten for the first time in thirty-three years: Moscow pays for the land and the training grounds and clears its manoeuvres with Strausberg, and the length of the stay is tied to a future all-European treaty. The temporary stays permanent, but now it is paid for.",
+   "desc_ru": "Соглашение 1957 года о «временном» пребывании советских войск переписывают впервые за тридцать три года: Москва платит за землю и полигоны и согласует манёвры со Штраусбергом, а срок пребывания привязывают к будущему общеевропейскому договору. Временное остаётся постоянным, но теперь за деньги.",
+   "effects": [
+    {
+     "p": {
+      "from": "TOTU_DDR_western_group",
+      "to": "TOTU_DDR_mil_stationing_treaty"
+     },
+     "t": "swap_idea"
+    },
+    {
+     "p": {
+      "text": "СССР относится к ГДР лучше (+15)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "советский полковник и чиновник ГДР над договором с печатями",
+   "id": "DDR_mil_stationing_treaty",
+   "key": "f_ddr_mil_stationing",
+   "mutex": [
+    "f_ddr_mil_pro"
+   ],
+   "name_en": "The Stationing Treaty",
+   "name_ru": "Договор о пребывании войск",
+   "notes": "Путь ПДС: войска остаются, но мягче; вывод войск позже всё равно снимает и этот нацдух.",
+   "prereq": [
+    [
+     "f_ddr_mil_territorial"
+    ]
+   ],
+   "x": 29,
+   "y": 6
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The PDS promised to abolish conscription. That proves impossible, but compulsory service is cut to six months, and the core of the army is recruited on contract from discharged warrant officers and officers. The army becomes smaller, older and more expensive.",
+   "desc_ru": "ПДС обещала отменить призыв. Отменить не выходит, но срочную службу сокращают до полугода, а костяк армии набирают по контракту из уволенных прапорщиков и офицеров. Армия становится меньше, старше и дороже.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_DDR_mil_professional_army"
+     },
+     "t": "add_idea"
+    },
+    {
+     "p": {
+      "value": 15
+     },
+     "t": "army_xp"
+    }
+   ],
+   "icon": "прапорщик подписывает контракт в канцелярии части",
+   "id": "DDR_mil_professional_army",
+   "key": "f_ddr_mil_pro",
+   "mutex": [
+    "f_ddr_mil_stationing"
+   ],
+   "name_en": "A Professional Army",
+   "name_ru": "Профессиональная армия",
+   "notes": "Путь ПДС, поздний (конец 1990 — 1991).",
+   "prereq": [
+    [
+     "f_ddr_mil_territorial"
+    ]
+   ],
+   "x": 28,
+   "y": 6
+  },
+  {
+   "ai": "2",
+   "available": "",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "A fleet that spent thirty years preparing for landings on the Danish islands turns to guarding fishing zones, sweeping old mines and rescue at sea. The ships are the same; only now the exercises end in home waters.",
+   "desc_ru": "Флот, тридцать лет готовившийся к десанту на датские острова, переходит на охрану рыболовных зон, поиск старых мин и спасение на море. Корабли те же, только учения теперь заканчиваются в своих водах.",
+   "effects": [
+    {
+     "p": {
+      "value": 20
+     },
+     "t": "navy_xp"
+    },
+    {
+     "p": {
+      "bonus": 50,
+      "category": "naval_equipment",
+      "uses": 1
+     },
+     "t": "research"
+    }
+   ],
+   "icon": "тральщик поднимает на палубу старую мину",
+   "id": "DDR_mil_volksmarine_baltic",
+   "key": "f_ddr_mil_baltic",
+   "mutex": [],
+   "name_en": "The Volksmarine in the Baltic",
+   "name_ru": "Фольксмарине на Балтике",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ddr_mil_navy"
+    ]
+   ],
+   "x": 30,
+   "y": 2
+  },
+  {
+   "ai": "3",
+   "available": "Правительство «Альянса»",
+   "bypass": "",
+   "days": 21,
+   "desc_en": "Of all the NVA's Soviet equipment, the Bundeswehr agrees to keep only the twenty-four MiG-29s. The Preschen pilots learn NATO flying rules, and NATO staffs at last get their close look at the MiG.",
+   "desc_ru": "Из всей советской техники ННА бундесвер согласен оставить себе только двадцать четыре МиГ-29. Лётчиков из Прешена учат натовским правилам полётов, и в штабах НАТО наконец рассматривают МиГ вблизи.",
+   "effects": [
+    {
+     "p": {
+      "value": 25
+     },
+     "t": "air_xp"
+    },
+    {
+     "p": {
+      "text": "ФРГ тянет объединение на себя (+2)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "МиГ-29 и техник бундесвера у открытого отсека",
+   "id": "DDR_mil_migs_for_luftwaffe",
+   "key": "f_ddr_mil_lw",
+   "mutex": [],
+   "name_en": "MiGs for the Luftwaffe",
+   "name_ru": "МиГи для люфтваффе",
+   "notes": "Путь «Альянса». Исторически МиГи стали эскадрой JG 73 в Лааге.",
+   "prereq": [
+    [
+     "f_ddr_mil_migs"
+    ]
+   ],
+   "x": 31,
+   "y": 2
+  },
+  {
+   "ai": "5",
+   "available": "",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "Bonn agrees not to dissolve the NVA on the day of unity: officers and warrant officers serve two more years on temporary contracts while the Bundeswehr decides whom to keep. Eppelmann calls it a victory, Stoltenberg a postponement.",
+   "desc_ru": "Бонн соглашается не распускать ННА в день объединения: офицеры и прапорщики ещё два года служат по временным контрактам, а бундесвер тем временем решает, кого оставить. Эппельман называет это победой, Штольтенберг — отсрочкой.",
+   "effects": [
+    {
+     "p": {
+      "value": 4
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "value": 10
+     },
+     "t": "army_xp"
+    },
+    {
+     "p": {
+      "text": "ФРГ тянет объединение на себя (+3)"
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "офицер ННА подписывает временный контракт",
+   "id": "DDR_mil_nva_transition",
+   "key": "f_ddr_mil_transition",
+   "mutex": [],
+   "name_en": "A Transition Period for the NVA",
+   "name_ru": "Переходный срок для ННА",
+   "notes": "Исторический путь, после командования «Восток».",
+   "prereq": [
+    [
+     "f_ddr_mil_kommandoost"
+    ]
+   ],
+   "x": 25,
+   "y": 7
+  },
+  {
+   "ai": "3",
+   "available": "",
+   "bypass": "",
+   "days": 14,
+   "desc_en": "The tanks return to their parks, and the joint staff is once again just the Western Group's staff. Wünsdorf is displeased, but the NVA generals remember October 1989 too well.",
+   "desc_ru": "Танки возвращаются в парки, а общий штаб снова становится просто штабом Западной группы. В Вюнсдорфе недовольны, но генералы ННА слишком хорошо помнят октябрь 1989 года.",
+   "effects": [
+    {
+     "p": {
+      "text": "«Братство по оружию» снова становится «Западной группой войск» (или «Гарнизонами по договору»)"
+     },
+     "t": "text"
+    },
+    {
+     "p": {
+      "value": -25
+     },
+     "t": "pp"
+    }
+   ],
+   "icon": "танк заезжает в бокс танкового парка",
+   "id": "DDR_mil_back_to_barracks",
+   "key": "f_ddr_mil_back",
+   "mutex": [],
+   "name_en": "The NVA Back to Barracks",
+   "name_ru": "Вернуть ННА в казармы",
+   "notes": "Выход из скрытой жёсткой ветки: снимает −10 % стабильности.",
+   "prereq": [
+    [
+     "f_ddr_mil_alert"
+    ]
+   ],
+   "x": 27,
+   "y": 6
+  }
+ ],
+ "name": "Германская Демократическая Республика",
+ "notes": "ГДР 1990: три ветки. Политика (x 0–13): Круглый стол, Штази, выборы 18 марта, после них ветки Альянса, СДПГ и ПДС. Экономика (x 15–22). Армия (x 24–31). Германский вопрос связан с мини-игрой объединения (решения ГДР и ФРГ, шкала global.TOTU_unity). Заметки веток: political: Political branch, editor x 0..13, rows 0..12.\nTrunk (rows 0-4, January-March 1990): three columns under the root DDR_modrow_government (x 7).\n- Round Table / Stasi (x 0-4): Round Table course -> Dissolve the Stasi -> mutex HVA self-dissolution | Archives in citizens' hands; Media resolution (5 Feb); National responsibility (5 Feb, before the election only) -> Election law (20 Feb, needs media + national responsibility, before the election only; flag TOTU_DDR_election_law = +50 pp for the first post-election focus).\n- Party (x 6-8): Honecker warrant (29 Jan, right under the root) and PDS rename (4 Feb; bypassed after the election, which renames anyway) -> Modrow heads the list (before the election); For Our Country needs the warrant or the list.\n- German question (x 9-11): Moscow (30 Jan, 7 days) -> Modrow plan (1 Feb) -> Bonn (13 Feb, 7 days), all while Modrow governs. Campaign courses, mutually exclusive, before the election: For Our Country (PDS), Unity Without Haste (SPD, right after the Modrow plan: the Leipzig congress does not depend on the Bonn trip), Accept the Currency Union (Alliance, after Bonn).\n- Timing (election on day 76): Alliance course (root, Moscow, plan, Bonn, currency union) 35 days + election law chain (Round Table, national responsibility, media, law) 28 days = 63 days, so the election law fits next to any course.\nPost-election sub-branches, hidden by <root>_allow_branch on the government flags (the election calls mark_focus_tree_layout_dirty); no root has a prerequisite:\n- SPD (x 0-4, root DDR_boehme_cabinet): fires totu_ddr_pol.1 (Böhme affair) after 7 days; Round Table constitution -> The Charter as a Condition (spirit, no scale pull) | Confederation -> mutex neutral Germany | Genscher formula -> Constituent Assembly (Art. 146, balanced) -> Constitutional Referendum (49 days, balanced); Vetting the deputies (removes the affair spirit) -> The Right to One's File (SPD Stasi files law, files_guarded bonus); Municipal Constitution -> Länder Instead of Districts.\n- PDS (x 5-8, root DDR_modrow_mandate): democratic socialism (third_way -> democratic_socialism), SED property audit (files_guarded bonus), mutex Treaty Community Commissions -> confederation of equals -> one neutral fatherland (GDR pulls) | moratorium (TOTU_unity_freeze_180) -> mutex independent GDR -> Austrian option (offer to Moscow: fires the military branch's SOV event totu_ddr_mil.1, the answer comes in totu_ddr_mil.2 with TOTU_bloc_leave only on consent; bypassed if the GDR is already out) -> Permanent Neutrality (needs TOTU_left_warsaw_pact; spirit neutral_republic, removes the Western Group of Forces and gives the military branch's timed TOTU_DDR_mil_wgf_departure) | leaning on Moscow (visible but locked: needs SOV TOTU_gorbachev_in_foros or the spirit TOTU_SOV_emergency_rule, and the GDR still in the Pact; TOTU_unity_freeze_180, autonomy -0.15) -> border regime (open_border -> border_regime) -> order on the air.\n- Alliance (x 9-13, root DDR_de_maiziere_cabinet): constitutional principles (autonomy +0.1) -> Stasi files law (24 Aug; mutex Files to Koblenz) | accession at once (breaks the grand coalition) mutex vote of 23 August -> The Krause Delegation (treaty talks; the SPD leaves: removes the grand coalition) -> files to Koblenz (fires totu_ddr_pol.2) | 2+4 (needs the USSR's real consent: global flag TOTU_unity_soviet_consent from totu_unity.30, or the GDR no longer a Soviet subject / no USSR; never after TOTU_unity_soviet_veto) -> leaving the Warsaw Pact (TOTU_bloc_leave; bypassed if already out); local elections -> five Länder. Pulls to the FRG.\n- Long term, any government, for a GDR still there at the end of 1990 (x 6-8, rows 11-12): Charter of Paris (49 days; OR of every sub-branch's end: SPD referendum or Länder, PDS neutral fatherland, Austrian option or order on the air, Alliance Krause delegation or five Länder) -> EC Association Agreement (63 days, spirit TOTU_DDR_ec_association) | Snap Election (56 days, removes the grand coalition and the Maximilian affair).\nFlags set for other systems: TOTU_DDR_election_law; TOTU_DDR_files_guarded (read by the files laws of the Alliance and the SPD and by the PDS property audit); TOTU_DDR_two_plus_four (the military branch may key the Soviet withdrawal on it).\nUnification decisions (ask the unity builder): the focuses no longer copy decision names and pull less where a decision does the main pull. Each sets a country flag so the matching decision can be hidden or discounted: TOTU_DDR_pol_social_charter_done (decision TOTU_unity_ddr_social_charter), TOTU_DDR_pol_treaty_community_done (TOTU_unity_ddr_treaty_community), TOTU_DDR_pol_article_146_done (TOTU_unity_ddr_article_146), TOTU_DDR_pol_article_23_done (TOTU_unity_ddr_article_23), TOTU_DDR_pol_unification_treaty_done (FRG's TOTU_unity_ger_unification_treaty).\nAssembly notes:\n- hand_effects/hand_triggers re-emit the old hand parts of the nine existing focuses, with new tooltip keys (DDR_pol_*_tt): the old keys DDR_election_rules_tt, DDR_moscow_visit_tt, DDR_bonn_visit_tt, DDR_accept_currency_union_tt, DDR_for_our_country_tt in totu_ddr_politics_l_*.yml become unused (the validator wants every key used in script in this file).\n- The existing opinion modifiers TOTU_ddr_moscow_talks / _modrow_plan / _bonn_talks (common/opinion_modifiers/TOTU_DDR_opinion_modifiers.txt, names in totu_ddr_politics) are still used and not redefined here; opinion_modifiers holds only the new ones (TOTU_ddr_charter_of_paris is a trade modifier).\n- German-question triggers use the unity API: TOTU_DDR_pol_german_question_open = TOTU_unity_open (no referendum pending), TOTU_DDR_pol_talks_running = TOTU_unity_active; freezes go through TOTU_unity_freeze_180.\n- Hard-liners are defined as in the military branch (Foros or the emergency spirit); the Plenum result only weighs on the unity system's Soviet event. If one shared trigger is wanted, TOTU_DDR_pol_kremlin_hardliners can replace the military branch's inline checks.\n- Cross-branch: DDR_austrian_option fires totu_ddr_mil.1 (military events); DDR_permanent_neutrality uses the military spirits TOTU_DDR_western_group, TOTU_DDR_mil_brotherhood_in_arms, TOTU_DDR_mil_wgf_departure.\n- Outside this file (review item 18, for whoever runs the build): merge.py writes this branch's loc only to totu_ddr_tree_l_russian/english.yml; add 'totu_ddr_tree' to HAND_LOC['DDR'] in tools/build_focus_tree.py so the other eight languages get English copies, and append totu_ddr_boehme_affair (prompt in event_picture_prompts) to EVENT_PICTURES in tools/build_country_gfx.py and build it.\n | economy: Economy branch, editor x 15..22, rows 0..5, 33 focuses, 12 spirits. Root DDR_truth_about_debts (18,0), no prerequisite. Money (x 15-17): KoKo -> Intershops; subsidies pair (Five-Pfennig Roll | Prices without Subsidies, mutex); then by government (allow_branch on the election flags). Democrats (Alliance or SPD): Currency Union (available only with Bonn's word: the D-Mark promise, the treaty decision, or the GDR's own pre-election acceptance; removes open_border and the subsidy spirits, gives the D-Mark shock; unity: FRG +5, the SPD FRG +3 / GDR +2) -> German Unity Fund (+1 infrastructure in two non-capital states) -> Social Market Economy (also needs Unemployment Insurance); Intershops -> KoKo's Accounts to the Budget (democrats only, so the KoKo line does not dead-end). SPD only: The Social Charter (17,2) under the subsidies pair, balanced pull GDR +3 / FRG +3. PDS: Convertible Mark (needs Intershops; open_border -> brain_drain) -> Socialist Market Economy (also needs Unemployment Insurance). Property (x 17-18): Joint Ventures (indebted_plan -> joint_ventures) -> Trust Agency -> mutex Privatisation Law (democrats only; +1 factory outside the capital, stability -5, 180-day spirit 'A Wave of Closures') | Shares in the People's Property (after the election, any government; the only option for the PDS) -> Unemployment Insurance (D-Mark shock -> short time zero), Property Question (effect splits by government) -> LPG, and the two Treuhand cases EKO hot mill and Warnow yards -> Comecon Goes to Dollars (effect splits by government). Industry (x 19-22): Joint Ventures -> mutex Trabant 1.1 | Volkswagen in Mosel; Kombinate without a Plan -> Dresden Megabit -> Carl Zeiss Jena (+1 research slot, after the election); Kombinate -> Pollution Data (21,3) -> mutex Shut Old Bitterfeld | Leuna and Buna Keep Running -> Schwarze Pumpe, mutex Close the Wismut Mines (after the election) | Uranium for Moscow. Buildings: only the editor 'building' effects build in the capital; here every plant is a hand effect on a random owned and controlled non-capital state (inland for Zwickau, Leuna, Schwarze Pumpe and EKO, coastal for the yards). Ways out of the starting spirits: indebted_plan -> joint_ventures -> social_market / socialist_market; open_border removed by the currency union (democrats) or turned into brain_drain by the convertible mark and removed by the socialist market economy (PDS); the political branch's border regime is a third way and is respected (the swap only fires while open_border is there). Unity: every call sits behind TOTU_unity_open; the currency union's GDR share is flat (the FRG decisions count their own +8 and +15), so the result no longer depends on the order. Flags TOTU_DDR_currency_union, TOTU_DDR_convertible_mark, TOTU_DDR_privatisation, TOTU_DDR_people_shares are set but nothing reads them yet (hooks for the political / unity authors, e.g. a GDR Article 23 accession could require TOTU_DDR_currency_union); TOTU_DDR_treuhand is the existing flag. AI: the uniform factors favour the historical path (currency union 10, privatisation law 5 over shares 2, VW 3 over Trabant 1, shutting Bitterfeld 3 over keeping Leuna 1, closing Wismut 3 over keeping it 1, subsidies kept 3 over cut 1); the government-split focuses are hidden for the other side, so a PDS AI still finds its own path. | military: Армия (x 24–31, корень DDR_mil_admiral_hoffmann). До выборов четыре колонки: армия (Белиц: уступки или порядок — снимает «Растерянную армию»; гражданская служба; военная реформа; новая присяга после выборов и не раньше июля — нужны и реформа, и гражданская служба, армейские нацдухи не складываются), демонтаж (боевые группы, караульный полк, солдаты на заводах; новые переходы от корня и снос Стены после выборов, не раньше июня), Договор и советские войска (верность союзу, Вена, оборонительная достаточность, счёт Западной группе, договор о выводе — после Вены или счёта, при реформаторах в Кремле и согласии Москвы: «2+4», визит Модрова или отношение > 24; снимает «Западную группу войск», даёт «Уходящую армию»; Бонн платит при «Альянсе» или при СДПГ после «Формулы Геншера»; затем выход из Объединённого командования — только при «2+4» или ПДС с реформаторами, без TOTU_bloc_leave, ставит флаг TOTU_DDR_mil_left_unified_command для политической ветки), рода войск (Фольксмарине → «На Балтике», МиГ-29 → «МиГи для люфтваффе» при «Альянсе»; затем конверсия или распродажа). После выборов: «Альянс»/СДПГ — министерство Эппельмана, затем переговоры с бундесвером (объединение +5, командование «Восток» ФРГ +8, переходный срок ФРГ +3) или «Две армии» (ГДР +3; при СДПГ армия единства +5); ПДС — армия нейтральной ГДР (ГДР +3), территориальная оборона, затем профессиональная армия или договор о пребывании войск («Западная группа» → «Гарнизоны по договору»); скрыто для ПДС — «Звонок из Вюнсдорфа», «ННА в боевой готовности» (объединение −10) и «Вернуть ННА в казармы» при победе жёсткой линии (общий помощник TOTU_DDR_pol_kremlin_hardliners). Событий у ветки нет. Для политической ветки: DDR_leave_warsaw_pact может учитывать флаг TOTU_DDR_mil_left_unified_command.",
+ "spirits": [
+  {
+   "desc_en": "Power is shared with those who brought people onto the streets in the autumn. The Party still governs, but every decision is first argued over at the round table.",
+   "desc_ru": "Власть делится с теми, кто осенью вывел людей на улицы. Партия ещё правит, но каждое её решение сначала обсуждают за круглым столом.",
+   "icon": "круглый стол с табличками, микрофонами и пепельницей",
+   "id": "TOTU_DDR_round_table",
+   "mods": [
+    {
+     "k": "political_power_gain",
+     "v": -0.25
+    },
+    {
+     "k": "democratic_drift",
+     "v": 0.05
+    },
+    {
+     "k": "stability_factor",
+     "v": 5
+    }
+   ],
+   "name_en": "Round Table",
+   "name_ru": "Круглый стол"
+  },
+  {
+   "desc_en": "Citizens' committees occupy the district offices of State Security while the shredders run day and night in the basements. Ninety thousand full-time officers wait to learn their fate.",
+   "desc_ru": "Гражданские комитеты занимают окружные управления госбезопасности, а в подвалах круглые сутки работают уничтожители бумаги. Девяносто тысяч штатных сотрудников ждут, что с ними будет.",
+   "icon": "мешок резаной бумаги, серая папка и печать",
+   "id": "TOTU_DDR_stasi_besieged",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": -10
+    },
+    {
+     "k": "drift_defence_factor",
+     "v": -20
+    }
+   ],
+   "name_en": "Stasi under Siege",
+   "name_ru": "Штази в осаде"
+  },
+  {
+   "desc_en": "The Party governs together with those who stood in the squares last autumn. Reforms move faster, but every order now has to be agreed.",
+   "desc_ru": "Партия правит вместе с теми, кто ещё осенью стоял на площадях. Реформы идут быстрее, но каждый приказ теперь приходится согласовывать.",
+   "icon": "стол правительства с графинами и проектами законов",
+   "id": "TOTU_DDR_national_responsibility",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": 10
+    },
+    {
+     "k": "democratic_drift",
+     "v": 0.05
+    },
+    {
+     "k": "political_power_factor",
+     "v": -10
+    }
+   ],
+   "name_en": "Government of National Responsibility",
+   "name_ru": "Правительство национальной ответственности"
+  },
+  {
+   "desc_en": "Socialism without the Stasi and without the Wall. Nobody knows yet what it looks like, but many are willing to try.",
+   "desc_ru": "Социализм без Штази и без Стены. Никто ещё не знает, как он выглядит, но многие готовы попробовать.",
+   "icon": "свеча в банке и красная гвоздика на воззвании",
+   "id": "TOTU_DDR_third_way",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": 5
+    },
+    {
+     "k": "communism_drift",
+     "v": 0.05
+    },
+    {
+     "k": "drift_defence_factor",
+     "v": 15
+    }
+   ],
+   "name_en": "The Third Way",
+   "name_ru": "Третий путь"
+  },
+  {
+   "desc_en": "Five parties, from the DSU to the Social Democrats, and more than two thirds of the seats. The constitution can be amended every week, provided they first agree among themselves.",
+   "desc_ru": "Пять партий, от ДСС до социал-демократов, и больше двух третей мандатов. Конституцию можно менять хоть каждую неделю, если сначала договориться между собой.",
+   "icon": "пять партийных значков на скамье правительства",
+   "id": "TOTU_DDR_grand_coalition",
+   "mods": [
+    {
+     "k": "political_power_factor",
+     "v": 15
+    },
+    {
+     "k": "stability_factor",
+     "v": 5
+    }
+   ],
+   "name_en": "The Grand Coalition",
+   "name_ru": "Большая коалиция"
+  },
+  {
+   "desc_en": "The prime minister denies everything, a committee reads his file and the papers print new extracts every morning. The government works, but every statement it makes is met with the question of who wrote it.",
+   "desc_ru": "Премьер отрицает всё, комиссия читает его досье, а газеты каждое утро печатают новые выдержки. Правительство работает, но каждое его заявление встречают вопросом, кто его написал.",
+   "icon": "серое досье Штази и западный журнал на столе",
+   "id": "TOTU_DDR_maximilian_affair",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": -10
+    },
+    {
+     "k": "political_power_factor",
+     "v": -15
+    }
+   ],
+   "name_en": "The 'Maximilian' Affair",
+   "name_ru": "Дело «Максимилиана»"
+  },
+  {
+   "desc_en": "The right to work, housing and a kindergarten place is written into the terms of any treaty with Bonn. People are calmer; the budget is not.",
+   "desc_ru": "Право на труд, жильё и место в детском саду записано в условия любого договора с Бонном. Люди спокойнее, бюджет — нет.",
+   "icon": "табельная карточка, ключ от детсада и печать",
+   "id": "TOTU_DDR_social_charter",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": 10
+    },
+    {
+     "k": "consumer_goods_factor",
+     "v": 5
+    }
+   ],
+   "name_en": "The Social Charter",
+   "name_ru": "Социальная хартия"
+  },
+  {
+   "desc_en": "Socialism with free elections, a market and no Stasi. The party believes it can be done; the country is willing to find out.",
+   "desc_ru": "Социализм со свободными выборами, рынком и без Штази. Партия верит, что это возможно, страна согласна проверить.",
+   "icon": "красная гвоздика на брошюре программы и урна",
+   "id": "TOTU_DDR_democratic_socialism",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": 10
+    },
+    {
+     "k": "communism_drift",
+     "v": 0.05
+    },
+    {
+     "k": "drift_defence_factor",
+     "v": 25
+    },
+    {
+     "k": "trade_opinion_factor",
+     "v": -10
+    }
+   ],
+   "name_en": "Democratic Socialism",
+   "name_ru": "Демократический социализм"
+  },
+  {
+   "desc_en": "The GDR is no longer in the Warsaw Pact, nor queuing for NATO. It can trade with everyone and has no one to fight and no reason to.",
+   "desc_ru": "ГДР больше не в Варшавском договоре и не в очереди в НАТО. Торговать можно со всеми, а воевать не с кем и незачем.",
+   "icon": "поднятый шлагбаум, бинокль и дипломатический портфель",
+   "id": "TOTU_DDR_neutral_republic",
+   "mods": [
+    {
+     "k": "trade_opinion_factor",
+     "v": 20
+    },
+    {
+     "k": "stability_factor",
+     "v": 5
+    },
+    {
+     "k": "war_support_factor",
+     "v": -10
+    }
+   ],
+   "name_en": "A Neutral Republic",
+   "name_ru": "Нейтральная республика"
+  },
+  {
+   "desc_en": "The Wall is open, but the crossings have visas and queues again. Fewer people leave, less trade comes through, and those who stay remember who lowered the barrier.",
+   "desc_ru": "Стена открыта, но на переходах снова визы и очереди. Уезжают меньше, торгуют тоже меньше, а оставшиеся помнят, кто опустил шлагбаум.",
+   "icon": "опущенный шлагбаум, паспорт ГДР с визой и фуражка",
+   "id": "TOTU_DDR_border_regime",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": -5
+    },
+    {
+     "k": "trade_opinion_factor",
+     "v": -15
+    },
+    {
+     "k": "communism_drift",
+     "v": 0.05
+    }
+   ],
+   "name_en": "The Border Regime",
+   "name_ru": "Пограничный режим"
+  },
+  {
+   "desc_en": "Brussels lifts the quotas on East German goods and sends experts on standards. The standards turn out to be thicker than the quotas.",
+   "desc_ru": "Брюссель снимает квоты на восточногерманские товары и присылает экспертов по нормам. Нормы оказываются толще квот.",
+   "icon": "ящик с деталями, таможенная бирка и толстый сборник норм",
+   "id": "TOTU_DDR_ec_association",
+   "mods": [
+    {
+     "k": "trade_opinion_factor",
+     "v": 15
+    },
+    {
+     "k": "research_speed_factor",
+     "v": 5
+    },
+    {
+     "k": "consumer_goods_factor",
+     "v": 3
+    }
+   ],
+   "name_en": "EC Association",
+   "name_ru": "Ассоциация с ЕС"
+  },
+  {
+   "desc_en": "The Wall has been open since 9 November. Two thousand people leave for the West every day, mostly the young, workers and doctors. Factories and hospitals empty faster than they can be reformed.",
+   "desc_ru": "Стена открыта с 9 ноября. Каждый день на Запад уезжают две тысячи человек, чаще всего молодые, рабочие и врачи. Заводы и больницы пустеют быстрее, чем их успевают реформировать.",
+   "icon": "картонный чемодан, паспорт ГДР и билет на поезд",
+   "id": "TOTU_DDR_open_border",
+   "mods": [
+    {
+     "k": "industrial_capacity_factory",
+     "v": -10
+    },
+    {
+     "k": "conscription_factor",
+     "v": -10
+    },
+    {
+     "k": "research_speed_factor",
+     "v": -5
+    },
+    {
+     "k": "stability_factor",
+     "v": -5
+    }
+   ],
+   "name_en": "Open Border",
+   "name_ru": "Открытая граница"
+  },
+  {
+   "desc_en": "The planned economy runs on Western credit and worn-out machines. People wait twelve years for a Trabant, and the debt to the West grows faster than exports.",
+   "desc_ru": "Плановое хозяйство держится на западных кредитах и изношенных станках. «Трабант» ждут по двенадцать лет, а долг Западу растёт быстрее экспорта.",
+   "icon": "пачка марок ГДР, гроссбух с красными цифрами и шестерня",
+   "id": "TOTU_DDR_indebted_plan",
+   "mods": [
+    {
+     "k": "consumer_goods_factor",
+     "v": 10
+    },
+    {
+     "k": "production_speed_buildings_factor",
+     "v": -15
+    },
+    {
+     "k": "production_factory_max_efficiency_factor",
+     "v": -10
+    }
+   ],
+   "name_en": "A Plan in Debt",
+   "name_ru": "План в долгах"
+  },
+  {
+   "desc_en": "Western firms come to Eastern factories with machines, money and the habit of counting every mark.",
+   "desc_ru": "Западные фирмы приходят на восточные заводы со станками, деньгами и привычкой считать каждую марку.",
+   "icon": "западный калькулятор на чертеже восточного завода",
+   "id": "TOTU_DDR_joint_ventures",
+   "mods": [
+    {
+     "k": "consumer_goods_factor",
+     "v": 5
+    },
+    {
+     "k": "production_speed_buildings_factor",
+     "v": -5
+    },
+    {
+     "k": "trade_opinion_factor",
+     "v": 10
+    }
+   ],
+   "name_en": "Joint Ventures",
+   "name_ru": "Совместные предприятия"
+  },
+  {
+   "desc_en": "Bread, rent and fares cost what they did under Ulbricht. Shoppers are happy; the budget is not.",
+   "desc_ru": "Хлеб, квартплата и проезд стоят столько же, сколько при Ульбрихте. Покупатели довольны, бюджет — нет.",
+   "icon": "булочка, трамвайный билет и книжка квитанций за квартиру",
+   "id": "TOTU_DDR_cheap_bread",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": 5
+    },
+    {
+     "k": "consumer_goods_factor",
+     "v": 5
+    },
+    {
+     "k": "communism_drift",
+     "v": 0.03
+    }
+   ],
+   "name_en": "Subsidised Prices",
+   "name_ru": "Дотированные цены"
+  },
+  {
+   "desc_en": "Prices creep up and the supplements chase them, not always successfully. But for the first time in years the budget is not drowning in subsidies.",
+   "desc_ru": "Цены ползут вверх, доплаты их догоняют, но не всегда. Зато бюджет впервые за годы не тонет в дотациях.",
+   "icon": "этикет-пистолет, рулон ценников и кассовый чек",
+   "id": "TOTU_DDR_price_reform",
+   "mods": [
+    {
+     "k": "consumer_goods_factor",
+     "v": -5
+    },
+    {
+     "k": "stability_factor",
+     "v": -5
+    },
+    {
+     "k": "production_speed_buildings_factor",
+     "v": 5
+    }
+   ],
+   "name_en": "Prices without Subsidies",
+   "name_ru": "Цены без дотаций"
+  },
+  {
+   "desc_en": "People finally have hard money and spend it on Western goods. Eastern factories, suddenly counting in Deutsche Marks, lose their buyers both at home and in Eastern Europe.",
+   "desc_ru": "У людей наконец твёрдые деньги, и они тратят их на западные товары. Восточные заводы, вдруг считающие в марках ФРГ, теряют покупателей и дома, и в Восточной Европе.",
+   "icon": "кошелёк с новыми марками на штабеле непроданных радиол",
+   "id": "TOTU_DDR_dmark_shock",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": 5
+    },
+    {
+     "k": "industrial_capacity_factory",
+     "v": -15
+    },
+    {
+     "k": "production_factory_max_efficiency_factor",
+     "v": -10
+    }
+   ],
+   "name_en": "The D-Mark Shock",
+   "name_ru": "Шок марки"
+  },
+  {
+   "desc_en": "Hundreds of thousands are on the payroll but stay at home on two thirds of their wages: Kurzarbeit Null, as the Germans call it. It is expensive, but there are no queues of jobless in the streets.",
+   "desc_ru": "Сотни тысяч числятся на заводах, но сидят дома на двух третях зарплаты: по-немецки это Kurzarbeit Null. Дорого, зато на улицах нет очередей безработных.",
+   "icon": "станок под чехлом, табельные часы и конверт с получкой",
+   "id": "TOTU_DDR_short_time_work",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": 8
+    },
+    {
+     "k": "industrial_capacity_factory",
+     "v": -10
+    },
+    {
+     "k": "political_power_factor",
+     "v": -10
+    }
+   ],
+   "name_en": "Short Time Zero",
+   "name_ru": "Работа на нуле"
+  },
+  {
+   "desc_en": "The border is open, but the GDR mark is now worth something and not everyone leaves any more. Doctors, engineers and programmers still do: the West pays them several times as much.",
+   "desc_ru": "Граница открыта, но марка ГДР теперь хоть чего-то стоит, и уезжают уже не все. Уезжают врачи, инженеры и программисты: на Западе им платят в разы больше.",
+   "icon": "докторский саквояж и логарифмическая линейка на чемодане",
+   "id": "TOTU_DDR_brain_drain",
+   "mods": [
+    {
+     "k": "industrial_capacity_factory",
+     "v": -5
+    },
+    {
+     "k": "research_speed_factor",
+     "v": -5
+    }
+   ],
+   "name_en": "Brain Drain",
+   "name_ru": "Отток специалистов"
+  },
+  {
+   "desc_en": "Over a million claims for houses, plots and factories. Until the courts work out who owns what, nobody builds and nobody sells.",
+   "desc_ru": "Больше миллиона заявок на возврат домов, участков и фабрик. Пока суды разбираются, кто хозяин, никто не строит и не продаёт.",
+   "icon": "стопка перевязанных папок с заявками и поземельная книга",
+   "id": "TOTU_DDR_restitution_claims",
+   "mods": [
+    {
+     "k": "production_speed_buildings_factor",
+     "v": -10
+    },
+    {
+     "k": "stability_factor",
+     "v": -3
+    }
+   ],
+   "name_en": "Restitution Claims",
+   "name_ru": "Заявки на возврат"
+  },
+  {
+   "desc_en": "A market, but with health insurance, pensions and benefits. The East lives by Western rules and on Western money until it learns to earn its own.",
+   "desc_ru": "Рынок, но с больничной кассой, пенсией и пособием. Восток живёт по западным правилам и на западные деньги, пока не научится зарабатывать сам.",
+   "icon": "карточка больничной кассы, пенсионная книжка и гроссбух фирмы",
+   "id": "TOTU_DDR_social_market",
+   "mods": [
+    {
+     "k": "production_factory_max_efficiency_factor",
+     "v": 10
+    },
+    {
+     "k": "production_speed_buildings_factor",
+     "v": 10
+    },
+    {
+     "k": "consumer_goods_factor",
+     "v": -5
+    },
+    {
+     "k": "stability_factor",
+     "v": 5
+    }
+   ],
+   "name_en": "Social Market Economy",
+   "name_ru": "Социальная рыночная экономика"
+  },
+  {
+   "desc_en": "There is no plan any more, but the factories stay with their workers and the state. Prices are free, the mark is convertible, and the wait for a car is under a year for the first time.",
+   "desc_ru": "Плана больше нет, но заводы остаются у своих рабочих и у государства. Цены свободны, марка обратима, и очередь за машиной впервые короче года.",
+   "icon": "акция, банкнота марки ГДР и талон на автомобиль",
+   "id": "TOTU_DDR_socialist_market",
+   "mods": [
+    {
+     "k": "industrial_capacity_factory",
+     "v": 5
+    },
+    {
+     "k": "production_speed_buildings_factor",
+     "v": 10
+    },
+    {
+     "k": "stability_factor",
+     "v": 5
+    },
+    {
+     "k": "communism_drift",
+     "v": 0.03
+    }
+   ],
+   "name_en": "Socialist Market Economy",
+   "name_ru": "Социалистическая рыночная экономика"
+  },
+  {
+   "desc_en": "The Trust Agency shuts whatever nobody will take even for a single mark. The empty halls wait for investors, and their former workers for benefits.",
+   "desc_ru": "Попечительское ведомство закрывает то, что никто не берёт даже за одну марку. Пустые цеха ждут инвесторов, а их бывшие рабочие — пособий.",
+   "icon": "цепь с замком на заводских воротах и стопка уведомлений",
+   "id": "TOTU_DDR_wave_of_closures",
+   "mods": [
+    {
+     "k": "industrial_capacity_factory",
+     "v": -10
+    },
+    {
+     "k": "production_speed_buildings_factor",
+     "v": 10
+    }
+   ],
+   "name_en": "A Wave of Closures",
+   "name_ru": "Волна закрытий"
+  },
+  {
+   "desc_en": "Nearly 380,000 Soviet servicemen have been stationed on this soil since 1945, and the GDR budget pays for their land, coal, rail wagons and training grounds. While they remain, nothing is decided without Moscow, neither unification nor its refusal.",
+   "desc_ru": "Почти 380 тысяч советских военных стоят на этой земле с 1945 года, а земля, уголь, вагоны и полигоны для них идут из бюджета ГДР. Пока они здесь, без Москвы не решится ничего: ни объединение, ни отказ от него.",
+   "icon": "советский танк Т-80 и фуражка с красной звездой",
+   "id": "TOTU_DDR_western_group",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": 3
+    },
+    {
+     "k": "political_power_factor",
+     "v": -10
+    },
+    {
+     "k": "consumer_goods_factor",
+     "v": 5
+    }
+   ],
+   "name_en": "Western Group of Forces",
+   "name_ru": "Западная группа войск"
+  },
+  {
+   "desc_en": "The National People's Army swore its oath to the SED, and the SED is gone. Soldiers form councils, officers wait for orders that nobody gives.",
+   "desc_ru": "Национальная народная армия присягала СЕПГ, а СЕПГ больше нет. Солдаты создают советы, офицеры ждут приказов, которых никто не отдаёт.",
+   "icon": "каска ННА на сложенной форме с погонами",
+   "id": "TOTU_DDR_army_at_a_loss",
+   "mods": [
+    {
+     "k": "army_morale_factor",
+     "v": -15
+    },
+    {
+     "k": "army_org_factor",
+     "v": -10
+    }
+   ],
+   "name_en": "An Army at a Loss",
+   "name_ru": "Растерянная армия"
+  },
+  {
+   "desc_en": "Every unit now has an elected council that argues with the commander about duties, leave and food. There is less discipline, but fewer deserters too.",
+   "desc_ru": "В каждой части теперь выборный совет, который спорит с командиром о нарядах, отпусках и еде. Дисциплины меньше, зато и дезертиров тоже.",
+   "icon": "книга протоколов совета и солдатская пилотка",
+   "id": "TOTU_DDR_mil_soldiers_councils",
+   "mods": [
+    {
+     "k": "army_morale_factor",
+     "v": -5
+    },
+    {
+     "k": "army_org_factor",
+     "v": -5
+    },
+    {
+     "k": "stability_factor",
+     "v": 3
+    }
+   ],
+   "name_en": "Soldiers' Councils",
+   "name_ru": "Солдатские советы"
+  },
+  {
+   "desc_en": "Regulations are enforced to the last comma and leave passes are handed out as rewards. The officers are satisfied; the soldiers count the days to their discharge.",
+   "desc_ru": "Устав исполняют до последней запятой, а увольнительные выдают как награду. Офицеры довольны, солдаты считают дни до дембеля.",
+   "icon": "связка ключей гауптвахты и начищенные сапоги",
+   "id": "TOTU_DDR_mil_barracks_discipline",
+   "mods": [
+    {
+     "k": "army_org_factor",
+     "v": 5
+    },
+    {
+     "k": "army_morale_factor",
+     "v": -10
+    },
+    {
+     "k": "stability_factor",
+     "v": -3
+    }
+   ],
+   "name_en": "Barracks Discipline",
+   "name_ru": "Казарменный порядок"
+  },
+  {
+   "desc_en": "Twelve months of service instead of eighteen, civilian clothes on leave and the right to complain to parliament. The army is smaller and younger, and its commanders are learning to explain their orders.",
+   "desc_ru": "Двенадцать месяцев службы вместо восемнадцати, гражданская одежда в увольнении и право жаловаться в парламент. Армия меньше и моложе, а командиры учатся объяснять приказы.",
+   "icon": "военный билет, календарь и джинсовая куртка на крючке",
+   "id": "TOTU_DDR_mil_military_reform",
+   "mods": [
+    {
+     "k": "army_morale_factor",
+     "v": 5
+    },
+    {
+     "k": "conscription_factor",
+     "v": -10
+    },
+    {
+     "k": "training_time_factor",
+     "v": -10
+    }
+   ],
+   "name_en": "Military Reform",
+   "name_ru": "Военная реформа"
+  },
+  {
+   "desc_en": "The soldier swears to the republic and the law, not to a party. An order can be appealed, and the barracks now have a door to the outside.",
+   "desc_ru": "Солдат присягает республике и закону, а не партии. Приказ можно обжаловать, а у казармы теперь есть дверь наружу.",
+   "icon": "конституция ГДР на сложенной парадной форме",
+   "id": "TOTU_DDR_mil_citizens_in_uniform",
+   "mods": [
+    {
+     "k": "army_morale_factor",
+     "v": 10
+    },
+    {
+     "k": "army_org_factor",
+     "v": 5
+    },
+    {
+     "k": "conscription_factor",
+     "v": -10
+    },
+    {
+     "k": "stability_factor",
+     "v": 3
+    }
+   ],
+   "name_en": "Citizens in Uniform",
+   "name_ru": "Граждане в форме"
+  },
+  {
+   "desc_en": "Thousands of soldiers work on the railways, in boiler houses and hospitals in place of those who left for the West. The economy holds; the exercises can wait.",
+   "desc_ru": "Тысячи солдат работают на железной дороге, в котельных и больницах вместо уехавших на Запад. Хозяйство держится, учения подождут.",
+   "icon": "угольная лопата и пилотка у котла",
+   "id": "TOTU_DDR_mil_soldiers_in_factories",
+   "mods": [
+    {
+     "k": "industrial_capacity_factory",
+     "v": 5
+    },
+    {
+     "k": "army_org_factor",
+     "v": -5
+    },
+    {
+     "k": "training_time_factor",
+     "v": 10
+    }
+   ],
+   "name_en": "Soldiers in the Economy",
+   "name_ru": "Солдаты в народном хозяйстве"
+  },
+  {
+   "desc_en": "Trains leave for the east, and the markets outside the garrisons sell petrol, uniforms and binoculars. The vacated barracks and airfields await new owners, and the ground beneath them a clean-up.",
+   "desc_ru": "Эшелоны уходят на восток, а на рынках у гарнизонов продают бензин, форму и бинокли. Освободившиеся казармы и аэродромы ждут хозяев, земля под ними — очистки.",
+   "icon": "ушанка, канистра и бинокль на раскладном столике",
+   "id": "TOTU_DDR_mil_wgf_departure",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": -2
+    },
+    {
+     "k": "production_speed_buildings_factor",
+     "v": 10
+    },
+    {
+     "k": "political_power_factor",
+     "v": 5
+    }
+   ],
+   "name_en": "The Departing Army",
+   "name_ru": "Уходящая армия"
+  },
+  {
+   "desc_en": "The army is cut almost by half, and the money and hands saved go into the economy. The generals grumble; for the first time the finance minister is pleased with the defence minister.",
+   "desc_ru": "Армию сокращают почти вдвое, а сэкономленные деньги и рабочие руки уходят в хозяйство. Генералы ворчат, министр финансов впервые доволен министром обороны.",
+   "icon": "сданные каски рядом с тачкой кирпичей",
+   "id": "TOTU_DDR_mil_peace_dividend",
+   "mods": [
+    {
+     "k": "conscription_factor",
+     "v": -20
+    },
+    {
+     "k": "production_speed_buildings_factor",
+     "v": 10
+    },
+    {
+     "k": "war_support_factor",
+     "v": -5
+    }
+   ],
+   "name_en": "Peace Dividend",
+   "name_ru": "Мирный дивиденд"
+  },
+  {
+   "desc_en": "The NVA no longer prepares to advance to the Rhine. It defends its own land and asks permission of neither Moscow nor Brussels.",
+   "desc_ru": "ННА больше не готовится наступать к Рейну. Она обороняет собственную землю и не спрашивает разрешения ни у Москвы, ни у Брюсселя.",
+   "icon": "каска ННА на мешке с песком, компас и карта",
+   "id": "TOTU_DDR_mil_neutral_army",
+   "mods": [
+    {
+     "k": "army_defence_factor",
+     "v": 10
+    },
+    {
+     "k": "drift_defence_factor",
+     "v": 15
+    },
+    {
+     "k": "conscription_factor",
+     "v": -10
+    }
+   ],
+   "name_en": "A Neutral Country's Army",
+   "name_ru": "Армия нейтральной страны"
+  },
+  {
+   "desc_en": "The NVA and the Western Group act as one army again, as taught in every 'Brotherhood in Arms' exercise. The country watches it with alarm.",
+   "desc_ru": "ННА и Западная группа снова действуют как одна армия, как учили на всех учениях «Братство по оружию». Страна смотрит на неё с тревогой.",
+   "icon": "ушанка и каска ННА на башне танка",
+   "id": "TOTU_DDR_mil_brotherhood_in_arms",
+   "mods": [
+    {
+     "k": "army_org_factor",
+     "v": 10
+    },
+    {
+     "k": "war_support_factor",
+     "v": 10
+    },
+    {
+     "k": "stability_factor",
+     "v": -10
+    }
+   ],
+   "name_en": "Brotherhood in Arms",
+   "name_ru": "Братство по оружию"
+  },
+  {
+   "desc_en": "The Soviet troops stay, but now they pay for the land and clear their exercises. While they are here nobody will attack the GDR, and Moscow remembers it at every round of bargaining.",
+   "desc_ru": "Советские войска остаются, но теперь платят за землю и согласуют учения. Пока они здесь, на ГДР никто не нападёт, и в Москве об этом помнят при каждом торге.",
+   "icon": "договор с сургучными печатями и ключ от казармы",
+   "id": "TOTU_DDR_mil_stationing_treaty",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": 3
+    },
+    {
+     "k": "political_power_factor",
+     "v": -5
+    },
+    {
+     "k": "enemy_justify_war_goal_time",
+     "v": 20
+    }
+   ],
+   "name_en": "Garrisons by Treaty",
+   "name_ru": "Гарнизоны по договору"
+  },
+  {
+   "desc_en": "Six months of compulsory service, with sergeants and warrant officers on contract. There are fewer conscripts, but they are trained by men who stayed in the army of their own free will.",
+   "desc_ru": "Полгода срочной службы, а сержанты и прапорщики служат по контракту. Призывников меньше, зато учат их те, кто остался в армии по своей воле.",
+   "icon": "контракт, фуражка прапорщика и секундомер",
+   "id": "TOTU_DDR_mil_professional_army",
+   "mods": [
+    {
+     "k": "training_time_factor",
+     "v": -10
+    },
+    {
+     "k": "conscription_factor",
+     "v": -10
+    },
+    {
+     "k": "experience_gain_army_factor",
+     "v": 10
+    },
+    {
+     "k": "consumer_goods_factor",
+     "v": 3
+    }
+   ],
+   "name_en": "A Professional Army",
+   "name_ru": "Профессиональная армия"
+  }
+ ],
+ "tag": "DDR",
+ "version": 1
+}

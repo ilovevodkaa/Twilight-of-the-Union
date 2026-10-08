@@ -1,0 +1,70 @@
+# Twilight of the Union: "socialist commonwealth state", the Warsaw Pact allies of the USSR in 1990.
+# Formally sovereign, in practice Moscow's satellites: no foreign policy of their own, Soviet garrisons, Comecon trade,
+# Warsaw Pact arms on Soviet licences. Set in history/countries/SOV - Soviet union.txt; name and icon:
+# localisation/*/totu_world_l_*.yml, tools/build_country_gfx.py (GFX_autonomy_totu_socialist_commonwealth_icon).
+#
+# A ladder of its own (allowed_levels_filter): the freedom bar shows how far a country has drifted from Moscow but never
+# turns it into a vanilla puppet or dominion, and can_take_level = no keeps the bar from making it independent. A
+# country leaves the bloc only by script (events), which also sets TOTU_left_warsaw_pact.
+# A subject keeps its own government: an election (e.g. the GDR's on 18 March 1990) changes who rules, not whose
+# satellite the country is. events/TOTU_bloc.txt puts it back into the Pact if the engine drops it on the change.
+autonomy_state = {
+	id = autonomy_totu_socialist_commonwealth
+
+	is_puppet = yes
+
+	min_freedom_level = 0.0
+
+	manpower_influence = 0.3
+
+	rule = {
+		desc = "RULE_DESC_IS_A_SUBJECT"
+
+		can_not_declare_war = yes
+		can_decline_call_to_war = no
+		units_deployed_to_overlord = no
+		can_be_spymaster = no
+		contributes_operatives = yes
+		can_create_collaboration_government = no
+	}
+
+	modifier = {
+		autonomy_manpower_share = 0.0
+		extra_trade_to_overlord_factor = 0.5
+		overlord_trade_cost_factor = -0.5
+		cic_to_overlord_factor = 0.1
+		license_subject_master_purchase_cost = -1
+		autonomy_gain_global_factor = -0.3
+		peace_score_ratio_transferred_to_overlord = 0.1
+		lend_lease_tension_with_overlord = -0.30
+		faction_influence_contribution_factor = -0.25
+	}
+
+	ai_subject_wants_higher = {
+		factor = 1.0
+	}
+
+	ai_overlord_wants_lower = {
+		factor = 1.0
+	}
+
+	ai_overlord_wants_garrison = {
+		always = no
+	}
+
+	allowed = {
+		OVERLORD = { original_tag = SOV }
+	}
+
+	allowed_levels_filter = {
+		autonomy_totu_socialist_commonwealth
+	}
+
+	can_take_level = {
+		always = no
+	}
+
+	can_lose_level = {
+		always = no
+	}
+}

@@ -1,0 +1,15 @@
+# Twilight of the Union: the GDR's calendar (events/TOTU_DDR.txt). The game starts on 1990.1.1.12.
+
+on_actions = {
+	on_startup = {
+		effect = {
+			if = {
+				limit = { country_exists = DDR }
+				DDR = {
+					country_event = { id = totu_ddr.1 days = 14 }   # 15 January: Normannenstrasse
+					country_event = { id = totu_ddr.2 days = 76 }   # 18 March: the Volkskammer election
+				}
+			}
+		}
+	}
+}

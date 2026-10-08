@@ -1,7 +1,8 @@
+# NEUTRALISED COPY of vanilla common/on_actions/02_dod_on_actions.txt made by tools/strip_vanilla.py: references to the removed vanilla
+# events, decisions and focus trees are cut. Edit the tool, not this file.
 on_actions = {
 
 	# on_startup removed by Twilight of the Union (1936 setup)
-
 
 	#FROM is war target
 	on_declare_war = {

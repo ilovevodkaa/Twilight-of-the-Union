@@ -1,3 +1,5 @@
+# NEUTRALISED COPY of vanilla common/on_actions/12_wuw_on_actions.txt made by tools/strip_vanilla.py: references to the removed vanilla
+# events, decisions and focus trees are cut. Edit the tool, not this file.
 on_actions = {
 	
 	# FROM is the faction Leader, ROOT is the country leaving the faction 
@@ -8,7 +10,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						original_tag = GER
-						has_completed_focus = GER_shared_rd_programs_ww
+						always = no
 					}
 				}
 				FROM = {
@@ -188,7 +190,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						original_tag = GER
-						has_completed_focus = GER_shared_rd_programs_ww
+						always = no
 					}
 				}
 				FROM = {
@@ -308,7 +310,7 @@ on_actions = {
 					FROM = { 
 						original_tag = GER
 						is_faction_leader = yes
-						has_completed_focus = GER_autarky_efforts
+						always = no
 					}
 				}
 				if = { #This is a fail safe to not boost trade relations to ridiculous levels 
@@ -342,7 +344,7 @@ on_actions = {
 				limit = {
 					ROOT = { 
 						original_tag = GER
-						has_completed_focus = GER_autarky_efforts
+						always = no
 					}
 				}
 				if = { #This is a fail safe to not boost trade relations to ridiculous levels 
@@ -380,12 +382,12 @@ on_actions = {
 					FROM = {
 						original_tag = GER
 						OR = {
-							has_completed_focus = GER_pool_technical_know_how_ww
-							has_completed_focus = GER_pool_technical_know_how
-							has_completed_focus = GER_shared_rd_programs_ww
-							has_completed_focus = GER_shared_rd_programs
-							has_completed_focus = GER_establish_a_customs_union
-							has_completed_focus = GER_mitteleuropa_cooperation_sphere
+							always = no
+							always = no
+							always = no
+							always = no
+							always = no
+							always = no
 						}
 					}
 				}
@@ -400,7 +402,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						original_tag = BEL
-						has_completed_focus = BEL_interpreters
+						always = no
 					}
 				}
 				ROOT = {
@@ -419,7 +421,7 @@ on_actions = {
 				limit = {
 					ROOT = {
 						original_tag = GER
-						has_completed_focus = GER_shared_rd_programs_ww
+						always = no
 					}
 				}
 				ROOT = {
@@ -435,12 +437,12 @@ on_actions = {
 					ROOT = {
 						original_tag = GER
 						OR = {
-							has_completed_focus = GER_pool_technical_know_how_ww
-							has_completed_focus = GER_pool_technical_know_how
-							has_completed_focus = GER_shared_rd_programs_ww
-							has_completed_focus = GER_shared_rd_programs
-							has_completed_focus = GER_establish_a_customs_union
-							has_completed_focus = GER_mitteleuropa_cooperation_sphere
+							always = no
+							always = no
+							always = no
+							always = no
+							always = no
+							always = no
 						}
 					}
 				}
@@ -559,7 +561,7 @@ on_actions = {
 					ROOT = { 
 						original_tag = GER
 						is_faction_leader = yes
-						has_completed_focus = GER_autarky_efforts
+						always = no
 					}
 				}
 				if = { #This is a fail safe to not boost trade relations to ridiculous levels 
@@ -593,7 +595,7 @@ on_actions = {
 				limit = {
 					FROM = { 
 						original_tag = GER
-						has_completed_focus = GER_autarky_efforts
+						always = no
 					}
 				}
 				if = { #This is a fail safe to not boost trade relations to ridiculous levels 
@@ -630,7 +632,7 @@ on_actions = {
 				limit = {
 					ROOT = {
 						original_tag = BEL
-						has_completed_focus = BEL_interpreters
+						always = no
 					}
 				}
 				FROM = {
@@ -770,7 +772,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						original_tag = GER
-						has_completed_focus = GER_shared_rd_programs_ww
+						always = no
 					}
 					ROOT = {
 						NOT = { is_in_faction_with = FROM }
@@ -894,12 +896,12 @@ on_actions = {
 						original_tag = GER
 						is_faction_leader = yes
 						OR = {
-							has_completed_focus = GER_pool_technical_know_how_ww
-							has_completed_focus = GER_pool_technical_know_how
-							has_completed_focus = GER_shared_rd_programs_ww
-							has_completed_focus = GER_shared_rd_programs
-							has_completed_focus = GER_establish_a_customs_union
-							has_completed_focus = GER_mitteleuropa_cooperation_sphere
+							always = no
+							always = no
+							always = no
+							always = no
+							always = no
+							always = no
 						}
 					}
 				}
@@ -1102,12 +1104,12 @@ on_actions = {
 						original_tag = GER
 						is_faction_leader = yes
 						OR = {
-							has_completed_focus = GER_pool_technical_know_how_ww
-							has_completed_focus = GER_pool_technical_know_how
-							has_completed_focus = GER_shared_rd_programs_ww
-							has_completed_focus = GER_shared_rd_programs
-							has_completed_focus = GER_establish_a_customs_union
-							has_completed_focus = GER_mitteleuropa_cooperation_sphere
+							always = no
+							always = no
+							always = no
+							always = no
+							always = no
+							always = no
 						}
 					}
 				}
@@ -1126,8 +1128,8 @@ on_actions = {
 
 					AUS = {
 						OR = {
-							has_completed_focus = AUS_demand_romanian_lands
-							has_completed_focus = AUS_subjugate_lands_of_old
+							always = no
+							always = no
 						}
 					}
 				}
@@ -1186,8 +1188,8 @@ on_actions = {
 
 					AUS = {
 						OR = {
-							has_completed_focus = AUS_demand_romanian_lands
-							has_completed_focus = AUS_subjugate_lands_of_old
+							always = no
+							always = no
 						}
 						
 					}
@@ -1380,11 +1382,7 @@ on_actions = {
 						has_global_flag = jan_zumbach_fled_to_britain
 					}
 				}
-				country_event = {
-					id = ww_congo.70
-					hours = 2
-					random_hours = 4
-				}	
+					
 				set_global_flag = jan_zumbach_fled_to_britain
 			}
 		}
@@ -1456,10 +1454,7 @@ on_actions = {
 				AUS = {
 					set_cosmetic_tag = AUS_true_liechtenstein 
 
-					country_event = {
-						id = AUS_political_events.95
-						days = 10
-					}
+					
 				}
 			}
 		}
@@ -1475,7 +1470,7 @@ on_actions = {
 	
 					}
 					GER = {
-						has_completed_focus = GER_spheres_of_influence
+						always = no
 						has_country_flag = GER_SOV_agreed_sphere_of_influence
 					}
 	
@@ -1487,10 +1482,7 @@ on_actions = {
 				FROM = {
 					set_country_flag = capitulated_POL_flag
 
-					country_event = {
-						id = wuw_GER_diplomacy.87
-						hours = 12
-					}
+					
 				}
 			}
 		}
@@ -1506,7 +1498,7 @@ on_actions = {
 		
 					}
 					GER = {
-						has_completed_focus = GER_spheres_of_influence
+						always = no
 						has_country_flag = GER_SOV_agreed_sphere_of_influence
 					}
 		
@@ -1518,10 +1510,7 @@ on_actions = {
 				FROM = {
 					set_country_flag = capitulated_CZE_flag
 
-					country_event = {
-						id = wuw_GER_diplomacy.87
-						hours = 12
-					}
+					
 				}
 			}
 		}
@@ -1593,10 +1582,7 @@ on_actions = {
 					}
 				}
 				AUS = {
-					country_event = {
-						id = AUS_political_events.19
-						hours = 12
-					}
+					
 				}
 			}
 		}
@@ -1607,8 +1593,8 @@ on_actions = {
 					original_tag = GER
 					NOT = { has_country_flag = GER_has_war_preparations_flag }
 					OR = {
-						has_completed_focus = GER_prepare_for_the_next_naval_blockade
-						has_completed_focus = GER_war_preparations
+						always = no
+						always = no
 					}
 				}
 				add_timed_idea = {
@@ -1726,7 +1712,7 @@ on_actions = {
 				}
 				ROOT = {
 					BEL = { 
-						country_event = { id = ww_BEL_event_war.2 hours = 6 } 
+						 
 					}
 				}
 				set_country_flag = BEL_unknown_sympathies_triggered_flag
@@ -1917,7 +1903,7 @@ on_actions = {
 	    					has_global_flag = GER_eastern_bulwark_already_triggered_flag
 	    				}
 	    			}
-	    			GER = { has_completed_focus = GER_build_the_eastern_bulwark }
+	    			GER = { always = no }
 	    		}
 	    		hidden_effect = {
 	    			GER = { 
@@ -1949,10 +1935,7 @@ on_actions = {
 	    		}
 	    		hidden_effect = {
 	    			GER = { 
-	    				country_event = {
-	    					id = wuw_GER_legions.2
-	    					hours = 4
-	    				}	
+	    					
 	    			}
 	    		}
 	    	}
@@ -1961,7 +1944,6 @@ on_actions = {
 	}
 
 	# on_startup removed by Twilight of the Union (1936 setup)
-
 
 	on_subject_free = {
 
@@ -1975,10 +1957,7 @@ on_actions = {
 					}
 				}
 				ROOT = {
-					country_event = {
-						id = ww_congo.4
-						hours = 2
-					}	
+						
 				}
 			}
 		}
@@ -2075,11 +2054,7 @@ on_actions = {
 						}
 					}
 				}
-				country_event = {
-					id = ww_congo.20
-					hours = 6
-					random_hours = 24
-				}
+				
 			}
 		}
 
@@ -2104,11 +2079,7 @@ on_actions = {
 						}
 					}
 				}
-				country_event = {
-					id = ww_congo.21
-					days = 1
-					random_days = 2
-				}
+				
 			}
 		}
 
@@ -2133,11 +2104,7 @@ on_actions = {
 					}
 					date > 1943.01.01
 				}
-				country_event = {
-					id = ww_congo.71
-					hours = 2
-					random_hours = 4
-				}	
+					
 				set_global_flag = jan_zumbach_wanted_to_go_to_the_congo
 			}
 		}
@@ -2150,7 +2117,7 @@ on_actions = {
 			IF = { #Check if Germany helped a country to the warm embrace of socialism
 				limit = {
 					GER = {
-						has_completed_focus = GER_strengthen_the_proletarian_international
+						always = no
 					}
 					ROOT = {
 						is_in_array = {
@@ -2166,7 +2133,7 @@ on_actions = {
 					limit = {
 						GER = {
 							NOT = { 
-								has_completed_focus = GER_root_out_imperialism
+								always = no
 							}
 						}
 						ROOT = {
@@ -2174,18 +2141,12 @@ on_actions = {
 						}
 					}
 					ROOT = {
-						country_event = {
-							id = wuw_GER_diplomacy.83
-							hours = 6
-						}
+						
 					}
 				}
 				else = { #Invite every Commie to Germany's faction
 					ROOT = {
-						country_event = {
-							id = wuw_GER_diplomacy.83
-							hours = 6
-						}
+						
 					}
 				}
 			}
@@ -2196,7 +2157,7 @@ on_actions = {
 					ROOT = {
 						original_tag = AUS
 						has_government = neutrality
-						has_completed_focus = AUS_legacy_of_the_empire
+						always = no
 						has_dynamic_modifier = {
 							modifier = AUS_army
 						}
@@ -2597,7 +2558,7 @@ on_actions = {
 
 					ROOT = {
 						original_tag = BEL
-						has_completed_focus = BEL_demand_calais
+						always = no
 						any_other_country = {
 							is_major = no
 							NOT = { is_in_faction_with = ROOT } 
@@ -2606,10 +2567,7 @@ on_actions = {
 				}
 
 				ROOT = {
-					country_event = {
-						id = ww_BEL_event_war.10
-						hours = 6
-					}	
+						
 				}
 				
 			}
@@ -2623,7 +2581,7 @@ on_actions = {
 						original_tag = BEL
 						has_country_flag = BEL_leopold_flag
 						NOT = {
-							has_completed_focus = BEL_kings_abdication
+							always = no
 							has_country_flag = BEL_king_surrendered_on_action_flag
 						}
 						has_war = yes
@@ -2639,10 +2597,7 @@ on_actions = {
 					}
 				}
 				FROM = {
-					country_event = {
-						id = ww_BEL_event_war.3
-						hours = 6
-					}
+					
 					set_country_flag = BEL_king_surrendered_on_action_flag
 				}
 			}
@@ -2666,11 +2621,7 @@ on_actions = {
 					}
 					NOT = { has_global_flag = fall_of_budapest_generic_flag }
 				}
-				news_event = {
-					id = news.400
-					hours = 12
-					random_hours = 24
-				}	
+					
 			}
 		}
 
@@ -2733,7 +2684,7 @@ on_actions = {
 						has_country_flag = { flag = GER_todt_ascension_flag days > 20 }
 					}
 					#This looks ridiculous but it's the only way
-					unlock_national_focus = GER_ascension_of_todt
+					
 					uncomplete_national_focus = {
 						focus = GER_ascension_of_todt
 						refund_political_power = yes
@@ -2744,7 +2695,7 @@ on_actions = {
 					limit = {
 						has_country_flag = { flag = GER_speer_ascension_flag days > 20 }
 					}
-					unlock_national_focus = GER_ascension_of_speer
+					
 					uncomplete_national_focus = {
 						focus = GER_ascension_of_speer
 						refund_political_power = yes
@@ -2755,7 +2706,7 @@ on_actions = {
 					limit = {
 						has_country_flag = { flag = GER_goring_ascension_flag days > 20 }
 					}
-					unlock_national_focus = GER_ascension_of_goring
+					
 					uncomplete_national_focus = {
 						focus = GER_ascension_of_goring
 						refund_political_power = yes
@@ -2766,7 +2717,7 @@ on_actions = {
 					limit = {
 						has_country_flag = { flag = GER_himmler_ascension_flag days > 20 }
 					}
-					unlock_national_focus = GER_ascension_of_himmler
+					
 					uncomplete_national_focus = {
 						focus = GER_ascension_of_himmler
 						refund_political_power = yes
@@ -2777,7 +2728,7 @@ on_actions = {
 					limit = {
 						has_country_flag = { flag = GER_goebbels_ascension_flag days > 20 }
 					}
-					unlock_national_focus = GER_ascension_of_goebbels
+					
 					uncomplete_national_focus = {
 						focus = GER_ascension_of_goebbels
 						refund_political_power = yes
@@ -2788,7 +2739,7 @@ on_actions = {
 					limit = {
 						has_country_flag = { flag = GER_hess_ascension_flag days > 20 }
 					}
-					unlock_national_focus = GER_party_chancellor_hess
+					
 					uncomplete_national_focus = {
 						focus = GER_party_chancellor_hess
 						refund_political_power = yes
@@ -2799,7 +2750,7 @@ on_actions = {
 					limit = {
 						has_country_flag = { flag = GER_bormann_ascension_flag days > 20 }
 					}
-					unlock_national_focus = GER_party_chancellor_bormann
+					
 					uncomplete_national_focus = {
 						focus = GER_party_chancellor_bormann
 						refund_political_power = yes
@@ -2810,7 +2761,7 @@ on_actions = {
 					limit = {
 						has_country_flag = { flag = GER_a_strong_successor_flag days > 40 }
 					}
-					unlock_national_focus = GER_a_strong_successor
+					
 					uncomplete_national_focus = {
 						focus = GER_a_strong_successor
 						refund_political_power = yes
@@ -2821,7 +2772,7 @@ on_actions = {
 					limit = {
 						has_country_flag = { flag = GER_loyalty_to_the_fuhrer_flag days > 40 }
 					}
-					unlock_national_focus = GER_loyalty_to_the_fuhrer
+					
 					uncomplete_national_focus = {
 						focus = GER_loyalty_to_the_fuhrer
 						refund_political_power = yes
@@ -2842,9 +2793,9 @@ on_actions = {
 					}
 					GER = {
 						NOT = {
-							has_completed_focus = GER_anschluss
-							has_completed_focus = GER_oppose_hitler_ww
-							has_completed_focus = GER_oppose_hitler
+							always = no
+							always = no
+							always = no
 						}
 					}
 				}
@@ -2853,7 +2804,7 @@ on_actions = {
 					limit = {
 						AUS = {	
 							OR = {
-								has_completed_focus = AUS_reinstate_the_imperial_council
+								always = no
 								has_government = neutrality
 							}
 							

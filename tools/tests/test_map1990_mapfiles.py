@@ -23,6 +23,12 @@ class FormatTest(unittest.TestCase):
             x, z = mapfiles.pos_of(row, col)
             self.assertEqual(px_of(x, z), (row, col))
 
+    def test_whole_number_position_is_the_pixel_north_of_it(self):
+        # vanilla 454;naval_base_spawn;3350.00;9.75;1135.00 is the port of province 1015 (rows 893-912): the engine
+        # reads z = 1135.00 as row 912, one row south it would give the neighbour of state 453
+        self.assertEqual(px_of(3350.0, 1135.0), (912, 3350))
+        self.assertEqual(px_of(3350.0, 1135.5), (912, 3350))
+
     def test_railway_path_avoids_gaps(self):
         from map1990 import mapfiles
         adj = {1: {2}, 2: {1, 3}, 3: {2}}
@@ -66,7 +72,9 @@ class WrittenMapTest(unittest.TestCase):
             mapfiles.write_all(zm, vm, states, tmp / "map")
             w.write_states(states, tmp / "history/states")
             problems = check.run(tmp, _GAME, mod_map=tmp / "map")
+            last = (tmp / "map/buildings.txt").read_bytes()[-1:]
         self.assertEqual(problems[:40], [])
+        self.assertNotEqual(last, b"\n")      # like vanilla: a final newline is read as a broken empty line
 
 
 if __name__ == "__main__":

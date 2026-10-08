@@ -1,10 +1,12 @@
+# NEUTRALISED COPY of vanilla common/on_actions/13_goe_on_actions.txt made by tools/strip_vanilla.py: references to the removed vanilla
+# events, decisions and focus trees are cut. Edit the tool, not this file.
 
 on_actions = {
 	on_monthly_AFG = {
 		effect = {
 			IF = {
 				limit = {
-					has_completed_focus = AFG_electrification
+					always = no
 					any_core_state = {
 						NOT = { 
 							has_dynamic_modifier = { modifier = AFG_electrification_modifier }
@@ -49,9 +51,7 @@ on_actions = {
 	}
 
 	#ROOT is the nation being released, FROM is the overlord.
-
 	# on_startup removed by Twilight of the Union (1936 setup)
-
 
 
 	on_release_as_puppet = {
@@ -60,7 +60,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						original_tag = RAJ
-						has_completed_focus = RAJ_princely_autonomy
+						always = no
 					}
 
 					ROOT = {
@@ -75,7 +75,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						original_tag = RAJ
-						has_completed_focus = RAJ_funnel_british_investments_into_princely_states
+						always = no
 					}
 
 					ROOT = {
@@ -132,9 +132,9 @@ on_actions = {
 
 			if = {
 				limit = {
-					has_completed_focus = RAJ_the_pakistan_movement
+					always = no
 					NOT = {
-						has_completed_focus = RAJ_hedgemony_of_the_subcontinent
+						always = no
 					}
 					is_subject = no
 					PAK = {
@@ -183,7 +183,7 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
-					has_completed_focus = RAJ_local_recruitment_offices
+					always = no
 				}
 				#recalc_projected_time_local_recruitment_offices = yes
 				subtract_from_variable = { RAJ_recruitment_offices_timeout = 1 }
@@ -256,17 +256,17 @@ on_actions = {
 					FROM = { original_tag = ENG }
 					NOT = {
 						OR = {
-							has_completed_focus = RAJ_red_in_the_shadows
-							has_completed_focus = RAJ_great_depression_price_controls
-							has_completed_focus = RAJ_forward_bloc
-							has_completed_focus = RAJ_his_majestys_loyal_government
+							always = no
+							always = no
+							always = no
+							always = no
 						}
 					}
 
 				}
 
 				RAJ = { 
-					country_event = { id = GOE_RAJ_partition.6 hours = 2  } 	
+					 	
 				}
 			}
 		}
@@ -346,12 +346,12 @@ on_actions = {
 					OR = {
 						FROM = { 
 							original_tag = RAJ
-							has_completed_focus = RAJ_jugantar 
+							always = no 
 						}
 
 						ROOT = { 
 							original_tag = RAJ
-							has_completed_focus = RAJ_jugantar 
+							always = no 
 						}
 					}
 
@@ -485,7 +485,7 @@ on_actions = {
 
 				FROM = { 
 					set_rule = { can_join_factions = no } 
-					country_event = { id = GOE_RAJ.35 days = 60 } #reset rule
+					 #reset rule
 				}
 			}
 
@@ -503,7 +503,7 @@ on_actions = {
 
 				ROOT = { 
 					set_rule = { can_join_factions = no } 
-					country_event = { id = GOE_RAJ.35 days = 60 } #reset rule
+					 #reset rule
 				}
 			}
 
@@ -513,11 +513,11 @@ on_actions = {
 					OR = {
 						ROOT = {
 							original_tag = RAJ
-							has_completed_focus = RAJ_revolt_of_the_princes
+							always = no
 						}
 						FROM = {
 							original_tag = RAJ
-							has_completed_focus = RAJ_revolt_of_the_princes
+							always = no
 						}
 					}
 
@@ -641,10 +641,8 @@ on_actions = {
 						}
 					}
 					FROM = {
-						country_event = {
-							id = GOE_RAJ_partition.9
-						}
-						activate_mission = RAJ_GOE_eng_is_getting_involved_in_war
+						
+						
 					}
 				}
 
@@ -656,10 +654,8 @@ on_actions = {
 						}
 					}
 					ROOT = {
-						country_event = {
-							id = GOE_RAJ_partition.9
-						}
-						activate_mission = RAJ_GOE_eng_is_getting_involved_in_war
+						
+						
 					}
 				}
 			}
@@ -731,10 +727,7 @@ on_actions = {
 						}
 					}
 					OWNER = {
-						country_event = {
-							id = AFG_political_events.91
-							hours = 1
-						}
+						
 					}
 					IF = {
 						limit = {
@@ -1025,7 +1018,7 @@ on_actions = {
 						ROOT = { original_tag = RAJ }
 						FROM = { original_tag = RAJ }
 					}
-					RAJ = { NOT = { has_completed_focus = RAJ_keep_british_generals } }
+					RAJ = { NOT = { always = no } }
 				}
 
 				RAJ = {
@@ -1046,7 +1039,7 @@ on_actions = {
 			IF = {
 				limit = {
 					THIS = { original_tag = RAJ }
-					THIS = { has_completed_focus = RAJ_war_taxes }
+					THIS = { always = no }
 				}
 				THIS = {
 					set_variable = {
@@ -1105,19 +1098,13 @@ on_actions = {
 						}
 					}
 					FROM = {
-						country_event = {
-							id = AFG_industrial_events.16
-							hours = 1
-						}
+						
 						remove_resource_rights = 267
 					}
 				}
 				ELSE = {
 					ROOT = {
-						country_event = {
-							id = AFG_industrial_events.16
-							hours = 1
-						}
+						
 						remove_resource_rights = 267
 					}
 				}
@@ -1248,7 +1235,7 @@ on_actions = {
 					}
 				}
 
-				RAJ = { country_event = { id = GOE_RAJ.21 hours = 2 } }
+				RAJ = {  }
 			}
 		}
 		#Capitulations Pertaining to Achievements
@@ -1451,7 +1438,7 @@ on_actions = {
 					FROM.FROM = { state = var:global.bose_arrest_location }
 				}
 
-				RAJ = { country_event = { id = GOE_RAJ.26 hours = 2 } }
+				RAJ = {  }
 			}
 
 			if = {
@@ -1506,7 +1493,7 @@ on_actions = {
 					has_dlc = "Graveyard of Empires"
 					ROOT = {
 						original_tag = RAJ
-						has_completed_focus = RAJ_the_legacy_of_babur
+						always = no
 					}
 					FROM.FROM = {
 						NOT = {
@@ -1552,7 +1539,7 @@ on_actions = {
 			if = {
 				limit = {
 					ROOT = { 
-						has_completed_focus = RAJ_a_private_military 
+						always = no 
 						NOT = { 
 							is_in_array = {
 							 	array = pmc_recievers
@@ -1597,10 +1584,7 @@ on_actions = {
 					}
 				}
 				SOU = {
-					country_event = {
-						id = PER_communist_events.20
-						hours = 1
-					}
+					
 				}
 			}
 		}
@@ -1631,10 +1615,7 @@ on_actions = {
 							}
 						}
 					}
-					news_event = {
-						id = GOE_IRQ_news.1
-						days = 19
-					}
+					
 				}
 				set_global_flag = the_1936_PAL_revolt_has_happened
 			}
@@ -1809,37 +1790,25 @@ on_actions = {
 					PER = {
 						if = {
 							limit = { has_dynamic_modifier = { modifier = SSB_saadabad_pact } }
-							country_event = {
-								id = PER_SSB_events.8
-								hours = 12
-							}
+							
 						}
 					}
 					AFG = {
 						if = {
 							limit = { has_dynamic_modifier = { modifier = SSB_saadabad_pact } }
-							country_event = {
-								id = PER_SSB_events.8
-								hours = 12
-							}
+							
 						}
 					}
 					IRQ = {
 						if = {
 							limit = { has_dynamic_modifier = { modifier = SSB_saadabad_pact } }
-							country_event = {
-								id = PER_SSB_events.8
-								hours = 12
-							}
+							
 						}
 					}
 					TUR = {
 						if = {
 							limit = { has_dynamic_modifier = { modifier = SSB_saadabad_pact } }
-							country_event = {
-								id = PER_SSB_events.8
-								hours = 12
-							}
+							
 						}
 					}
 				}

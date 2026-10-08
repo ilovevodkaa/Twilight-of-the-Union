@@ -15,11 +15,74 @@ characters = {
 		}
 	}
 
+	# No role at the start (recruited in history/countries/SOV); the focus SOV_remove_gorbachev gives him the
+	# country leader role and promotes him (common/scripted_effects/TOTU_SOV_focus_effects.txt).
+	SOV_gennady_yanayev = {
+		name = SOV_gennady_yanayev
+		portraits = {
+			civilian = {
+				large = GFX_portrait_SOV_gennady_yanayev
+			}
+		}
+	}
+
 	USA_george_bush = {
 		name = USA_george_bush
 		portraits = {
 			civilian = {
 				large = GFX_portrait_USA_george_bush
+			}
+		}
+		country_leader = {
+			ideology = conservatism
+			expire = "2030.1.1.1"
+			id = -1
+		}
+	}
+
+	# GDR. Portraits: Bundesarchiv photos on Wikimedia Commons (CC BY-SA 3.0 DE), tools/src/portraits/DDR_*.jpg.
+	# Chairman of the Council of Ministers since 13 November 1989 (SED-PDS).
+	DDR_hans_modrow = {
+		name = DDR_hans_modrow
+		portraits = {
+			civilian = {
+				large = GFX_portrait_DDR_hans_modrow
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			expire = "2030.1.1.1"
+			id = -1
+		}
+	}
+
+	# No role at the start: the Volkskammer election (events/TOTU_DDR.txt) makes one of them prime minister.
+	# CDU, the Alliance for Germany's winner of 18 March 1990.
+	DDR_lothar_de_maiziere = {
+		name = DDR_lothar_de_maiziere
+		portraits = {
+			civilian = {
+				large = GFX_portrait_DDR_lothar_de_maiziere
+			}
+		}
+	}
+
+	# SPD chairman, the favourite of every poll until March 1990.
+	DDR_ibrahim_boehme = {
+		name = DDR_ibrahim_boehme
+		portraits = {
+			civilian = {
+				large = GFX_portrait_DDR_ibrahim_boehme
+			}
+		}
+	}
+
+	# FRG. Chancellor since 1982 (CDU). Portrait: "Helmut Kohl (1989).jpg", Lothar Schaack, CC BY-SA 3.0 DE.
+	GER_helmut_kohl = {
+		name = GER_helmut_kohl
+		portraits = {
+			civilian = {
+				large = GFX_portrait_GER_helmut_kohl
 			}
 		}
 		country_leader = {

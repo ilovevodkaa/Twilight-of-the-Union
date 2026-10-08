@@ -1,0 +1,29 @@
+state = {
+	id = 53
+	name = "STATE_53"
+	manpower = 818087
+	resources = {
+		steel = 3
+	}
+	state_category = large_town
+
+	history = {
+		owner = DDR
+		add_core_of = DDR
+		add_core_of = SAX
+		add_claim_by = GER
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 1
+		}
+		victory_points = { 3585 3 }
+		victory_points = { 6470 1 }
+		victory_points = { 9471 1 }
+	}
+
+	provinces = {
+		3418 3585 6470 9471 13599 13600
+	}
+
+	local_supplies = 0.3
+}

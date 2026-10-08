@@ -1,0 +1,416 @@
+# Twilight of the Union: saved game rules (rule presets), a full copy of vanilla 1.19.3 interface/savedgamerules.gui
+# restyled in the "broadcast" style (area "rules"). Every vanilla element keeps its name and type; unused art is at
+# -9000 with a TotU comment.
+# Both boards copy the mod's gamesetup_ironman_save layout: a centred 420x500 GFX_totu_board, title at (22,22), the
+# Local / Cloud tabs on GFX_totu_tab at (22,48) / (140,48), the list at (8,84) (412 wide: the kit scrollbar sits at
+# board x 403..415, clear of the entries) with 376x52 slots on the 22 px measure, Back (transparent plate) at x 0
+# and the action (slate plate) right-aligned inside the bottom edge. Entries (savedgamerules_item) are 376x48 like
+# the shared savegame_item: GFX_totu_save_entry rows.
+
+guiTypes = {
+	containerWindowType = {
+		name ="savedgamerules_load"
+		position = { x = -210 y = -250 }
+		size = { width = 420 height = 500}
+		Orientation = center
+
+		background = {
+			name = "totu_rules_load_board"
+			quadTextureSprite = "GFX_totu_board"
+		}
+
+		instantTextBoxType = {
+			name = "totu_rules_load_title"
+			position = { x = 22 y = 22 }
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "CUSTOM_GAME_SETTINGS_LOAD"
+			maxWidth = 376
+			maxHeight = 18
+			fixedsize = yes
+			format = left
+		}
+
+		containerWindowType = {
+			name ="savedgamerules"
+			position = { x = 8 y = 84 }
+			size = { width = 412 height = 316}
+			verticalScrollbar = "totu_vertical_slider"
+			vertical_scroll_step = 5
+
+			background = {
+				name = "Background"
+				quadTextureSprite ="GFX_tiled_window_transparent"
+			}
+
+			gridBoxType = {
+				name = "savedgamerules_grid"
+				position = { x=14 y =0}
+				size = { width =376 height = 316}
+				slotsize = { width = 376 height = 52 }
+				format = "UPPER_LEFT"
+				max_slots_horizontal = 1
+			}
+		}
+
+		iconType =
+		{
+			name ="menu"
+			spriteType = "GFX_load_save_top_screen"
+			position = { x = -9000 y = -9000 } # TotU: the board is the surface
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType =
+		{
+			name ="menu_bottom"
+			spriteType = "GFX_load_save_bottom"
+			position = { x = -9000 y = -9000 } # TotU: the board is the surface
+			Orientation = "UPPER_LEFT"
+		}
+
+		instantTextBoxType =
+		{
+			name = "saves_dirs"
+			position = { x = 22 y = 412 }
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = D
+			borderSize = {x = 0 y = 0}
+			text = ""
+			maxWidth = 376
+			maxHeight = 18
+			format = left
+			fixedsize = yes
+			truncate = yes
+		}
+
+		checkboxType = {
+			name = "localfiles_tab"
+			position = { x = 22 y = 48 }
+			quadTextureSprite ="GFX_totu_tab"
+			Orientation = "UPPER_LEFT"
+			clicksound = click_checkbox
+		}
+
+		checkboxType = {
+			name = "remotefiles_tab"
+			position = { x = 140 y = 48 }
+			quadTextureSprite ="GFX_totu_tab"
+			Orientation = "UPPER_LEFT"
+			clicksound = click_checkbox
+		}
+
+		instantTextBoxType = {
+			name = "localgames_label"
+			position = { x = 22 y = 53 }
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			text = "MENU_BAR_LOCALGAMES"
+			maxWidth = 112
+			maxHeight = 18
+			fixedsize = yes
+			Orientation = "UPPER_LEFT"
+			format = centre
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "cloudgames_label"
+			position = { x = 140 y = 53 }
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			text = "MENU_BAR_CLOUDGAMES"
+			maxWidth = 112
+			maxHeight = 18
+			fixedsize = yes
+			Orientation = "UPPER_LEFT"
+			format = centre
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "load"
+			position = { x = 164 y = 446 }
+			quadTextureSprite ="GFX_totu_slate_256"
+			buttonText = "TOTU_FE_RULES_LOAD"
+			buttonFont = "totu_button"
+			Orientation = "UPPER_LEFT"
+			clicksound = click_close
+			oversound = ui_menu_over
+			shortcut = "RETURN"
+		}
+
+		buttonType = {
+			name = "cancel"
+			position = { x = 0 y = 446 }
+			quadTextureSprite ="GFX_totu_plate_160"
+			buttonText = "TOTU_FE_BACK"
+			buttonFont = "totu_button"
+			Orientation = "UPPER_LEFT"
+			clicksound = click_close
+			oversound = ui_menu_over
+			shortcut = "ESCAPE"
+		}
+	}
+
+	containerWindowType = {
+		name ="savedgamerules_save"
+		position = { x=-210 y =-250 }
+		size = { width = 420 height = 500}
+		Orientation = center
+
+		background = {
+			name = "totu_rules_save_board"
+			quadTextureSprite = "GFX_totu_board"
+		}
+
+		instantTextBoxType = {
+			name = "totu_rules_save_title"
+			position = { x = 22 y = 22 }
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			text = "CUSTOM_GAME_SETTINGS_SAVE"
+			maxWidth = 376
+			maxHeight = 18
+			fixedsize = yes
+			format = left
+		}
+
+		iconType =
+		{
+			name ="menu"
+			spriteType = "GFX_load_save_top_screen"
+			position = { x = -9000 y = -9000 } # TotU: the board is the surface
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType =
+		{
+			name ="menu_bottom"
+			spriteType = "GFX_load_save_bottom_screen"
+			position = { x = -9000 y = -9000 } # TotU: the board is the surface
+			Orientation = "UPPER_LEFT"
+		}
+
+		instantTextBoxType =
+		{
+			name = "saves_dirs"
+			position = { x = 22 y = 350 }
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = D
+			borderSize = {x = 0 y = 0}
+			text = ""
+			maxWidth = 140
+			maxHeight = 18
+			format = left
+			fixedsize = yes
+			truncate = yes
+		}
+
+		instantTextBoxType={
+			position = { x = 170 y = 350 }
+			name = "disk_quota"
+			font = "totu_caption_name"
+			text_color_code = D
+			borderSize = { x = 0 y = 0 }
+			maxWidth = 228
+			maxHeight = 18
+			text = "MENU_BAR_DISK_QUOTA"
+			orientation = "UPPER_LEFT"
+			format = right
+		}
+
+		checkboxType = {
+			name = "localfiles_tab"
+			position = { x = 22 y = 48 }
+			quadTextureSprite ="GFX_totu_tab"
+			Orientation = "UPPER_LEFT"
+			clicksound = click_checkbox
+		}
+
+		checkboxType = {
+			name = "remotefiles_tab"
+			position = { x = 140 y = 48 }
+			quadTextureSprite ="GFX_totu_tab"
+			Orientation = "UPPER_LEFT"
+			clicksound = click_checkbox
+		}
+
+		instantTextBoxType = {
+			name = "localgames_label"
+			position = { x = 22 y = 53 }
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			text = "MENU_BAR_LOCALGAMES"
+			maxWidth = 112
+			maxHeight = 18
+			fixedsize = yes
+			Orientation = "UPPER_LEFT"
+			format = centre
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "cloudgames_label"
+			position = { x = 140 y = 53 }
+			textureFile = ""
+			font = "totu_caption_name"
+			text_color_code = P
+			borderSize = {x = 0 y = 0}
+			text = "MENU_BAR_CLOUDGAMES"
+			maxWidth = 112
+			maxHeight = 18
+			fixedsize = yes
+			Orientation = "UPPER_LEFT"
+			format = centre
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name ="savedgamerules"
+			position = { x = 8 y = 84 }
+			size = { width = 412 height = 254}
+			verticalScrollbar = "totu_vertical_slider"
+			vertical_scroll_step = 5
+
+			background = {
+				name = "Background"
+				quadTextureSprite ="GFX_tiled_window_transparent"
+			}
+
+			gridBoxType = {
+				name = "savedgamerules_grid"
+				position = { x=14 y =0}
+				size = { width =376 height = 254}
+				slotsize = { width = 376 height = 52 }
+				format = "UPPER_LEFT"
+				max_slots_horizontal = 1
+			}
+		}
+
+		instantTextBoxType={
+			position = {x = 22 y = 378 }
+			name = "filename_label"
+			font = "totu_label"
+			text_color_code = D
+			borderSize = {x = 0 y = 0}
+			maxWidth = 376
+			maxHeight = 18
+			text = "TOTU_FE_RULES_FILENAME"
+			orientation = "UPPER_LEFT"
+			format = left
+		}
+
+		# an editBox has no background of its own
+		iconType = {
+			name = "totu_rules_save_field"
+			spriteType = "GFX_totu_field"
+			position = { x = 22 y = 398 }
+			alwaystransparent = yes
+		}
+
+		editBoxType = {
+			position = { x = 22 y = 398 }
+			name = "save_name"
+			font = "hoi_18mbs"
+			borderSize = { x = 8 y = 7 }
+			size = { x=376 y=32 }
+			text = ""
+			orientation = "UPPER_LEFT"
+		}
+
+		buttonType = {
+			name = "cancel"
+			position = { x = 0 y = 446 }
+			quadTextureSprite ="GFX_totu_plate_160"
+			buttonText = "TOTU_FE_BACK"
+			buttonFont = "totu_button"
+			Orientation = "UPPER_LEFT"
+			clicksound = click_close
+			oversound = ui_menu_over
+			shortcut = "ESCAPE"
+		}
+
+		buttonType = {
+			name = "save"
+			position = { x = 164 y = 446 }
+			quadTextureSprite ="GFX_totu_slate_256"
+			buttonText = "TOTU_FE_RULES_SAVE"
+			buttonFont = "totu_button"
+			Orientation = "UPPER_LEFT"
+			clicksound = click_close
+			oversound = ui_menu_over
+			shortcut = "RETURN"
+		}
+	}
+
+	# preset entry: 376x48 like the shared savegame_item; GFX_totu_save_entry (transparent / keyer plate with tail),
+	# name in totu_list P (user text), date in totu_list D, the kit x for delete
+	containerWindowType = {
+		name ="savedgamerules_item"
+		position = { x=0 y =0 }
+		size = { width = 376 height = 48 }
+		clipping = no
+
+		buttonType = {
+			name = "BackgroundButton"
+			quadTextureSprite ="GFX_totu_save_entry"
+		}
+
+		instantTextBoxType={
+			position = {x = 12 y = 7 }
+			name = "name"
+			font = "totu_list"
+			text_color_code = P
+			borderSize = { x = 0 y = 0 }
+			maxWidth = 280
+			maxHeight = 18
+			format = left
+			fixedsize = yes
+			truncate = yes
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType={
+			position = {x = 12 y = 25 }
+			name = "date"
+			font = "totu_list"
+			text_color_code = D
+			borderSize = { x = 0 y = 0 }
+			maxWidth = 280
+			maxHeight = 18
+			format = left
+			fixedsize = yes
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "cloud_file"
+			spriteType = "GFX_cloud_file"
+			position = { x = 304 y = 12 }
+		}
+
+		buttonType = {
+			name = "delete"
+			position = { x = 332 y = 12 }
+			quadTextureSprite = "GFX_totu_close"
+			clicksound = disband
+		}
+
+		iconType = {
+			name ="missing_dlc_sign"
+			quadTextureSprite = "GFX_missing_dlc_warning_sign"
+			position = { x = 276 y = 12 }
+		}
+	}
+}

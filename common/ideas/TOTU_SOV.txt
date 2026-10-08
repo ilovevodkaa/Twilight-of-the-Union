@@ -80,5 +80,168 @@ ideas = {
 				experience_gain_army_factor = -0.10
 			}
 		}
+
+		# The armed services and the economy as they stood in 1990: each one a real strength with its real weakness.
+
+		# The largest army in the world: a deep mobilisation reserve and the artillery doctrine of the Cold War,
+		# but hazing, draft evasion, ethnic strife in the barracks and the pull-out from Eastern Europe.
+		TOTU_SOV_soviet_army = {
+			picture = totu_soviet_army
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				mobilization_speed = 0.20
+				army_artillery_attack_factor = 0.10
+				army_morale_factor = -0.15
+				supply_consumption_factor = 0.10
+			}
+		}
+
+		# PVO Strany (S-200, S-300) is the densest air defence in the world; pilots fly 40-60 hours a year (NATO: 180+).
+		TOTU_SOV_soviet_air_force = {
+			picture = totu_soviet_air_force
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				static_anti_air_damage_factor = 0.15
+				static_anti_air_hit_chance_factor = 0.10
+				air_training_xp_gain_factor = -0.20
+				experience_gain_air_factor = -0.10
+				air_accidents_factor = 0.20
+			}
+		}
+
+		# The biggest submarine fleet and the missile-carrying naval aviation (Tu-22M3) against rusting ships,
+		# overloaded repair yards and crews that rarely go to sea.
+		TOTU_SOV_soviet_navy = {
+			picture = totu_soviet_navy
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				navy_submarine_attack_factor = 0.10
+				naval_strike_attack_factor = 0.10
+				repair_speed_factor = -0.25
+				navy_org_factor = -0.10
+			}
+		}
+
+		# A raw-material giant past its oil peak (1988): exports for hard currency at any price, decades-long
+		# unfinished construction, and a widening gap in electronics and computing.
+		TOTU_SOV_soviet_economy = {
+			picture = totu_soviet_economy
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				local_resources_factor = 0.10
+				min_export = 0.10
+				production_speed_buildings_factor = -0.15
+				research_speed_factor = -0.05
+			}
+		}
+
+		# Smaller spirits
+
+		# About 10,000 strategic warheads (START data): no one will start a war with the USSR on purpose.
+		TOTU_SOV_nuclear_parity = {
+			picture = totu_nuclear_parity
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				enemy_justify_war_goal_time = 1.00
+				defensive_war_stability_factor = 0.10
+			}
+		}
+
+		# The 1990 state programme: resettlement from contaminated districts, sick liquidators, lost trust.
+		TOTU_SOV_chernobyl = {
+			picture = totu_chernobyl
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.03
+				consumer_goods_factor = 0.02
+				monthly_population = -0.05
+			}
+		}
+
+		# Mir, Energia and Buran: a lead in rocketry that the budget can no longer afford.
+		TOTU_SOV_space_power = {
+			picture = totu_space_power
+			allowed = { always = no }
+			removal_cost = -1
+			research_bonus = {
+				rocketry = 0.20
+			}
+			modifier = {
+				consumer_goods_factor = 0.02
+			}
+		}
+
+		### Given by the political focus tree (common/scripted_effects/TOTU_SOV_focus_effects.txt). The spirits
+		### designed in the focus editor are generated into common/ideas/TOTU_SOV_focus.txt instead.
+
+		# Focus SOV_press_law: censorship abolished, Glasnost grows stronger with both its edges.
+		TOTU_SOV_glasnost_free_press = {
+			picture = totu_glasnost
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				democratic_drift = 0.10
+				drift_defence_factor = -0.10
+				political_power_factor = 0.10
+			}
+		}
+
+		# Focus SOV_federation_council: the republican leaders sit in the centre, the unrest weighs half as much.
+		TOTU_SOV_awakening_republics_council = {
+			picture = totu_awakening_republics
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.05
+				conscription_factor = -0.05
+			}
+		}
+
+		# Timed (365 days): focus SOV_social_guarantees, indexed pensions and wages have to be paid for.
+		TOTU_SOV_social_payments = {
+			picture = totu_social_payments
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.05
+			}
+		}
+
+		# Timed (365 days): focus SOV_law_on_property, the cooperatives come out of the shadows.
+		TOTU_SOV_cooperatives = {
+			picture = totu_cooperatives
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.05
+			}
+		}
+
+		# Timed (365 days): focus SOV_rsfsr_sovereignty_in_union, Russia pays its taxes into the Union budget again.
+		TOTU_SOV_rsfsr_budget = {
+			picture = totu_rsfsr_budget
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				local_resources_factor = 0.05
+			}
+		}
+
+		# Timed (365 days): event totu_sov_politics.2, the Baltic republics fall quiet for a while after Vilnius.
+		TOTU_SOV_baltic_crackdown = {
+			picture = totu_baltic_crackdown
+			allowed = { always = no }
+			removal_cost = -1
+			modifier = {
+				stability_factor = 0.05
+				conscription_factor = 0.05
+			}
+		}
 	}
 }

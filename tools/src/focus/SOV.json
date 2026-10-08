@@ -1,0 +1,2133 @@
+{
+ "focuses": [
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "February 1990: for the first time, a Central Committee plenum openly argues about the future of the Party. Where the country goes next will have to be decided this year.",
+   "desc_ru": "Февраль 1990-го: пленум ЦК впервые открыто спорит о будущем партии. Решать, куда идёт страна, придётся уже в этом году.",
+   "effects": [
+    {
+     "p": {
+      "value": 100
+     },
+     "t": "pp"
+    }
+   ],
+   "icon": "длинный стол пленума ЦК под красным знаменем",
+   "id": "SOV_central_committee_plenum",
+   "key": "f_bkxea3",
+   "mutex": [],
+   "name_en": "Convene the CC Plenum",
+   "name_ru": "Созвать пленум ЦК",
+   "notes": "В игре: фокус нельзя отменить. Пока он идёт — 3 события подготовки. После него Пленум заседает ~200 дней (8 событий), итоговое голосование открывает ветку фракции с наибольшей поддержкой. До итога остальные фокусы скрыты. Мини-игра: решения → «Пленум ЦК КПСС».",
+   "prereq": [],
+   "x": 12,
+   "y": 0
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "Article Six of the Constitution, on the Party's “leading and guiding role”, no longer holds. Abolishing it means admitting that the CPSU is one party among many.",
+   "desc_ru": "Шестая статья Конституции о «руководящей и направляющей роли» партии больше не держится. Отменить её — значит признать, что КПСС одна из многих.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 10
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": -5
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "зачёркнутая статья 6 в красной книжке Конституции СССР",
+   "id": "SOV_abolish_article_six",
+   "key": "f_ih53dv",
+   "mutex": [
+    "f_79902s"
+   ],
+   "name_en": "Abolish Article Six",
+   "name_ru": "Отменить монополию КПСС",
+   "notes": "В игре: ветка видна, если Пленум выиграли Демплатформа или горбачёвцы. Сила партии −15.",
+   "prereq": [
+    [
+     "f_bkxea3"
+    ]
+   ],
+   "x": 9,
+   "y": 1
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The Party remains the sole pillar of the state, but it promises to cleanse itself, grow younger and draw closer to the people. Everyone understands the word “renew” in their own way.",
+   "desc_ru": "Партия остаётся единственной опорой государства, но её обещают очистить, омолодить и приблизить к людям. Слово «обновить» каждый понимает по-своему.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "communism",
+      "value": 5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    }
+   ],
+   "icon": "новый партбилет поверх старого потёртого",
+   "id": "SOV_renew_the_party",
+   "key": "f_79902s",
+   "mutex": [
+    "f_ih53dv"
+   ],
+   "name_en": "“Renew” the Party",
+   "name_ru": "«Обновить» партию",
+   "notes": "В игре: ветка видна, если Пленум выиграли консерваторы или ортодоксы. Сила партии +5.",
+   "prereq": [
+    [
+     "f_bkxea3"
+    ]
+   ],
+   "x": 15,
+   "y": 1
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "March 1990: the Congress of People's Deputies rewrites the Constitution live on television. From here it is a short step to a presidency and to new parties.",
+   "desc_ru": "Март 1990-го: съезд в прямом эфире переписывает Конституцию. Отсюда рукой подать до президентского поста и до новых партий.",
+   "effects": [
+    {
+     "p": {
+      "value": 75
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "зал Кремлёвского дворца съездов с поднятыми мандатами",
+   "id": "SOV_third_congress_of_deputies",
+   "key": "f_2hd3ej",
+   "mutex": [],
+   "name_en": "Third Congress of Deputies",
+   "name_ru": "III Съезд народных депутатов",
+   "notes": "",
+   "prereq": [
+    [
+     "f_ih53dv"
+    ]
+   ],
+   "x": 9,
+   "y": 2
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The Party's last congress. Yeltsin pointedly lays his Party card on the table and walks out of the hall. Those who stay want order.",
+   "desc_ru": "Последний съезд партии. Ельцин демонстративно кладёт партбилет на стол и уходит из зала. Те, кто остался, хотят порядка.",
+   "effects": [
+    {
+     "p": {
+      "value": 75
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "Событие: Ельцин и «Демплатформа» выходят из КПСС; популярность демократии +3%, коммунизма +2%."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "партбилет, брошенный на трибуну съезда",
+   "id": "SOV_28th_party_congress",
+   "key": "f_vfz77r",
+   "mutex": [],
+   "name_en": "28th Party Congress",
+   "name_ru": "XXVIII съезд КПСС",
+   "notes": "",
+   "prereq": [
+    [
+     "f_79902s"
+    ]
+   ],
+   "x": 15,
+   "y": 2
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The Law on Public Associations permits new parties. The apparatus loses its monopoly on power, and with it its familiar sluggishness.",
+   "desc_ru": "Закон об общественных объединениях разрешает новые партии. Аппарат теряет монополию на власть, а вместе с ней и привычную неповоротливость.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 10
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "idea": "TOTU_SOV_nomenklatura"
+     },
+     "t": "remove_idea"
+    },
+    {
+     "p": {
+      "value": -5
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "несколько разноцветных значков партий на лацкане",
+   "id": "SOV_multiparty_system",
+   "key": "f_nomsu1",
+   "mutex": [],
+   "name_en": "Multiparty System",
+   "name_ru": "Многопартийность",
+   "notes": "",
+   "prereq": [
+    [
+     "f_2hd3ej"
+    ]
+   ],
+   "x": 9,
+   "y": 3
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The waverers are expelled, and regional committees receive clear instructions. The Party speaks with one voice again, if more quietly than before.",
+   "desc_ru": "Колеблющихся исключают, обкомы получают чёткие инструкции. Партия снова говорит одним голосом, пусть и тише, чем раньше.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "communism",
+      "value": 5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "печать «Строго секретно» на партийной директиве",
+   "id": "SOV_party_discipline",
+   "key": "f_o8teis",
+   "mutex": [],
+   "name_en": "Party Discipline",
+   "name_ru": "Партийная дисциплина",
+   "notes": "",
+   "prereq": [
+    [
+     "f_vfz77r"
+    ]
+   ],
+   "x": 15,
+   "y": 3
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The General Secretary becomes President of the USSR. Power passes from the Party apparatus to state institutions.",
+   "desc_ru": "Генеральный секретарь становится Президентом СССР. Власть переходит от партийного аппарата к государственным институтам.",
+   "effects": [
+    {
+     "p": {
+      "value": 100
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Лидер получает титул Президента СССР (трейт лидера), открываются президентские указы."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "президентский штандарт СССР и микрофон съезда",
+   "id": "SOV_gorbachev_presidency",
+   "key": "f_lfm245",
+   "mutex": [
+    "f_phmyud"
+   ],
+   "name_en": "Gorbachev's Presidency",
+   "name_ru": "Президентство Горбачёва",
+   "notes": "В игре: трейт «Президент СССР» (+10% политвласти, +5% стабильности). Не сделано: президентские указы (решения), флаг TOTU_soviet_presidency уже ставится.",
+   "prereq": [
+    [
+     "f_nomsu1"
+    ]
+   ],
+   "x": 9,
+   "y": 4
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 105,
+   "desc_en": "March 17, 1991: “Do you consider necessary the preservation of the Union of Soviet Socialist Republics as a renewed federation of equal sovereign republics…?” Six republics declare a boycott.",
+   "desc_ru": "17 марта 1991-го: «Считаете ли Вы необходимым сохранение Союза Советских Социалистических Республик как обновлённой федерации равноправных суверенных республик…?» Шесть республик объявляют бойкот.",
+   "effects": [
+    {
+     "p": {
+      "value": 10
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "war"
+    },
+    {
+     "p": {
+      "text": "Итоги: 76% «за»; Прибалтика, Грузия, Армения и Молдавия бойкотируют голосование (подсказка, флаг TOTU_union_referendum_held)."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "бюллетень референдума и урна для голосования",
+   "id": "SOV_union_referendum",
+   "key": "f_fdyv6q",
+   "mutex": [],
+   "name_en": "The Union Referendum",
+   "name_ru": "Референдум о сохранении Союза",
+   "notes": "",
+   "prereq": [
+    [
+     "f_lfm245",
+     "f_phmyud"
+    ]
+   ],
+   "x": 12,
+   "y": 5
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "Kryuchkov, Yazov, Pavlov and Baklanov quietly prepare a plan in case the country starts to fall apart. For now it is just papers in a safe.",
+   "desc_ru": "Крючков, Язов, Павлов и Бакланов негласно готовят план на случай, если страна начнёт разваливаться. Пока это только бумаги в сейфе.",
+   "effects": [
+    {
+     "p": {
+      "value": 10
+     },
+     "t": "war"
+    },
+    {
+     "p": {
+      "value": -5
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "папка «Особая папка» в сейфе КГБ",
+   "id": "SOV_state_emergency_committee",
+   "key": "f_phmyud",
+   "mutex": [
+    "f_lfm245",
+    "f_4zzvkw"
+   ],
+   "name_en": "State Emergency Committee",
+   "name_ru": "Комитет по ЧП",
+   "notes": "",
+   "prereq": [
+    [
+     "f_o8teis"
+    ]
+   ],
+   "x": 15,
+   "y": 4
+  },
+  {
+   "ai": "",
+   "available": "Горбачёв всё ещё глава государства",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The President concedes too much to the republics. He can be left at his dacha in Foros “for health reasons”.",
+   "desc_ru": "Президент слишком много уступает республикам. Его можно оставить на даче в Форосе «по состоянию здоровья».",
+   "effects": [
+    {
+     "p": {
+      "value": -10
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "value": 10
+     },
+     "t": "war"
+    },
+    {
+     "p": {
+      "text": "Смена лидера: Геннадий Янаев (ГКЧП); Горбачёв изолирован в Форосе."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "отключённый телефонный аппарат на даче у моря",
+   "id": "SOV_remove_gorbachev",
+   "key": "f_gctmmn",
+   "mutex": [],
+   "name_en": "Remove Gorbachev",
+   "name_ru": "Отстранить Горбачёва",
+   "notes": "Не сделано в игре: событие с реакцией Ельцина и республик.",
+   "prereq": [
+    [
+     "f_vy22io"
+    ]
+   ],
+   "x": 14,
+   "y": 6
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "Yakovlev, Shevardnadze, Bakatin, Primakov: a council of reformers and technocrats gathers around the President.",
+   "desc_ru": "Яковлев, Шеварднадзе, Бакатин, Примаков: при президенте собирается совет из реформаторов и технократов.",
+   "effects": [
+    {
+     "p": {
+      "value": 75
+     },
+     "t": "pp"
+    }
+   ],
+   "icon": "круглый стол с табличками советников",
+   "id": "SOV_presidential_council",
+   "key": "f_9zovqk",
+   "mutex": [],
+   "name_en": "Presidential Council",
+   "name_ru": "Президентский совет",
+   "notes": "",
+   "prereq": [
+    [
+     "f_lfm245"
+    ]
+   ],
+   "x": 9,
+   "y": 5
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The leaders of the republics get a seat at the table in the center. It is the first step from orders to negotiations.",
+   "desc_ru": "Руководители республик получают место за столом в центре. Это первый шаг от приказов к переговорам.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Ослабить штраф «Пробуждения республик» вдвое (заменить нацдух на смягчённую версию)."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "флажки союзных республик на столе переговоров",
+   "id": "SOV_federation_council",
+   "key": "f_8gv6uh",
+   "mutex": [],
+   "name_en": "Federation Council",
+   "name_ru": "Совет Федерации",
+   "notes": "",
+   "prereq": [
+    [
+     "f_lfm245"
+    ]
+   ],
+   "x": 10,
+   "y": 5
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The Committee gets money, people and equipment. In return, it is expected to learn of plots by the republican elites before they happen.",
+   "desc_ru": "Комитет получает деньги, людей и технику. Взамен ждут, что он узнает о заговорах республиканских элит раньше, чем они случатся.",
+   "effects": [
+    {
+     "p": {
+      "text": "+1 улучшение разведки (Intelligence Agency) и бонус к дешифровке; −50 политвласти."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "щит и меч КГБ на пачке рублей",
+   "id": "SOV_kgb_budget",
+   "key": "f_t1qo8z",
+   "mutex": [],
+   "name_en": "Increase the KGB Budget",
+   "name_ru": "Повышение бюджета КГБ",
+   "notes": "",
+   "prereq": [
+    [
+     "f_vy22io"
+    ]
+   ],
+   "x": 16,
+   "y": 6
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The President needs a deputy. The Congress will not approve Gorbachev's candidate on the first try.",
+   "desc_ru": "Президенту нужен заместитель. Кандидатуру Горбачёва съезд утвердит не с первой попытки.",
+   "effects": [
+    {
+     "p": {
+      "text": "Событие-выбор: Геннадий Янаев (аппарат спокоен: +25 политвласти, +3% популярности коммунизма; Ельцин позже сможет стать только премьером) или Эдуард Шеварднадзе (реформатор: +5% популярности демократии)."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "пустое кресло рядом с президентским",
+   "id": "SOV_vice_president",
+   "key": "f_iqo049",
+   "mutex": [],
+   "name_en": "Vice President",
+   "name_ru": "Вице-президент",
+   "notes": "",
+   "prereq": [
+    [
+     "f_lfm245"
+    ]
+   ],
+   "x": 8,
+   "y": 5
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "Lawyers from the center and the republics write a single document for the first time. The question is how much power will be left to Moscow.",
+   "desc_ru": "Юристы центра и республик впервые пишут один документ. Вопрос в том, сколько власти останется Москве.",
+   "effects": [
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    }
+   ],
+   "icon": "черновик договора с правками красным карандашом",
+   "id": "SOV_new_union_treaty_draft",
+   "key": "f_glab86",
+   "mutex": [],
+   "name_en": "Draft a New Union Treaty",
+   "name_ru": "Разработка нового союзного договора",
+   "notes": "",
+   "prereq": [
+    [
+     "f_9zovqk"
+    ],
+    [
+     "f_8gv6uh"
+    ],
+    [
+     "f_iqo049"
+    ]
+   ],
+   "x": 9,
+   "y": 6
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "April 1991: Gorbachev and the leaders of nine republics sit down at the table at Novo-Ogaryovo outside Moscow. “9+1” is supposed to save the Union.",
+   "desc_ru": "Апрель 1991-го: Горбачёв и лидеры девяти республик садятся за стол в подмосковном Ново-Огарёве. «9+1» должно спасти Союз.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 5
+     },
+     "t": "popularity"
+    }
+   ],
+   "icon": "загородная резиденция Ново-Огарёво и девять флажков",
+   "id": "SOV_novo_ogaryovo_process",
+   "key": "f_4zzvkw",
+   "mutex": [
+    "f_phmyud"
+   ],
+   "name_en": "The Novo-Ogaryovo Process",
+   "name_ru": "Новоогарёвский процесс",
+   "notes": "",
+   "prereq": [
+    [
+     "f_fdyv6q"
+    ]
+   ],
+   "x": 12,
+   "y": 8
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "Raids on truants, show trials against the trade mafia, discipline in the factories. Just like under Andropov, only harsher.",
+   "desc_ru": "Облавы на прогульщиков, показательные дела против торговой мафии, дисциплина на заводах. Как при Андропове, только жёстче.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_SOV_andropov_discipline"
+     },
+     "t": "add_idea"
+    }
+   ],
+   "icon": "очки Андропова на стопке протоколов",
+   "id": "SOV_andropov_methods",
+   "key": "f_eay3jr",
+   "mutex": [],
+   "name_en": "Andropov's Methods",
+   "name_ru": "Вернуть андроповские методы",
+   "notes": "",
+   "prereq": [
+    [
+     "f_gctmmn"
+    ],
+    [
+     "f_t1qo8z"
+    ]
+   ],
+   "x": 15,
+   "y": 7
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The army, the KGB and the MVD agree to act together. The Minister of Defense, the KGB Chairman and the Minister of Internal Affairs are now one team.",
+   "desc_ru": "Армия, КГБ и МВД договариваются действовать вместе. Министр обороны, председатель КГБ и министр внутренних дел теперь одна команда.",
+   "effects": [
+    {
+     "p": {
+      "value": 25
+     },
+     "t": "army_xp"
+    },
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    }
+   ],
+   "icon": "три фуражки: армейская, КГБ и МВД",
+   "id": "SOV_consolidate_security_services",
+   "key": "f_vy22io",
+   "mutex": [],
+   "name_en": "Unite the Security Organs",
+   "name_ru": "Консолидация силовиков",
+   "notes": "",
+   "prereq": [
+    [
+     "f_phmyud"
+    ]
+   ],
+   "x": 15,
+   "y": 5
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The decision has been made. Whatever it was, the country that walks out of this hall will never be the same.",
+   "desc_ru": "Решение принято. Каким бы оно ни было, страна, которая выйдет из этого зала, уже не будет прежней.",
+   "effects": [
+    {
+     "p": {
+      "value": 150
+     },
+     "t": "pp"
+    }
+   ],
+   "icon": "закрытая дверь зала пленума и выключенная люстра",
+   "id": "SOV_close_the_plenum",
+   "key": "f_6q6dvl",
+   "mutex": [],
+   "name_en": "Close the Plenum",
+   "name_ru": "Закрыть пленум",
+   "notes": "",
+   "prereq": [
+    [
+     "f_cl_ssg",
+     "f_cl_emerg"
+    ]
+   ],
+   "x": 12,
+   "y": 12
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "June 1990: censorship is abolished by law. Newspapers no longer need Glavlit's stamp on every issue.",
+   "desc_ru": "Июнь 1990-го: цензура отменена законом. Газетам больше не нужна виза Главлита на каждый номер.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "text": "Усилить «Гласность»: +5% к её бонусу политвласти, но и к дрейфу к демократии."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "газетная полоса без печати цензора",
+   "id": "SOV_press_law",
+   "key": "f_cl_press",
+   "mutex": [],
+   "name_en": "The Press Law",
+   "name_ru": "Закон о печати",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_2hd3ej"
+    ]
+   ],
+   "x": 10,
+   "y": 3
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "Russia has declared sovereignty, and Yeltsin heads its parliament. We can acknowledge his strength and make him an ally before he becomes an enemy.",
+   "desc_ru": "Россия провозгласила суверенитет, и её парламент возглавил Ельцин. Можно признать его силу и сделать союзником, пока он не стал врагом.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "РСФСР получает суверенитет внутри Союза; Ельцин поддерживает новый союзный договор (облегчает «Союз Суверенных Государств»)."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "рукопожатие на фоне триколора и красного флага",
+   "id": "SOV_deal_with_yeltsin",
+   "key": "f_cl_ydeal",
+   "mutex": [
+    "f_cl_ystop"
+   ],
+   "name_en": "Deal with Yeltsin",
+   "name_ru": "Договориться с Ельциным",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_c2_yel_chair"
+    ]
+   ],
+   "x": 1,
+   "y": 4
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The RSFSR's Declaration of Sovereignty strikes at the very heart of the center. Union bodies refuse to recognize it and begin a “war of laws”.",
+   "desc_ru": "Декларация о суверенитете РСФСР бьёт по самому центру. Союзные органы отказываются её признавать и начинают «войну законов».",
+   "effects": [
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "value": -5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Цепочка событий «война законов» между центром и РСФСР; Ельцин уходит в оппозицию."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "перечёркнутая декларация о суверенитете РСФСР",
+   "id": "SOV_stop_yeltsin",
+   "key": "f_cl_ystop",
+   "mutex": [
+    "f_cl_ydeal"
+   ],
+   "name_en": "Stop Yeltsin",
+   "name_ru": "Остановить Ельцина",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_c2_yel_chair"
+    ]
+   ],
+   "x": 3,
+   "y": 4
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 105,
+   "desc_en": "The new treaty is signed. The USSR becomes the Union of Sovereign States: the republics run their own affairs, while Moscow is responsible for the army, the money and foreign policy.",
+   "desc_ru": "Новый договор подписан. СССР становится Союзом Суверенных Государств: республики сами управляют своими делами, Москва отвечает за армию, деньги и внешнюю политику.",
+   "effects": [
+    {
+     "p": {
+      "from": "TOTU_SOV_awakening_republics",
+      "to": "TOTU_SOV_sovereign_union"
+     },
+     "t": "swap_idea"
+    }
+   ],
+   "icon": "новый герб союза на обложке договора",
+   "id": "SOV_union_of_sovereign_states",
+   "key": "f_cl_ssg",
+   "mutex": [],
+   "name_en": "Union of Sovereign States",
+   "name_ru": "Союз Суверенных Государств",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_glab86"
+    ],
+    [
+     "f_4zzvkw"
+    ]
+   ],
+   "x": 10,
+   "y": 10
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "Colonels Alksnis and Petrushenko assemble a parliamentary faction of those ready to defend the Union at any cost. The “black colonels” become the voice of the army.",
+   "desc_ru": "Полковники Алкснис и Петрушенко собирают в парламенте фракцию тех, кто готов защищать Союз любой ценой. «Чёрные полковники» становятся голосом армии.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "communism",
+      "value": 5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    }
+   ],
+   "icon": "армейские погоны полковника на депутатском мандате",
+   "id": "SOV_soyuz_deputy_group",
+   "key": "f_cl_soyuz",
+   "mutex": [],
+   "name_en": "The Soyuz Deputy Group",
+   "name_ru": "Депутатская группа «Союз»",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_c2_derzh"
+    ]
+   ],
+   "x": 20,
+   "y": 5
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "January 1991: troops and OMON enter Vilnius and Riga. The TV tower, barricades, the dead. Moscow shows it will not let the republics go without a fight.",
+   "desc_ru": "Январь 1991-го: в Вильнюс и Ригу входят войска и ОМОН. Телебашня, баррикады, погибшие. Москва показывает, что не отпустит республики без боя.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "war"
+    },
+    {
+     "p": {
+      "value": -5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Событие «Вильнюсская телебашня»: выбор силы. Прибалтика: штраф «Пробуждения республик» на время слабее, но отношения с Западом резко падают."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "бронетранспортёр у телебашни ночью",
+   "id": "SOV_order_in_the_baltics",
+   "key": "f_cl_baltic",
+   "mutex": [],
+   "name_en": "Order in the Baltics",
+   "name_ru": "Навести порядок в Прибалтике",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_t1qo8z"
+    ]
+   ],
+   "x": 16,
+   "y": 7
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 105,
+   "desc_en": "“Swan Lake” on television, then the GKChP press conference. A state of emergency is declared across the country, and parties and newspapers are shut down.",
+   "desc_ru": "По телевизору «Лебединое озеро», затем пресс-конференция ГКЧП. В стране вводится чрезвычайное положение, партии и газеты закрываются.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_SOV_emergency_rule"
+     },
+     "t": "add_idea"
+    },
+    {
+     "p": {
+      "idea": "TOTU_SOV_glasnost"
+     },
+     "t": "remove_idea"
+    }
+   ],
+   "icon": "телевизор с «Лебединым озером» и танк на мосту",
+   "id": "SOV_state_of_emergency",
+   "key": "f_cl_emerg",
+   "mutex": [],
+   "name_en": "State of Emergency Decree",
+   "name_ru": "Указ о чрезвычайном положении",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_eay3jr",
+     "f_cl_baltic"
+    ]
+   ],
+   "x": 14,
+   "y": 10
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "For the first time, the USSR has a body that can declare a law unconstitutional. Its first rulings strike at the President's own decrees.",
+   "desc_ru": "Впервые в СССР появляется орган, который может признать закон неконституционным. Первые его решения бьют по указам самого президента.",
+   "effects": [
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 3
+     },
+     "t": "popularity"
+    }
+   ],
+   "icon": "весы правосудия на обложке Конституции СССР",
+   "id": "SOV_constitutional_supervision",
+   "key": "f_c2_constitution",
+   "mutex": [],
+   "name_en": "Constitutional Oversight",
+   "name_ru": "Конституционный надзор",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_2hd3ej"
+    ]
+   ],
+   "x": 8,
+   "y": 3
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 35,
+   "desc_en": "October 1990: the law on freedom of conscience. Churches are returned to believers, and the Easter service is broadcast on central television.",
+   "desc_ru": "Октябрь 1990-го: закон о свободе совести. Храмы возвращают верующим, пасхальную службу показывают по центральному телевидению.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "war"
+    }
+   ],
+   "icon": "купола храма и раскрытый закон",
+   "id": "SOV_freedom_of_conscience",
+   "key": "f_c2_conscience",
+   "mutex": [],
+   "name_en": "Freedom of Conscience",
+   "name_ru": "Свобода совести",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_cl_press"
+    ]
+   ],
+   "x": 10,
+   "y": 4
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "Perestroika is not a rejection of socialism but its purification. Yakovlev and Shevardnadze propose the path of the European social democrats: a market under state control and strong social guarantees.",
+   "desc_ru": "Перестройка — не отказ от социализма, а его очищение. Яковлев и Шеварднадзе предлагают путь европейских социал-демократов: рынок под контролем государства и сильные социальные гарантии.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    }
+   ],
+   "icon": "красная гвоздика на фоне Кремля",
+   "id": "SOV_left_democratic_socialism",
+   "key": "f_c2_sd_course",
+   "mutex": [
+    "f_c2_lib_course"
+   ],
+   "name_en": "Left Course: Social Democracy",
+   "name_ru": "Левый курс: социал-демократия",
+   "notes": "Добавил Claude\nВ игре: курс виден только при победе горбачёвцев на Пленуме.",
+   "prereq": [
+    [
+     "f_nomsu1"
+    ]
+   ],
+   "x": 5,
+   "y": 4
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "July 1991: Yakovlev, Shevardnadze, Popov, Sobchak and Volsky announce a movement meant to become a new party of reformers.",
+   "desc_ru": "Июль 1991-го: Яковлев, Шеварднадзе, Попов, Собчак и Вольский объявляют о движении, которое должно стать новой партией реформаторов.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": 3
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "учредительное заявление с подписями",
+   "id": "SOV_democratic_reform_movement",
+   "key": "f_c2_ddr",
+   "mutex": [],
+   "name_en": "Democratic Reform Movement",
+   "name_ru": "Движение реформ",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_c2_sd_course"
+    ]
+   ],
+   "x": 4,
+   "y": 5
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "Indexed pensions and wages, unemployment benefits. Reform must not hit those who already have it hard.",
+   "desc_ru": "Индексация пенсий и зарплат, пособия по безработице. Реформа не должна бить по тем, кому и так тяжело.",
+   "effects": [
+    {
+     "p": {
+      "value": 10
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Временный модификатор на 365 дней: +5% товаров народного потребления (деньги на выплаты)."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "пенсионное удостоверение и сберкнижка",
+   "id": "SOV_social_guarantees",
+   "key": "f_c2_social",
+   "mutex": [],
+   "name_en": "Social Guarantees",
+   "name_ru": "Социальные гарантии",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_c2_sd_course"
+    ]
+   ],
+   "x": 5,
+   "y": 5
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 105,
+   "desc_en": "The CPSU splits: the reformist wing leaves, taking part of the property and the voters with it. The country gains a strong center-left party.",
+   "desc_ru": "КПСС раскалывается: реформаторское крыло уходит с частью собственности и избирателей. В стране появляется сильная левоцентристская партия.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_SOV_democratic_socialism"
+     },
+     "t": "add_idea"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 10
+     },
+     "t": "popularity"
+    }
+   ],
+   "icon": "новый значок партии с розой",
+   "id": "SOV_social_democratic_party",
+   "key": "f_c2_psd",
+   "mutex": [],
+   "name_en": "Social Democratic Party",
+   "name_ru": "Социал-демократическая партия",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_c2_ddr"
+    ],
+    [
+     "f_c2_social"
+    ]
+   ],
+   "x": 5,
+   "y": 6
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The economists say it plainly: the plan cannot be saved. The country needs private property, free prices and an open economy, and political freedom will not last without economic freedom.",
+   "desc_ru": "Экономисты говорят прямо: план не спасти. Нужны частная собственность, свободные цены и открытая экономика, а политическая свобода без экономической не продержится.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    }
+   ],
+   "icon": "биржевое табло с рублём",
+   "id": "SOV_right_market_democracy",
+   "key": "f_c2_lib_course",
+   "mutex": [
+    "f_c2_sd_course"
+   ],
+   "name_en": "Right Course: Market Democracy",
+   "name_ru": "Правый курс: рыночная демократия",
+   "notes": "Добавил Claude\nВ игре: курс виден только при победе Демплатформы на Пленуме.",
+   "prereq": [
+    [
+     "f_nomsu1"
+    ]
+   ],
+   "x": 7,
+   "y": 4
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "March 1990: for the first time, the law recognizes citizens' right to own the means of production. The cooperators, legal since 1988, can now own their workshops.",
+   "desc_ru": "Март 1990-го: закон впервые признаёт за гражданами право собственности на средства производства. Кооператоры, легальные с 1988 года, теперь могут владеть своими цехами.",
+   "effects": [
+    {
+     "p": {
+      "count": 1,
+      "type": "industrial_complex"
+     },
+     "t": "building"
+    },
+    {
+     "p": {
+      "text": "+5% к росту эффективности производства на год (временный модификатор)."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "вывеска кооператива на двери магазина",
+   "id": "SOV_law_on_property",
+   "key": "f_c2_property",
+   "mutex": [],
+   "name_en": "The Law on Property",
+   "name_ru": "Закон о собственности",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_c2_lib_course"
+    ]
+   ],
+   "x": 6,
+   "y": 5
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "Shatalin and Yavlinsky propose to carry out privatization and free prices within 500 days. Even Yeltsin is ready to back the program; the Ryzhkov government is against it.",
+   "desc_ru": "Шаталин и Явлинский предлагают за 500 дней провести приватизацию и освободить цены. Программу готов поддержать даже Ельцин, против — правительство Рыжкова.",
+   "effects": [
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "Ельцин поддерживает программу, правительство Рыжкова уходит в отставку (подсказка). Если потом «Договориться с Ельциным» — ещё +3% стабильности."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "толстая папка с цифрой 500 и калькулятор",
+   "id": "SOV_500_days_program",
+   "key": "f_c2_shatalin",
+   "mutex": [],
+   "name_en": "The 500 Days Program",
+   "name_ru": "Программа «500 дней»",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_c2_lib_course"
+    ]
+   ],
+   "x": 7,
+   "y": 5
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 105,
+   "desc_en": "Prices are freed. The shelves fill up, but the ruble loses value faster than wages rise.",
+   "desc_ru": "Цены освобождаются. Полки наполняются, но рубль обесценивается быстрее, чем растут зарплаты.",
+   "effects": [
+    {
+     "p": {
+      "from": "TOTU_SOV_no_plan_no_market",
+      "to": "TOTU_SOV_market_reforms"
+     },
+     "t": "swap_idea"
+    }
+   ],
+   "icon": "ценник с зачёркнутой старой ценой",
+   "id": "SOV_free_prices",
+   "key": "f_c2_prices",
+   "mutex": [],
+   "name_en": "Free the Prices",
+   "name_ru": "Отпустить цены",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_c2_property"
+    ],
+    [
+     "f_c2_shatalin"
+    ]
+   ],
+   "x": 6,
+   "y": 6
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "May 1990: on the third ballot, Yeltsin is elected Chairman of the Supreme Soviet of the RSFSR. Gorbachev now has a rival with a republic of his own.",
+   "desc_ru": "Май 1990-го: с третьей попытки Ельцин избран Председателем Верховного Совета РСФСР. У Горбачёва появился соперник с собственной республикой.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "name": "totu_yeltsin_rsfsr_chairman"
+     },
+     "t": "flag"
+    }
+   ],
+   "icon": "портрет Ельцина на трибуне российского парламента",
+   "id": "SOV_yeltsin_heads_russia",
+   "key": "f_c2_yel_chair",
+   "mutex": [],
+   "name_en": "Yeltsin Leads Russia",
+   "name_ru": "Ельцин во главе России",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_2hd3ej"
+    ]
+   ],
+   "x": 2,
+   "y": 3
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "Moscow recognizes Russia's Declaration of Sovereignty, but within the Union: Russian laws override Union laws only where this has been agreed.",
+   "desc_ru": "Москва признаёт Декларацию о суверенитете России, но в рамках Союза: российские законы стоят выше союзных только там, где об этом договорились.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Событие: РСФСР перестаёт задерживать налоги в союзный бюджет (+ресурсы и политвласть)."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "декларация о суверенитете с союзной печатью",
+   "id": "SOV_rsfsr_sovereignty_in_union",
+   "key": "f_c2_rsfsr_sov",
+   "mutex": [],
+   "name_en": "RSFSR Sovereignty in the Union",
+   "name_ru": "Суверенитет РСФСР в составе Союза",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_cl_ydeal"
+    ]
+   ],
+   "x": 1,
+   "y": 5
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The President of the USSR and the chairman of the Russian parliament appear together. For the first time in a long while, reform has one face rather than two.",
+   "desc_ru": "Президент СССР и председатель российского парламента выступают вместе. Впервые за долгое время у реформ одно лицо, а не два.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_SOV_yeltsin_tandem"
+     },
+     "t": "add_idea"
+    }
+   ],
+   "icon": "два микрофона на одной трибуне",
+   "id": "SOV_gorbachev_yeltsin_tandem",
+   "key": "f_c2_tandem",
+   "mutex": [],
+   "name_en": "Gorbachev-Yeltsin Tandem",
+   "name_ru": "Тандем Горбачёв–Ельцин",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_c2_rsfsr_sov"
+    ]
+   ],
+   "x": 1,
+   "y": 6
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 105,
+   "desc_en": "The impossible becomes real: Yeltsin takes a post in the Union leadership. The Union survives, but the question of who actually runs it remains open.",
+   "desc_ru": "Невозможное становится реальным: Ельцин получает пост в союзном руководстве. Союз сохраняется, но вопрос, кто им на самом деле правит, остаётся открытым.",
+   "effects": [
+    {
+     "p": {
+      "value": 100
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": 10
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "text": "Ельцин становится вице-президентом СССР, а если пост уже занят (Янаев или Шеварднадзе) — премьер-министром."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "кабинет в Кремле с двумя креслами",
+   "id": "SOV_yeltsin_in_union_leadership",
+   "key": "f_c2_yel_center",
+   "mutex": [],
+   "name_en": "Yeltsin in Union Leadership",
+   "name_ru": "Ельцин в союзном руководстве",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_c2_tandem"
+    ]
+   ],
+   "x": 1,
+   "y": 7
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "Union and Russian laws contradict each other, and each parliament declares its own supreme. Enterprises do not know whom to pay their taxes to.",
+   "desc_ru": "Союзные и российские законы противоречат друг другу, и каждый парламент объявляет свои главными. Предприятия не знают, кому платить налоги.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_SOV_war_of_laws"
+     },
+     "t": "add_idea"
+    }
+   ],
+   "icon": "два герба, СССР и РСФСР, над разорванным законом",
+   "id": "SOV_war_of_laws",
+   "key": "f_c2_war_laws",
+   "mutex": [],
+   "name_en": "The War of Laws",
+   "name_ru": "Война законов",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_cl_ystop"
+    ]
+   ],
+   "x": 3,
+   "y": 5
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "April 1990: a new law puts the autonomous republics on a par with the Union republics. Tatarstan, Bashkiria and Yakutia now have a reason to quarrel with Yeltsin rather than with Gorbachev.",
+   "desc_ru": "Апрель 1990-го: закон уравнивает автономные республики с союзными. Татарстан, Башкирия и Якутия получают повод спорить с Ельциным, а не с Горбачёвым.",
+   "effects": [
+    {
+     "p": {
+      "value": 75
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "value": -3
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "text": "Автономии внутри РСФСР получают флаг; влияние Ельцина падает."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "флажки Татарстана и Башкирии на карте России",
+   "id": "SOV_bet_on_autonomies",
+   "key": "f_c2_autonomies",
+   "mutex": [],
+   "name_en": "Bet on the Autonomies",
+   "name_ru": "Ставка на автономии",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_c2_war_laws"
+    ]
+   ],
+   "x": 3,
+   "y": 6
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 105,
+   "desc_en": "March 1991: at an extraordinary Congress of People's Deputies of the RSFSR, the communists try to remove Yeltsin. This time they succeed.",
+   "desc_ru": "Март 1991-го: на внеочередном Съезде народных депутатов РСФСР коммунисты пытаются снять Ельцина. В этот раз у них получается.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_SOV_war_of_laws"
+     },
+     "t": "remove_idea"
+    },
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "ideology": "democratic",
+      "value": -10
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "text": "Событие: стотысячный митинг на Манежной площади."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "пустое кресло председателя Верховного Совета РСФСР",
+   "id": "SOV_remove_yeltsin",
+   "key": "f_c2_yel_out",
+   "mutex": [],
+   "name_en": "Oust Yeltsin",
+   "name_ru": "Отставка Ельцина",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_c2_autonomies"
+    ]
+   ],
+   "x": 3,
+   "y": 7
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The crisis exists because the Party has strayed from Lenin. Restore discipline, the planned economy and the class approach.",
+   "desc_ru": "Причина кризиса в том, что партия отошла от Ленина. Вернуть дисциплину, плановое хозяйство и классовый подход.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "communism",
+      "value": 10
+     },
+     "t": "popularity"
+    }
+   ],
+   "icon": "бюст Ленина на трибуне",
+   "id": "SOV_left_leninist_norms",
+   "key": "f_c2_lenin",
+   "mutex": [
+    "f_c2_derzh"
+   ],
+   "name_en": "Left Course: Leninist Norms",
+   "name_ru": "Левый курс: ленинские нормы",
+   "notes": "Добавил Claude\nВ игре: курс виден только при победе ортодоксов на Пленуме.",
+   "prereq": [
+    [
+     "f_o8teis"
+    ]
+   ],
+   "x": 18,
+   "y": 4
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "June 1990: the Communist Party of the RSFSR is founded under Polozkov. The conservatives gain their own Party base in the largest republic.",
+   "desc_ru": "Июнь 1990-го: создана Компартия РСФСР во главе с Полозковым. Консерваторы получают свою партийную базу в самой большой республике.",
+   "effects": [
+    {
+     "p": {
+      "value": 75
+     },
+     "t": "pp"
+    },
+    {
+     "p": {
+      "text": "Консерваторы получают свою партию в самой большой республике: +3% популярности коммунизма."
+     },
+     "t": "text"
+    }
+   ],
+   "icon": "партбилет Компартии РСФСР",
+   "id": "SOV_communist_party_of_rsfsr",
+   "key": "f_c2_kp_rsfsr",
+   "mutex": [],
+   "name_en": "Communist Party of the RSFSR",
+   "name_ru": "Компартия РСФСР",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_c2_lenin"
+    ]
+   ],
+   "x": 17,
+   "y": 5
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The author of the letter “I Cannot Forsake My Principles” founds the society “Unity - for Leninism and Communist Ideals”. The orthodox are no longer shy.",
+   "desc_ru": "Автор письма «Не могу поступаться принципами» собирает общество «Единство — за ленинизм и коммунистические идеалы». Ортодоксы больше не стесняются.",
+   "effects": [
+    {
+     "p": {
+      "ideology": "communism",
+      "value": 5
+     },
+     "t": "popularity"
+    },
+    {
+     "p": {
+      "value": -3
+     },
+     "t": "stability"
+    }
+   ],
+   "icon": "газета «Советская Россия» с письмом Андреевой",
+   "id": "SOV_andreeva_unity",
+   "key": "f_c2_andreeva",
+   "mutex": [],
+   "name_en": "Andreyeva's “Unity”",
+   "name_ru": "«Единство» Нины Андреевой",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_c2_lenin"
+    ]
+   ],
+   "x": 18,
+   "y": 5
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 105,
+   "desc_en": "The Party committee once again decides who runs the factory, and the regional committee decides who heads the regional executive. The reforms roll back.",
+   "desc_ru": "Партком снова решает, кто станет директором завода, а обком — кто возглавит облисполком. Реформы откатываются назад.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_SOV_party_control"
+     },
+     "t": "add_idea"
+    },
+    {
+     "p": {
+      "idea": "TOTU_SOV_glasnost"
+     },
+     "t": "remove_idea"
+    }
+   ],
+   "icon": "кабинет секретаря обкома с портретом Ленина",
+   "id": "SOV_restore_party_control",
+   "key": "f_c2_party_control",
+   "mutex": [],
+   "name_en": "Restore Party Control",
+   "name_ru": "Вернуть партийный контроль",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_c2_kp_rsfsr"
+    ],
+    [
+     "f_c2_andreeva"
+    ]
+   ],
+   "x": 17,
+   "y": 6
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "The Union is not an ideology but a thousand-year-old state. The army, tradition and the state matter more than Party dogma.",
+   "desc_ru": "Союз не идеология, а тысячелетняя держава. Армия, традиция и государство важнее партийных догм.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "war"
+    },
+    {
+     "p": {
+      "value": 50
+     },
+     "t": "pp"
+    }
+   ],
+   "icon": "двуглавый орёл рядом с красной звездой",
+   "id": "SOV_right_great_power",
+   "key": "f_c2_derzh",
+   "mutex": [
+    "f_c2_lenin"
+   ],
+   "name_en": "Right Course: Great Power",
+   "name_ru": "Правый курс: великая держава",
+   "notes": "Добавил Claude\nВ игре: курс виден только при победе консерваторов на Пленуме.",
+   "prereq": [
+    [
+     "f_o8teis"
+    ]
+   ],
+   "x": 20,
+   "y": 4
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 70,
+   "desc_en": "Generals and hierarchs of the Russian Orthodox Church share a platform for the first time. The statists are looking for a unifying idea to replace communism.",
+   "desc_ru": "Генералы и иерархи Русской православной церкви впервые выходят на одну трибуну. Державники ищут объединяющую идею вместо коммунизма.",
+   "effects": [
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "stability"
+    },
+    {
+     "p": {
+      "value": 5
+     },
+     "t": "war"
+    }
+   ],
+   "icon": "генеральская фуражка рядом с крестом",
+   "id": "SOV_army_and_church",
+   "key": "f_c2_army_church",
+   "mutex": [],
+   "name_en": "Army and Church",
+   "name_ru": "Армия и Церковь",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_c2_derzh"
+    ]
+   ],
+   "x": 21,
+   "y": 5
+  },
+  {
+   "ai": "",
+   "available": "",
+   "bypass": "",
+   "days": 105,
+   "desc_en": "July 1991: Prokhanov, Rasputin and Generals Varennikov and Gromov publish the manifesto “An enormous, unprecedented misfortune has befallen us…”. It is the program of a future dictatorship.",
+   "desc_ru": "Июль 1991-го: Проханов, Распутин, генералы Варенников и Громов публикуют манифест «Случилось огромное, небывалое горе…». Это программа будущей диктатуры.",
+   "effects": [
+    {
+     "p": {
+      "idea": "TOTU_SOV_great_power_patriotism"
+     },
+     "t": "add_idea"
+    }
+   ],
+   "icon": "газетная полоса с манифестом",
+   "id": "SOV_word_to_the_people",
+   "key": "f_c2_slovo",
+   "mutex": [],
+   "name_en": "“A Word to the People”",
+   "name_ru": "«Слово к народу»",
+   "notes": "Добавил Claude",
+   "prereq": [
+    [
+     "f_cl_soyuz"
+    ],
+    [
+     "f_c2_army_church"
+    ]
+   ],
+   "x": 20,
+   "y": 6
+  }
+ ],
+ "name": "Советский Союз",
+ "notes": "Политическая ветка. Слева реформы Горбачёва: отмена 6-й статьи, президентство, новый союзный договор, финал «Союз Суверенных Государств». Внутри реформ развилка: левый курс (демократический социализм) или правый (рыночная демократия), и отдельная подветка Ельцина: договориться (тандем, Ельцин в союзном руководстве) или остановить (война законов, ставка на автономии, отставка Ельцина). Справа жёсткая линия: партийная дисциплина, ГКЧП, финал «Указ о чрезвычайном положении», с развилкой: левый курс (ленинские нормы, партийный контроль) или правый (великая держава, «Слово к народу»). В центре референдум 1991 года и общий финал «Закрыть пленум». Фокусы с заметкой «Добавил Claude» новые.",
+ "spirits": [
+  {
+   "desc_ru": "Республики сами управляют своими делами, центр отвечает за армию, деньги и внешнюю политику. Союз держится не на приказах, а на договоре.",
+   "icon": "новый герб союза на обложке договора",
+   "id": "TOTU_SOV_sovereign_union",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": 10
+    },
+    {
+     "k": "political_power_factor",
+     "v": -10
+    },
+    {
+     "k": "conscription_factor",
+     "v": -5
+    }
+   ],
+   "name_ru": "Союз Суверенных Государств",
+   "name_en": "Union of Sovereign States",
+   "desc_en": "The republics run their own affairs, while the center is responsible for the army, the money and foreign policy. The Union rests not on orders but on a treaty."
+  },
+  {
+   "desc_ru": "Комендантский час, закрытые газеты и танки у Белого дома. Порядок держится на страхе и продержится ровно столько, сколько армия готова стрелять.",
+   "icon": "танк на мосту и комендантский патруль",
+   "id": "TOTU_SOV_emergency_rule",
+   "mods": [
+    {
+     "k": "war_support_factor",
+     "v": 10
+    },
+    {
+     "k": "stability_factor",
+     "v": 5
+    },
+    {
+     "k": "political_power_gain",
+     "v": 0.5
+    },
+    {
+     "k": "democratic_drift",
+     "v": -0.05
+    },
+    {
+     "k": "research_speed_factor",
+     "v": -5
+    }
+   ],
+   "name_ru": "Режим чрезвычайного положения",
+   "name_en": "Emergency Rule",
+   "desc_en": "Curfews, closed newspapers and tanks outside the White House. Order rests on fear and will last exactly as long as the army is willing to shoot."
+  },
+  {
+   "desc_ru": "Облавы на прогульщиков и показательные дела против торговой мафии. На заводах стало тише, в магазинах лучше не стало.",
+   "icon": "очки Андропова на стопке протоколов",
+   "id": "TOTU_SOV_andropov_discipline",
+   "mods": [
+    {
+     "k": "production_factory_max_efficiency_factor",
+     "v": 5
+    },
+    {
+     "k": "stability_factor",
+     "v": 5
+    },
+    {
+     "k": "drift_defence_factor",
+     "v": 20
+    },
+    {
+     "k": "consumer_goods_factor",
+     "v": 3
+    }
+   ],
+   "name_ru": "Андроповская дисциплина",
+   "name_en": "Andropov Discipline",
+   "desc_en": "Raids on truants and show trials against the trade mafia. The factories have grown quieter; the shops have not grown any better."
+  },
+  {
+   "desc_ru": "Рынок под контролем государства, сильные профсоюзы и щедрые социальные гарантии. Стабильно, но дорого.",
+   "icon": "красная гвоздика и рука, держащая роза",
+   "id": "TOTU_SOV_democratic_socialism",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": 5
+    },
+    {
+     "k": "political_power_factor",
+     "v": 10
+    },
+    {
+     "k": "consumer_goods_factor",
+     "v": 5
+    },
+    {
+     "k": "democratic_drift",
+     "v": 0.03
+    }
+   ],
+   "name_ru": "Демократический социализм",
+   "name_en": "Democratic Socialism",
+   "desc_en": "A market under state control, strong trade unions and generous social guarantees. Stable, but expensive."
+  },
+  {
+   "desc_ru": "Цены отпущены, кооперативы растут, директора учатся считать прибыль. Полки наполняются, но зарплат на них не хватает.",
+   "icon": "ценник с зачёркнутой ценой на полной полке",
+   "id": "TOTU_SOV_market_reforms",
+   "mods": [
+    {
+     "k": "production_factory_max_efficiency_factor",
+     "v": 10
+    },
+    {
+     "k": "research_speed_factor",
+     "v": 5
+    },
+    {
+     "k": "stability_factor",
+     "v": -10
+    },
+    {
+     "k": "consumer_goods_factor",
+     "v": -5
+    }
+   ],
+   "name_ru": "Рыночные реформы",
+   "name_en": "Market Reforms",
+   "desc_en": "Prices are freed, cooperatives are growing, and factory directors are learning to count profits. The shelves are filling up, but wages cannot keep up with them."
+  },
+  {
+   "desc_ru": "Союзный центр и российское руководство действуют вместе. Решения принимаются медленнее, зато их никто не саботирует.",
+   "icon": "два флага, СССР и РСФСР, скрещённые на одном древке",
+   "id": "TOTU_SOV_yeltsin_tandem",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": 10
+    },
+    {
+     "k": "political_power_factor",
+     "v": -10
+    },
+    {
+     "k": "democratic_drift",
+     "v": 0.03
+    }
+   ],
+   "name_ru": "Тандем с Россией",
+   "name_en": "Tandem with Russia",
+   "desc_en": "The Union center and the Russian leadership act together. Decisions come more slowly, but nobody sabotages them."
+  },
+  {
+   "desc_ru": "Союзные и российские законы противоречат друг другу. Налоги застревают в республиках, директора выбирают, чей указ выполнять.",
+   "icon": "два герба над разорванным листом закона",
+   "id": "TOTU_SOV_war_of_laws",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": -10
+    },
+    {
+     "k": "political_power_factor",
+     "v": -15
+    },
+    {
+     "k": "local_resources_factor",
+     "v": -10
+    }
+   ],
+   "name_ru": "Война законов",
+   "name_en": "War of Laws",
+   "desc_en": "Union and Russian laws contradict each other. Taxes get stuck in the republics, and directors choose whose decree to obey."
+  },
+  {
+   "desc_ru": "Обкомы снова решают всё: от назначения директора до тиража районной газеты. Порядок вернулся, инициатива пропала.",
+   "icon": "печать обкома на приказе о назначении",
+   "id": "TOTU_SOV_party_control",
+   "mods": [
+    {
+     "k": "stability_factor",
+     "v": 5
+    },
+    {
+     "k": "drift_defence_factor",
+     "v": 25
+    },
+    {
+     "k": "political_power_factor",
+     "v": 10
+    },
+    {
+     "k": "research_speed_factor",
+     "v": -5
+    }
+   ],
+   "name_ru": "Партийный контроль",
+   "name_en": "Party Control",
+   "desc_en": "The regional committees decide everything again, from appointing a factory director to the print run of the district newspaper. Order has returned; initiative has vanished."
+  },
+  {
+   "desc_ru": "Красное знамя рядом с имперским орлом: страну объединяют уже не Маркс и Ленин, а армия, вера и память о великой державе.",
+   "icon": "красное знамя и двуглавый орёл",
+   "id": "TOTU_SOV_great_power_patriotism",
+   "mods": [
+    {
+     "k": "war_support_factor",
+     "v": 10
+    },
+    {
+     "k": "conscription_factor",
+     "v": 10
+    },
+    {
+     "k": "stability_factor",
+     "v": 3
+    },
+    {
+     "k": "trade_opinion_factor",
+     "v": -10
+    }
+   ],
+   "name_ru": "Державный патриотизм",
+   "name_en": "Great Power Patriotism",
+   "desc_en": "The red banner beside the imperial eagle: the country is no longer united by Marx and Lenin, but by the army, the faith and the memory of a great power."
+  }
+ ],
+ "tag": "SOV",
+ "version": 1
+}

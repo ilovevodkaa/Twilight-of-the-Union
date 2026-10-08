@@ -1,0 +1,13 @@
+﻿l_english:
+ # Twilight of the Union: multiplayer captions (tools/build_mp_gfx.py). Generated; do not edit.
+ TOTU_FE_MP_CONNECT_ID:0 "Server ID"
+ TOTU_FE_MP_JOIN:0 "Join"
+ TOTU_FE_MP_HOST:0 "Host"
+ TOTU_FE_MP_REFRESH:0 "Refresh"
+ TOTU_FE_MP_LAN:0 "LAN"
+ TOTU_FE_MP_INTERNET:0 "Internet"
+ TOTU_FE_MP_FILTER:0 "Filter"
+ TOTU_FE_MP_SEND:0 "Send"
+ TOTU_FE_MP_FRIENDS:0 "Friends"
+ TOTU_FE_MP_PLAYER_NAME:0 "Player name"
+ TOTU_FE_MP_LOBBY:0 "Lobby"

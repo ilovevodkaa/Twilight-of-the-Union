@@ -74,6 +74,41 @@ class StatesTest(unittest.TestCase):
                 if k.isdigit() and any(x[0] == "naval_base" for x in v):
                     self.assertTrue(self.zm.provs[int(k)].coastal, (s, k))
 
+    def test_vanilla_victory_points_stay_at_their_place(self):
+        # vanilla Berlin (6521, 50) is a place: its point goes to the province now under its marker; the reused id
+        # 6521 ended up in Potsdam district, where a second "Berlin" of 50 appeared
+        import build_world_1990 as w
+        from map1990.assemble import vp_markers
+        from map1990.states import hist_vps
+        vanilla = {}
+        for s in w.load_states(GAME).values():
+            vanilla.update(hist_vps(s["hist"]))
+        vp = {}
+        for s in self.states.values():
+            vp.update(hist_vps(s["hist"]))
+        marks = vp_markers(self.vm)
+        for q in set(self.zm.provs) - set(self.zm.zone_provs) - self.zm.pool:
+            # outside provinces keep their own points: vanilla's Freiburg marker lies west of the real Rhine, and
+            # its point had gone to Colmar (6529) under the name Freiburg
+            self.assertEqual(vp.get(q), vanilla.get(q), q)
+        for p in sorted(set(vanilla) & self.zm.pool):
+            q = int(self.zm.ids[marks[p]])
+            if q not in self.zm.zone_provs:
+                continue
+            self.assertIn(q, vp, (p, q))
+            if q != p and p in vp:
+                self.assertIn(p, {pp for _, pp in self.zm.city_prov}, (p, "keeps a point away from its place"))
+
+    def test_forts_stay_with_their_country(self):
+        # vanilla Alsace (FRA) provinces 549 and 3629 go to the zone; their Maginot bunkers must not follow them
+        tags = {u.tag for u in self.zone.units}
+        for s, st in self.states.items():
+            if st["owner"] not in tags:
+                continue
+            b = next((v for k, _, v in st["hist"] if k == "buildings"), [])
+            forts = [(k, x) for k, _, v in b if k.isdigit() for x in v if x[0] == "bunker" and str(x[2]) == "10"]
+            self.assertEqual(forts, [], s)
+
     def test_victory_points_and_names(self):
         vps = {}
         for st in self.states.values():

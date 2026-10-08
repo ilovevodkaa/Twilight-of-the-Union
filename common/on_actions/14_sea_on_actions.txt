@@ -1,7 +1,8 @@
+# NEUTRALISED COPY of vanilla common/on_actions/14_sea_on_actions.txt made by tools/strip_vanilla.py: references to the removed vanilla
+# events, decisions and focus trees are cut. Edit the tool, not this file.
 on_actions = {
-
+	
 	# on_startup removed by Twilight of the Union (1936 setup)
-
 
 	#	ROOT is new controller, FROM is old controller, FROM.FROM is state ID.
 	on_state_control_changed = {
@@ -18,7 +19,7 @@ on_actions = {
 				ROOT = {
 					if = {
 						limit = {
-							has_completed_focus = CHI_the_hump_sea
+							always = no
 							NOT = { 
 								has_idea = CHI_the_hump_sea_hidden 
 								any_enemy_country = {
@@ -35,7 +36,7 @@ on_actions = {
 
 					if = {
 						limit = {
-							has_completed_focus = CHI_the_hanoi_route
+							always = no
 							NOT = { 
 								has_idea = CHI_the_hanoi_route_hidden 
 								any_enemy_country = {
@@ -50,7 +51,7 @@ on_actions = {
 
 					if = {
 						limit = {
-							has_completed_focus = CHI_the_burma_road
+							always = no
 							NOT = { 
 								has_idea = CHI_the_burma_road_hidden 
 								any_enemy_country = {
@@ -96,7 +97,7 @@ on_actions = {
 
 						if = {
 							limit = {
-								has_completed_focus = CHI_the_northwest_highway
+								always = no
 								NOT = { has_idea = CHI_northwest_highway_hidden }
 							}
 							add_ideas = CHI_northwest_highway_hidden
@@ -104,7 +105,7 @@ on_actions = {
 
 						if = {
 							limit = {
-								has_completed_focus = CHI_facilitate_operation_zet
+								always = no
 								NOT = { has_idea = CHI_operation_zet_hidden }
 							}
 							add_ideas = CHI_operation_zet_hidden
@@ -195,10 +196,7 @@ on_actions = {
 					NOT = { has_global_flag = jinan_has_fallen }
 				}
 				CHI = {
-					country_event = {
-						id = SEA_warlords.42
-						hours = 6
-					}
+					
 				}
 			}
 		}
@@ -219,10 +217,7 @@ on_actions = {
 					}
 				}
 				FROM = {
-					country_event = {
-						id = SEA_PHI_political_events.54
-						hours = 6
-					}
+					
 				}
 			}
 		}
@@ -451,7 +446,7 @@ on_actions = {
 				limit = {
 					ROOT = {
 						original_tag = JAP
-						has_completed_focus = JAP_educate_the_peasants
+						always = no
 					}
 				}
 				ROOT = {
@@ -467,9 +462,9 @@ on_actions = {
 					ROOT = {
 						original_tag = JAP
 						OR = {
-							has_completed_focus = JAP_the_flying_geese
-							has_completed_focus = JAP_develop_the_yen_bloc
-							has_completed_focus = JAP_ministry_of_greater_east_asia
+							always = no
+							always = no
+							always = no
 						}
 					}
 				}
@@ -500,7 +495,7 @@ on_actions = {
 				limit = {
 					ROOT = {
 						original_tag = PRC
-						has_completed_focus = PRC_asian_democratic_union
+						always = no
 					}
 				}
 				ROOT = {
@@ -522,7 +517,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						original_tag = JAP
-						has_completed_focus = JAP_educate_the_peasants
+						always = no
 					}
 				}
 				FROM = {
@@ -538,9 +533,9 @@ on_actions = {
 					FROM = {
 						original_tag = JAP
 						OR = {
-							has_completed_focus = JAP_the_flying_geese
-							has_completed_focus = JAP_develop_the_yen_bloc
-							has_completed_focus = JAP_ministry_of_greater_east_asia
+							always = no
+							always = no
+							always = no
 						}
 					}
 				}
@@ -568,7 +563,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						original_tag = PRC
-						has_completed_focus = PRC_asian_democratic_union
+						always = no
 					}
 				}
 				FROM = {
@@ -589,7 +584,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						original_tag = JAP
-						has_completed_focus = JAP_educate_the_peasants
+						always = no
 					}
 					ROOT = {
 						NOT = { is_in_faction_with = FROM }
@@ -605,7 +600,7 @@ on_actions = {
 				limit = {
 					FROM = { 
 						original_tag = CHI
-						has_completed_focus = CHI_appoint_sympathetic_judges 
+						always = no 
 					}
 
 					ROOT = {
@@ -623,7 +618,7 @@ on_actions = {
 				limit = {
 					FROM = { 
 						original_tag = CHI
-						has_completed_focus = CHI_take_control_of_the_executive_yuan 
+						always = no 
 					}
 
 					ROOT = {
@@ -702,9 +697,9 @@ on_actions = {
 						original_tag = JAP
 						is_faction_leader = yes
 						OR = {
-							has_completed_focus = JAP_the_flying_geese
-							has_completed_focus = JAP_develop_the_yen_bloc
-							has_completed_focus = JAP_ministry_of_greater_east_asia
+							always = no
+							always = no
+							always = no
 						}
 					}
 				}
@@ -719,7 +714,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						original_tag = PRC
-						has_completed_focus = PRC_asian_democratic_union
+						always = no
 						NOT = {
 							is_in_faction_with = ROOT
 						}
@@ -762,7 +757,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						original_tag = JAP
-						has_completed_focus = JAP_educate_the_peasants
+						always = no
 					}
 				}
 				FROM = {
@@ -807,7 +802,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						original_tag = PRC
-						has_completed_focus = PRC_asian_democratic_union
+						always = no
 					}
 				}
 				FROM = {
@@ -847,9 +842,9 @@ on_actions = {
 						original_tag = JAP
 						is_faction_leader = yes
 						OR = {
-							has_completed_focus = JAP_the_flying_geese
-							has_completed_focus = JAP_develop_the_yen_bloc
-							has_completed_focus = JAP_ministry_of_greater_east_asia
+							always = no
+							always = no
+							always = no
 						}
 					}
 				}
@@ -1066,7 +1061,7 @@ on_actions = {
 				}
 				save_event_target_as = JAP_POL_anti_soviet_pact_aggressor
 				FROM = {
-					country_event = { id = SEA_japan_foreign_policy.85 days = 1 }
+					
 				}
 			}
 
@@ -1141,11 +1136,7 @@ on_actions = {
 									has_war_with = CHI
 								}
 							}
-							country_event = {
-								id = SEA_china.19
-								days = 2
-								random_hours = 36
-							}
+							
 						}
 					}
 				}
@@ -1158,9 +1149,9 @@ on_actions = {
 				limit = {
 					ROOT = { 
 						original_tag = JAP
-						has_completed_focus = JAP_the_imperial_defense_plan
+						always = no
 						NOT = {
-							has_completed_focus = JAP_implement_army_reforms 
+							always = no 
 						}
 						OR = { #If japan has one of these Ideas, there's no need to check for any other criteria
 							NOT = {
@@ -1264,9 +1255,9 @@ on_actions = {
 				limit = {
 					ROOT = { 
 						original_tag = JAP
-						has_completed_focus = JAP_the_imperial_defense_plan
+						always = no
 						NOT = {
-							has_completed_focus = JAP_implement_army_reforms 
+							always = no 
 						}
 						OR = { #If japan has one of these Ideas, there's no need to check for any other criteria
 							NOT = {
@@ -1357,7 +1348,7 @@ on_actions = {
 				limit = {
 					ROOT = { 
 						original_tag = JAP
-						has_completed_focus = JAP_prepare_the_southern_front
+						always = no
 						NOT = {
 							has_country_flag = JAP_strike_south_idea_triggered_flag
 						}
@@ -1405,7 +1396,7 @@ on_actions = {
 						NOT = {
 							has_country_flag = PRC_passive_revolutionaries_flag
 							has_idea = PRC_passive_revolutionaries_idea
-							has_active_mission = PRC_the_peoples_doubt
+							always = no
 						}
 					}
 					
@@ -1424,7 +1415,7 @@ on_actions = {
 				}
 				PRC = {
 					set_country_flag = PRC_passive_revolutionaries_flag
-					country_event = { id = SEA_PRC_misc_events.101 days = 30 random_days = 10 }
+					
 				}
 			}
 
@@ -1700,18 +1691,11 @@ on_actions = {
 							has_character_flag = can_flip_to_prc
 						}
 					}
-					 country_event = {
-						id = SEA_PRC_political_events.19 
-						hours = 2
-						random_hours = 3
-					}
+					 
 				}
 
 				PRC = {
-					country_event = {
-						id = SEA_PRC_political_events.20
-						days = 2
-					}
+					
 				}
 			}
 			if = {				#Return McArthur for US civil war, which he can lead the CSA in
@@ -1769,7 +1753,7 @@ on_actions = {
 							has_character = USA_dwight_d_eisenhower
 						}
 						USA = {
-							country_event = SEA_PHI_political_events.52
+							
 						}
 					}
 				}
@@ -1866,11 +1850,7 @@ on_actions = {
 					}
 				}
 				CHI = {
-					country_event = {
-						id = SEA_china.24
-						hours = 8 	
-						random_hours = 8 
-					}
+					
 				}
 			}
 		}
@@ -1888,7 +1868,7 @@ on_actions = {
 					limit = {
 						has_war = no
 						NOT = { has_country_flag = JAP_zaibatsu_faction_demands_factories }
-						NOT = { has_active_mission = JAP_zaibatsu_faction_demands_factories }
+						NOT = { always = no }
 					}
 					set_variable = { JAP_combined_military_factories_and_dockyards = 0 }
 					add_to_variable = { JAP_combined_military_factories_and_dockyards = num_of_naval_factories }
@@ -1927,7 +1907,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_army_faction_demands_factories
-						country_event = { id = SEA_imperial_influence_events.110 days = 5 random_days = 10 }
+						
 					}
 					10 = { #Appoint Chief of Army
 						modifier = { #Navy can't make any demands if they don't have enough Influence
@@ -1957,7 +1937,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_army_faction_demands_chief_of_army
-						country_event = { id = SEA_imperial_influence_events.120 days = 5 random_days = 10 }
+						
 					}
 					10 = { #Change Conscription Laws
 						modifier = { #Navy can't make any demands if they don't have enough Influence
@@ -2008,7 +1988,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_military_demands_conscription_law_change
-						country_event = { id = SEA_imperial_influence_events.130 days = 5 random_days = 10 }
+						
 					}
 					10 = { #Field more men
 						modifier = { #Navy can't make any demands if they don't have enough Influence
@@ -2043,7 +2023,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_army_faction_demands_more_fielded_men
-						country_event = { id = SEA_imperial_influence_events.140 days = 5 random_days = 10 }
+						
 					}
 					10 = { #More Trucks
 						modifier = { #Army can't make any demands if they don't have enough Influence
@@ -2077,7 +2057,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_army_faction_demands_trucks
-						country_event = { id =  SEA_imperial_influence_events.150 days = 5 random_days = 10 }
+						
 					}
 					10 = { #More Tanks
 						modifier = { #Army can't make any demands if they don't have enough Influence
@@ -2086,7 +2066,7 @@ on_actions = {
 						}
 						modifier = { 
 							factor = 0
-							NOT = { has_completed_focus = JAP_rethink_armor_doctrine }
+							NOT = { always = no }
 						}
 						modifier = { 
 							factor = 0
@@ -2143,7 +2123,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_army_faction_demands_tanks
-						country_event = { id = SEA_imperial_influence_events.160 days = 5 random_days = 10 }
+						
 					}
 					10 = { #More Artillery
 						modifier = { #Army can't make any demands if they don't have enough Influence
@@ -2152,7 +2132,7 @@ on_actions = {
 						}
 						modifier = { # Army is less likely to ask this if you haven't specced into arty stuff yet 
 							factor = 0.5
-							NOT = { has_completed_focus = JAP_adopt_new_assault_doctrine }
+							NOT = { always = no }
 						}
 						modifier = { 
 							factor = 0
@@ -2181,7 +2161,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_army_faction_demands_artillery
-						country_event = { id = SEA_imperial_influence_events.161 days = 5 random_days = 10 }
+						
 					}
 
 					#Navy Demands
@@ -2217,7 +2197,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_army_faction_demands_dockyards
-						country_event = { id = SEA_imperial_influence_events.210 days = 5 random_days = 10 }
+						
 					}
 					10 = { #Appoint Chief of Navy
 						modifier = { #Navy can't make any demands if they don't have enough Influence
@@ -2247,7 +2227,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_naval_faction_demands_chief_of_navy_flag
-						country_event = { id = SEA_imperial_influence_events.220 days = 5 random_days = 10 }
+						
 					}
 					10 = { #Change Conscription Laws
 						modifier = { #Navy can't make any demands if they don't have enough Influence
@@ -2298,7 +2278,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_military_demands_conscription_law_change
-						country_event = { id = SEA_imperial_influence_events.230 days = 5 random_days = 10 }
+						
 					}
 					10 = { #Build Carriers
 						modifier = { #Navy can't make any demands if they don't have enough Influence
@@ -2308,7 +2288,7 @@ on_actions = {
 						modifier = {
 							factor = 0
 							OR = {
-								NOT = {	has_completed_focus = JAP_focus_on_aircraft_carriers }
+								NOT = {	always = no }
 								has_country_flag = JAP_naval_faction_demands_carriers
 								has_navy_size = {
 									unit = carrier
@@ -2339,7 +2319,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_naval_faction_demands_carriers
-						country_event = { id = SEA_imperial_influence_events.240 days = 5 random_days = 10 }
+						
 					}
 					10 = { #Build Carriers and Battleships
 						modifier = { #Navy can't make any demands if they don't have enough Influence
@@ -2349,7 +2329,7 @@ on_actions = {
 						modifier = {
 							factor = 0
 							OR = {
-								NOT = {	has_completed_focus = JAP_balanced_naval_approach }
+								NOT = {	always = no }
 								has_country_flag = JAP_naval_faction_demands_carriers
 								has_country_flag = JAP_naval_faction_demands_battleships
 								AND = {
@@ -2392,7 +2372,7 @@ on_actions = {
 
 						set_country_flag = JAP_naval_faction_demands_carriers
 						set_country_flag = JAP_naval_faction_demands_battleships
-						country_event = { id = SEA_imperial_influence_events.241 days = 5 random_days = 10 }
+						
 					}
 					10 = { #Build Battleships
 						modifier = { #Navy can't make any demands if they don't have enough Influence
@@ -2402,7 +2382,7 @@ on_actions = {
 						modifier = {
 							factor = 0
 							OR = {
-								NOT = {	has_completed_focus = JAP_sea_battleship_initiative }
+								NOT = {	always = no }
 								has_country_flag = JAP_naval_faction_demands_carriers
 								has_country_flag = JAP_naval_faction_demands_battleships
 								has_navy_size = {
@@ -2434,7 +2414,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_naval_faction_demands_battleships
-						country_event = { id = SEA_imperial_influence_events.242 days = 5 random_days = 10 }
+						
 					}
 
 					#Zaibatsu Demands
@@ -2463,7 +2443,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_zaibatsu_faction_demands_factories
-						country_event = { id = SEA_imperial_influence_events.310 days = 5 random_days = 10 }
+						
 					}
 					10 = { #Appoint Industrial Advisor
 						modifier = { #Zaibatsus can't make any demands if they don't have enough Influence
@@ -2510,7 +2490,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_zaibatsu_faction_demands_industrial_advisor_flag
-						country_event = { id = SEA_imperial_influence_events.320 days = 5 random_days = 10 }
+						
 					}
 					10 = { #Change Trade Laws
 						modifier = { #Zaibatsus can't make any demands if they don't have enough Influence
@@ -2543,7 +2523,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_zaibatsu_faction_demands_trade_law_change
-						country_event = { id = SEA_imperial_influence_events.330 days = 5 random_days = 10 }
+						
 					}
 					10 = { #Hire Industrial Company
 						modifier = { #Zaibatsus can't make any demands if they don't have enough Influence
@@ -2576,7 +2556,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_zaibatsu_faction_demands_industrial_company
-						country_event = { id = SEA_imperial_influence_events.340 days = 5 random_days = 10 }
+						
 					}
 
 					#Government Demands
@@ -2612,7 +2592,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_civic_faction_demands_civilian_advisor_appointment
-						country_event = { id = SEA_imperial_influence_events.420 days = 5 random_days = 10 }
+						
 					}
 					10 = { #Change Trade Laws
 						modifier = { #Government can't make any demands if they don't have enough Influence
@@ -2645,7 +2625,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_civic_faction_demands_trade_law_change_flag
-						country_event = { id = SEA_imperial_influence_events.430 days = 5 random_days = 10 }
+						
 					}
 					10 = { #Limit the Army's Influence
 						modifier = { #Government can't make any demands if they don't have enough Influence
@@ -2673,7 +2653,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_government_faction_demands_more_influence
-						country_event = { id = SEA_imperial_influence_events.440 days = 5 random_days = 10 }
+						
 					}
 					10 = { #Limit the Navy's Influence
 						modifier = { #Government can't make any demands if they don't have enough Influence
@@ -2701,7 +2681,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_government_faction_demands_more_influence
-						country_event = { id = SEA_imperial_influence_events.450 days = 5 random_days = 10 }
+						
 					}
 					10 = { #Limit the Zaibatus' Influence
 						modifier = { #Government can't make any demands if they don't have enough Influence
@@ -2729,7 +2709,7 @@ on_actions = {
 						JAP_faction_demand_activation_effects = yes
 
 						set_country_flag = JAP_government_faction_demands_more_influence
-						country_event = { id = SEA_imperial_influence_events.460 days = 5 random_days = 10 }
+						
 					}
 				}
 			}
@@ -2743,7 +2723,7 @@ on_actions = {
 
 			if = {
 				limit = {
-					has_completed_focus = CHI_denounce_feudalism
+					always = no
 				}
 
 				every_subject_country = {
@@ -2811,7 +2791,7 @@ on_actions = {
 				}
 				IF = {
 					limit = {
-						has_completed_focus = CHI_sell_lend_lease
+						always = no
 					}
 					add_cic = var:CHI_soviet_support_cic_amount
 				}
@@ -2880,7 +2860,7 @@ on_actions = {
 		effect = {
 			IF = {
 				limit = {
-					has_completed_focus = CHI_continue_the_ding_xian_experiment
+					always = no
 					any_core_state = {
 						NOT = { 
 							has_dynamic_modifier = { modifier = CHI_electrification_and_mass_education_modifier }
@@ -2941,16 +2921,13 @@ on_actions = {
 				limit = {
 					original_tag = JAP
 					has_government = democratic
-					has_completed_focus = JAP_revoke_the_peace_preservation_law
+					always = no
 					FROM = {
 						original_tag = JAP
 						has_government = fascism 
 					}
 				}
-				country_event = {
-					id = SEA_japan_popup_events.24
-					hours = 1
-				}	
+					
 			}
 		}
 
@@ -3024,10 +3001,7 @@ on_actions = {
 							}
 						}
 						KHM = {
-							country_event = {
-								id = SEA_warlords.10
-								hours = 6
-							}
+							
 						}
 					}
 					ELSE = {
@@ -3038,10 +3012,7 @@ on_actions = {
 								}
 							}
 							CHI = {
-								country_event = {
-									id = SEA_warlords.11
-									hours = 6
-								}
+								
 							}
 						}
 					}
@@ -3060,10 +3031,7 @@ on_actions = {
 							}
 						}
 						CHI = {
-							country_event = {
-								id = SEA_warlords.11
-								hours = 6
-							}
+							
 						}
 					}
 				}
@@ -3075,10 +3043,7 @@ on_actions = {
 							}
 						}
 						CHI = {
-							country_event = {
-								id = SEA_warlords.11
-								hours = 6
-							}
+							
 						}
 					}
 				}
@@ -3102,10 +3067,7 @@ on_actions = {
 						}
 					}
 					NXM = {
-						country_event = {
-							id = SEA_warlords.12
-							hours = 6
-						}
+						
 					}
 				}
 				ELSE_IF = {
@@ -3115,10 +3077,7 @@ on_actions = {
 						}
 					}
 					XSM = {
-						country_event = {
-							id = SEA_warlords.12
-							hours = 6
-						}
+						
 					}
 				}
 				ELSE_IF = {
@@ -3128,10 +3087,7 @@ on_actions = {
 						}
 					}
 					GSM = {
-						country_event = {
-							id = SEA_warlords.12
-							hours = 6
-						}
+						
 					}
 				}
 			}
@@ -3152,10 +3108,7 @@ on_actions = {
 					}
 				}
 				SIK = {
-					country_event = {
-						id = SEA_warlords.13
-						hours = 6
-					}
+					
 				}
 			}
 		}
@@ -3177,10 +3130,7 @@ on_actions = {
 					}
 				}
 				RAJ = {
-					country_event = {
-						id = SEA_warlords.64
-						hours = 12
-					}
+					
 				}
 			}
 		}
@@ -3205,11 +3155,11 @@ on_actions = {
 					limit = {
 						has_character = USA_dwight_d_eisenhower
 						NOT = {
-							has_completed_focus = PHI_police_chief_eisenhower
+							always = no
 						}
 					}
 					USA = {
-						country_event = SEA_PHI_political_events.52
+						
 					}
 				}
 			}
@@ -3246,10 +3196,7 @@ on_actions = {
 					NOT = { has_global_flag = hbc_has_been_dissolved }
 				}
 				CHI = {
-					country_event = {
-						id = SEA_warlords.69 
-						hours = 6
-					}
+					
 				}
 			}
 		}
@@ -3274,7 +3221,7 @@ on_actions = {
 				limit = {
 					ROOT = {
 						original_tag = PRC
-						has_completed_focus = PRC_burn_the_paper_tigers
+						always = no
 						is_faction_leader = yes
 						is_in_faction_with = CHI
 					}
@@ -3334,11 +3281,7 @@ on_actions = {
 					}
 				}
 				CHI = {
-					country_event = {
-						id = SEA_china.24
-						hours = 8 	
-						random_hours = 8 
-					}
+					
 				}
 			}
 		}
@@ -3467,7 +3410,7 @@ on_actions = {
 					date < 1942.01.01
 				}
 				PHI = {
-					country_event = SEA_PHI_political_events.63
+					
 				}
 			}
 		}
@@ -3482,10 +3425,7 @@ on_actions = {
 					date > 1943.1.1
 				}
 				set_country_flag = PHI_early_presidential_election
-				country_event = {
-					id = SEA_PHI_political_events.63
-					days = 250
-				}
+				
 			}
 		}
 	}
@@ -3499,10 +3439,7 @@ on_actions = {
 					date > 1943.1.1
 				}
 				set_country_flag = PHI_early_presidential_election
-				country_event = {
-					id = SEA_PHI_political_events.63
-					days = 250
-				}
+				
 			}
 		}
 	}
@@ -4015,10 +3952,7 @@ on_actions = {
 				FROM.FROM = {
 					owner = {
 						# We Won the Battle of Midway
-						country_event = {
-							id = SEA_japan_popup_events.51
-							hours = 4
-						}
+						
 					}
 				}
 				set_global_flag = JAP_the_battle_of_midway_already_took_place_flag
@@ -4054,10 +3988,7 @@ on_actions = {
 				FROM.FROM = {
 					owner = {
 						# We Won the Battle of Midway
-						country_event = {
-							id = SEA_japan_popup_events.52
-							hours = 4
-						}
+						
 					}
 				}
 				set_global_flag = USA_the_battle_of_midway_already_took_place_flag
@@ -4099,10 +4030,7 @@ on_actions = {
 				FROM.FROM = {
 					owner = {
 						# We Lost the Battle of Midway
-						country_event = {
-							id = SEA_japan_popup_events.54
-							hours = 4
-						}
+						
 					}
 				}
 				set_global_flag = USA_the_battle_of_midway_already_took_place_flag
@@ -4138,10 +4066,7 @@ on_actions = {
 				FROM.FROM = {
 					owner = {
 						# We Lost the Battle of Midway
-						country_event = {
-							id = SEA_japan_popup_events.53
-							hours = 4
-						}
+						
 					}
 				}
 				set_global_flag = JAP_the_battle_of_midway_already_took_place_flag

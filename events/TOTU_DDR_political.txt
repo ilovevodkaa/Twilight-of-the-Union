@@ -1,0 +1,154 @@
+# Twilight of the Union: events of the GDR political branch (fired by its focuses).
+# Texts: localisation/*/totu_ddr_tree_l_*.yml.
+
+add_namespace = totu_ddr_pol
+
+# The Böhme affair: a week after the focus DDR_boehme_cabinet. Historically Der Spiegel exposed the SPD chairman as
+# Stasi informer 'Maximilian' on 26 March 1990, eight days after the election; he gave up his posts on 1 April.
+# Both answers weaken the government; the focus DDR_deputies_check removes the spirit.
+country_event = {
+	id = totu_ddr_pol.1
+	title = totu_ddr_pol.1.t
+	desc = totu_ddr_pol.1.d
+	picture = GFX_report_event_totu_ddr_boehme_affair
+	is_triggered_only = yes
+
+	option = {
+		name = totu_ddr_pol.1.a
+		ai_chance = { factor = 60 }
+		add_ideas = TOTU_DDR_maximilian_affair
+		add_popularity = { ideology = democratic popularity = -0.03 }
+	}
+
+	option = {
+		name = totu_ddr_pol.1.b
+		ai_chance = { factor = 40 }
+		add_political_power = -75
+		add_stability = -0.05
+	}
+}
+
+# Hunger strike at Normannenstrasse: two weeks after the focus DDR_files_to_koblenz. Historically activists occupied the
+# archive on 4 September 1990; the supplementary agreement of 18 September kept the files in the East.
+country_event = {
+	id = totu_ddr_pol.2
+	title = totu_ddr_pol.2.t
+	desc = totu_ddr_pol.2.d
+	picture = GFX_report_event_totu_ddr_normannenstrasse
+	is_triggered_only = yes
+
+	# the files stay: Bonn's satisfaction over Koblenz is gone
+	option = {
+		name = totu_ddr_pol.2.a
+		ai_chance = { factor = 80 }
+		add_popularity = { ideology = democratic popularity = 0.03 }
+		add_stability = 0.03
+		if = {
+			limit = { country_exists = GER }
+			GER = { remove_opinion_modifier = { target = ROOT modifier = TOTU_ddr_files_koblenz } }
+		}
+	}
+
+	option = {
+		name = totu_ddr_pol.2.b
+		ai_chance = { factor = 20 }
+		add_political_power = 25
+		add_stability = -0.05
+		add_popularity = { ideology = democratic popularity = -0.03 }
+	}
+}
+
+# The GDR asks to leave the Warsaw Pact (focus DDR_austrian_option). Gorbachev's Moscow mostly agrees; the
+# hard-liners (TOTU_gorbachev_in_foros, TOTU_SOV_emergency_rule) mostly refuse.
+country_event = {
+	id = totu_ddr_pol.3
+	title = totu_ddr_pol.3.t
+	desc = totu_ddr_pol.3.d
+	picture = GFX_report_event_totu_ddr_pact_protocol
+	is_triggered_only = yes
+
+	option = {
+		name = totu_ddr_pol.3.a
+		ai_chance = {
+			base = 80
+			modifier = {
+				factor = 0.05
+				OR = {
+					has_country_flag = TOTU_gorbachev_in_foros
+					has_idea = TOTU_SOV_emergency_rule
+				}
+			}
+		}
+		add_political_power = -25
+		custom_effect_tooltip = DDR_pol_pact_exit_agreed_tt
+		hidden_effect = {
+			DDR = {
+				set_country_flag = TOTU_DDR_pol_pact_exit_agreed
+				country_event = { id = totu_ddr_pol.4 days = 1 }
+			}
+		}
+	}
+
+	option = {
+		name = totu_ddr_pol.3.b
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 10
+				OR = {
+					has_country_flag = TOTU_gorbachev_in_foros
+					has_idea = TOTU_SOV_emergency_rule
+				}
+			}
+		}
+		custom_effect_tooltip = DDR_pol_pact_exit_refused_tt
+		hidden_effect = {
+			DDR = {
+				set_country_flag = TOTU_DDR_pol_pact_exit_refused
+				country_event = { id = totu_ddr_pol.4 days = 1 }
+			}
+		}
+	}
+}
+
+# Moscow's answer reaches East Berlin.
+country_event = {
+	id = totu_ddr_pol.4
+	title = totu_ddr_pol.4.t
+	desc = {
+		text = totu_ddr_pol.4.d_yes
+		trigger = { has_country_flag = TOTU_DDR_pol_pact_exit_agreed }
+	}
+	desc = {
+		text = totu_ddr_pol.4.d_no
+		trigger = { NOT = { has_country_flag = TOTU_DDR_pol_pact_exit_agreed } }
+	}
+	picture = GFX_report_event_totu_ddr_pact_protocol
+	is_triggered_only = yes
+
+	option = {
+		name = totu_ddr_pol.4.a
+		trigger = { has_country_flag = TOTU_DDR_pol_pact_exit_agreed }
+		if = {
+			limit = { NOT = { has_country_flag = TOTU_left_warsaw_pact } }
+			TOTU_bloc_leave = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = TOTU_DDR_government_alliance
+					has_country_flag = TOTU_DDR_government_spd
+				}
+				TOTU_unity_active = yes
+			}
+			TOTU_unity_progress_add_5 = yes
+		}
+	}
+
+	option = {
+		name = totu_ddr_pol.4.b
+		trigger = { NOT = { has_country_flag = TOTU_DDR_pol_pact_exit_agreed } }
+		add_stability = -0.03
+		add_political_power = -25
+	}
+}
