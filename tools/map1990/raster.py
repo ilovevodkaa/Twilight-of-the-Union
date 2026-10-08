@@ -24,6 +24,7 @@ class Labels:
     boxes: list                                   # pixel windows (x0, y0, x1, y1)
     affine: list = field(default_factory=list)    # 3x3 per window, window-local pixel coordinates
     misfit: list = field(default_factory=list)    # median coast distance (px) per window after the correction
+    unit_polys: dict = field(default_factory=dict)   # unit index -> lon/lat polygons (cities are placed by them)
 
 
 def window_box(georef, w, margin=8):
@@ -112,7 +113,7 @@ def label_zone(vm, georef, zone):
     zfeat = zone_features(zone)
     foreign = [(FOREIGN, polys) for props, polys in read_geojson(GEO / "ne_10m_admin_0_countries.geojson")
                if props["adm0_a3"] not in zone.zone_codes]
-    out = Labels(unit, [])
+    out = Labels(unit, [], unit_polys=zfeat)
     for w in zone.windows:
         box = window_box(georef, w)
         x0, y0, x1, y1 = box

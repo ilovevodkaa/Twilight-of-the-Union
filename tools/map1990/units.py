@@ -12,7 +12,7 @@ class Unit:
     name_ru: str
     source: str         # "vghist": codes are VGHID2 values; "ne1": Natural Earth iso_3166_2 codes
     codes: tuple
-    capital: str        # name of the unit's main city (as cities.select names it)
+    capital: str        # GeoNames name of the unit's main city (compared without diacritics: cities.norm)
 
 
 @dataclass(frozen=True)
@@ -53,7 +53,7 @@ GERMANY = (
     _v("QRP", "GER", "Rhineland-Palatinate", "Рейнланд-Пфальц", ("QRP",), "Mainz"),
     _v("QSL", "GER", "Saarland", "Саар", ("QSL",), "Saarbrücken"),
     _v("QBW", "GER", "Baden-Württemberg", "Баден-Вюртемберг", ("QBW",), "Stuttgart"),
-    _v("QBY", "GER", "Bavaria", "Бавария", ("QBY",), "München"),
+    _v("QBY", "GER", "Bavaria", "Бавария", ("QBY",), "Munich"),
     _v("QBE", "GER", "West Berlin", "Западный Берлин", ("QBE",), "West Berlin"),
     _v("QQR", "DDR", "Rostock", "Росток", ("QQR",), "Rostock"),
     _v("QQS", "DDR", "Schwerin", "Шверин", ("QQS",), "Schwerin"),
@@ -85,7 +85,7 @@ KOREA = (
     _k("KR-48", "KOR", "South Gyeongsang", "Южная Кёнсан", ("KR-48", "KR-31"), "Ulsan"),
     _k("KR-49", "KOR", "Jeju", "Чеджудо", ("KR-49",), "Jeju City"),
     _k("KP-01", "PRK", "Pyongyang", "Пхеньян", ("KP-01",), "Pyongyang"),
-    _k("KP-02", "PRK", "South Pyongan", "Южная Пхёнан", ("KP-02",), "Nampo"),
+    _k("KP-02", "PRK", "South Pyongan", "Южная Пхёнан", ("KP-02",), "P’yŏngsŏng"),
     _k("KP-03", "PRK", "North Pyongan", "Северная Пхёнан", ("KP-03",), "Sinuiju"),
     _k("KP-04", "PRK", "Chagang", "Чагандо", ("KP-04",), "Kanggye"),
     _k("KP-10", "PRK", "Ryanggang", "Рянгандо", ("KP-10",), "Hyesan"),
