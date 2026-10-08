@@ -66,6 +66,13 @@ class AssembleTest(unittest.TestCase):
                  if self.vm.provs[p].kind == "lake"}
         self.assertEqual(set(self.zm.lake_unit), lakes)
 
+    def test_outside_states_keep_a_province(self):      # Review Focus: an outside state must not vanish
+        tags = {u.tag for u in self.zone.units}
+        for s, st in self.states.items():
+            land = [p for p in st["provs"] if self.vm.provs[p].kind == "land"]
+            if st["owner"] not in tags and land:
+                self.assertTrue(any(p not in self.zm.pool for p in land), s)
+
     def test_unit_in_one_region(self):
         for ui in range(len(self.zone.units)):
             regions = {self.zm.region_of[p] for p, u in self.zm.zone_provs.items() if u == ui}

@@ -66,6 +66,18 @@ def assemble(vm, georef, zone, states, log=print):
     total = np.bincount(vm.ids[land], minlength=n)
     inzone = np.bincount(vm.ids[zone_px], minlength=n)
     pool = set(np.nonzero((total > 0) & (2 * inzone >= total))[0].tolist())
+    # a state outside the zone never loses all its provinces: where vanilla drew it over real zone land (vanilla
+    # "Vorarlberg" covers the Allgäu), its least-zone province stays whole and the zone gives up those pixels
+    tags = {u.tag for u in zone.units}
+    protected = set()
+    for st in states.values():
+        lp = [p for p in st["provs"] if vm.provs[p].kind == "land"]
+        if st["owner"] not in tags and lp and all(p in pool for p in lp):
+            protected.add(min(lp, key=lambda p: inzone[p] / max(1, total[p])))
+    pool -= protected
+    if protected:
+        zone_px &= ~np.isin(vm.ids, list(protected))
+        log(f"zone: provinces {sorted(protected)} stay with their outside states")
     in_pool = np.zeros(n, bool)
     in_pool[list(pool)] = True
     pool_px = in_pool[vm.ids]
